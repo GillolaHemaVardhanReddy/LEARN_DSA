@@ -14,3 +14,9 @@ target/
 
 # Claude Code local (machine-specific, not shared)
 .claude/settings.local.json
+
+# SECRETS — never commit. .mcp.json holds a live LEETCODE_SESSION login token.
+.mcp.json
+*.session
+.env
+.env.*

@@ -19,12 +19,15 @@
 ## Due / overdue  _(work these first each session)_
 | Due date | Topic / Pattern | Interval stage | Type | Notes |
 |---|---|---|---|---|
-| — | — | — | recall / re-test | — |
+| 2026-06-05 | Prefix Sum formula (meaning, not shape) | re-test | re-test (MISTAKE #1) | Derive cold on LC 724 Pivot Index; then 1 more prefix problem |
+| 2026-06-05 | Variable Sliding Window | +1d | recall | Reconstruct grow/shrink template closed-book (taught + LC209 AC on 6/4) |
+| 2026-06-05 | Boundary/order values (**WEAK**, recurred 3×) | re-test | re-test (MISTAKE #2) | LC1004 done but off-by-one recurred. Re-test = next medium solved with ZERO boundary bugs; run the pre-code boundary checklist. Clears after 2 clean. |
 
 ## Scheduled (upcoming)
 | Due date | Topic / Pattern | Interval stage | Last result |
 |---|---|---|---|
-| — | — | — | — |
+| 2026-06-07 | Fixed Sliding Window signal | +3d | provisional pass (revision Q3) |
+| 2026-06-07 | O(log n) analysis reasoning | +3d | provisional pass (revision Q1) |
 
 ## Completed checkpoints (log)
 | Date done | Topic / Pattern | Stage | Result (pass/fail) | Next due |

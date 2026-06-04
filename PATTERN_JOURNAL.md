@@ -78,13 +78,31 @@ Variants & gotchas:
 Taught me by:
 
 ### Sliding Window
-Level: L0
-Trigger:
-Why it works:
+Level: L4 (variable: 3 mediums AC — LC209/LC3/LC1004) · fixed self-reported
+Trigger (my words, polished): When I see "**longest / shortest / min-length** **contiguous**
+subarray or substring that **satisfies a condition**" and the **size is not given** → variable
+sliding window. If the **size k IS given** → fixed window.
+Why it works: Two forward-only pointers; each element enters once and leaves once → O(n)
+instead of O(n²). Relies on **monotonicity** (e.g. all-positive numbers: adding grows the sum).
 Template/skeleton:
-Complexity:
-Variants & gotchas:
-Taught me by:
+```cpp
+// SHORTEST valid window → shrink WHILE valid
+int left=0, ans=INT_MAX; /*window state*/
+for(int right=0; right<n; right++){
+    add(a[right]);
+    while(valid){ ans=min(ans, right-left+1); remove(a[left]); left++; }
+}
+return ans==INT_MAX?0:ans;
+// LONGEST valid window → shrink WHILE invalid, record AFTER the while
+```
+Complexity: time O(n) / space O(1) (or O(k) with a freq map/set).
+Variants & gotchas: **shortest** = shrink while VALID, record INSIDE while. **longest** =
+shrink while INVALID, record AFTER while. Boundary traps: min-tracker must start at INT_MAX;
+convert "not found" sentinel back to 0; window length = `right-left+1`. Breaks if values can be
+negative (then use prefix sum + hash instead).
+Taught me by: LC209 Min Size Subarray Sum (shortest) + LC3 Longest Substring No-Repeat (longest,
+`unordered_set`) + LC1004 Max Consecutive Ones III (longest, ≤k zeros). **Order rule learned:**
+include → restore-validity → record (record only when window is valid).
 
 ### Prefix Sum
 Level: L0
