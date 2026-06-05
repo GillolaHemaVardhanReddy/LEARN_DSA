@@ -60,13 +60,13 @@ Taught me by: <problems that built this — link to MISTAKE_JOURNAL if relevant>
 ## Patterns (seed list — start at L0, grow as you go)
 
 ### Hashing / Frequency
-Level: L0
-Trigger (in my words):
-Why it works:
-Template/skeleton:
-Complexity:
-Variants & gotchas:
-Taught me by:
+Level: L1 (used unordered_map/set operationally in M4/M5; FORMAL lesson pending — Striver [013] next)
+Trigger (in my words): "seen before? / how many times? / look up a complement in O(1)" → hash map.
+Why it works: (to formalize next session) average O(1) insert/lookup via hashing; watch collisions.
+Template/skeleton: `unordered_map<int,int> cnt; cnt[x]++;` / `unordered_set<int> s; s.count(x);`
+Complexity: avg O(1) per op (worst case O(n) on adversarial collisions).
+Variants & gotchas: the complement-lookup move (Two Sum) = the core of all the prefix+hash problems.
+Taught me by: LC3 (unordered_set), the whole M5 prefix+hash family. NEXT: formal lesson + LC1 Two Sum.
 
 ### Two Pointers
 Level: L0
@@ -104,14 +104,35 @@ Taught me by: LC209 Min Size Subarray Sum (shortest) + LC3 Longest Substring No-
 `unordered_set`) + LC1004 Max Consecutive Ones III (longest, ≤k zeros). **Order rule learned:**
 include → restore-validity → record (record only when window is valid).
 
-### Prefix Sum
-Level: L0
-Trigger:
-Why it works:
+### Prefix Sum (+ Hash Map of keys)
+Level: L4 (LC560/LC974/LC525 mediums AC + LC724 easy AC)
+Trigger (my words): "sum/count over RANGES" or "subarray sum = / divisible-by / equal-counts"
+**and sliding window is dead** (negatives present, or it's a count not a window) → prefix sum.
+If I then need to MATCH/COUNT something about two prefixes → put prefixes in a **hash map**.
+Why it works: `sum(L..R) = prefix[R] - prefix[L-1]`. A condition on a subarray becomes a
+condition on TWO prefix values → store prefixes seen so far, look up the one I need in O(1).
+It's **Two Sum on prefix sums.**
 Template/skeleton:
-Complexity:
-Variants & gotchas:
-Taught me by:
+```cpp
+unordered_map<int,int> seen;   // KEY = a function of the running prefix
+seen[0] = 1;                   // empty prefix (count) ... or seen[0] = -1 (first-index for LONGEST)
+int run = 0, ans = 0;
+for (int i = 0; i < n; i++) {
+    run += a[i];
+    int key = /* sum  |  ((run%k)+k)%k  |  run-after-transform */;
+    // COUNT variant:   ans += seen[key - target]; seen[key]++;
+    // LONGEST variant: if (seen.count(key)) ans = max(ans, i - seen[key]); else seen[key] = i;
+}
+```
+Complexity: time O(n) / space O(n) (or O(k) for remainders).
+Variants & gotchas (the 3 KEYS I've used):
+- **complement** key=running sum, look up `sum-k` → LC560 (count subarrays sum=k).
+- **remainder** key=`((sum%k)+k)%k` (NORMALIZE negatives!), match equal remainder → LC974.
+- **equal-prefix after transform** (0→−1), longest run with sum 0, store FIRST index, `seen[0]=-1` → LC525.
+- COUNT → store frequency & `seen[0]=1`. LONGEST → store first index & `seen[0]=-1`. Don't mix them up.
+- Derive the prefix formula by MEANING (total up to R minus total before L), never by shape.
+Taught me by: LC560 (complement) + LC724 (pure prefix, balance point) + LC974 (remainder, +negative-mod
+primitive) + LC525 (transform + longest). Same engine, different KEY each time.
 
 ### Binary Search (incl. on answer)
 Level: L0

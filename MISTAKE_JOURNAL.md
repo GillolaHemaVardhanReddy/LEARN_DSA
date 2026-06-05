@@ -30,6 +30,32 @@ Status: Open / Re-tested-pass / Re-tested-fail
 ## Entries
 > Newest first. Keep them short and honest.
 
+### [#4] Treated target SUM `k` as a window LENGTH
+Date: 2026-06-05
+Module / Pattern: M5 Prefix Sum
+Problem: LC560 Subarray Sum Equals K (design phase)
+Type: Pattern-recognition / Concept-misunderstanding
+What I did (the wrong move): Tried to use a fixed-length window `i .. i+k-1` and `prefix[i+k-1]-prefix[i]`, treating `k` (a target sum) as a length. Yesterday's fixed-window pattern over-fired.
+Root cause: Surface-feature anchoring on "k" → "window of size k" from M4, without re-reading what k MEANS in this problem.
+Correct understanding: `k` is a TARGET SUM; subarray length is free. Never write `i+k-1` for a sum target.
+Prevention rule: Before coding, state in words what each input MEANS. If "k" is a sum, there is no length window.
+Re-test problem: a future "subarray sum = k" variant solved without reaching for a length window.
+Re-attempt on: next prefix/hash problem (LC930/LC1248 in day-01).
+Status: Open
+
+### [#3] Confused "count ALL subarrays" with "find ONE shortest/longest window"
+Date: 2026-06-05
+Module / Pattern: M5 Prefix Sum
+Problem: LC560 Subarray Sum Equals K (design phase)
+Type: Concept-misunderstanding
+What I did (the wrong move): When a running prefix repeated, wanted to "pick the nearest occurrence (shortest)" — applying min/max-window thinking to a COUNTING problem.
+Root cause: Two paradigms blurred: window problems optimize ONE answer; counting problems TALLY every match.
+Correct understanding: For "count subarrays with property", every earlier matching prefix is its own valid subarray → `count += seen[key]`, never pick one.
+Prevention rule: First classify the GOAL — count / longest / shortest / exists — that decides the whole shape (tally vs max vs min vs boolean).
+Re-test problem: LC1248 Count Nice Subarrays (day-01).
+Re-attempt on: day-01 practice.
+Status: Open
+
 ### [#2] Minimum-tracker initialized so it can never update
 Date: 2026-06-04
 Module / Pattern: M4 Sliding Window (Variable)
@@ -55,7 +81,7 @@ Correct understanding: `sum(L,R) = prefix[R] - prefix[L-1]`. L=0 → nothing bef
 Prevention rule: Don't recall a formula by shape — re-derive it from "total up to R minus total before L," then sanity-test on a 3–5 element array before using it.
 Re-test problem (similar, unseen): LC 724 Find Pivot Index (pure prefix-sum reasoning, no hashing) — derive the formula cold.
 Re-attempt on: 2026-06-05  (also in REVISION_QUEUE.md)
-Status: Open
+Status: **RE-TESTED PASS (2026-06-05)** — derived `prefix[R]-prefix[L-1]` cold from meaning, handled L=0 (prefix[-1]=0), sanity-tested on [2,4,1,3,5]. Formula recall is now by meaning, not shape. CLEARED.
 
 ---
 
@@ -65,7 +91,7 @@ Status: Open
 
 | Pattern of error | Times seen | Standing rule | Last occurrence |
 |---|---|---|---|
-| **Logic right, boundary/sentinel/ORDER value wrong** (prefix L-1; min-init+return; off-by-one `right-left+1`; step order include→restore→record) | **3** | Run the pre-code boundary checklist below BEFORE coding. This is the #1 leak. | 2026-06-04 (LC1004) |
+| **Logic right, boundary/sentinel/ORDER value wrong** (prefix L-1; min-init+return; off-by-one `right-left+1`; `prefix[-1]`/`prefix[n]` OOB; forgot `seen[0]=-1`) | **5** | Run the pre-code boundary checklist below BEFORE coding. This is the #1 leak — STILL recurring. | 2026-06-05 (LC724 OOB, LC525 missing seen[0]=-1, recall min-init reflex) |
 | (e.g. off-by-one in window shrink) | 0 | | — |
 | (e.g. wrong complexity for recursion) | 0 | | — |
 
@@ -80,4 +106,8 @@ Status: Open
       formula `right-left+1` (the +1!) · "not found" sentinel converted back at return · derive
       formulas by *meaning* not shape.
 - [ ] **ORDER CHECK:** for windows, is it strictly include → restore-validity → record? Record
-      only when the window is guaranteed valid.
+      only when the window is guaranteed valid. For hash maps: look up BEFORE inserting current.
+- [ ] **CLASSIFY THE GOAL FIRST:** count / longest / shortest / exists? → tally (`count+=`) /
+      max(first-index, `seen[0]=-1`) / min / boolean. This decides the whole shape.
+- [ ] **MEANING OF EACH INPUT:** is `k` a sum, a length, a count? (don't write `i+k-1` for a sum.)
+- [ ] **Prefix+hash pre-load:** COUNT → `seen[0]=1`. LONGEST(first-index) → `seen[0]=-1`. Negatives mod k → `((x%k)+k)%k`.

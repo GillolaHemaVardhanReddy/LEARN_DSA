@@ -19,20 +19,24 @@
 ## Due / overdue  _(work these first each session)_
 | Due date | Topic / Pattern | Interval stage | Type | Notes |
 |---|---|---|---|---|
-| 2026-06-05 | Prefix Sum formula (meaning, not shape) | re-test | re-test (MISTAKE #1) | Derive cold on LC 724 Pivot Index; then 1 more prefix problem |
-| 2026-06-05 | Variable Sliding Window | +1d | recall | Reconstruct grow/shrink template closed-book (taught + LC209 AC on 6/4) |
-| 2026-06-05 | Boundary/order values (**WEAK**, recurred 3×) | re-test | re-test (MISTAKE #2) | LC1004 done but off-by-one recurred. Re-test = next medium solved with ZERO boundary bugs; run the pre-code boundary checklist. Clears after 2 clean. |
+| 2026-06-06 | Boundary/order values (**WEAK**, recurred 5×) | re-test | re-test | Reset +1d — slipped again 6/5 (LC724 OOB, LC525 missing seen[0]=-1, min-init recall). Re-test = next medium with ZERO boundary bugs. Clears after 2 clean. |
+| 2026-06-06 | Prefix Sum + Hash (3 keys) | +1d | recall | Reconstruct closed-book: complement (LC560) / remainder normalize (LC974) / transform+first-index seen[0]=-1 (LC525). |
+| 2026-06-06 | "k=length" + "count vs window" (new gaps) | re-test | re-test (#3,#4) | Solve LC1248/LC930 — classify goal & input meaning before coding. |
 
 ## Scheduled (upcoming)
 | Due date | Topic / Pattern | Interval stage | Last result |
 |---|---|---|---|
-| 2026-06-07 | Fixed Sliding Window signal | +3d | provisional pass (revision Q3) |
-| 2026-06-07 | O(log n) analysis reasoning | +3d | provisional pass (revision Q1) |
+| 2026-06-07 | Fixed Sliding Window signal | +3d | provisional pass |
+| 2026-06-07 | O(log n) analysis reasoning | +3d | provisional pass |
+| 2026-06-08 | Prefix Sum formula (meaning) | +3d | **PASS** 6/5 (derived cold, L=0 handled) |
+| 2026-06-08 | Variable Sliding Window template | +3d | pass 6/5 (template ✓; min-init slip noted) |
 
 ## Completed checkpoints (log)
 | Date done | Topic / Pattern | Stage | Result (pass/fail) | Next due |
 |---|---|---|---|---|
-| — | — | — | — | — |
+| 2026-06-05 | Prefix Sum formula (MISTAKE #1 re-test) | re-test | **PASS** (cold, by meaning) | 2026-06-08 |
+| 2026-06-05 | Variable Sliding Window | +1d recall | PASS (template ✓; boundary min-init slipped) | 2026-06-08 |
+| 2026-06-05 | Boundary/order values | re-test | **FAIL** (recurred 3× today) | 2026-06-06 |
 
 ---
 
