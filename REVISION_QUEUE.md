@@ -19,9 +19,9 @@
 ## Due / overdue  _(work these first each session)_
 | Due date | Topic / Pattern | Interval stage | Type | Notes |
 |---|---|---|---|---|
-| 2026-06-06 | Boundary/order values (**WEAK**, recurred 5×) | re-test | re-test | Reset +1d — slipped again 6/5 (LC724 OOB, LC525 missing seen[0]=-1, min-init recall). Re-test = next medium with ZERO boundary bugs. Clears after 2 clean. |
-| 2026-06-06 | Prefix Sum + Hash (3 keys) | +1d | recall | Reconstruct closed-book: complement (LC560) / remainder normalize (LC974) / transform+first-index seen[0]=-1 (LC525). |
-| 2026-06-06 | "k=length" + "count vs window" (new gaps) | re-test | re-test (#3,#4) | Solve LC1248/LC930 — classify goal & input meaning before coding. |
+| 2026-06-07 | Prefix Sum + Hash (GOAL×KEY) | +1d (RESET) | recall | **FAILED closed-book 6/6** — applied LONGEST machinery to a COUNT problem; said "count doesn't use a map". Re-test via the GOAL(count→freq,seen[0]=1 / longest→first-index,seen[0]=-1) × KEY(complement/remainder/equal) map. Then solve LC560+LC525 from scratch. |
+| 2026-06-07 | Recognition: 3 patterns cold | +1d (RESET) | recall | **FAILED 6/6** — misclassified unsorted Two Sum as "two pointers" (it's HASHING); couldn't reconstruct variable window. Re-test = name pattern + cue on a mixed set (/drill). |
+| 2026-06-07 | Boundary/order values (**WEAK**) | re-test | re-test | seen[0] meaning still memorised not understood (count=1 vs longest=−1). Clears after 2 clean mediums. |
 
 ## Scheduled (upcoming)
 | Due date | Topic / Pattern | Interval stage | Last result |
@@ -37,6 +37,9 @@
 | 2026-06-05 | Prefix Sum formula (MISTAKE #1 re-test) | re-test | **PASS** (cold, by meaning) | 2026-06-08 |
 | 2026-06-05 | Variable Sliding Window | +1d recall | PASS (template ✓; boundary min-init slipped) | 2026-06-08 |
 | 2026-06-05 | Boundary/order values | re-test | **FAIL** (recurred 3× today) | 2026-06-06 |
+| 2026-06-06 | Prefix+Hash recall (GOAL×KEY) | +1d recall | **FAIL** (count↔longest conflated) | 2026-06-07 |
+| 2026-06-06 | Recognition: 3 patterns cold | +1d recall | **FAIL** (Two Sum→"2ptr"; var-window blank) | 2026-06-07 |
+| 2026-06-06 | Variable Sliding Window template | +3d | PASS-ish (Q3 ✓ shortest record/shrink) | 2026-06-09 |
 
 ---
 

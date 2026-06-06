@@ -79,6 +79,11 @@ _Advanced-tier modules added here only if pursued._
   pattern over-firing. Re-test: a future "subarray sum=k" solved without reaching for a length window.
 - 🆕 **"count-all" vs "find-one-window"** — confused counting every matching subarray with a shortest/longest
   hunt (wanted to "pick the nearest"). Counting = tally all. Re-test: LC1248 / LC930.
+- 🆕 **Prefix+Hash GOAL×KEY confusion** (closed-book 6/6 FAIL) — applies LONGEST machinery (first-index, max gap)
+  to a COUNT problem (needs frequency, `count+=`). Fix = decide 2 axes separately: GOAL (count→freq,seen[0]=1 /
+  longest→first-index,seen[0]=-1) × KEY (complement/remainder/equal). The practice/ Prefix-Sum set drills this.
+- 🆕 **Recognition recall weak** (closed-book 6/6 FAIL) — misclassified UNSORTED Two Sum as "two pointers"
+  (it's HASHING; sorted→two pointers). L4 earned via judge, but L5 (recognize cold) NOT yet there. Drill needed.
 
 ## Problem counters
 - Easy solved: 3 (LC643, LC1343 self-reported · **LC724 judge-verified**) · Medium solved: 6 (LC209, LC3, LC1004, **LC560, LC974, LC525** — judge-verified) · Hard (stretch): 0 · Total: 9
