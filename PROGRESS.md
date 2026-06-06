@@ -21,7 +21,10 @@ unseen) · L6 teaches. Dashboard %: L0=0, L1=15, L2=35, L3=55, L4=75, L5=90, L6=
 ## Snapshot
 - Current phase: Foundations → Linear patterns
 - Current module: **M5 Prefix Sum — DONE (L4)** (2026-06-05). M4 Sliding Window DONE (L4).
-- Current topic: → **M2 Hashing** (formal lesson next — Striver video [013], then LC1 Two Sum). Flagged #1 gap.
+- Current topic: → **Consolidating Prefix Sum / Sliding Window / Hashing** via practice/ 15-problem mastery sets
+  (2E+2M+1H each). Plan (set 2026-06-06): reason through ALL 15 understanding WHY each pattern, last 1–2 of each
+  with the GOAL×KEY map CLOSED, then return for the **L5 test** = `/drill` (mixed unlabeled recognition) + 1–2
+  unseen cold solves. Recall FAILED 6/6 (count↔longest, Two Sum→2ptr) — these sets target exactly that.
 - Overall mastery (started topics): ~60% (M4 L4 + M5 L4 earned; M1 L3*, M2 L2* still provisional)
 - Observed velocity: Day 2 = M5 prefix+hash to L4 + **4 problems AC** (LC560/724/974/525). Day 1 = M4 + 3 mediums.
 - Workflow change (2026-06-05): **Striver A2Z videos first (see STRIVER_VIDEOS.md), then practice here.** From M6 onward, Striver-first.
