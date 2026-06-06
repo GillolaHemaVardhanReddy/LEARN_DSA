@@ -9,14 +9,20 @@ using namespace std;
 class NumArray {
 public:
     // ───── YOUR STATE HERE ─────
-
+    vector<int> prefix;
     NumArray(vector<int>& nums) {
         // ───── build prefix once ─────
+        int sum = 0, n = nums.size();
+        for(int i = 0 ; i < n ; i++) {
+            sum+=nums[i];
+            prefix.push_back(sum);
+        }
     }
 
     int sumRange(int left, int right) {
         // ───── O(1) using prefix; handle left==0 safely ─────
-        return 0; // replace
+        if(left == 0) return prefix[right];
+        return prefix[right] - prefix[left - 1]; // replace
     }
 };
 

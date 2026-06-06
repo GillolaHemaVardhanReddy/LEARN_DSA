@@ -29,7 +29,10 @@ unseen) · L6 teaches. Dashboard %: L0=0, L1=15, L2=35, L3=55, L4=75, L5=90, L6=
 - Observed velocity: Day 2 = M5 prefix+hash to L4 + **4 problems AC** (LC560/724/974/525). Day 1 = M4 + 3 mediums.
 - Workflow change (2026-06-05): **Striver A2Z videos first (see STRIVER_VIDEOS.md), then practice here.** From M6 onward, Striver-first.
 - New infra built: `/start-practice` (daily cold interleaved set, practice/day-NN/), STRIVER_VIDEOS.md (315 vids mapped).
-- Projected ready date: ~2026-11-04 | vs goal: On track
+- **Pace decision (2026-06-06): MASTERY-FIRST, no rushing the 6-day sprint.** Advance to next module only
+  when confident (L4+) on the current one. Re-projected core tier (Phases 1–6) ≈ 26–33 weeks at ~25h/wk →
+  **completion ~Dec 2026 – Feb 2027** (vs old aggressive ~Nov 2026). Interview-capable on many mediums by ~Phase 3.
+  Biggest variable = consistency of weekly hours. Velocity should compound as fundamentals solidify.
 
 > **Levels below are PROVISIONAL (self-reported on transfer 2026-06-04).** Marked `*`.
 > They convert to earned levels only as I witness the evidence (§6). First verification: this session's revision.
