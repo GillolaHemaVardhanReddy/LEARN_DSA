@@ -24,19 +24,19 @@ public:
         vector<int> left_p(n), right_p(n), final_p(n);
         // using prefix now after brute force 
         int prod = 1;
-        left_p.push_back(1);
+        left_p[0] = 1;
         for(int i = 1 ; i < n ; i++){
-            prod *= nums[i];
+            prod *= nums[i-1];
             left_p[i] = prod;
         }
         prod = 1;
         right_p[n-1] = 1;
         for(int i = n-2 ; i >= 0 ; i++){
-            prod *= nums[i];
+            prod *= nums[i+1];
             right_p[i] = prod;
         }
         for(int i = 0 ; i < n ; i++) {
-            int product = left[i] * right[i];
+            int product = left_p[i] * right_p[i];
             final_p[i] = product;
         }
         return final_p; // replace

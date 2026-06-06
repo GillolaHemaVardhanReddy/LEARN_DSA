@@ -10,6 +10,12 @@ public:
         // ───── YOUR CODE HERE ─────
         // map: remainder -> FIRST index. seen[0] = -1. running sum, rem = sum % k.
         // if rem seen before AND (i - firstIndex) >= 2 -> true.
+        int sum = 0;
+        int n = nums.size();
+        int count = 0;
+        for(int i = 0 ; i < n ; i++ ) {
+            
+        }
         return false; // replace
     }
 };
