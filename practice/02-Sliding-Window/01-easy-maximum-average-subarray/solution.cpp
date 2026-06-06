@@ -1,0 +1,24 @@
+// LC 643 — Maximum Average Subarray I  (Fixed Sliding Window)
+// Paste ONLY the Solution class into LeetCode. main() is for local testing.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    double findMaxAverage(vector<int>& nums, int k) {
+        // ───── YOUR CODE HERE ─────
+        // first window sum, then slide: sum += nums[i] - nums[i-k]. Cast to double at the end.
+        return 0.0; // replace
+    }
+};
+
+// ───────── local test harness ─────────
+int main() {
+    Solution sol;
+    vector<int> a = {1, 12, -5, -6, 50, 3};
+    cout << sol.findMaxAverage(a, 4) << "  (expect 12.75)\n";
+    vector<int> b = {5};
+    cout << sol.findMaxAverage(b, 1) << "  (expect 5)\n";
+    return 0;
+}
