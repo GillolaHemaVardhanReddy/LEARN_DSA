@@ -8,8 +8,18 @@ class Solution {
 public:
     double findMaxAverage(vector<int>& nums, int k) {
         // ───── YOUR CODE HERE ─────
-        // first window sum, then slide: sum += nums[i] - nums[i-k]. Cast to double at the end.
-        return 0.0; // replace
+        double max_avg = -99999999;
+        int n = nums.size();
+        int sum = 0;
+        for(int i = 0 ; i < k ; i++ ) {
+            sum+=nums[i];
+        }
+        max_avg = max(max_avg, double(sum)/k);
+        for(int i = k; i < n; i++) {
+            sum = sum - nums[i - k] + nums[i];
+            max_avg = max(max_avg, double(sum)/k);
+        }
+        return max_avg; // replace
     }
 };
 

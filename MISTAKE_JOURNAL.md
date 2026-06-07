@@ -30,6 +30,19 @@ Status: Open / Re-tested-pass / Re-tested-fail
 ## Entries
 > Newest first. Keep them short and honest.
 
+### [#5] `if(map[key])` truthiness trap + overwriting the first index
+Date: 2026-06-07
+Module / Pattern: M5 Prefix Sum + Hash
+Problem: LC523 Continuous Subarray Sum (test 97 / [23,0,0])
+Type: Logic / boundary-value
+What I did (the wrong move): (a) checked map presence with `if(seen[rem])` — but a stored index of **0** is falsy, so a remainder first seen at index 0 looked "absent." (b) Used `seen[rem]=i+1` then compared `i-seen[rem]>=2` → off-by-one (required length ≥3, missed length-2 subarrays). (c) Wrote the index EVERY iteration → overwrote the earliest occurrence, shrinking every gap.
+Root cause: `operator[]` can't distinguish "absent" from "value is 0/false"; and for LONGEST/length problems you must keep the FIRST index (earliest = largest gap), never overwrite.
+Correct understanding: use `.count()`/`.find()` for presence (so index 0 is valid); store the real index; store ONLY on first occurrence (`else` branch); compare `i - seen[rem] >= 2`.
+Prevention rule: **`if(map[key])` is poison for indices.** Presence → `.count()`. Write-once → `else`. For "longest" keep the earliest index.
+Re-test problem: re-solve LC523 cold in a week; also LC525 (first-index pattern).
+Re-attempt on: 2026-06-14
+Status: Open (LC523 AC'd 6/7 after coaching, but the bugs were heavy → re-test cold)
+
 ### [#4] Treated target SUM `k` as a window LENGTH
 Date: 2026-06-05
 Module / Pattern: M5 Prefix Sum
@@ -91,7 +104,7 @@ Status: **RE-TESTED PASS (2026-06-05)** — derived `prefix[R]-prefix[L-1]` cold
 
 | Pattern of error | Times seen | Standing rule | Last occurrence |
 |---|---|---|---|
-| **Logic right, boundary/sentinel/ORDER value wrong** (prefix L-1; min-init+return; off-by-one `right-left+1`; `prefix[-1]`/`prefix[n]` OOB; forgot `seen[0]=-1`) | **5** | Run the pre-code boundary checklist below BEFORE coding. This is the #1 leak — STILL recurring. | 2026-06-05 (LC724 OOB, LC525 missing seen[0]=-1, recall min-init reflex) |
+| **Logic right, boundary/sentinel/ORDER/INDEX value wrong** (prefix L-1; min-init+return; off-by-one `right-left+1` & `i+1`; `prefix[-1]`/`prefix[n]` OOB; forgot `seen[0]=-1`; `if(map[key])` index-0 trap; first-index overwrite; reverse-loop `i++`) | **7** | Run the pre-code boundary checklist BEFORE coding. #1 leak — STILL recurring, BUT he now self-identifies them as index bugs (progress). | 2026-06-07 (LC238 loop dir, LC523 off-by-one + truthiness + overwrite) |
 | (e.g. off-by-one in window shrink) | 0 | | — |
 | (e.g. wrong complexity for recursion) | 0 | | — |
 

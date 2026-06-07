@@ -8,8 +8,13 @@ class Solution {
 public:
     int characterReplacement(string s, int k) {
         // ───── YOUR CODE HERE ─────
-        // freq[26], maxFreq. expand right; while (len - maxFreq > k) shrink left.
-        // ans = max valid window length.
+        int n = s.length();
+        unordered_map<char, int> seen;
+        int start_ind = 0;
+        for(int i = 0 ; i < n ; i++ ) {
+            
+            seen[s[i]]+=1;
+        }
         return 0; // replace
     }
 };

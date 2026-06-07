@@ -21,10 +21,10 @@ unseen) · L6 teaches. Dashboard %: L0=0, L1=15, L2=35, L3=55, L4=75, L5=90, L6=
 ## Snapshot
 - Current phase: Foundations → Linear patterns
 - Current module: **M5 Prefix Sum — DONE (L4)** (2026-06-05). M4 Sliding Window DONE (L4).
-- Current topic: → **Consolidating Prefix Sum / Sliding Window / Hashing** via practice/ 15-problem mastery sets
-  (2E+2M+1H each). Plan (set 2026-06-06): reason through ALL 15 understanding WHY each pattern, last 1–2 of each
-  with the GOAL×KEY map CLOSED, then return for the **L5 test** = `/drill` (mixed unlabeled recognition) + 1–2
-  unseen cold solves. Recall FAILED 6/6 (count↔longest, Two Sum→2ptr) — these sets target exactly that.
+- Current topic: → **M2 Hashing (formal lesson next)**. Prefix Sum practice set DONE at L4 (4/5; LC862 hard parked).
+  Plan: reason through practice sets understanding WHY; last 1–2 of each with GOAL×KEY map CLOSED; then **L5 test**
+  = `/drill` + 1–2 unseen cold solves. Earlier recall FAILED 6/6 (count↔longest, Two Sum→2ptr) — heavily reinforced
+  this session via LC238/LC523; re-test recognition next via `/drill`.
 - Overall mastery (started topics): ~60% (M4 L4 + M5 L4 earned; M1 L3*, M2 L2* still provisional)
 - Observed velocity: Day 2 = M5 prefix+hash to L4 + **4 problems AC** (LC560/724/974/525). Day 1 = M4 + 3 mediums.
 - Workflow change (2026-06-05): **Striver A2Z videos first (see STRIVER_VIDEOS.md), then practice here.** From M6 onward, Striver-first.
@@ -95,7 +95,7 @@ _Advanced-tier modules added here only if pursued._
   (it's HASHING; sorted→two pointers). L4 earned via judge, but L5 (recognize cold) NOT yet there. Drill needed.
 
 ## Problem counters
-- Easy solved: 3 (LC643, LC1343 self-reported · **LC724 judge-verified**) · Medium solved: 6 (LC209, LC3, LC1004, **LC560, LC974, LC525** — judge-verified) · Hard (stretch): 0 · Total: 9
+- Easy solved: 5 (LC643, LC1343 self-reported · **LC724, LC1480, LC303 judge-verified**) · Medium solved: 8 (LC209, LC3, LC1004, **LC560, LC974, LC525, LC238, LC523** — judge-verified) · Hard (stretch): 0 (LC862 PARKED — needs monotonic deque/M8) · Total: 13
 
 ## Interview readiness (estimate — label as such)
 - Problem solving: 0/100
@@ -115,4 +115,6 @@ _Advanced-tier modules added here only if pursued._
 2026-06-04 — Module(s): M4 Sliding Window (Variable) | Did: transfer/First-Run setup; closed-book revision (O(log n) reasoning ✓, prefix-sum formula ✗→repaired, window cue ✓); taught Variable Sliding Window (caterpillar); set up SPRINT_PLAYBOOK + readable solutions/ + Notes/ + run.sh (fixed macOS linker bug = Anaconda stale ld) + LeetCode MCP (live next restart). | Levels changed: M4 L3* → L3 EARNED (LC209 Medium coded from understanding, Accepted on judge). Variable window L2 (explained back) → L3 (implemented). | Problems: LC209 + LC3 + LC1004 all Accepted (**3 mediums**). LC3 introduced `unordered_set` (first Hashing taste). | Levels: **M4 → L4**. | KEY INSIGHT: boundary/order values recurred 3× — flagged as the #1 weak area; pre-code boundary checklist is now standing. | Next: **Day 2 (June 5) — Prefix Sum finish (O(n) hashmap, LC560) + revision due** (prefix re-test LC724, variable-window recall). Then Two Pointers.
 
 2026-06-05 — Module(s): M5 Prefix Sum (+ hash) | Did: closed-book revision (prefix formula ✓ derived cold incl. L=0 → MISTAKE#1 CLEARED; variable-window template ✓ but min-init reflex slipped again). Taught prefix+hash from scratch (pedometer/clock intuition) after learner pushed back on too-fast Socratic — the deep-explanation worked. | Levels changed: **M5 L3* → L4 EARNED**. | Problems AC: **LC560** (complement sum−k, ~solo), **LC724** (pure prefix, fixed own `prefix[-1]` OOB), **LC974** (remainder mod k — taught negative-modulo primitive `((x%k)+k)%k`), **LC525** (transform 0→−1 + first-index map, heavily coached). | NEW GAPS: "k=length" overfit (treated target sum as window length), "count-all vs find-one-window" confusion. Boundary leak STILL active (3 slips today). | INFRA: built `/start-practice` (daily cold interleaved, practice/day-01 ready), STRIVER_VIDEOS.md (315 vids + backtracking/trie/bit playlists mapped to our modules), memory: Striver-first workflow. | Next: **Hashing formal lesson** (Striver [013] → LC1 Two Sum). Heaps/Strings videos still to source.
+
+2026-06-06/07 — Module(s): M5 Prefix Sum practice set + planning | Did: HUGE planning + consolidation session. Set **5-month NeetCode-150 target** (~Nov 2026, L4 bar, one-topic-at-a-time, recognition-map-first) + pinned operating model to memory. Rebuilt `practice/` into 3 topic mastery sets (Prefix/SW/Hashing, 2E+2M+1H each). `/revise` closed-book = **FAILED 6/6** (count↔longest conflated, Two Sum misclassified as two-pointers) → gave the **GOAL×KEY** clarity map. Taught full curriculum/timeline. Added `/map-pattern-optimisation-problems`. | Problems AC (judge): **LC1480, LC303** (easy prefix; LC303 handled left==0 boundary ✓), **LC238** (prefix×suffix — learned "prefix = ANY cumulative aggregate, not just sums"; fixed own loop-direction buffer overflow), **LC523** (prefix+remainder — long debug: off-by-one `i+1`, `if(map[key])` truthiness trap on index 0, first-index overwrite; all index-bugs = boundary family). | KEY BREAKTHROUGHS: "the hash map IS the inner loop" (O(n²)→O(n)); GOAL(count→freq,seen[0]=1 / longest→first-index,seen[0]=-1) × KEY(complement/remainder/transform); discovered `map`(O(log n)) vs `unordered_map`(O(1)) empirically (LC523 150ms→81ms). | Levels: **M5 Prefix Sum solidly L4** (practice set 2E+2M solo; recall improving but L5 not yet — recognition drill pending). | LC862 hard **PARKED** (needs monotonic deque / M8). | Boundary leak STILL active but he's now self-identifying them as index bugs (progress). | Next: **M2 Hashing formal lesson** (Striver [013] → LC1 Two Sum), then SW practice set; `/drill` for the L5 recognition re-test.
 ```

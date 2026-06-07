@@ -133,6 +133,13 @@ Variants & gotchas (the 3 KEYS I've used):
 - Derive the prefix formula by MEANING (total up to R minus total before L), never by shape.
 Taught me by: LC560 (complement) + LC724 (pure prefix, balance point) + LC974 (remainder, +negative-mod
 primitive) + LC525 (transform + longest). Same engine, different KEY each time.
+**BIG GENERALIZATION (2026-06-07):** "prefix sum" is really **prefix AGGREGATE** — the operation can be
++, ×, ^, or count. Cue = "I need an aggregate over ranges/subarrays and brute force recomputes overlapping
+pieces." Variants: range sum (P[r]-P[l-1]) · count subarrays=k (complement) · divisible (remainder) ·
+equal 0s/1s (transform) · **product except self = prefix×suffix, LC238** (÷ avoided — breaks on 0s) ·
+subarray XOR=k · 2D prefix. **Mental model: the hash map IS the inner loop** — it remembers every earlier
+prefix so "scan all starts" becomes one O(1) lookup (O(n²)→O(n)). **`map`(O(log n)) vs `unordered_map`(O(1))**:
+use unordered_map when you don't need sorted keys (LC523: 150ms→81ms just by switching).
 
 ### Binary Search (incl. on answer)
 Level: L0

@@ -9,9 +9,26 @@ class Solution {
 public:
     int shortestSubarray(vector<int>& nums, int k) {
         // ───── YOUR CODE HERE ─────
-        // prefix P (long long, size n+1). deque of indices with increasing P.
-        // front: while P[j]-P[front] >= k -> ans=min(ans, j-front), pop front.
-        // back:  while P[j] <= P[back] -> pop back. then push j.
+        int sum = 0;
+        int n = nums.size();
+        int len = n+1;
+        vector<int> p;
+        unordered_map<int, int> seen;
+        int in = 0;
+        for(int i = 0 ; i < n; i++ ) {
+            sum += nums[i];
+            p.push_back(sum);
+            int rem = p[i]-k;
+            // for k we need to find rem but for k+1 we should find rem-1 meaning <=rem same for k-1 should find >=rem
+            while(in<=i){
+                if(seen[in] >= rem){
+                    len = max(len, i - in + 1);
+                }
+                in++;
+            }
+            seen[i] = rem;
+        }
+        if(len != n+1) return len;
         return -1; // replace
     }
 };

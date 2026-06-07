@@ -19,9 +19,10 @@
 ## Due / overdue  _(work these first each session)_
 | Due date | Topic / Pattern | Interval stage | Type | Notes |
 |---|---|---|---|---|
-| 2026-06-07 | Prefix Sum + Hash (GOAL×KEY) | +1d (RESET) | recall | **FAILED closed-book 6/6** — applied LONGEST machinery to a COUNT problem; said "count doesn't use a map". Re-test via the GOAL(count→freq,seen[0]=1 / longest→first-index,seen[0]=-1) × KEY(complement/remainder/equal) map. Then solve LC560+LC525 from scratch. |
-| 2026-06-07 | Recognition: 3 patterns cold | +1d (RESET) | recall | **FAILED 6/6** — misclassified unsorted Two Sum as "two pointers" (it's HASHING); couldn't reconstruct variable window. Re-test = name pattern + cue on a mixed set (/drill). |
-| 2026-06-07 | Boundary/order values (**WEAK**) | re-test | re-test | seen[0] meaning still memorised not understood (count=1 vs longest=−1). Clears after 2 clean mediums. |
+| 2026-06-08 | Recognition: 3 patterns cold (**L5 test**) | re-test | `/drill` | Still owed — failed 6/6. Mixed unlabeled set: name pattern + cue. THE re-test for prefix/SW/hashing recognition. |
+| 2026-06-08 | Prefix Sum + Hash (GOAL×KEY) | +1d | recall | Heavily reinforced 6/7 (LC238/LC523 AC). Re-test: reconstruct GOAL×KEY cold + solve one prefix problem map-closed. |
+| 2026-06-08 | Boundary/INDEX values (**WEAK**, 7×) | re-test | re-test | Recurred 6/7 (LC523 truthiness/overwrite/off-by-one). He now self-IDs them as index bugs. Clears after 2 clean mediums w/ zero index bugs. |
+| after M8 Deques | LC862 Shortest Subarray Sum≥K (**PARKED**) | deferred | hard | Needs monotonic deque. Revisit once M8 is learned — it'll be natural then. |
 
 ## Scheduled (upcoming)
 | Due date | Topic / Pattern | Interval stage | Last result |
@@ -40,6 +41,8 @@
 | 2026-06-06 | Prefix+Hash recall (GOAL×KEY) | +1d recall | **FAIL** (count↔longest conflated) | 2026-06-07 |
 | 2026-06-06 | Recognition: 3 patterns cold | +1d recall | **FAIL** (Two Sum→"2ptr"; var-window blank) | 2026-06-07 |
 | 2026-06-06 | Variable Sliding Window template | +3d | PASS-ish (Q3 ✓ shortest record/shrink) | 2026-06-09 |
+| 2026-06-07 | LC238 Product Except Self | new (L4) | PASS (prefix×suffix, fixed own loop-dir bug) | 2026-06-08 |
+| 2026-06-07 | LC523 Continuous Subarray Sum | new (L4) | PASS after heavy debug (see MISTAKE #5) | 2026-06-14 (cold re-test) |
 
 ---
 
