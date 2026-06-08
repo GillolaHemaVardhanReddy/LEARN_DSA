@@ -3,14 +3,19 @@
 > Each rung adds exactly ONE new sub-skill. Do them IN ORDER — later rungs assume the earlier.
 > Recognition-first: write the cue line + identify the SHAPE before coding. Judge = ground truth.
 
-## The ladder (why this order)
+## The ladder (why this order) — verified via LeetCode MCP, all UNSOLVED, correct difficulties
 | # | Problem | Diff | NEW building block it teaches |
 |---|---------|------|-------------------------------|
-| 01 | LC167 Two Sum II (sorted) | easy | **Converging** pointers, sum-steered (`L++`/`R--` by comparison). THE core mechanic. |
-| 02 | LC26 Remove Duplicates from Sorted Array | easy | **Fast/slow** same-direction — the **write pointer** (in-place rearrange). |
-| 03 | LC15 3Sum | med | **Fix one + two-pointer the rest** + the **skip-duplicates** trick. The keystone. |
+| 01 | LC125 Valid Palindrome | easy | **Converging** from both ends + **skip** unwanted chars. Gentlest converging rep. |
+| 02 | LC977 Squares of a Sorted Array | easy | **Converging + compare-the-ends decision** (move the bigger side, fill from back). Primes greedy moves. |
+| 03 | LC15 3Sum | med | **Fix one + two-pointer the rest** (= Two Sum II inside) + the **skip-duplicates** trick. The keystone. |
 | 04 | LC11 Container With Most Water | med | **Greedy** converging — move the **limiting** side; steer by a *derived* quantity (area). |
-| 05 | LC42 Trapping Rain Water | hard | **Stateful** converging — track left-max / right-max while two pointers close in. Capstone. |
+| 05 | LC42 Trapping Rain Water | hard | **Stateful** converging — track left-max / right-max while two pointers close in. Builds on 04. Capstone. |
+
+> **Note (constraints MCP-verified 2026-06-08):** chosen for the cleanest building-block ramp + correct LeetCode
+> difficulty labels (LC167 Two Sum II is actually *Medium*, and its mechanic is taught inside 03, so it's dropped
+> as a rung). Treated as a **fresh** topic — no assumptions of prior knowledge.
+> Optional warmup if 03 feels steep: **LC167 Two Sum II** (the pure sum-steered converging rep).
 
 ## The 3 shapes (from `Notes/03-Two-Pointers.md`)
 - **Converging** (opposite ends → toward each other): 01, 03, 04, 05
