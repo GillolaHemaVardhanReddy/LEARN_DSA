@@ -19,7 +19,9 @@
 ## Due / overdue  _(work these first each session)_
 | Due date | Topic / Pattern | Interval stage | Type | Notes |
 |---|---|---|---|---|
-| 2026-06-11 | Recognition re-drill (post-hashing) | re-test | `/drill` | 6/8 drill = **4/7**. SW recognition STRONG (3/3); HASHING 0/2 (both → "two pointers"); SW over-fired on a transform (Q6). Re-drill after M2 Hashing lesson; target ≥6/7 incl. all hashing Qs. |
+| next session | **Hashing SOLO SET (L4 gate)** | new | solo | LC217/219/347/36 (practice/03-Hashing/solo-set/). Solve COLD, name cue first. L4 earned when 347 + 36 are largely solo. LC219 = drill Q7 re-test. |
+| 2026-06-09 | Hashing concept recall (+1d) | +1d | recall | Closed-book: why O(1) avg / O(n) worst? what's a collision & how resolved? the 4 sub-pattern cues (complement/freq/group-by-key/membership)? |
+| 2026-06-11 | Recognition re-drill (post-hashing) | re-test | `/drill` | 6/8 drill = **4/7**. SW recognition STRONG (3/3); HASHING 0/2 (both → "two pointers"); SW over-fired on a transform (Q6). Re-drill after solo set; target ≥6/7 incl. all hashing Qs. |
 | 2026-06-08 | Prefix Sum + Hash (GOAL×KEY) | +1d | recall | Heavily reinforced 6/7 (LC238/LC523 AC). Re-test: reconstruct GOAL×KEY cold + solve one prefix problem map-closed. |
 | 2026-06-08 | Boundary/INDEX values (**WEAK**, 7×) | re-test | re-test | Recurred 6/7 (LC523 truthiness/overwrite/off-by-one). He now self-IDs them as index bugs. Clears after 2 clean mediums w/ zero index bugs. |
 | 2026-06-11 | MISTAKE #6 re-test (hashing recognition) | re-test | recall | After hashing lesson: LC1 Two Sum + LC219 Contains Duplicate II — must reach for hashing, NOT two pointers. |
@@ -46,6 +48,7 @@
 | 2026-06-07 | LC523 Continuous Subarray Sum | new (L4) | PASS after heavy debug (see MISTAKE #5) | 2026-06-14 (cold re-test) |
 | 2026-06-08 | Recognition drill (3 patterns cold) | re-test | **PARTIAL 4/7** — SW 3/3 ✓, prefix 1/2, hashing 0/2 (→"two pointers") | 2026-06-11 re-drill post-hashing |
 | 2026-06-08 | LC567 Permutation in String | new (L4, fixed-window) | PASS after 5 attempts (incremental slide; see MISTAKE #6) | 2026-06-15 (cold re-test) |
+| 2026-06-08 | M2 Hashing formal lesson + LC1/242/49/128 | new (L3) | PASS coached (bug-heavy; not solo) | 2026-06-09 (+1d recall) |
 
 ---
 

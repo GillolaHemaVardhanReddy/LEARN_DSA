@@ -8,7 +8,13 @@ class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         // ───── YOUR CODE HERE ─────
-        // unordered_map<int,int> seen (value -> index). For each x: if seen has target-x -> answer.
+        unordered_map<int, int> seen;
+        int n = nums.size();
+        for(int i = 0 ; i < n ; i++ ) {
+            int comp = target - nums[i];
+            if(seen.count(comp)) return {seen[comp], i};
+            if(!seen.count(nums[i])) seen[nums[i]] = i;
+        }
         return {}; // replace
     }
 };

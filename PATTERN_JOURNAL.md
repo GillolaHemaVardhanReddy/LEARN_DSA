@@ -60,11 +60,16 @@ Taught me by: <problems that built this — link to MISTAKE_JOURNAL if relevant>
 ## Patterns (seed list — start at L0, grow as you go)
 
 ### Hashing / Frequency
-Level: L1 (used unordered_map/set operationally in M4/M5; FORMAL lesson pending — Striver [013] next)
-Trigger (in my words): "seen before? / how many times? / look up a complement in O(1)" → hash map.
-Why it works: (to formalize next session) average O(1) insert/lookup via hashing; watch collisions.
+Level: **L3 (coached) — formal lesson done 2026-06-08; L4 pending solo set (LC217/219/347/36)**
+Trigger (in my words): "seen before? / how many times? / look up a complement in O(1) / group by a shared property" → hash map. **GATE: is the data SORTED? If NOT → hashing, not two pointers.**
+Why it works: a hash function squashes ANY key (big int, string, negative) into a small array index → keep the array's O(1) access for arbitrary keys. Collisions are UNAVOIDABLE (pigeonhole: more keys than slots) → resolved by chaining (C++ `unordered_map`) or open addressing. Avg O(1); worst O(n) when many keys pile into one bucket.
 Template/skeleton: `unordered_map<int,int> cnt; cnt[x]++;` / `unordered_set<int> s; s.count(x);`
 Complexity: avg O(1) per op (worst case O(n) on adversarial collisions).
+**The 4 hashing sub-patterns I've now seen (recognition map):**
+- **Complement / seen-map** (Two Sum, LC1): unsorted + need a pair → store value→index, look up `target-x`. **Look up BEFORE insert** (else self-match) + **return on find**.
+- **Frequency count** (Valid Anagram LC242): count chars; fixed small alphabet → `int[26]` (inc for s, dec for t, all-zero check); **unbounded/Unicode keys → switch to `unordered_map`** (the follow-up). Container changes with the key space.
+- **Group / dedup by canonical KEY** (Group Anagrams LC49): compute one fingerprint per item so matches collide → `unordered_map<Key, vector<...>>`, `groups[key].push_back(item)`. Key = sorted string O(k log k) OR 26-count signature O(k). Kills O(n²) pairwise compare → O(n·k log k). No visited/include-self bookkeeping needed.
+- **Set membership for O(1) reasoning** (Longest Consecutive LC128): hash SET avoids sorting; to keep a per-element walk linear, only START work from sequence beginnings (`x` is a start iff `x-1` not in set) → O(n) not O(n²).
 Variants & gotchas: the complement-lookup move (Two Sum) = the core of all the prefix+hash problems.
 **Recognition (the gap the 6/8 drill exposed — 0/2 on hashing):** these are HASHING, *not* two pointers:
 - **Unsorted** array, need a pair summing to target, return INDICES → store value→index, look up `target-x` (LC1).
