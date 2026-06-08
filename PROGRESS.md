@@ -21,7 +21,7 @@ unseen) · L6 teaches. Dashboard %: L0=0, L1=15, L2=35, L3=55, L4=75, L5=90, L6=
 ## Snapshot
 - Current phase: Foundations → Linear patterns
 - Current module: **M5 Prefix Sum — DONE (L4)** (2026-06-05). M4 Sliding Window DONE (L4).
-- Current topic: **M2 Hashing — L4 EARNED 2026-06-08** (solo set LC217/219/347/36 all AC, recognition independent). **Next = recognition re-`/drill`** (confirm hashing 0/2 → solid; push toward L5), **then M3 Two Pointers** (Striver-first). Prefix Sum + SW both L4. Execution/boundary still the #1 leak (now 12×).
+- Current topic: **M2 Hashing — L4 EARNED 2026-06-08** (solo set LC217/219/347/36 all AC, recognition independent). **Next = M3 Two Pointers (NEW topic, Striver-first).** L5 for SW/Prefix/Hashing is **DEFERRED to a delayed interleaved `/drill`** — learner's own (correct) call: immediate L5 measures short-term recall, not transfer; take a gap + new learning first. Prefix Sum + SW both L4. Execution/boundary still the #1 leak (12×).
   Plan: reason through practice sets understanding WHY; last 1–2 of each with GOAL×KEY map CLOSED; then **L5 test**
   = `/drill` + 1–2 unseen cold solves. Earlier recall FAILED 6/6 (count↔longest, Two Sum→2ptr) — heavily reinforced
   this session via LC238/LC523; re-test recognition next via `/drill`.

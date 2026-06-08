@@ -21,7 +21,7 @@
 |---|---|---|---|---|
 | ✅ DONE 2026-06-08 | ~~Hashing SOLO SET (L4 gate)~~ | done | solo | **ALL 4 AC SOLO** (LC217/219/347/36). M2 Hashing → **L4 EARNED**. LC219 cleared drill Q7 (chose hashing, not two pointers). |
 | 2026-06-09 | Hashing concept recall (+1d) | +1d | recall | Closed-book: why O(1) avg / O(n) worst? what's a collision & how resolved? the 4 sub-pattern cues (complement/freq/group-by-key/membership)? |
-| 2026-06-11 | Recognition re-drill (post-hashing) | re-test | `/drill` | 6/8 drill = **4/7**. SW recognition STRONG (3/3); HASHING 0/2 (both → "two pointers"); SW over-fired on a transform (Q6). Re-drill after solo set; target ≥6/7 incl. all hashing Qs. |
+| 2026-06-13+ | **L5 recognition drill (DELAYED + interleaved)** | L5 test | `/drill` | Learner's call (good instinct): do NOT test L5 immediately after L4 — immediate = short-term recall, not transfer. Take a gap + learn M3 Two Pointers first, THEN cold-drill SW/Prefix/Hashing interleaved. Prior 4/7 (hashing 0/2); target ≥6/7 incl. all hashing Qs → that earns L5. |
 | 2026-06-08 | Prefix Sum + Hash (GOAL×KEY) | +1d | recall | Heavily reinforced 6/7 (LC238/LC523 AC). Re-test: reconstruct GOAL×KEY cold + solve one prefix problem map-closed. |
 | 2026-06-08 | Boundary/INDEX values (**WEAK**, 7×) | re-test | re-test | Recurred 6/7 (LC523 truthiness/overwrite/off-by-one). He now self-IDs them as index bugs. Clears after 2 clean mediums w/ zero index bugs. |
 | 2026-06-11 | MISTAKE #6 re-test (hashing recognition) | re-test | recall | After hashing lesson: LC1 Two Sum + LC219 Contains Duplicate II — must reach for hashing, NOT two pointers. |
