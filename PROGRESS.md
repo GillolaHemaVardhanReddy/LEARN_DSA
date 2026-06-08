@@ -21,7 +21,7 @@ unseen) · L6 teaches. Dashboard %: L0=0, L1=15, L2=35, L3=55, L4=75, L5=90, L6=
 ## Snapshot
 - Current phase: Foundations → Linear patterns
 - Current module: **M5 Prefix Sum — DONE (L4)** (2026-06-05). M4 Sliding Window DONE (L4).
-- Current topic: **M2 Hashing — L3 EARNED (coached) 2026-06-08**. Formal lesson done + LC1/242/49/128 AC (coached). **Next = SOLO SET (LC217/219/347/36) to earn L4 cold**, then `/drill`, then Two Pointers. Prefix Sum + SW both L4.
+- Current topic: **M2 Hashing — L4 EARNED 2026-06-08** (solo set LC217/219/347/36 all AC, recognition independent). **Next = recognition re-`/drill`** (confirm hashing 0/2 → solid; push toward L5), **then M3 Two Pointers** (Striver-first). Prefix Sum + SW both L4. Execution/boundary still the #1 leak (now 12×).
   Plan: reason through practice sets understanding WHY; last 1–2 of each with GOAL×KEY map CLOSED; then **L5 test**
   = `/drill` + 1–2 unseen cold solves. Earlier recall FAILED 6/6 (count↔longest, Two Sum→2ptr) — heavily reinforced
   this session via LC238/LC523; re-test recognition next via `/drill`.
@@ -49,7 +49,7 @@ unseen) · L6 teaches. Dashboard %: L0=0, L1=15, L2=35, L3=55, L4=75, L5=90, L6=
 | ID | Module | Level | Last touched | Solved (E/M) | Evidence note |
 |----|--------|-------|--------------|--------------|---------------|
 | M1 | Complexity Analysis | L3* | 2026-06-04 | 0/0 | *Self-reported: O(1)→O(n²), log-rule (i*=k→log n), 4 rules, Ω/O/Θ. Verify recall. |
-| M2 | Arrays & Hashing | **L3** | 2026-06-08 | 2/2 | **L3 EARNED (coached)**: formal hashing lesson done (hash fn → index, collisions/chaining, avg O(1)/worst O(n)). Coded LC1/LC242/LC49/LC128 AC — but heavily coached + bug-heavy. **NOT L4 yet** (mediums weren't solo). Solo gate set = LC217/219/347/36. |
+| M2 | Arrays & Hashing | **L4** | 2026-06-08 | 4/4 | **L4 EARNED 2026-06-08**: solo set all AC — LC217/219 (easy, clean solo), **LC347 Top-K (medium, recognized + built bucket-sort himself)**, **LC36 Valid Sudoku (medium, designed 3-sets-by-row/col/box himself)**. Recognition + approach INDEPENDENT (huge flip from drill 0/2); help was only on execution/boundary bugs, not the pattern. **L5 (cold unseen) pending re-drill.** |
 | M3 | Two Pointers | L0 | — | 0/0 | Upcoming (Striver SW/2P playlist). |
 | M4 | Sliding Window | L4 | 2026-06-04 | 2/3 | **WITNESSED L4**: 3 mediums AC — LC209/LC3/LC1004. Recognition + approach independent. Residual: boundary/order values. |
 | M5 | Prefix Sum | **L4** | 2026-06-05 | 1/3 | **WITNESSED L4**: prefix+hash engine applied to 3 distinct keys — LC560 (complement sum−k, largely solo), LC974 (remainder mod k, derived structure; needed the negative-modulo PRIMITIVE), LC525 (transform 0→−1 + first-index map; heavily coached on the logic but AC). +LC724 easy AC. Recognition path (window-dead→prefix→isolate complement→hash) understood. Linked to Two Sum. |
@@ -97,7 +97,7 @@ _Advanced-tier modules added here only if pursued._
   Root = M2 Hashing never formally taught. Clears after hashing lesson + a fresh drill ≥6/7. See MISTAKE #6.
 
 ## Problem counters
-- Easy solved: 7 (LC643, LC1343 self-reported · **LC724, LC1480, LC303 judge-verified** · **LC1 Two Sum, LC242 Valid Anagram** — AC 6/8) · Medium solved: 11 (LC209, LC3, LC1004, **LC560, LC974, LC525, LC238, LC523** — judge-verified · **LC567** AC self-reported 6/8 ⚠️ repo file broken, reconcile · **LC49 Group Anagrams, LC128 Longest Consecutive** — AC 6/8) · Hard (stretch): 0 (LC862 PARKED — needs monotonic deque/M8) · Total: 18
+- Easy solved: 9 (LC643, LC1343 self-reported · **LC724, LC1480, LC303 judge-verified** · **LC1 Two Sum, LC242 Valid Anagram** AC 6/8 · **LC217 Contains Duplicate, LC219 Contains Duplicate II** — SOLO AC 6/8) · Medium solved: 13 (LC209, LC3, LC1004, **LC560, LC974, LC525, LC238, LC523** — judge-verified · **LC567** AC self-reported 6/8 ⚠️ repo file broken, reconcile · **LC49, LC128** AC 6/8 · **LC347 Top-K, LC36 Valid Sudoku** — SOLO AC 6/8) · Hard (stretch): 0 (LC862 PARKED — needs monotonic deque/M8) · Total: 22
 
 ## Interview readiness (estimate — label as such)
 - Problem solving: 0/100

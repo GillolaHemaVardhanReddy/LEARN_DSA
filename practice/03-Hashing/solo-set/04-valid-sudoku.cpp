@@ -9,9 +9,21 @@ using namespace std;
 class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
-        // cue: ___ -> hashing because ___
-        // hint to yourself: what is the KEY that identifies "this digit, this box"?
-        // YOUR CODE HERE
+        unordered_map<int, unordered_map<int, int>> col, row, box;
+        int n = board.size(), boxes = (board.size()/3) * (board[0].size()), box_current = 0;
+        for(int i = 0 ; i < n ; i++ ) {
+            int box_row = i/3;
+            for(int j = 0; j < 9; j++ ) {
+                if(board[i][j]=='.') continue;
+                int box_num = box_row*3 + j/3;
+                if(row[i].count(board[i][j]) || col[j].count(board[i][j]) || box[box_num].count(board[i][j])){
+                    return false;
+                }
+                col[j][board[i][j]]++;
+                row[i][board[i][j]]++;
+                box[box_num][board[i][j]]++;
+            }
+        }
         return true;
     }
 };

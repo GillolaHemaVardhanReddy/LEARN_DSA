@@ -60,7 +60,7 @@ Taught me by: <problems that built this — link to MISTAKE_JOURNAL if relevant>
 ## Patterns (seed list — start at L0, grow as you go)
 
 ### Hashing / Frequency
-Level: **L3 (coached) — formal lesson done 2026-06-08; L4 pending solo set (LC217/219/347/36)**
+Level: **L4 EARNED 2026-06-08** — solo set LC217/219/347/36 all AC, recognition independent (flipped from drill 0/2). L5 (cold unseen) pending re-drill.
 Trigger (in my words): "seen before? / how many times? / look up a complement in O(1) / group by a shared property" → hash map. **GATE: is the data SORTED? If NOT → hashing, not two pointers.**
 Why it works: a hash function squashes ANY key (big int, string, negative) into a small array index → keep the array's O(1) access for arbitrary keys. Collisions are UNAVOIDABLE (pigeonhole: more keys than slots) → resolved by chaining (C++ `unordered_map`) or open addressing. Avg O(1); worst O(n) when many keys pile into one bucket.
 Template/skeleton: `unordered_map<int,int> cnt; cnt[x]++;` / `unordered_set<int> s; s.count(x);`
