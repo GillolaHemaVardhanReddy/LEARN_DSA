@@ -9,7 +9,11 @@ class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
         // cue: ___ -> hashing because ___
-        // YOUR CODE HERE
+        unordered_map<int,int> seen;
+        for(int i = 0 ; i < nums.size(); i++) {
+            if(seen.count(nums[i])) return true; // this here reduced the O(n^) work to O(n) repeated work removed with lookup
+            seen[nums[i]] = i;
+        }
         return false;
     }
 };

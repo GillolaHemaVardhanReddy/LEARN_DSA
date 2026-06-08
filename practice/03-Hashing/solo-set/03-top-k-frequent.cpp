@@ -9,9 +9,27 @@ class Solution {
 public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
         // cue: ___ -> hashing because ___
-        // brute force first (count + sort), then think how to avoid the sort.
-        // YOUR CODE HERE
-        return {};
+        vector<int> ans;
+        unordered_map<int, int> seen;
+        unordered_map<int, vector<int>> fetch;
+        int n = nums.size();
+        for(int i = 0 ; i < nums.size(); i++){
+            seen[nums[i]]++;
+        }
+        for(auto &[key, value] : seen){
+            fetch[value].push_back(key);
+        }
+        for(int i = n-1; i>=0 ; i--){
+            if(k>0){
+                if(fetch.count(i)){
+                    for(int j = 0 ; j < fetch[i].size() ; j++){
+                        ans.push_back(fetch[i][j]);
+                        k--;
+                    }
+                }
+            } else break;
+        }
+        return ans;
     }
 };
 

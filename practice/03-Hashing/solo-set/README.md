@@ -18,7 +18,7 @@
 | # | Problem | Difficulty | Link |
 |---|---------|-----------|------|
 | 1 | LC 217 — Contains Duplicate | easy | https://leetcode.com/problems/contains-duplicate/ |
-| 2 | LC 219 — Contains Duplicate II | easy | https://leetcode.com/problems/contains-nearby-duplicate/ |
+| 2 | LC 219 — Contains Duplicate II | easy | https://leetcode.com/problems/contains-duplicate-ii/ |
 | 3 | LC 347 — Top K Frequent Elements | **medium** | https://leetcode.com/problems/top-k-frequent-elements/ |
 | 4 | LC 36 — Valid Sudoku | **medium** | https://leetcode.com/problems/valid-sudoku/ |
 
