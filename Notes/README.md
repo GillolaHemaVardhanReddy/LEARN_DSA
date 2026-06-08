@@ -10,6 +10,7 @@
 2. **[01-Complexity-from-Constraints.md](01-Complexity-from-Constraints.md)** — 🧮 the 10⁸ rule:
    read constraints → know the target complexity before coding. Plus the "floor" (when to stop optimizing).
 3. **[02-Hashing.md](02-Hashing.md)** — 🗂️ engine + the 4 sub-patterns (complement / freq / group-by-key / membership).
+4. **[03-Two-Pointers.md](03-Two-Pointers.md)** — 👉👈 converging / fast-slow / two-sequence. *(theory seed — enrich after reps)*
 3. **[04-Sliding-Window.md](04-Sliding-Window.md)** — 📒 fixed vs variable, longest vs shortest, the order rule.
 4. **[05-Prefix-Sum.md](05-Prefix-Sum.md)** — ➕ prefix=any-aggregate, the GOAL×KEY matrix, why-not-sliding-window.
 
