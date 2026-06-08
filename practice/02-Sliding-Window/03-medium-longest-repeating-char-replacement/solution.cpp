@@ -7,15 +7,18 @@ using namespace std;
 class Solution {
 public:
     int characterReplacement(string s, int k) {
-        // ───── YOUR CODE HERE ─────
-        int n = s.length();
-        unordered_map<char, int> seen;
-        int start_ind = 0;
-        for(int i = 0 ; i < n ; i++ ) {
-            
-            seen[s[i]]+=1;
-        }
-        return 0; // replace
+        int seen[26] = {0};
+        int ans = 0, maxFreq = 0, left = 0;
+        for(int right = 0; right < s.length(); right++) {
+            seen[s[right] - 'A']++;
+            maxFreq = max(maxFreq, seen[s[right] - 'A']);
+            if((right - left +1) - maxFreq > k){
+                seen[s[left]]--;
+                left++;
+            }
+            ans = max(ans, right-left+1);
+        }   
+        return ans; 
     }
 };
 

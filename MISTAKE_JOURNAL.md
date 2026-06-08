@@ -30,6 +30,19 @@ Status: Open / Re-tested-pass / Re-tested-fail
 ## Entries
 > Newest first. Keep them short and honest.
 
+### [#6] Defaulted HASHING problems to "two pointers"; SW over-fired on a transformed array
+Date: 2026-06-08
+Module / Pattern: M2 Hashing recognition (drill) · M4/M5 discrimination
+Problem: `/drill` mixed set — Q3 (unsorted Two Sum), Q6 (longest equal 0/1), Q7 (duplicate within k). Scored 4/7.
+Type: Pattern-recognition
+What I did (the wrong move): (a) **Q3** unsorted Two Sum → said "two pointers (didn't complete yet)". (b) **Q7** "duplicate value within index distance k" → said "two pointers" again. (c) **Q6** longest equal-0s/1s → got the 0→−1 transform but classified it as **sliding window**.
+Root cause: No formal hashing recognition map yet (M2 still L2), so every pair/duplicate/complement problem gets parked under "two pointers." AND sliding window over-fires onto transformed arrays — once 0→−1 introduces negatives, a window can't decide when to shrink, so it MUST be prefix+hash, not SW.
+Correct understanding: **Two pointers requires SORTED / monotonic structure.** Unsorted + pair/complement/duplicate → **HASHING** (Q3 = complement map storing value→index; Q7 = last-seen index map, check `i - last ≤ k`). **Negatives or a ±1 transform kill sliding window → prefix sum + hash** (Q6 = transform 0→−1, first-index map, `seen[0]=-1`, longest run with prefix repeat).
+Prevention rule: Before saying "two pointers," ask **"is the data sorted/monotonic?"** If no → hashing. Before saying "sliding window," ask **"can values be negative (or did I transform to ±1)?"** If yes → prefix+hash.
+Re-test problem (similar, unseen): LC1 Two Sum (after hashing lesson), LC219 Contains Duplicate II, LC525 cold (already owed), + a fresh `/drill` post-hashing.
+Re-attempt on: 2026-06-11 (after M2 Hashing formal lesson)
+Status: Open
+
 ### [#5] `if(map[key])` truthiness trap + overwriting the first index
 Date: 2026-06-07
 Module / Pattern: M5 Prefix Sum + Hash
@@ -104,9 +117,9 @@ Status: **RE-TESTED PASS (2026-06-05)** — derived `prefix[R]-prefix[L-1]` cold
 
 | Pattern of error | Times seen | Standing rule | Last occurrence |
 |---|---|---|---|
-| **Logic right, boundary/sentinel/ORDER/INDEX value wrong** (prefix L-1; min-init+return; off-by-one `right-left+1` & `i+1`; `prefix[-1]`/`prefix[n]` OOB; forgot `seen[0]=-1`; `if(map[key])` index-0 trap; first-index overwrite; reverse-loop `i++`) | **7** | Run the pre-code boundary checklist BEFORE coding. #1 leak — STILL recurring, BUT he now self-identifies them as index bugs (progress). | 2026-06-07 (LC238 loop dir, LC523 off-by-one + truthiness + overwrite) |
-| (e.g. off-by-one in window shrink) | 0 | | — |
-| (e.g. wrong complexity for recursion) | 0 | | — |
+| **Logic right, boundary/sentinel/ORDER/INDEX value wrong** (prefix L-1; min-init+return; off-by-one `right-left+1` & `i+1`; `prefix[-1]`/`prefix[n]` OOB; forgot `seen[0]=-1`; `if(map[key])` index-0 trap; first-index overwrite; reverse-loop `i++`; LC567 missing `-'a'` ×2; LC567 left-never-incremented) | **9** | Run the pre-code boundary checklist BEFORE coding. #1 leak — STILL recurring. LC567 (6/8) added 3 more index slips: `seen[s[left]]` missing `-'a'` twice, and a `left` that never incremented. After any "cleanup" edit, RE-RUN before declaring done. | 2026-06-08 (LC567 incremental rewrite) |
+| **Unsorted pair/duplicate/complement → defaults to "two pointers" instead of HASHING** | **2** | Before "two pointers," ask "is the data SORTED/monotonic?" If no → hashing. (Unsorted Two Sum misclassified 2026-06-06 and again in 6/8 drill Q3/Q7.) | 2026-06-08 (drill Q3, Q7) |
+| **Sliding window over-fires onto problems with negatives / ±1 transforms** | **1** | Before "sliding window," ask "can values be negative (or did I transform to ±1)?" If yes → prefix+hash. | 2026-06-08 (drill Q6) |
 
 ---
 

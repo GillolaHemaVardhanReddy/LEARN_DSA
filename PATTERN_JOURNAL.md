@@ -66,16 +66,22 @@ Why it works: (to formalize next session) average O(1) insert/lookup via hashing
 Template/skeleton: `unordered_map<int,int> cnt; cnt[x]++;` / `unordered_set<int> s; s.count(x);`
 Complexity: avg O(1) per op (worst case O(n) on adversarial collisions).
 Variants & gotchas: the complement-lookup move (Two Sum) = the core of all the prefix+hash problems.
-Taught me by: LC3 (unordered_set), the whole M5 prefix+hash family. NEXT: formal lesson + LC1 Two Sum.
+**Recognition (the gap the 6/8 drill exposed — 0/2 on hashing):** these are HASHING, *not* two pointers:
+- **Unsorted** array, need a pair summing to target, return INDICES → store value→index, look up `target-x` (LC1).
+- "Have I **seen this value**, and where?" → map value→last index (e.g. duplicate within distance k, LC219: check `i-last≤k`).
+- Membership / first-or-count of anything → set or freq map.
+RULE: unsorted + pair/duplicate/complement ⇒ hash map (two pointers needs SORTED data).
+Taught me by: LC3 (unordered_set), the whole M5 prefix+hash family; 6/8 drill flagged the recognition gap. NEXT: formal lesson + LC1 Two Sum.
 
 ### Two Pointers
-Level: L0
-Trigger:
-Why it works:
-Template/skeleton:
-Complexity:
-Variants & gotchas:
-Taught me by:
+Level: L0 (not formally taught — but a recognition RULE is already needed)
+Trigger: **SORTED (or monotonic) array, find a pair/triple by a sum/diff condition**, OR compare from both ends.
+⚠️ **GATE before reaching for this: is the data SORTED/monotonic?** If NOT sorted → it's almost always **HASHING**, not two pointers. (My #1 recognition leak — I keep parking unsorted pair/duplicate problems here. See MISTAKE #6.)
+Why it works: on sorted data, moving the pointer that's "too small/too big" provably can't skip the answer → O(n) instead of O(n²).
+Template/skeleton: (to fill at lesson) `l=0, r=n-1; while(l<r){ if(sum<target) l++; else if(sum>target) r--; else return; }`
+Complexity: time O(n) after an O(n log n) sort / space O(1).
+Variants & gotchas: needs sorting first if unsorted — and sorting destroys original indices (so if the problem wants indices of an UNSORTED array → hashing).
+Taught me by: (upcoming, M3)
 
 ### Sliding Window
 Level: L4 (variable: 3 mediums AC — LC209/LC3/LC1004) · fixed self-reported
@@ -98,11 +104,15 @@ return ans==INT_MAX?0:ans;
 Complexity: time O(n) / space O(1) (or O(k) with a freq map/set).
 Variants & gotchas: **shortest** = shrink while VALID, record INSIDE while. **longest** =
 shrink while INVALID, record AFTER while. Boundary traps: min-tracker must start at INT_MAX;
-convert "not found" sentinel back to 0; window length = `right-left+1`. Breaks if values can be
-negative (then use prefix sum + hash instead).
+convert "not found" sentinel back to 0; window length = `right-left+1`. **Breaks if values can be
+negative — OR if I transform the array (e.g. 0→−1): that introduces negatives → use prefix sum + hash, NOT SW**
+(drill Q6 over-fired here). **FIXED-window incremental rule (LC567, learned hard over 5 tries):** build the
+first window over `[0, len-1]`, check it, then slide `right` from `len`: `+s2[right]`, `−s2[right-len]` —
+the add+remove are **unconditional every step**, NOT a reaction to a mismatch; left is implicit = `right-len`.
 Taught me by: LC209 Min Size Subarray Sum (shortest) + LC3 Longest Substring No-Repeat (longest,
-`unordered_set`) + LC1004 Max Consecutive Ones III (longest, ≤k zeros). **Order rule learned:**
-include → restore-validity → record (record only when window is valid).
+`unordered_set`) + LC1004 Max Consecutive Ones III (longest, ≤k zeros) + **LC567 Permutation in String
+(fixed window + freq-match, incremental slide)**. **Order rule learned:** include → restore-validity → record
+(record only when window is valid). Fixed-window: slide unconditionally, compare after.
 
 ### Prefix Sum (+ Hash Map of keys)
 Level: L4 (LC560/LC974/LC525 mediums AC + LC724 easy AC)
