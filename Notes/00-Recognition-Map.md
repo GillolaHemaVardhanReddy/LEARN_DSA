@@ -13,7 +13,8 @@
 |---|---|---|
 | **contiguous** subarray/substring + max/min/longest/shortest/sum/avg, size **given** | **Fixed Sliding Window** | window slides in lockstep, O(n) |
 | **contiguous** + longest/shortest satisfying a **condition**, size **not given**, values **positive/monotonic** | **Variable Sliding Window** | breathe the window, O(n) |
-| subarray **sum = k / divisible by k / equal counts**, values can be **negative** | **Prefix Sum + Hash** | window dies on negatives; prefixes + map = O(n) |
+| subarray **sum = k** with **negative** values | **Prefix Sum + Hash** | window dies on negatives |
+| subarray **divisible by k / remainder / equal counts / COUNT-all** (ANY sign) | **Prefix Sum + Hash** | not monotonic → window can't apply, even for positives |
 | **count / range-query** an aggregate (sum, xor, product) over many subarrays | **Prefix Sum** | precompute once, answer ranges in O(1) |
 | "have I **seen** this value? / how many times? / find the **complement**", data **UNSORTED** | **Hashing (map/set)** | O(1) lookup kills the O(n) inner scan |
 | **group / dedup** items sharing a property (anagrams, etc.) | **Hashing — canonical key → bucket** | same key collides into same bucket |
@@ -32,9 +33,19 @@ These are the *exact* mistakes from my drill (scored 4/7). Each is a "looks like
 - ⚠️ My repeated leak: parking every pair/duplicate problem under "two pointers." STOP — ask "sorted?" first.
 
 ### 🔴 Sliding Window vs Prefix+Hash
-> **Can values be NEGATIVE? (or did I transform to ±1?)  → Prefix+Hash, NOT sliding window.**
-- Sliding window relies on **monotonicity**: adding an element must *predictably* push the metric one way. Positives → sum only grows → can decide when to shrink. **Negatives break that** → window can't decide → use prefix+hash.
+> **THE ONE-LINE TEST:** *Can the window's target move MONOTONICALLY as the window grows?*
+> **Yes → sliding window allowed.  No → prefix+hash.**
+- Sliding window relies on **monotonicity**: adding an element must *predictably* push the metric one way. Positives → sum only grows → can decide when to shrink. **Negatives break that** → window can't decide → prefix+hash.
 - "longest subarray with equal 0s and 1s" → transform 0→−1 introduces negatives → **prefix+hash**, not SW.
+
+**Which problems pass / fail the monotonicity test:**
+| Problem | Monotonic? | Tool |
+|---|---|---|
+| sum = k, **positive** values | yes | sliding window ✔ (or prefix+hash) |
+| sum = k, **negative** values | no | prefix + hash |
+| **divisible by k / remainder** (ANY sign, incl. positives!) | **no** — mod jumps around, not monotonic | **prefix + hash ONLY** |
+| **count ALL** matching subarrays (any sign) | no — it's a tally, not one window | **prefix + hash ONLY** |
+> ⚠️ Trap: "divisible by k" with positive numbers is STILL prefix+hash — positivity does NOT make divisibility monotonic. Don't reach for a window just because the values are positive.
 
 ### 🔴 GOAL: count vs longest vs shortest (decides the whole code shape)
 > **Classify the goal FIRST — it picks your machinery:**
