@@ -8,8 +8,17 @@ class Solution {
 public:
     int maxArea(vector<int>& height) {
         // cue: max area between two lines -> converging two pointers, move the SHORTER wall
-        // area = min(height[L], height[R]) * (R - L)
-        return 0;
+        int n = height.size();
+        int L = 0 , R = n-1, max_ans = 0;
+        while(L < R){
+            max_ans = max(max_ans, (min(height[L], height[R])*(R-L)));
+            if(height[L] < height[R]){
+                L++;
+            } else {
+                R--;
+            }
+        }
+        return max_ans;
     }
 };
 

@@ -21,7 +21,7 @@ unseen) · L6 teaches. Dashboard %: L0=0, L1=15, L2=35, L3=55, L4=75, L5=90, L6=
 ## Snapshot
 - Current phase: Foundations → Linear patterns
 - Current module: **M5 Prefix Sum — DONE (L4)** (2026-06-05). M4 Sliding Window DONE (L4).
-- Current topic: **M2 Hashing — L4 EARNED 2026-06-08** (solo set LC217/219/347/36 all AC, recognition independent). **Next = M3 Two Pointers (NEW topic, Striver-first).** L5 for SW/Prefix/Hashing is **DEFERRED to a delayed interleaved `/drill`** — learner's own (correct) call: immediate L5 measures short-term recall, not transfer; take a gap + new learning first. Prefix Sum + SW both L4. Execution/boundary still the #1 leak (12×).
+- Current topic: **M3 Two Pointers — L4 EARNED 2026-06-09** (LC125/977/15/11 AC; LC42 hard parked for weekend). **Next = M6 Binary Search (NEW topic, theory→Striver video→problems).** CADENCE (locked in memory): weekday bar = L4 (easy+medium), HARDS = weekend only, L5 deferred to spaced drills. Mastered L4: SW, Prefix, Hashing, Two Pointers. Execution/boundary still the #1 leak (12×).
   Plan: reason through practice sets understanding WHY; last 1–2 of each with GOAL×KEY map CLOSED; then **L5 test**
   = `/drill` + 1–2 unseen cold solves. Earlier recall FAILED 6/6 (count↔longest, Two Sum→2ptr) — heavily reinforced
   this session via LC238/LC523; re-test recognition next via `/drill`.
@@ -50,7 +50,7 @@ unseen) · L6 teaches. Dashboard %: L0=0, L1=15, L2=35, L3=55, L4=75, L5=90, L6=
 |----|--------|-------|--------------|--------------|---------------|
 | M1 | Complexity Analysis | L3* | 2026-06-04 | 0/0 | *Self-reported: O(1)→O(n²), log-rule (i*=k→log n), 4 rules, Ω/O/Θ. Verify recall. |
 | M2 | Arrays & Hashing | **L4** | 2026-06-08 | 4/4 | **L4 EARNED 2026-06-08**: solo set all AC — LC217/219 (easy, clean solo), **LC347 Top-K (medium, recognized + built bucket-sort himself)**, **LC36 Valid Sudoku (medium, designed 3-sets-by-row/col/box himself)**. Recognition + approach INDEPENDENT (huge flip from drill 0/2); help was only on execution/boundary bugs, not the pattern. **L5 (cold unseen) pending re-drill.** |
-| M3 | Two Pointers | L0 | — | 0/0 | Upcoming (Striver SW/2P playlist). |
+| M3 | Two Pointers | **L4** | 2026-06-09 | 2/2 | **L4 EARNED 2026-06-09**: theory→video→practice. AC: LC125 Valid Palindrome, LC977 Squares (easy, solo); LC15 3Sum (keystone — lived brute→hashmap-TLE→two-pointer+skip-dups), LC11 Container (derived the "move shorter wall" greedy proof himself). LC42 Trapping = **HARD, parked for weekend**. L5 deferred to spaced drill. Caught & fixed a wrong "sorted-only" rule in notes. |
 | M4 | Sliding Window | L4 | 2026-06-04 | 2/3 | **WITNESSED L4**: 3 mediums AC — LC209/LC3/LC1004. Recognition + approach independent. Residual: boundary/order values. |
 | M5 | Prefix Sum | **L4** | 2026-06-05 | 1/3 | **WITNESSED L4**: prefix+hash engine applied to 3 distinct keys — LC560 (complement sum−k, largely solo), LC974 (remainder mod k, derived structure; needed the negative-modulo PRIMITIVE), LC525 (transform 0→−1 + first-index map; heavily coached on the logic but AC). +LC724 easy AC. Recognition path (window-dead→prefix→isolate complement→hash) understood. Linked to Two Sum. |
 | M6 | Binary Search | L0 | — | 0/0 | |
