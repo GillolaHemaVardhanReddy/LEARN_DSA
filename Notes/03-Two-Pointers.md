@@ -58,10 +58,32 @@ while (L < R) {
 
 ---
 
-## 🔲 TO FILL AFTER REPS
-- [ ] Recognition cues in MY words (what surface features screamed "two pointers")
-- [ ] 3Sum: the **skip-duplicates** trick + why sort first
-- [ ] My gotchas / boundary bugs (the `L<R` bound, dup-skipping, overflow on `a[L]+a[R]`)
-- [ ] Problems that taught me: LC167, LC15, LC11, LC125, …
+## ✅ FILLED FROM REPS (2026-06-09)
 
-_Last updated 2026-06-08 (theory seed). Level: L0→learning. See PROGRESS.md._
+### Recognition cues in my words
+- "Sorted array + find/compare a **pair** by sum" → converging two pointers (LC167/LC15).
+- "Compare from **both ends** of a string/array" → converging (LC125 palindrome, LC977 squares).
+- "Sorted, and the **extremes** (biggest/smallest) sit at the ends" → converging, decide by comparing the ends (LC977).
+- "Triplet/quadruplet sum = target" → **sort + fix one (or two) + two-pointer the rest** (LC15).
+
+### 3Sum — the keystone pattern
+1. **Sort** first (lets you two-pointer AND skip duplicates by adjacency).
+2. **Fix `nums[i]`** → the rest is **Two Sum II** for target `-nums[i]` (L=i+1, R=n-1).
+3. **Steering (DON'T forget — forgetting = infinite loop):** `sum<0 → L++` · `sum>0 → R--` · `sum==0 → record`.
+4. **Skip duplicates in 3 spots:** the fixed `i` (`if(i>0 && nums[i]==nums[i-1]) continue;`), and `L`/`R` after a hit.
+5. Why structural skip-dups, NOT a `set<vector>`: generating-then-rejecting duplicates **TLEs on the constant factor**
+   (millions of vector allocations on inputs like `[0,0,...,0]`). Skipping means you never generate a dup. O(n²), O(1) space.
+
+### My gotchas / boundary bugs (the recurring leak — watch these)
+- **Forgot the steering** → the `while(L<R)` loop only moved pointers inside `if(sum==0)` → **infinite loop**. Every branch must move a pointer.
+- **Skip-dup loops ran off the end** → guard with the bound: `while(L<R && nums[L]==prev) L++;`.
+- **Off-by-one bounds** (`j < n-1` dropped the last element → `[0,0,0]` failed). Loops must touch the LAST element.
+- **`unordered_set/map` can't key on `vector`/`pair`** (no default hash) → use ordered `set`/`map`.
+- **LC125:** hand-rolled `a..z` check had `< 'z'` (off-by-one) AND missed digits → just use **`isalnum()` / `tolower()`**.
+- **LC977:** fill the result **from the back** (write index `n-1` downward); largest squares are at the ends.
+
+### Problems that taught me
+- LC125 Valid Palindrome (converging + skip) · LC977 Squares of Sorted Array (converging, compare ends, fill from back)
+  · **LC15 3Sum (keystone: sort + fix-one + steer + skip-dups)** · LC11, LC42 — pending.
+
+_Last updated 2026-06-09. Level: learning (2E + 1M done — LC125/977/15 AC). See PROGRESS.md._

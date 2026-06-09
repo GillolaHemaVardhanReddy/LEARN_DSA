@@ -8,8 +8,28 @@ class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
         // cue: triplet sum=0 -> sort + fix one + two-pointer the rest (= Two Sum II inside)
-        // THE tricky part: skip duplicates at i, and at L/R after a hit.
-        return {};
+        int n = nums.size();
+        sort(nums.begin(), nums.end());
+        vector<vector<int>> ans;
+        for(int i = 0 ; i < n ; i++ ) {
+            int k = n-1;
+            int j = i+1;
+            while( j < k ) {
+                if(nums[i] + nums[j] + nums[k] == 0) {
+                    ans.push_back({nums[i], nums[j], nums[k]});
+                    int check_j = nums[j], check_k = nums[k];
+                    while(nums[j] == check_j){
+                        j++;
+                    }
+                    while(nums[k] == check_k){
+                        k--;
+                    }
+                } else {
+                    j++;
+                }
+            }
+        }
+        return ans;
     }
 };
 

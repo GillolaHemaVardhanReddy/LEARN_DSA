@@ -8,8 +8,31 @@ class Solution {
 public:
     vector<int> sortedSquares(vector<int>& nums) {
         // cue: sorted, largest squares at the ENDS -> converging two pointers
-        // compare |nums[L]| vs |nums[R]|, take bigger square, fill result from the back.
-        return {};
+        int n = nums.size(), start = 0 , end = n-1;
+        vector<int> ans(n);
+        int insert = n-1;
+        while(start < end && insert >=0) {
+            cout<< abs(nums[start]) << " " << abs(nums[end]) << "\n";
+            if(abs(nums[start]) > abs(nums[end])){
+                ans[insert] = nums[start] * nums[start];
+                start++;
+                insert--;
+            } else if(abs(nums[start]) < abs(nums[end])) {
+                ans[insert] = nums[end] * nums[end];
+                end--;
+                insert--;
+            } else {
+                ans[insert] = nums[end] * nums[end];
+                ans[insert-1] = nums[end] * nums[end];
+                insert-=2;
+                start++;
+                end--;
+            }
+        }
+        if(start==end){
+            ans[insert] = nums[start] * nums[end];
+        }
+        return ans;
     }
 };
 
