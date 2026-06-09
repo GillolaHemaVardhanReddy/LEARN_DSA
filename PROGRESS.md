@@ -97,7 +97,7 @@ _Advanced-tier modules added here only if pursued._
   Root = M2 Hashing never formally taught. Clears after hashing lesson + a fresh drill ≥6/7. See MISTAKE #6.
 
 ## Problem counters
-- Easy solved: 9 (LC643, LC1343 self-reported · **LC724, LC1480, LC303 judge-verified** · **LC1 Two Sum, LC242 Valid Anagram** AC 6/8 · **LC217 Contains Duplicate, LC219 Contains Duplicate II** — SOLO AC 6/8) · Medium solved: 13 (LC209, LC3, LC1004, **LC560, LC974, LC525, LC238, LC523** — judge-verified · **LC567** AC self-reported 6/8 ⚠️ repo file broken, reconcile · **LC49, LC128** AC 6/8 · **LC347 Top-K, LC36 Valid Sudoku** — SOLO AC 6/8) · Hard (stretch): 0 (LC862 PARKED — needs monotonic deque/M8) · Total: 22
+- Easy solved: 9 (LC643, LC1343 self-reported · **LC724, LC1480, LC303 judge-verified** · **LC1 Two Sum, LC242 Valid Anagram** AC 6/8 · **LC217 Contains Duplicate, LC219 Contains Duplicate II** — SOLO AC 6/8) · Medium solved: 13 (LC209, LC3, LC1004, **LC560, LC974, LC525, LC238, LC523** — judge-verified · **LC567** AC self-reported 6/8 ⚠️ repo file broken, reconcile · **LC49, LC128** AC 6/8 · **LC347 Top-K, LC36 Valid Sudoku** — SOLO AC 6/8 · **LC125 Valid Palindrome, LC977 Squares** — 2ptr easy 6/9) · Medium +2ptr: **LC15 3Sum, LC11 Container** (6/9, coached) · Hard (stretch): 0 (LC862 PARKED; LC42 Trapping = weekend) · Total: 26
 
 ## Interview readiness (estimate — label as such)
 - Problem solving: 0/100
