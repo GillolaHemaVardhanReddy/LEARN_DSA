@@ -9,7 +9,18 @@ class Solution {
 public:
     void sortColors(vector<int>& nums) {
         // cue: 3 distinct values, partition in place -> low/mid/high pointers (Dutch flag)
-        // YOUR CODE HERE
+        int n = a.size(), j = n-1;
+        for(int i = 0 ; i < n-1; i++){
+            j = n-1;
+            while(i < j) {
+                if(a[i] > a[j]){
+                    int temp = a[j];
+                    a[j] = a[i];
+                    a[i] = temp;
+                }
+                j--;
+            }
+        }
     }
 };
 

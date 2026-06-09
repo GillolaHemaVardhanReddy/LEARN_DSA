@@ -4,12 +4,27 @@
 
 #include <bits/stdc++.h>
 using namespace std;
-
 class Solution {
 public:
+    bool checkPoly(string s, int start, int end){
+        while(start<end){
+            if(s[start]!=s[end]) return false; 
+            start++; 
+            end--;
+        }
+        return true;
+    }
     bool validPalindrome(string s) {
         // cue: ___ -> converging two pointers; on a mismatch you may skip ONE char (two options to try)
-        // YOUR CODE HERE
+        int n = s.length();
+        int st = 0 , en = n-1;
+        while(st<en){
+            if(s[st]!=s[en]){
+                return checkPoly(s, st+1, en) || checkPoly(s, st, en-1);   
+            }
+            st++;
+            en--;
+        }
         return true;
     }
 };

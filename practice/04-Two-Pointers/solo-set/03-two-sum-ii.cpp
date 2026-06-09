@@ -7,10 +7,16 @@ using namespace std;
 
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& numbers, int target) {
+    vector<int> twoSum(vector<int>& a, int k) {
         // cue: sorted + pair by sum -> converging; sum<target -> L++, sum>target -> R--. Return 1-INDEXED.
-        // YOUR CODE HERE
-        return {};
+                int n = a.size(), i = 0, j = n-1;
+        while(i < j) {
+            int sum = a[i] + a[j];
+            if(sum > k) j--;
+            else if(sum <k) i++;
+            else break;
+        }
+        return {i+1, j+1};
     }
 };
 
