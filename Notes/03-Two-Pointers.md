@@ -15,8 +15,17 @@ O(n) pass** what brute force does in O(n²).
 > **SORTED** array + find a **pair/triple by sum or diff** · compare from **both ends** ·
 > **partition / rearrange** in place · (later) fast/slow on a sequence.
 >
-> **GATE — your big discrimination:** **SORTED → two pointers · UNSORTED → hashing.**
-> Two pointers *needs* order to know which pointer to move. No order → no two pointers.
+> **THE REAL RULE (corrected 2026-06-09 after LC11):** Two pointers works whenever you can make a
+> **provably-safe decision about which pointer to move** — i.e. you can prove discarding one side
+> *never* loses the answer. "Sorted" is the most common *enabler* of that proof, NOT the requirement.
+> - **Sorted/monotonic** enables it for **sum/pair** problems (too big → drop the largest). Quick screen: *"sorted + pair by sum?"* → two pointers.
+> - **But not the only enabler:** **Container With Most Water (LC11) is UNSORTED**, yet two pointers works —
+>   the *"shorter wall caps the area"* property proves the safe move (move the shorter wall; any container using it
+>   is already capped and ≤ current width, so you lose nothing).
+> - So the real screen isn't *"is it sorted?"* — it's **"can I prove which pointer to move without losing the answer?"**
+>
+> ⚠️ The narrower **"unsorted pair-SUM → hashing, not two pointers"** still holds — that's specifically for the
+> complement/pair-sum recognition. It does NOT mean "two pointers needs sorted" in general (LC11/LC42 are unsorted).
 
 ---
 

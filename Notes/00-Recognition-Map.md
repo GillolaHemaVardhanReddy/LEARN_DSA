@@ -29,8 +29,11 @@ These are the *exact* mistakes from my drill (scored 4/7). Each is a "looks like
 ### 🔴 Two Pointers vs Hashing
 > **Is the data SORTED?**  **Sorted → two pointers.  UNSORTED → hashing.**
 - Unsorted Two Sum / "duplicate within distance k" → **HASHING**, not two pointers.
-- Two pointers *needs* sorted/monotonic structure to know which pointer to move. No sort → no two pointers.
+- This discrimination is specifically for the **complement / pair-SUM** family: there, two pointers needs sortedness, so unsorted → hashing.
 - ⚠️ My repeated leak: parking every pair/duplicate problem under "two pointers." STOP — ask "sorted?" first.
+- 🔸 **But "two pointers" is NOT limited to sorted arrays in general.** The real requirement is a *provably-safe move*
+  (discarding one side never loses the answer). Sorted enables that for sums; a greedy property enables it elsewhere —
+  e.g. **Container/Trapping (LC11/LC42) are UNSORTED** and use the "move the limiting side" proof. See `Notes/03`.
 
 ### 🔴 Sliding Window vs Prefix+Hash
 > **THE ONE-LINE TEST:** *Can the window's target move MONOTONICALLY as the window grows?*
