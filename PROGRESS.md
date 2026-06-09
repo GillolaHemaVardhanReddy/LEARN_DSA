@@ -53,7 +53,7 @@ unseen) · L6 teaches. Dashboard %: L0=0, L1=15, L2=35, L3=55, L4=75, L5=90, L6=
 | M3 | Two Pointers | **L3** | 2026-06-09 | 2/2 | **L3 (implements w/ guidance)**: theory→video→practice. AC LC125/977 (easy, solo) + LC15 3Sum & LC11 Container (mediums, but **coached** — brute→hashmap-TLE→two-ptr debug on 3Sum, derived Container's greedy proof via my Socratic guidance). **Learner himself flagged this isn't clean L4** (2026-06-09) → **L4 PENDING a SOLO set** (he'll do on free time). LC42 Trapping = HARD, weekend. Caught & fixed a wrong "sorted-only" rule in notes. |
 | M4 | Sliding Window | L4 | 2026-06-04 | 2/3 | **WITNESSED L4**: 3 mediums AC — LC209/LC3/LC1004. Recognition + approach independent. Residual: boundary/order values. |
 | M5 | Prefix Sum | **L4** | 2026-06-05 | 1/3 | **WITNESSED L4**: prefix+hash engine applied to 3 distinct keys — LC560 (complement sum−k, largely solo), LC974 (remainder mod k, derived structure; needed the negative-modulo PRIMITIVE), LC525 (transform 0→−1 + first-index map; heavily coached on the logic but AC). +LC724 easy AC. Recognition path (window-dead→prefix→isolate complement→hash) understood. Linked to Two Sum. |
-| M6 | Binary Search | L0 | — | 0/0 | |
+| M6 | Binary Search | **L1** | 2026-06-09 | 0/0 | **L1 (introduced)**: theory done — halving/O(log n), MONOTONICITY principle (NO→YES flip), recognition map (exact / lower-upper-bound / **search-on-the-answer** Koko / rotated / 2D), 3 templates + pitfalls. Notes/06 written. Next = Striver videos [045/046/047/056] → problems. |
 | M7 | Stacks & Monotonic Stack | L0 | — | 0/0 | |
 | M8 | Queues & Deque | L0 | — | 0/0 | |
 | M9 | Recursion | L0 | — | 0/0 | |
