@@ -30,6 +30,18 @@ Status: Open / Re-tested-pass / Re-tested-fail
 ## Entries
 > Newest first. Keep them short and honest.
 
+### [#7] Reactive debugging — band-aid `if(s==e)` patches instead of reasoning edges up front
+Date: 2026-06-09
+Module / Pattern: M6 Binary Search (LC704, LC35) — but cross-cutting
+Type: Process / boundary-execution
+What I did (the wrong move): submit → see ONE failing test case → bolt on a special-case patch (`if(s==e){...}`) for exactly that case → resubmit. Repeated every problem. Also wrote `return mid;` at the end (luck-dependent; garbage on empty array). Recognition was fine; the loop was "patch the symptom the judge showed me."
+Root cause: not trusting the clean template (which handles single/empty/insert-at-end BY DESIGN), and reasoning edges only AFTER the judge fails, never before. The patches are band-aids that make the code fragile.
+Correct understanding: the clean templates (exact search; store-candidate lower bound) need ZERO special cases — single element, empty, target<all/>all all fall out of the standard loop. Return the stored `ans`, never a stray `mid`.
+Prevention rule: **BEFORE submitting, trace the 4 edges myself** — single element (present/absent), empty, target < all / > all (insert 0 / n), target at first/last index. No `if(s==e)` patches. Trust the template. (In Notes/00 boundary framework + Notes/06.)
+Re-test problem: LC34 First/Last + LC875 Koko (tomorrow) — solve with the clean template, edges reasoned up front, ZERO special-case patches, first-submit AC.
+Re-attempt on: 2026-06-10 (BS mediums)
+Status: Open
+
 ### [#6] Defaulted HASHING problems to "two pointers"; SW over-fired on a transformed array
 Date: 2026-06-08
 Module / Pattern: M2 Hashing recognition (drill) · M4/M5 discrimination
@@ -120,6 +132,7 @@ Status: **RE-TESTED PASS (2026-06-05)** — derived `prefix[R]-prefix[L-1]` cold
 | **Logic right, boundary/sentinel/ORDER/INDEX value wrong** (prefix L-1; min-init+return; off-by-one `right-left+1` & `i+1`; `prefix[-1]`/`prefix[n]` OOB; forgot `seen[0]=-1`; `if(map[key])` index-0 trap; first-index overwrite; reverse-loop `i++`; LC567 missing `-'a'` ×2 + left-never-incremented; LC1 lookup-vs-insert ORDER; LC128 fwd-vs-bwd compare + loop `<size()-1` + empty-array) | **12** | Run the pre-code boundary checklist BEFORE coding. #1 leak — STILL the dominant failure mode. EVERY problem this session leaked here while the logic was right. Standing pre-submit Qs: does the loop touch FIRST & LAST element? empty input? consistent compare direction? lookup-before-insert? RE-RUN after any edit. | 2026-06-08 (LC1 order, LC128 ×3) |
 | **Unsorted pair/duplicate/complement → defaults to "two pointers" instead of HASHING** | **2** | Before "two pointers," ask "is the data SORTED/monotonic?" If no → hashing. (Unsorted Two Sum misclassified 2026-06-06 and again in 6/8 drill Q3/Q7.) | 2026-06-08 (drill Q3, Q7) |
 | **Sliding window over-fires onto problems with negatives / ±1 transforms** | **1** | Before "sliding window," ask "can values be negative (or did I transform to ±1)?" If yes → prefix+hash. | 2026-06-08 (drill Q6) |
+| **Reactive debugging — patch the failing test instead of reasoning edges up front** | **2ptr+BS** | Trace the 4 edges (single/empty/first/last/insert) BEFORE submit. No band-aid `if(s==e)` patches — trust the clean template. (Move Zeroes OOB, Palindrome II skip-logic, LC704/35 `if(s==e)`.) | 2026-06-09 (LC704/35) |
 
 ---
 

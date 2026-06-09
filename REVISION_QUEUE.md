@@ -24,7 +24,11 @@
 | 2026-06-13+ | **L5 recognition drill (DELAYED + interleaved)** | L5 test | `/drill` | Learner's call (good instinct): do NOT test L5 immediately after L4 — immediate = short-term recall, not transfer. Take a gap + learn M3 Two Pointers first, THEN cold-drill SW/Prefix/Hashing interleaved. Prior 4/7 (hashing 0/2); target ≥6/7 incl. all hashing Qs → that earns L5. |
 | 2026-06-08 | Prefix Sum + Hash (GOAL×KEY) | +1d | recall | Heavily reinforced 6/7 (LC238/LC523 AC). Re-test: reconstruct GOAL×KEY cold + solve one prefix problem map-closed. |
 | 2026-06-08 | Boundary/INDEX values (**WEAK**, 7×) | re-test | re-test | Recurred 6/7 (LC523 truthiness/overwrite/off-by-one). He now self-IDs them as index bugs. Clears after 2 clean mediums w/ zero index bugs. |
-| 2026-06-11 | MISTAKE #6 re-test (hashing recognition) | re-test | recall | After hashing lesson: LC1 Two Sum + LC219 Contains Duplicate II — must reach for hashing, NOT two pointers. |
+| ✅ DONE 2026-06-11→09 | ~~MISTAKE #6 re-test (hashing recognition)~~ | done | recall | LC219 solved SOLO via hashing (last-seen map), NOT two pointers → drill Q7 miss CLEARED. |
+| **2026-06-10** | **BS mediums LC34 + LC875 (MISTAKE #7 re-test)** | new + re-test | solo | Solve with the CLEAN template, reason 4 edges BEFORE submit, ZERO `if(s==e)` band-aids → first-submit AC. Earns BS L4. |
+| **2026-06-10** | Binary Search concept recall (+1d) | +1d | recall | Closed-book: the MONOTONICITY cue · "one engine, 4 knobs" · store-candidate template · search-on-answer (lo/hi = values). |
+| weekend | **2ptr REVISIT: re-code LC75 as Dutch-flag** | revisit | solo | L4 gap — implement the low/mid/high 3-way partition (NOT selection-sort) to cement the technique. + LC42 Trapping (hard). |
+| ongoing | **Boundary EXECUTION (WEAK, the #1 leak)** | standing | re-test | Now framed as PROCESS: trust clean template + reason 4 edges before submit (Notes/00 framework). Clears after 2 mediums solved first-submit with zero band-aid patches. |
 | after M8 Deques | LC862 Shortest Subarray Sum≥K (**PARKED**) | deferred | hard | Needs monotonic deque. Revisit once M8 is learned — it'll be natural then. |
 
 ## Scheduled (upcoming)
@@ -50,6 +54,8 @@
 | 2026-06-08 | LC567 Permutation in String | new (L4, fixed-window) | PASS after 5 attempts (incremental slide; see MISTAKE #6) | 2026-06-15 (cold re-test) |
 | 2026-06-08 | M2 Hashing formal lesson + LC1/242/49/128 | new (L3) | PASS coached (bug-heavy; not solo) | 2026-06-09 (+1d recall) |
 | 2026-06-08 | M2 Hashing SOLO SET (LC217/219/347/36) | L4 gate | **PASS — all 4 AC SOLO → L4 EARNED** | 2026-06-11 (+3d) |
+| 2026-06-09 | M3 Two Pointers solo (LC167/75/283/680) | L4 gate | **PASS (converging) → L4** — LC167 clean solo; LC75 via sorting (gap: Dutch-flag); easies coached | 2026-06-12 (+3d) |
+| 2026-06-09 | M6 Binary Search easies (LC704/35) | new (L3) | PASS but reactive band-aid patches (MISTAKE #7) | 2026-06-10 (mediums + clean) |
 
 ---
 

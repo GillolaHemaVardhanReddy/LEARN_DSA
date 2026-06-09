@@ -79,14 +79,14 @@ RULE: unsorted + pair/duplicate/complement ⇒ hash map (two pointers needs SORT
 Taught me by: LC3 (unordered_set), the whole M5 prefix+hash family; 6/8 drill flagged the recognition gap. NEXT: formal lesson + LC1 Two Sum.
 
 ### Two Pointers
-Level: L0 (not formally taught — but a recognition RULE is already needed)
-Trigger: **SORTED (or monotonic) array, find a pair/triple by a sum/diff condition**, OR compare from both ends.
-⚠️ **GATE before reaching for this: is the data SORTED/monotonic?** If NOT sorted → it's almost always **HASHING**, not two pointers. (My #1 recognition leak — I keep parking unsorted pair/duplicate problems here. See MISTAKE #6.)
-Why it works: on sorted data, moving the pointer that's "too small/too big" provably can't skip the answer → O(n) instead of O(n²).
-Template/skeleton: (to fill at lesson) `l=0, r=n-1; while(l<r){ if(sum<target) l++; else if(sum>target) r--; else return; }`
-Complexity: time O(n) after an O(n log n) sort / space O(1).
-Variants & gotchas: needs sorting first if unsorted — and sorting destroys original indices (so if the problem wants indices of an UNSORTED array → hashing).
-Taught me by: (upcoming, M3)
+Level: **L4 (converging) 2026-06-09** — LC167 clean solo + LC11 Container largely his. Full notes: `Notes/03`. GAPS: Dutch-flag re-code, boundary reflex, L5.
+Trigger: the REAL rule is a **provably-safe move** (discarding one side never loses the answer). SORTED enables that for **sum/pair** problems — but it's NOT the only enabler (Container/Trapping are UNSORTED, use "move the limiting side"). Quick screen: "sorted + pair by sum?".
+⚠️ **GATE for the PAIR-SUM family: is it SORTED?** If NOT sorted → **HASHING**, not two pointers. (My #1 recognition leak — see MISTAKE #6.) But "two pointers" ≠ "needs sorted" in general.
+Why it works: a provable safe-discard each step → O(n). For sums: too-big drops the largest. For Container: shorter wall caps area, so move it.
+The 3 shapes: **converging** (opposite ends — sum-steered or greedy) · **fast/slow** (read/write in place) · **fix-one + two-pointer** (3Sum). Plus **Dutch flag** (3-way partition, low/mid/high — left-known/right-unknown asymmetry: advance mid on a 0-swap, NOT on a 2-swap).
+Complexity: O(n) (O(n log n) if you sort first) / O(1) space — the selling point vs hashing.
+Variants & gotchas: 3Sum = sort + fix-one + steer + **skip dups at i AND L/R** (structural skip beats set<vector> which TLEs on constant factor). Valid Palindrome II = converging + **commit the ONE deletion at the mismatch** → check both halves fully (helper). Boundary traps: `L<R` bound, skip-dup needs `L<R &&` guard, `a[L]+a[R]` overflow.
+Taught me by: LC167 (converging) · LC15 3Sum · LC11 Container (greedy) · LC125/977/283/680 · LC75 (Dutch-flag concept). LC42 Trapping = weekend.
 
 ### Sliding Window
 Level: L4 (variable: 3 mediums AC — LC209/LC3/LC1004) · fixed self-reported
@@ -157,13 +157,24 @@ prefix so "scan all starts" becomes one O(1) lookup (O(n²)→O(n)). **`map`(O(l
 use unordered_map when you don't need sorted keys (LC523: 150ms→81ms just by switching).
 
 ### Binary Search (incl. on answer)
-Level: L0
-Trigger:
-Why it works:
-Template/skeleton:
-Complexity:
-Variants & gotchas:
-Taught me by:
+Level: **L3** (2026-06-09 — theory+videos+notes; LC704/35 easies AC; mediums pending). Full notes: `Notes/06`.
+Trigger (my words): the real cue is **MONOTONICITY** — any "NO NO NO YES YES YES" flip, not just "sorted array".
+"sorted + search" · "first/last/boundary/insert-position" · "**min/max value such that feasible**" (search the ANSWER) · "monotonic yes/no".
+Why it works: each step halves the search space → O(log n). Safe to discard a half because monotonicity guarantees the answer isn't there.
+Template/skeleton (ONE engine, FOUR knobs: condition · move-direction · range · return):
+```cpp
+// STORE-THE-CANDIDATE (my default for bounds + search-on-answer)
+int lo=START, hi=END, ans=DEFAULT;          // array→indices [0,n-1]; answer-search→VALUES [min,max]
+while (lo <= hi) {
+    int mid = lo + (hi-lo)/2;               // overflow-safe!
+    if (condition(mid)) { ans=mid; hi=mid-1; }   // min/first→go LEFT (max/last→lo=mid+1)
+    else                  lo=mid+1;
+}
+return ans;
+```
+Complexity: O(log n); search-on-answer = O(n · log(range)).
+Variants & gotchas: exact / lower-upper bound / **search-on-answer (Koko: lo,hi are VALUES, feasible(k)=Σceil(pile/k)≤h, use long long)** / rotated (one half always sorted) / 2D / on-a-function. **PITFALLS (my #1 leak):** `lo<=hi` vs `lo<hi`, `mid=lo+(hi-lo)/2`, `lo=mid+1` makes progress (no infinite loop), `hi=mid` vs `hi=mid-1`. **NO band-aid `if(s==e)` patches — clean template handles single/empty by design; reason 4 edges BEFORE submit.**
+Taught me by: LC704 (exact), LC35 (lower bound) AC. Koko/rotated/split-array pending.
 
 ### Monotonic Stack
 Level: L0
