@@ -9,7 +9,18 @@ class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
         // cue: ___ -> two pointers, which shape?
-        // YOUR CODE HERE
+        int n = nums.size();
+        int s = 0 , e = 1;
+        if(n==1) return;
+        while(e<n){
+            while(nums[e]==0) e++;
+            if(nums[s]!=0) s++;
+            else {
+                int temp = nums[e];
+                nums[e] = nums[s];
+                nums[s] = temp;
+            }
+        }
     }
 };
 
