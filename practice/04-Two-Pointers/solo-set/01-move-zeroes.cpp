@@ -10,15 +10,14 @@ public:
     void moveZeroes(vector<int>& nums) {
         // cue: ___ -> two pointers, which shape?
         int n = nums.size();
-        int s = 0 , e = 1;
+        int s = 0;
         if(n==1) return;
-        while(e<n){
-            while(nums[e]==0) e++;
-            if(nums[s]!=0) s++;
-            else {
+        for(int e = 0; e<n; e++) {
+            if(nums[e]!=0){
                 int temp = nums[e];
                 nums[e] = nums[s];
                 nums[s] = temp;
+                s++;
             }
         }
     }

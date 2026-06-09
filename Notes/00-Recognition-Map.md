@@ -80,6 +80,19 @@ These are the *exact* mistakes from my drill (scored 4/7). Each is a "looks like
 - [ ] **Index by char?** always `- 'a'` / `- '0'`
 - [ ] **After ANY edit:** re-read the whole function top-to-bottom before submitting (catches dangling vars / leftover returns)
 
+### 🧱 WHY boundaries break — root-cause fixes (read this when frustrated)
+> Off-by-one / boundary bugs are the **#1 bug class in ALL of programming** — everyone hits them, incl. seniors.
+> Not a smarts problem — a **discipline** problem (trainable). My logic is right every time; only the edges leak.
+
+**A) The 4 questions — run on every loop:**
+1. **In-bounds?** Before any `arr[i]`, what's the max `i` here — is it `< n`? Put the bound INSIDE the loop/while condition as the **first** clause: `i < n && ...` (short-circuits before the read).
+2. **Guard agrees with access?** If the body reads `arr[e]`, the condition must guarantee `e < n` *at that line*. A guard at the TOP of the loop is **stale** after an inner mutation → re-guard where the access happens (`if (e == n) break;`). ← this was the Move Zeroes OOB.
+3. **Termination?** Does every branch advance *something*? A branch that leaves all indices unchanged → infinite loop.
+4. **Trace 4 edges:** empty · single · all-same · none-match.
+
+**B) When boundaries KEEP breaking → REPLACE the structure (don't patch it).**
+A single forward loop where **one pointer does all the indexing** (`for read…; write trails`) is boundary-proof *by construction*. Two indices + a nested `while` that mutates one of them = a minefield. (Move Zeroes: the read/write 3-liner can't OOB; the s/e + nested-while can.) **Choosing a boundary-proof structure IS the senior move — not a cop-out.**
+
 ---
 
 ## ④ COMPLEXITY — the rules I keep re-deriving
