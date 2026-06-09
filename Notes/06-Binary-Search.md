@@ -78,6 +78,26 @@ while (lo < hi) {
 return lo;                               // smallest feasible value
 ```
 
+### ⭐ Method A — STORE-THE-CANDIDATE (my intuitive default — use this one)
+The unified way I think about ALL of upper/lower bound + min/max + search-on-answer:
+keep a saved `ans`; on every `mid` that satisfies the condition, **save it and search the side
+that could hold a better one**; run until `lo > hi`.
+```cpp
+int lo = START, hi = END, ans = DEFAULT;   // array: [0,n-1]; answer-search: [minVal,maxVal]
+while (lo <= hi) {                          // run FULLY until lo > hi
+    int mid = lo + (hi - lo) / 2;
+    if (condition(mid)) { ans = mid; hi = mid - 1; }   // candidate! save, then look for a BETTER one
+    else                { lo = mid + 1; }
+}
+return ans;
+```
+- **min / first → on a hit go LEFT** (`hi = mid - 1`). **max / last → on a hit go RIGHT** (`lo = mid + 1`).
+- `condition` = `a[mid] >= x` (lower bound) · `a[mid] > x` (upper bound) · `feasible(mid)` (Koko).
+- **What you halve:** array search → `lo/hi` are **indices**; search-on-answer → `lo/hi` are **values** (derive the range: e.g. Koko `lo=1, hi=max(pile)`). Same engine either way.
+- ans can't get "lost" — you saved it every time the condition held. Loop breaks at `lo > hi` → confident answer.
+
+> ONE TOOL, FOUR KNOBS: **condition · move-direction (min→left/max→right) · range (indices or a derived value-range) · what you return.**
+
 ---
 
 ## ⚠️ THE PITFALLS (my #1 leak lives here — revise HARDEST)
