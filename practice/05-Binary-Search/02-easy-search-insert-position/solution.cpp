@@ -6,9 +6,23 @@ using namespace std;
 
 class Solution {
 public:
-    int searchInsert(vector<int>& nums, int target) {
+    int searchInsert(vector<int>& a, int k) {
         // knobs: cond nums[mid]>=target -> ans=mid, hi=mid-1 (look left); else lo=mid+1; default ans=n
-        // YOUR CODE HERE
+        // lower bound 
+        int n = a.size(), s = 0, e = n-1, ans = 0, mid;
+        while(s<=e){
+            if(s==e){
+                if(k > a[s]) return s+1;
+                else if(k<a[s]) return s;
+            }
+            mid = (s+e)/2;
+            if(a[mid] > k) e = mid - 1;
+            else if(a[mid] < k) s = mid + 1;
+            else {
+                return mid;
+            }
+        }
+        return mid;
         return 0;
     }
 };

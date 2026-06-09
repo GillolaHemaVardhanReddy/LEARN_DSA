@@ -6,10 +6,23 @@ using namespace std;
 
 class Solution {
 public:
-    int search(vector<int>& nums, int target) {
+    int search(vector<int>& a, int k) {
         // knobs: cond nums[mid] vs target; move lo=mid+1 / hi=mid-1; range [0,n-1] lo<=hi; return index or -1
-        // YOUR CODE HERE
-        return -1;
+        int s = 0, e = a.size()-1, ans = -1;
+        if(s==e){
+            if(a[s]==k) return 0;
+            else return -1;
+        }
+        while(s<=e){
+            int mid = (e+s)/2;
+            if(a[mid] > k) e = mid-1;
+            else if(a[mid] < k) s = mid+1;
+            else {
+                ans = mid;
+                break;
+            }
+        }
+        return ans;
     }
 };
 

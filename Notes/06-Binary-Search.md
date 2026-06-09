@@ -100,6 +100,14 @@ return ans;
 
 ---
 
+## 🚫 NO band-aid special-cases (my reactive-debugging trap, 2026-06-09)
+I keep submitting, seeing one failing test, and bolting on an `if(s==e){...}` patch. **STOP.** The clean
+templates handle single-element / empty / insert-at-end **by design** — a special case means I don't trust
+the template. Also: never `return mid` at the end (luck-dependent + garbage on empty) — return the stored `ans`.
+**Process fix — trace these 4 BEFORE submitting (don't wait for the judge):**
+single element (present/absent) · empty · target < all / > all (insert 0 / n) · target at first / last index.
+Reason the edges up front → the judge stops surprising me → the patches disappear.
+
 ## ⚠️ THE PITFALLS (my #1 leak lives here — revise HARDEST)
 1. **`lo <= hi` vs `lo < hi`** — they pair with different update styles. Mixing them = bug.
    - `[lo, hi]` closed + `lo <= hi` + `lo=mid+1 / hi=mid-1` (exact search).
