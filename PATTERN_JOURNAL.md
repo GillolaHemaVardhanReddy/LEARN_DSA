@@ -120,7 +120,7 @@ Taught me by: LC209 Min Size Subarray Sum (shortest) + LC3 Longest Substring No-
 (record only when window is valid). Fixed-window: slide unconditionally, compare after.
 
 ### Prefix Sum (+ Hash Map of keys)
-Level: **L5 RECOGNIZED 2026-06-10** — drill Q4 (count subarrays sum=k WITH negatives) named cold with the exact trigger spoken aloud ("it breaks in sliding window ⇒ prefix+hash"). Mediums LC560/LC974/LC525 AC + LC724 easy AC.
+Level: **L4 (approaching L5)** — drill Q4 (count subarrays sum=k WITH negatives) named cold w/ correct trigger, but it's ONE clean call after a 6/08 miss (routed prefix→SW). L5 needs a clean track record; re-test 6/14. Mediums LC560/LC974/LC525 AC + LC724 easy AC.
 Trigger (my words): "sum/count over RANGES" or "subarray sum = / divisible-by / equal-counts"
 **and sliding window is dead** (negatives present, or it's a count not a window) → prefix sum.
 If I then need to MATCH/COUNT something about two prefixes → put prefixes in a **hash map**.
