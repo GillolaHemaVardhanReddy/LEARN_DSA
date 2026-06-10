@@ -25,8 +25,11 @@
 | 2026-06-08 | Prefix Sum + Hash (GOAL×KEY) | +1d | recall | Heavily reinforced 6/7 (LC238/LC523 AC). Re-test: reconstruct GOAL×KEY cold + solve one prefix problem map-closed. |
 | 2026-06-08 | Boundary/INDEX values (**WEAK**, 7×) | re-test | re-test | Recurred 6/7 (LC523 truthiness/overwrite/off-by-one). He now self-IDs them as index bugs. Clears after 2 clean mediums w/ zero index bugs. |
 | ✅ DONE 2026-06-11→09 | ~~MISTAKE #6 re-test (hashing recognition)~~ | done | recall | LC219 solved SOLO via hashing (last-seen map), NOT two pointers → drill Q7 miss CLEARED. |
-| **2026-06-10** | **BS mediums LC34 + LC875 (MISTAKE #7 re-test)** | new + re-test | solo | Solve with the CLEAN template, reason 4 edges BEFORE submit, ZERO `if(s==e)` band-aids → first-submit AC. Earns BS L4. |
-| **2026-06-10** | Binary Search concept recall (+1d) | +1d | recall | Closed-book: the MONOTONICITY cue · "one engine, 4 knobs" · store-candidate template · search-on-answer (lo/hi = values). |
+| ✅ DONE 2026-06-10 | ~~BS mediums LC34 + LC875~~ | done | solo | **BOTH AC → M6 L4 EARNED.** Band-aids gone ✅, but Koko hit an overflow debug cycle (MISTAKE #8) — not first-submit-clean. MISTAKE #7 = re-tested PARTIAL. |
+| ✅ DONE 2026-06-10 | ~~L5 recognition drill (interleaved)~~ | done | `/drill` | **6/7** (up from 4/7). → M4 SW + M5 Prefix L5 RECOGNIZED. Hashing recog hole CLOSED bar the unsorted-pair first-instinct (MISTAKE #9). |
+| **2026-06-14** | **Unsorted-pair first-instinct (MISTAKE #9 re-test)** | re-test | `/drill` | Fresh interleaved drill — name an UNSORTED pair/complement problem as HASHING on FIRST instinct (no 2ptr detour). Clears → Hashing + Two-Pointers L5. |
+| **2026-06-11** | Binary Search concept recall (+1d) | +1d | recall | Closed-book: MONOTONICITY cue · "one engine, 4 knobs" · store-candidate template · search-on-answer (lo/hi = VALUES, [1,max]) · **the overflow rule (`mid=lo+(hi-lo)/2`, long-long accumulator).** |
+| 2026-06-12 | M4 SW + M5 Prefix L5 (next interval +2d) | +2d | `/drill` | Keep L5 warm — re-confirm cold in the next interleaved set (don't let fresh L5 decay). |
 | weekend | **2ptr REVISIT: re-code LC75 as Dutch-flag** | revisit | solo | L4 gap — implement the low/mid/high 3-way partition (NOT selection-sort) to cement the technique. + LC42 Trapping (hard). |
 | ongoing | **Boundary EXECUTION (WEAK, the #1 leak)** | standing | re-test | Now framed as PROCESS: trust clean template + reason 4 edges before submit (Notes/00 framework). Clears after 2 mediums solved first-submit with zero band-aid patches. |
 | after M8 Deques | LC862 Shortest Subarray Sum≥K (**PARKED**) | deferred | hard | Needs monotonic deque. Revisit once M8 is learned — it'll be natural then. |
@@ -56,6 +59,8 @@
 | 2026-06-08 | M2 Hashing SOLO SET (LC217/219/347/36) | L4 gate | **PASS — all 4 AC SOLO → L4 EARNED** | 2026-06-11 (+3d) |
 | 2026-06-09 | M3 Two Pointers solo (LC167/75/283/680) | L4 gate | **PASS (converging) → L4** — LC167 clean solo; LC75 via sorting (gap: Dutch-flag); easies coached | 2026-06-12 (+3d) |
 | 2026-06-09 | M6 Binary Search easies (LC704/35) | new (L3) | PASS but reactive band-aid patches (MISTAKE #7) | 2026-06-10 (mediums + clean) |
+| 2026-06-10 | M6 BS mediums (LC34 + LC875 Koko) | L4 gate | **PASS → L4** — both AC; band-aids gone; Koko overflow debug (MISTAKE #8) | 2026-06-12 (next search-on-answer) |
+| 2026-06-10 | Recognition drill (5 patterns cold, interleaved) | L5 test | **6/7** — M4 SW + M5 Prefix → **L5**; Q7 hashing CORRECT; Q1 unsorted-pair flicker (MISTAKE #9) | 2026-06-14 re-drill |
 
 ---
 

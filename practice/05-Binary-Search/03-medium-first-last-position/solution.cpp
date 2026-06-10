@@ -8,9 +8,28 @@ class Solution {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {
         // knobs: same engine twice. FIRST: on hit store + go LEFT. LAST: on hit store + go RIGHT.
-        // handle empty array -> {-1,-1}.
-        // YOUR CODE HERE
-        return {-1, -1};
+        int n = a.size(), s_ind = -1, e_ind = -1, s = 0 , e = n-1;
+        while(s<=e) {
+            int mid = (s+e)/2;
+            if(a[mid] < k) s = mid + 1;
+            else if(a[mid] > k) e = mid - 1;
+            else{
+                s = mid;
+                e = mid;
+                while(s >= 0){
+                    if(a[s] == k) s_ind = s;
+                    else break;
+                    s--;
+                }
+                while(e <n) {
+                    if(a[e] == k) e_ind = e;
+                    else break;
+                    e++;
+                }
+                break;
+            }
+        }
+        return {s_ind, e_ind};
     }
 };
 

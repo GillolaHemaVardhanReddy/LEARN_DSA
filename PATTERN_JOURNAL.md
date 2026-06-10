@@ -60,7 +60,7 @@ Taught me by: <problems that built this — link to MISTAKE_JOURNAL if relevant>
 ## Patterns (seed list — start at L0, grow as you go)
 
 ### Hashing / Frequency
-Level: **L4 EARNED 2026-06-08** — solo set LC217/219/347/36 all AC, recognition independent (flipped from drill 0/2). L5 (cold unseen) pending re-drill.
+Level: **L4** — solo set LC217/219/347/36 all AC. **Drill 6/10: Q7 (dup within k) named cold as hashing ✓ → the recurring "→2ptr" miss is CLEARED. Q1 (unsorted Two Sum): first instinct still flickered to "sort + two pointers" before recovering to the map.** L5 is one clean unsorted-pair call away — the recognition is right, the FIRST instinct on unsorted-pair isn't fully reflexive yet.
 Trigger (in my words): "seen before? / how many times? / look up a complement in O(1) / group by a shared property" → hash map. **GATE: is the data SORTED? If NOT → hashing, not two pointers.**
 Why it works: a hash function squashes ANY key (big int, string, negative) into a small array index → keep the array's O(1) access for arbitrary keys. Collisions are UNAVOIDABLE (pigeonhole: more keys than slots) → resolved by chaining (C++ `unordered_map`) or open addressing. Avg O(1); worst O(n) when many keys pile into one bucket.
 Template/skeleton: `unordered_map<int,int> cnt; cnt[x]++;` / `unordered_set<int> s; s.count(x);`
@@ -79,7 +79,7 @@ RULE: unsorted + pair/duplicate/complement ⇒ hash map (two pointers needs SORT
 Taught me by: LC3 (unordered_set), the whole M5 prefix+hash family; 6/8 drill flagged the recognition gap. NEXT: formal lesson + LC1 Two Sum.
 
 ### Two Pointers
-Level: **L4 (converging) 2026-06-09** — LC167 clean solo + LC11 Container largely his. Full notes: `Notes/03`. GAPS: Dutch-flag re-code, boundary reflex, L5.
+Level: **L4 (converging) 2026-06-09** — LC167 clean solo + LC11 Container largely his. Full notes: `Notes/03`. GAPS: Dutch-flag re-code, boundary reflex, L5. **Drill 6/10: Q2 (sorted pair) clean ✓ BUT Q1 (UNSORTED pair) over-fired here — reached for two pointers when the data isn't sorted. The disqualifier check ("is it sorted? loses indices?") isn't automatic yet. L5 held: fix the OVER-application, the twin of the hashing under-fire.**
 Trigger: the REAL rule is a **provably-safe move** (discarding one side never loses the answer). SORTED enables that for **sum/pair** problems — but it's NOT the only enabler (Container/Trapping are UNSORTED, use "move the limiting side"). Quick screen: "sorted + pair by sum?".
 ⚠️ **GATE for the PAIR-SUM family: is it SORTED?** If NOT sorted → **HASHING**, not two pointers. (My #1 recognition leak — see MISTAKE #6.) But "two pointers" ≠ "needs sorted" in general.
 Why it works: a provable safe-discard each step → O(n). For sums: too-big drops the largest. For Container: shorter wall caps area, so move it.
@@ -89,7 +89,7 @@ Variants & gotchas: 3Sum = sort + fix-one + steer + **skip dups at i AND L/R** (
 Taught me by: LC167 (converging) · LC15 3Sum · LC11 Container (greedy) · LC125/977/283/680 · LC75 (Dutch-flag concept). LC42 Trapping = weekend.
 
 ### Sliding Window
-Level: L4 (variable: 3 mediums AC — LC209/LC3/LC1004) · fixed self-reported
+Level: **L5 RECOGNIZED 2026-06-10** — named cold across two interleaved drills with ZERO misses (6/08: 3/3 true-SW · 6/10 Q3 shortest-subarray clean). Variable: 3 mediums AC (LC209/LC3/LC1004). The discrimination is solid: rejects negatives/±1-transform problems (routes them to prefix+hash) instead of over-firing.
 Trigger (my words, polished): When I see "**longest / shortest / min-length** **contiguous**
 subarray or substring that **satisfies a condition**" and the **size is not given** → variable
 sliding window. If the **size k IS given** → fixed window.
@@ -120,7 +120,7 @@ Taught me by: LC209 Min Size Subarray Sum (shortest) + LC3 Longest Substring No-
 (record only when window is valid). Fixed-window: slide unconditionally, compare after.
 
 ### Prefix Sum (+ Hash Map of keys)
-Level: L4 (LC560/LC974/LC525 mediums AC + LC724 easy AC)
+Level: **L5 RECOGNIZED 2026-06-10** — drill Q4 (count subarrays sum=k WITH negatives) named cold with the exact trigger spoken aloud ("it breaks in sliding window ⇒ prefix+hash"). Mediums LC560/LC974/LC525 AC + LC724 easy AC.
 Trigger (my words): "sum/count over RANGES" or "subarray sum = / divisible-by / equal-counts"
 **and sliding window is dead** (negatives present, or it's a count not a window) → prefix sum.
 If I then need to MATCH/COUNT something about two prefixes → put prefixes in a **hash map**.
@@ -157,7 +157,7 @@ prefix so "scan all starts" becomes one O(1) lookup (O(n²)→O(n)). **`map`(O(l
 use unordered_map when you don't need sorted keys (LC523: 150ms→81ms just by switching).
 
 ### Binary Search (incl. on answer)
-Level: **L3** (2026-06-09 — theory+videos+notes; LC704/35 easies AC; mediums pending). Full notes: `Notes/06`.
+Level: **L4 EARNED 2026-06-10** — LC34 (first/last) + LC875 (Koko, search-on-answer) mediums AC, on top of LC704/35 easies. Recognition independent on both. Support on Koko was a PRIMITIVE (integer-overflow magnitude), not the pattern. Drill 6/10 Q5/Q6 (search-on-answer + rotated) named cold — L5 HELD only because it's same-day as L4 (cadence: don't test transfer the day you reach the level). Full notes: `Notes/06`.
 Trigger (my words): the real cue is **MONOTONICITY** — any "NO NO NO YES YES YES" flip, not just "sorted array".
 "sorted + search" · "first/last/boundary/insert-position" · "**min/max value such that feasible**" (search the ANSWER) · "monotonic yes/no".
 Why it works: each step halves the search space → O(log n). Safe to discard a half because monotonicity guarantees the answer isn't there.
@@ -174,7 +174,9 @@ return ans;
 ```
 Complexity: O(log n); search-on-answer = O(n · log(range)).
 Variants & gotchas: exact / lower-upper bound / **search-on-answer (Koko: lo,hi are VALUES, feasible(k)=Σceil(pile/k)≤h, use long long)** / rotated (one half always sorted) / 2D / on-a-function. **PITFALLS (my #1 leak):** `lo<=hi` vs `lo<hi`, `mid=lo+(hi-lo)/2`, `lo=mid+1` makes progress (no infinite loop), `hi=mid` vs `hi=mid-1`. **NO band-aid `if(s==e)` patches — clean template handles single/empty by design; reason 4 edges BEFORE submit.**
-Taught me by: LC704 (exact), LC35 (lower bound) AC. Koko/rotated/split-array pending.
+⚠️ **OVERFLOW IS A 5th EDGE (Koko, LC875):** when lo/hi are VALUES up to 1e9, two arithmetic spots overflow `int`: (1) `mid=(lo+hi)/2` — the SUM hits 2.4e9 before the /2; fix = `mid=lo+(hi-lo)/2` (every intermediate ≤ hi). (2) the feasibility accumulator `sum=Σceil(pile/k)` — at k=1 that's the total bananas = up to 1e4·1e9 = **1e13**; `sum` and `find_hours`'s RETURN must be `long long`. Lesson: reason the MAGNITUDE of every `+`/`*`/accumulator, not just indices. (int ≈ ±2.1e9, long long ≈ ±9.2e18.)
+**Rotated array (LC33):** at each mid, ONE half is always sorted — test if target lies inside that sorted half; if yes search it, else the other. Still O(log n).
+Taught me by: LC704 (exact), LC35 (lower bound), LC34 (first/last), **LC875 Koko (search-on-answer + the overflow lesson, see MISTAKE #8)** AC. Rotated/2D/split-array pending.
 
 ### Monotonic Stack
 Level: L0

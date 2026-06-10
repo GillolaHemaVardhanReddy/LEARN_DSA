@@ -30,6 +30,32 @@ Status: Open / Re-tested-pass / Re-tested-fail
 ## Entries
 > Newest first. Keep them short and honest.
 
+### [#9] Unsorted-pair FIRST instinct still reaches for two pointers (recovers, but isn't reflexive)
+Date: 2026-06-10
+Module / Pattern: M2 Hashing ↔ M3 Two Pointers discrimination (drill Q1)
+Problem: `/drill` Q1 — unsorted array, return indices of a pair summing to target
+Type: Pattern-recognition
+What I did (the wrong move): led with "sort + two pointers (or binary search), O(n)/O(log n)", THEN hedged to a hash map. The pattern was eventually right but the FIRST move was the over-application — and the sort idea is doubly wrong here (O(n log n), and sorting destroys the original indices the problem asks for). Also claimed an impossible O(log n) (must read every element → O(n) floor).
+Root cause: the disqualifier check isn't automatic. "Two pointers" fires on "find a pair" by surface feature, before checking the gate "is the data SORTED? would sorting lose indices?". Twin failure: hashing under-fires while two-pointers over-fires — same coin.
+Correct understanding: unsorted + find a pair (esp. return INDICES) → **one-pass hash map** value→index, look up `target-x`, O(n). Two pointers earns the call ONLY when the data is already sorted.
+Prevention rule: before saying "two pointers," run the gate OUT LOUD — "Is it sorted? No → two pointers is OFF the table → hashing." Make the disqualifier the first thought, not the recovery.
+Re-test problem (similar, unseen): next `/drill` — an unsorted pair/complement question named HASHING on the first instinct, no two-pointers detour. Earns Hashing + Two-Pointers L5 together.
+Re-attempt on: 2026-06-14 (next interleaved drill)
+Status: Open
+
+### [#8] Integer overflow — didn't reason the MAGNITUDE of the arithmetic (only indices)
+Date: 2026-06-10
+Module / Pattern: M6 Binary Search (LC875 Koko, search-on-answer)
+Problem: LC875 Koko Eating Bananas — runtime crash `signed integer overflow: 1610612736 + 805306368 cannot be represented in type 'int'`
+Type: Edge case / boundary-value (magnitude)
+What I did (the wrong move): wrote `mid=(s+e)/2` with `s,e` as VALUES up to 1e9 → the SUM (2.4e9) overflows `int` before the `/2`. Also `int sum` for the feasibility accumulator Σceil(pile/k), which at k=1 = total bananas up to 1e13 — also overflows. Reasoned the index edges but never the SIZE of the numbers.
+Root cause: my boundary checklist covered init values / off-by-one / sentinels / order — but had NO line for "how big can each `+`/`*`/accumulator get? does it fit the type?" The leak is the same family as the index bugs (an edge not reasoned up front), just on magnitude instead of position.
+Correct understanding: `mid=lo+(hi-lo)/2` keeps every intermediate ≤ hi (≤1e9, fits int). Accumulators that can exceed ~2.1e9 must be `long long` (and so must the function's RETURN type). int ≈ ±2.1e9; long long ≈ ±9.2e18.
+Prevention rule: **NEW checklist line — for every `+`, `*`, and running accumulator, ask "what's the max value, and does it fit `int`?" If it can pass ~2e9 → `long long`. Always use `mid=lo+(hi-lo)/2`.**
+Re-test problem (similar, unseen): a future search-on-answer (LC1011 Capacity to Ship / LC410 Split Array) — set the value range + a long-long accumulator correctly on the FIRST write, no overflow crash.
+Re-attempt on: 2026-06-12 (next search-on-answer problem)
+Status: Open (LC875 AC'd 6/10 after the fix + coaching on the magnitude reasoning)
+
 ### [#7] Reactive debugging — band-aid `if(s==e)` patches instead of reasoning edges up front
 Date: 2026-06-09
 Module / Pattern: M6 Binary Search (LC704, LC35) — but cross-cutting
@@ -40,7 +66,7 @@ Correct understanding: the clean templates (exact search; store-candidate lower 
 Prevention rule: **BEFORE submitting, trace the 4 edges myself** — single element (present/absent), empty, target < all / > all (insert 0 / n), target at first/last index. No `if(s==e)` patches. Trust the template. (In Notes/00 boundary framework + Notes/06.)
 Re-test problem: LC34 First/Last + LC875 Koko (tomorrow) — solve with the clean template, edges reasoned up front, ZERO special-case patches, first-submit AC.
 Re-attempt on: 2026-06-10 (BS mediums)
-Status: Open
+Status: **RE-TESTED PARTIAL (2026-06-10)** — LC34 + LC875 AC, no `if(s==e)` band-aids this time (template trusted ✅). BUT Koko still needed a debug cycle on the overflow (a *different* edge — magnitude, see #8), not first-submit-clean. The band-aid reflex looks fixed; the "reason ALL edges up front" discipline isn't fully there. Keep on watchlist; clears on a first-submit-clean medium.
 
 ### [#6] Defaulted HASHING problems to "two pointers"; SW over-fired on a transformed array
 Date: 2026-06-08
@@ -53,7 +79,7 @@ Correct understanding: **Two pointers requires SORTED / monotonic structure.** U
 Prevention rule: Before saying "two pointers," ask **"is the data sorted/monotonic?"** If no → hashing. Before saying "sliding window," ask **"can values be negative (or did I transform to ±1)?"** If yes → prefix+hash.
 Re-test problem (similar, unseen): LC1 Two Sum (after hashing lesson), LC219 Contains Duplicate II, LC525 cold (already owed), + a fresh `/drill` post-hashing.
 Re-attempt on: 2026-06-11 (after M2 Hashing formal lesson)
-Status: Open
+Status: **RE-TESTED MOSTLY-CLEARED (2026-06-10 drill, 6/7)** — Q7 (dup within k) named cold as hashing ✅ (the exact 6/08 miss, now correct). Q1 (unsorted Two Sum): recognition RECOVERED to the hash map, but the FIRST instinct still reached for "sort + two pointers." So: hashing recognition restored; the residual is the unsorted-pair *first-instinct* (logged fresh as #9). Down from 0/2 hashing → effectively 1.5/2.
 
 ### [#5] `if(map[key])` truthiness trap + overwriting the first index
 Date: 2026-06-07
@@ -130,9 +156,10 @@ Status: **RE-TESTED PASS (2026-06-05)** — derived `prefix[R]-prefix[L-1]` cold
 | Pattern of error | Times seen | Standing rule | Last occurrence |
 |---|---|---|---|
 | **Logic right, boundary/sentinel/ORDER/INDEX value wrong** (prefix L-1; min-init+return; off-by-one `right-left+1` & `i+1`; `prefix[-1]`/`prefix[n]` OOB; forgot `seen[0]=-1`; `if(map[key])` index-0 trap; first-index overwrite; reverse-loop `i++`; LC567 missing `-'a'` ×2 + left-never-incremented; LC1 lookup-vs-insert ORDER; LC128 fwd-vs-bwd compare + loop `<size()-1` + empty-array) | **12** | Run the pre-code boundary checklist BEFORE coding. #1 leak — STILL the dominant failure mode. EVERY problem this session leaked here while the logic was right. Standing pre-submit Qs: does the loop touch FIRST & LAST element? empty input? consistent compare direction? lookup-before-insert? RE-RUN after any edit. | 2026-06-08 (LC1 order, LC128 ×3) |
-| **Unsorted pair/duplicate/complement → defaults to "two pointers" instead of HASHING** | **2** | Before "two pointers," ask "is the data SORTED/monotonic?" If no → hashing. (Unsorted Two Sum misclassified 2026-06-06 and again in 6/8 drill Q3/Q7.) | 2026-06-08 (drill Q3, Q7) |
+| **Unsorted pair/duplicate/complement → FIRST instinct = "two pointers" instead of HASHING** | **3 (improving)** | Before "two pointers," ask "is the data SORTED/monotonic?" If no → hashing. 6/10 drill: dup-within-k now CORRECT (Q7 ✓); but unsorted Two Sum (Q1) still flickered to 2ptr before recovering. Recognition restored, first-instinct not yet reflexive. See #9. | 2026-06-10 (drill Q1) |
 | **Sliding window over-fires onto problems with negatives / ±1 transforms** | **1** | Before "sliding window," ask "can values be negative (or did I transform to ±1)?" If yes → prefix+hash. | 2026-06-08 (drill Q6) |
-| **Reactive debugging — patch the failing test instead of reasoning edges up front** | **2ptr+BS** | Trace the 4 edges (single/empty/first/last/insert) BEFORE submit. No band-aid `if(s==e)` patches — trust the clean template. (Move Zeroes OOB, Palindrome II skip-logic, LC704/35 `if(s==e)`.) | 2026-06-09 (LC704/35) |
+| **Reactive debugging — patch the failing test instead of reasoning edges up front** | **2ptr+BS** | Trace the edges BEFORE submit. No band-aid `if(s==e)` patches — trust the clean template. 6/10: band-aids GONE on LC34/875 ✅, but Koko still hit a debug cycle on overflow (an edge not reasoned up front). | 2026-06-10 (LC875 overflow) |
+| **Integer OVERFLOW — type too small for the magnitude of `+`/`*`/accumulator** | **1** | For every add/multiply/accumulator ask "max value? fits int (±2.1e9)? else long long." Always `mid=lo+(hi-lo)/2`. (LC875: `(s+e)` and `int sum` of Σceil both overflowed.) | 2026-06-10 (LC875) |
 
 ---
 
@@ -150,3 +177,4 @@ Status: **RE-TESTED PASS (2026-06-05)** — derived `prefix[R]-prefix[L-1]` cold
       max(first-index, `seen[0]=-1`) / min / boolean. This decides the whole shape.
 - [ ] **MEANING OF EACH INPUT:** is `k` a sum, a length, a count? (don't write `i+k-1` for a sum.)
 - [ ] **Prefix+hash pre-load:** COUNT → `seen[0]=1`. LONGEST(first-index) → `seen[0]=-1`. Negatives mod k → `((x%k)+k)%k`.
+- [ ] **OVERFLOW / MAGNITUDE (new, MISTAKE #8):** for every `+`, `*`, and running accumulator, what's the MAX value? Fits `int` (±2.1e9)? If it can pass ~2e9 → `long long` (incl. the function's return type). Binary search: always `mid=lo+(hi-lo)/2`.
