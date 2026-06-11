@@ -19,6 +19,7 @@
 ## Due / overdue  _(work these first each session)_
 | Due date | Topic / Pattern | Interval stage | Type | Notes |
 |---|---|---|---|---|
+| **NEXT SESSION (top priority — his request)** | **HARD L5 recognition stress-drill (SW/Prefix/Hashing/2ptr/BS, interleaved)** | L5 test | `/drill` | Make it HARD: wordy/disguised statements, adversarial near-misses (looks-like-SW-but-is-prefix), 2-pattern combos, 5+ instances/pattern. Clears: confirms M4 SW L5, earns M5 Prefix L5 + the unsorted-pair first-instinct (MISTAKE #9) → Hashing + 2ptr L5. Then start M7 coding. |
 | ✅ DONE 2026-06-08 | ~~Hashing SOLO SET (L4 gate)~~ | done | solo | **ALL 4 AC SOLO** (LC217/219/347/36). M2 Hashing → **L4 EARNED**. LC219 cleared drill Q7 (chose hashing, not two pointers). |
 | 2026-06-09 | Hashing concept recall (+1d) | +1d | recall | Closed-book: why O(1) avg / O(n) worst? what's a collision & how resolved? the 4 sub-pattern cues (complement/freq/group-by-key/membership)? |
 | 2026-06-13+ | **L5 recognition drill (DELAYED + interleaved)** | L5 test | `/drill` | Learner's call (good instinct): do NOT test L5 immediately after L4 — immediate = short-term recall, not transfer. Take a gap + learn M3 Two Pointers first, THEN cold-drill SW/Prefix/Hashing interleaved. Prior 4/7 (hashing 0/2); target ≥6/7 incl. all hashing Qs → that earns L5. |

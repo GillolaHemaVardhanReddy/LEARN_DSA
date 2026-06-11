@@ -178,14 +178,34 @@ Variants & gotchas: exact / lower-upper bound / **search-on-answer (Koko: lo,hi 
 **Rotated array (LC33):** at each mid, ONE half is always sorted — test if target lies inside that sorted half; if yes search it, else the other. Still O(log n).
 Taught me by: LC704 (exact), LC35 (lower bound), LC34 (first/last), **LC875 Koko (search-on-answer + the overflow lesson, see MISTAKE #8)** AC. Rotated/2D/split-array pending.
 
+### Stack (plain LIFO)
+Level: **L2 (theory 2026-06-10; videos [297][298][301] watched)** — not yet coded from memory.
+Trigger (WHEN to use): "**matching / nesting / balanced**" or "the **most recent unmatched** thing decides" → stack. Brackets, undo, browser-back, anything LIFO.
+Why it works: holds the unresolved items in order, most-recent on top — exactly what a closer/next-item needs to check. Beats a COUNTER: a counter handles ONE bracket type but fails on mixed types (`([)]` counts to 0 yet is invalid) because it forgets WHICH opener is most recent.
+Template/skeleton: `stack<char> st;` push openers; on closer, `st.empty()||st.top()!=match → false`, else pop. Balanced ⇔ stack empty at end. All ops O(1).
+Complexity: O(n) time / O(n) space.
+Variants & gotchas: carry extra state on the stack when needed (Min Stack = push (val, min-so-far)). Empty-stack check BEFORE top()/pop() (boundary!).
+Taught me by: theory + Striver [297][298][300]. Code next session (Valid Parentheses) = L3.
+
 ### Monotonic Stack
-Level: L0
-Trigger:
-Why it works:
+Level: **L2 (theory 2026-06-10; video [301] watched)** — not yet coded from memory.
+Trigger (WHEN to use): "**for each element, find the NEXT or PREVIOUS greater/smaller element**" → monotonic stack. Also: Daily Temperatures, Stock Span, histogram-area, "how far until something bigger/smaller."
+Why it works: the stack holds elements **still waiting for their answer**, kept in monotonic order. A new element that breaks the order **resolves** the ones it beats — pop each and record the answer as you push. (Next-GREATER → keep a DECREASING stack; pop while new ≥ top.)
 Template/skeleton:
-Complexity:
-Variants & gotchas:
-Taught me by:
+```cpp
+// Next greater to the RIGHT (indices), answer = distance or value
+stack<int> st;                       // holds indices, temps decreasing
+for (int i = 0; i < n; i++) {
+    while (!st.empty() && a[i] > a[st.top()]) {
+        int j = st.top(); st.pop();
+        ans[j] = i - j;              // a[i] is j's next-greater
+    }
+    st.push(i);
+}                                    // leftovers in stack have no greater → default 0
+```
+Complexity: **O(n) AMORTIZED** — each element pushed once & popped at most once = 2n ops total, even with the inner while. (Same "enter once / leave once" argument as sliding window — this is the GATE for the topic.)
+Variants & gotchas: direction (next vs previous) = scan L→R vs R→L; greater vs smaller = flip the `>` and the stack's monotonic direction; circular array (NGE II) = loop `i` over `2n` with `%n`. Strict vs non-strict (`>` vs `>=`) matters for duplicates (subarray-min problems).
+Taught me by: theory + Daily Temperatures dry run; Striver [301][303][302][311]. Code next session = L3.
 
 ### Fast & Slow Pointers
 Level: L0
