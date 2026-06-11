@@ -19,7 +19,7 @@ unseen) · L6 teaches. Dashboard %: L0=0, L1=15, L2=35, L3=55, L4=75, L5=90, L6=
 - Target horizon: ~5 months → projected ready ≈ **2026-11-04** (recompute after observing velocity)
 
 ## Snapshot
-- Current phase: Foundations → Linear patterns
+- Current phase: Foundations → Linear patterns. **M7 Stacks STARTED (theory, L2) — next session: templates + Valid Parentheses → Daily Temperatures to earn L3/L4.**
 - Current module: **M5 Prefix Sum — DONE (L4)** (2026-06-05). M4 Sliding Window DONE (L4).
 - Current topic: **M6 Binary Search — L4 EARNED (2026-06-10)** (LC34 + LC875 mediums AC; overflow primitive learned, MISTAKE #8). NEXT BS reps for L5 coverage: LC33 rotated + LC74 2D-matrix (banked, not yet scaffolded). **SW + Prefix → L5 RECOGNIZED today via 6/7 interleaved drill.** Mastered **L4: SW, Prefix, Hashing, Two Pointers** (2ptr GAPS: Dutch-flag re-code, boundary reflex, L5 pending). CADENCE (memory): weekday=L4 (easy+medium), HARDS=weekend, L5 deferred to spaced drills. WEEKEND: LC42 Trapping + LC410 Split Array. **#1 leak = boundary EXECUTION (reactive debug-by-failing-test)** — fix = trust clean template + reason 4 edges before submit (Notes/00 + 06). REVISIT: 2ptr Dutch-flag (LC75).
   Plan: reason through practice sets understanding WHY; last 1–2 of each with GOAL×KEY map CLOSED; then **L5 test**
@@ -55,7 +55,7 @@ unseen) · L6 teaches. Dashboard %: L0=0, L1=15, L2=35, L3=55, L4=75, L5=90, L6=
 | M4 | Sliding Window | **L5** | 2026-06-10 | 2/3 | **L5 RECOGNIZED 2026-06-10**: named cold across TWO interleaved drills with zero misses (6/08 3/3 true-SW + 6/10 Q3 shortest-subarray). Correctly REJECTS negatives/±1-transform (routes to prefix+hash), no over-fire. Earlier L4: 3 mediums AC LC209/LC3/LC1004. |
 | M5 | Prefix Sum | **L4** | 2026-06-10 | 1/3 | **L4** — approaching L5 but NOT yet (honest pull-back 2026-06-10 after learner challenged it): drill Q4 (count subarrays=k w/ negatives) named cold + correct trigger ✅, BUT this is ONE clean call after a recent MISS (6/08 Q6 routed prefix→SW). L5 needs a clean track record, not one good call. Re-test 6/14. Mediums AC: LC560/LC974/LC525 + LC724. |
 | M6 | Binary Search | **L4** | 2026-06-10 | 2/2 | **L4 EARNED 2026-06-10**: mediums **LC34 (first/last)** + **LC875 Koko (search-on-answer)** AC, on top of LC704/35 easies. Recognition independent on both; support on Koko was a PRIMITIVE (int-overflow magnitude, MISTAKE #8), not the pattern. No `if(s==e)` band-aids this time (template trusted). Drill Q5/Q6 (search-on-answer + rotated) named cold — **L5 HELD** (same-day as L4 = short-term recall, not transfer; cadence rule). Residual: overflow/edge reasoning up front; rotated(LC33)+2D(LC74) unsolved. |
-| M7 | Stacks & Monotonic Stack | L0 | — | 0/0 | |
+| M7 | Stacks & Monotonic Stack | **L2** | 2026-06-10 | 0/0 | **L2 (understands)** — theory taught (LIFO, push/pop/top all O(1), the "most recent unmatched" model). Explained back: nailed LIFO pop order (D,C); parentheses needed sharpening (had a COUNTER model "cancel to 0" → corrected with `([)]` why a counter fails & a stack is needed). **Monotonic stack** taught: next-greater family, "elements waiting for their answer," amortized O(n) (each pushed once/popped once) via Daily Temperatures dry run. NEXT: templates + Valid Parentheses → Daily Temps (code from memory = L3). Striver [297]/[300]. |
 | M8 | Queues & Deque | L0 | — | 0/0 | |
 | M9 | Recursion | L0 | — | 0/0 | |
 | M10 | Backtracking | L0 | — | 0/0 | |
