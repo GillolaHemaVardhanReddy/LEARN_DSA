@@ -9,30 +9,32 @@ Decide whether s is a SUBSEQUENCE of t (all of s's chars appear in t in order, n
 > Fill this TOP-DOWN. Do NOT open LINKS.md or solution.cpp's signature until step 4 is written.
 
 ## 1. Restate (one sentence, my own words)
--
+- it was actually asking that we need to find if the t has s in it or not that too in same order and may not be continuous
 
 ## 2. Constraints -> target complexity
-- n bound / value range:
-- target Big-O (and WHY):
+- n bound / value range: 10^4 so it can be O(n) to stay in limits of 10^9
+- target Big-O (and WHY): O(n)
 
 ## 3. Pattern guess (FIRST instinct — run the gates aloud)
-- sorted / monotonic? ->
-- unsorted pair / duplicate? ->
-- negatives or +-1 transform? ->
-- **My pattern:**
+- sorted / monotonic? -> no
+- unsorted pair / duplicate? -> no
+- negatives or +-1 transform? -> no
+- **My pattern:** 2 pointer
 
 ## 4. Brute force
-- Idea:
-- Time / Space:
+- Idea: just keep a loop for s and check in another loop inside t if the char are in correct order or not if any char misses return false
+and if any char goes out of seq return false, we track out of seq using another separate variable from where to start inner loop after
+finding the prev char just from next char index
+- Time / Space:O(n^2)
 - (medium/hard: code it & submit it before optimizing)
 
 ## 5. Bottleneck (where brute wastes work)
--
+- search inner loop
 
 ## 6. Optimal
-- Pattern that kills the bottleneck:
-- Why it works:
-- Time / Space:
+- Pattern that kills the bottleneck: its 2 pointer 
+- Why it works: its 2 pointer then only go to next char if we actuallt get a match and if not go on incr
+- Time / Space: O(n)
 
 ## 7. Compare & extract the CUE
 - brute vs optimal (time/space):
