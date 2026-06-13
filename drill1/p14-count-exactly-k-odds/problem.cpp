@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 8   [easy]
+  DRILL 1  —  Problem 14   [medium]
 ================================================================
-  Versions 1..n; from some version onward everything is bad and stays bad. Given an isBad(v) oracle, find the FIRST bad version in the fewest checks.
+  COUNT the contiguous subarrays that contain EXACTLY k odd numbers.
 
-  Example:     n=5, first bad=4  ->  4
-  Constraints: 1 <= n <= 2^31-1
+  Example:     nums=[1,1,2,1,1], k=3  ->  2
+  Constraints: 1 <= n <= 5e4
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):

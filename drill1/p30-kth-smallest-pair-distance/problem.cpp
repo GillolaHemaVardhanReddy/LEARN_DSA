@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 8   [easy]
+  DRILL 1  —  Problem 30   [HARD]
 ================================================================
-  Versions 1..n; from some version onward everything is bad and stays bad. Given an isBad(v) oracle, find the FIRST bad version in the fewest checks.
+  Find the k-th SMALLEST distance among ALL pairs (distance = absolute difference). (You cracked its twin last session.)
 
-  Example:     n=5, first bad=4  ->  4
-  Constraints: 1 <= n <= 2^31-1
+  Example:     nums=[1,3,1], k=1  ->  0
+  Constraints: n <= 1e4, k <= n*(n-1)/2
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):

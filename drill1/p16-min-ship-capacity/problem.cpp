@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 8   [easy]
+  DRILL 1  —  Problem 16   [medium]
 ================================================================
-  Versions 1..n; from some version onward everything is bad and stays bad. Given an isBad(v) oracle, find the FIRST bad version in the fewest checks.
+  A ship leaves once a day carrying the next packages in order. Given weights (in order) and D days, find the MINIMUM capacity so everything ships within D days.
 
-  Example:     n=5, first bad=4  ->  4
-  Constraints: 1 <= n <= 2^31-1
+  Example:     weights=[1,2,3,4,5,6,7,8,9,10], D=5  ->  15
+  Constraints: 1 <= D <= n <= 5e4
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):

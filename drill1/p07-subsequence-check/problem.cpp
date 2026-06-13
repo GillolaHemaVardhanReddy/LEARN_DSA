@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 8   [easy]
+  DRILL 1  —  Problem 7   [easy]
 ================================================================
-  Versions 1..n; from some version onward everything is bad and stays bad. Given an isBad(v) oracle, find the FIRST bad version in the fewest checks.
+  Decide whether s is a SUBSEQUENCE of t (all of s's chars appear in t in order, not necessarily contiguous).
 
-  Example:     n=5, first bad=4  ->  4
-  Constraints: 1 <= n <= 2^31-1
+  Example:     s="abc", t="ahbgdc"  ->  true
+  Constraints: 0 <= len <= 1e4
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):

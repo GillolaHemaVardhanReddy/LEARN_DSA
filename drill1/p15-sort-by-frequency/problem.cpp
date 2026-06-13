@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 8   [easy]
+  DRILL 1  —  Problem 15   [medium]
 ================================================================
-  Versions 1..n; from some version onward everything is bad and stays bad. Given an isBad(v) oracle, find the FIRST bad version in the fewest checks.
+  Sort a string's characters in DECREASING order of frequency (ties: any order). Return the resulting string.
 
-  Example:     n=5, first bad=4  ->  4
-  Constraints: 1 <= n <= 2^31-1
+  Example:     "tree"  ->  "eert"  (or "eetr")
+  Constraints: 1 <= len <= 5e5
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):

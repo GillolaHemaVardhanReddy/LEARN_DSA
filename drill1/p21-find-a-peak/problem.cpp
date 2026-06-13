@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 8   [easy]
+  DRILL 1  —  Problem 21   [medium]
 ================================================================
-  Versions 1..n; from some version onward everything is bad and stays bad. Given an isBad(v) oracle, find the FIRST bad version in the fewest checks.
+  No two adjacent elements are equal. Find ANY peak (strictly greater than both neighbors; beyond the ends is -infinity). O(log n).
 
-  Example:     n=5, first bad=4  ->  4
-  Constraints: 1 <= n <= 2^31-1
+  Example:     [1,2,3,1]  ->  index 2 (value 3)
+  Constraints: 1 <= n <= 1000
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):

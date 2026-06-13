@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 8   [easy]
+  DRILL 1  —  Problem 6   [easy]
 ================================================================
-  Versions 1..n; from some version onward everything is bad and stays bad. Given an isBad(v) oracle, find the FIRST bad version in the fewest checks.
+  Decide if a ransom note can be built using the letters of a magazine, each magazine letter used at most once.
 
-  Example:     n=5, first bad=4  ->  4
-  Constraints: 1 <= n <= 2^31-1
+  Example:     note="aa", magazine="aab"  ->  true ;  note="aa", magazine="ab" -> false
+  Constraints: lengths <= 1e5
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):

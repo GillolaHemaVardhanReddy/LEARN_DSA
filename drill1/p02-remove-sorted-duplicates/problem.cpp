@@ -2,9 +2,9 @@
 ================================================================
   DRILL 1  —  Problem 2   [easy]
 ================================================================
-  Given a SORTED array, remove duplicates IN PLACE so each unique value appears once, keeping order. Return the count of unique elements (the first k slots must hold them).
+  Given a SORTED array, remove duplicates IN PLACE so each unique value appears once, keeping order; return the count of unique elements.
 
-  Example:     [0,0,1,1,1,2,2,3,3,4]  ->  5, array starts [0,1,2,3,4,...]
+  Example:     [0,0,1,1,1,2,2,3,3,4]  ->  5  (array starts 0,1,2,3,4)
   Constraints: 1 <= n <= 3e4
 
   ----------------------------------------------------------------
@@ -15,7 +15,7 @@
     4. NAME THE PATTERN. Gates to say out loud:
          - "Is the data SORTED?"  no  -> probably hashing, not two pointers.
          - "Any NEGATIVES / a +-1 transform?"  yes -> prefix+hash, not a window.
-    5. Find this problem on LeetCode (LINKS.md has the link), then code below & SUBMIT.
+    5. Open the link (LINKS.md), code below, and SUBMIT to LeetCode (the judge is truth).
     6. Boundary checklist before submit: empty / single / first&last / overflow.
   ----------------------------------------------------------------
   My restatement     :

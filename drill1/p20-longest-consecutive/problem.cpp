@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 8   [easy]
+  DRILL 1  —  Problem 20   [medium]
 ================================================================
-  Versions 1..n; from some version onward everything is bad and stays bad. Given an isBad(v) oracle, find the FIRST bad version in the fewest checks.
+  Given an UNSORTED array, return the length of the LONGEST run of consecutive integers present (e.g. 1,2,3,4). Aim for O(n).
 
-  Example:     n=5, first bad=4  ->  4
-  Constraints: 1 <= n <= 2^31-1
+  Example:     [100,4,200,1,3,2]  ->  4  (1,2,3,4)
+  Constraints: 0 <= n <= 1e5, values may be large
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):

@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 8   [easy]
+  DRILL 1  —  Problem 26   [HARD]
 ================================================================
-  Versions 1..n; from some version onward everything is bad and stays bad. Given an isBad(v) oracle, find the FIRST bad version in the fewest checks.
+  Split an array into m CONTIGUOUS subarrays to MINIMIZE the LARGEST subarray sum. Return that minimized largest sum.
 
-  Example:     n=5, first bad=4  ->  4
-  Constraints: 1 <= n <= 2^31-1
+  Example:     nums=[7,2,5,10,8], m=2  ->  18
+  Constraints: 1 <= n <= 1000, 1 <= m <= n
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):

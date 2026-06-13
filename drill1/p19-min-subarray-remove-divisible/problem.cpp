@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 8   [easy]
+  DRILL 1  —  Problem 19   [medium]
 ================================================================
-  Versions 1..n; from some version onward everything is bad and stays bad. Given an isBad(v) oracle, find the FIRST bad version in the fewest checks.
+  Given an array of positive integers and integer p, remove the SHORTEST contiguous subarray so the remaining sum is DIVISIBLE by p (can't remove all). Return its length, or -1.
 
-  Example:     n=5, first bad=4  ->  4
-  Constraints: 1 <= n <= 2^31-1
+  Example:     nums=[3,1,4,2], p=6  ->  1  (remove [4])
+  Constraints: 1 <= n <= 1e5
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):

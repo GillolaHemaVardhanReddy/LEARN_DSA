@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 8   [easy]
+  DRILL 1  —  Problem 18   [medium]
 ================================================================
-  Versions 1..n; from some version onward everything is bad and stays bad. Given an isBad(v) oracle, find the FIRST bad version in the fewest checks.
+  Given strings s and p, return the START INDICES of every substring of s that is a rearrangement of p.
 
-  Example:     n=5, first bad=4  ->  4
-  Constraints: 1 <= n <= 2^31-1
+  Example:     s="cbaebabacd", p="abc"  ->  [0,6]
+  Constraints: 1 <= len <= 3e4
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):

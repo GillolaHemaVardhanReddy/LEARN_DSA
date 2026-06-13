@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 8   [easy]
+  DRILL 1  —  Problem 17   [medium]
 ================================================================
-  Versions 1..n; from some version onward everything is bad and stays bad. Given an isBad(v) oracle, find the FIRST bad version in the fewest checks.
+  Given an array of only 0/1/2, sort it IN PLACE in a SINGLE PASS, no library sort.
 
-  Example:     n=5, first bad=4  ->  4
-  Constraints: 1 <= n <= 2^31-1
+  Example:     [2,0,2,1,1,0]  ->  [0,0,1,1,2,2]
+  Constraints: 1 <= n <= 300
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):

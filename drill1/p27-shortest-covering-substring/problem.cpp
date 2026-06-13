@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 8   [easy]
+  DRILL 1  —  Problem 27   [HARD]
 ================================================================
-  Versions 1..n; from some version onward everything is bad and stays bad. Given an isBad(v) oracle, find the FIRST bad version in the fewest checks.
+  Find the SHORTEST substring of s that contains every character of t (with multiplicity). Return "" if none.
 
-  Example:     n=5, first bad=4  ->  4
-  Constraints: 1 <= n <= 2^31-1
+  Example:     s="ADOBECODEBANC", t="ABC"  ->  "BANC"
+  Constraints: 1 <= len(s),len(t) <= 1e5
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):

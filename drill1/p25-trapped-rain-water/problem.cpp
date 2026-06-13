@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 8   [easy]
+  DRILL 1  —  Problem 25   [HARD]
 ================================================================
-  Versions 1..n; from some version onward everything is bad and stays bad. Given an isBad(v) oracle, find the FIRST bad version in the fewest checks.
+  Given bar heights (width 1 each), compute how much RAIN WATER is trapped between the bars.
 
-  Example:     n=5, first bad=4  ->  4
-  Constraints: 1 <= n <= 2^31-1
+  Example:     [0,1,0,2,1,0,1,3,2,1,2,1]  ->  6
+  Constraints: 1 <= n <= 2e4
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):

@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 8   [easy]
+  DRILL 1  —  Problem 4   [easy]
 ================================================================
-  Versions 1..n; from some version onward everything is bad and stays bad. Given an isBad(v) oracle, find the FIRST bad version in the fewest checks.
+  A trip starts at altitude 0; you're given the net GAIN at each step (can be negative). Return the HIGHEST altitude reached.
 
-  Example:     n=5, first bad=4  ->  4
-  Constraints: 1 <= n <= 2^31-1
+  Example:     [-5,1,5,0,-7]  ->  1
+  Constraints: 1 <= n <= 100
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):

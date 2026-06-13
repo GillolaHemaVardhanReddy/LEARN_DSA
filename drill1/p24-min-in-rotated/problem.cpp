@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 8   [easy]
+  DRILL 1  —  Problem 24   [medium]
 ================================================================
-  Versions 1..n; from some version onward everything is bad and stays bad. Given an isBad(v) oracle, find the FIRST bad version in the fewest checks.
+  A SORTED array of distinct values was rotated at an unknown pivot. Find the MINIMUM element in O(log n).
 
-  Example:     n=5, first bad=4  ->  4
-  Constraints: 1 <= n <= 2^31-1
+  Example:     [3,4,5,1,2]  ->  1
+  Constraints: 1 <= n <= 5000, distinct
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):

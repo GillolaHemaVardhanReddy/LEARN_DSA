@@ -1,87 +1,89 @@
-# DRILL 1 — Recognition Grind (Hema Vardhan)
+# DRILL 1 — Calibration Grind (Hema Vardhan)
 
-> **35 problems** (15 easy · 15 medium · 5 hard), interleaved across every pattern we've
+> **30 problems — 8 easy · 16 medium · 6 hard**, interleaved across every pattern we've
 > covered **except monotonic stack**: Sliding Window · Prefix Sum · Hashing · Two Pointers ·
-> Binary Search. Statements are **disguised on purpose** — no titles, no patterns — so you
-> train *recognition*, not title-matching. Finish this grind, then we start Monotonic Stack.
+> Binary Search. Statements are **disguised** (no titles, no patterns) so you train
+> *recognition*, not title-matching. This is a genuine **calibration test** — do well and
+> Drill 2 ratchets up (fewer easies, harder mediums, more multi-tool hards), all the way to
+> FAANG-ready.
 >
-> **No answer key.** `LINKS.md` has only the LeetCode link per problem. You guess the
-> pattern FIRST (in the `.cpp` header), then open the link, submit, and verify on the judge.
-> Mostly **unseen** problems — the two you've solved before (P1, P26) are kept on purpose
-> because they target a leak you still need to close.
+> **No answer key.** `LINKS.md` has only the LeetCode link per problem. Guess the pattern
+> FIRST (in the `.cpp` header), then open the link, submit, and verify on the judge — the
+> judge is ground truth, not my approval.
 
 ---
 
-## THE RULES (these are the whole point — don't skip them)
+## WHY THIS MIX (Tommy's calibration call)
+You're at **L4** on all five patterns, so a beginner-style easy-heavy set would waste your
+time. The FAANG bar lives at **confident medium**, so this drill is medium+hard heavy (73%):
+- **8 easy** — fast warm-ups, one per base mechanic, to confirm fundamentals are reflexive.
+- **16 medium** — the core, ~3 per pattern, deliberately spanning *sub-variants* (e.g. binary
+  search shows up as exact, predicate, rotated, find-min, peak, and search-on-answer).
+- **6 hard** — genuine transfer, including the two-tool combos (P29 at-most-k trick, P30 the
+  k-th distance problem we cracked last session).
 
-Open `pNN-*/problem.cpp` and, for **every** problem, in this exact order:
-
-1. **RESTATE** the problem in ONE plain sentence in the header. (This is MISTAKE #10 — the
-   thing that cost you Q4 and Q6 in the last drill. No pattern call until you can restate it.)
-2. **DRY RUN** the given tiny example by hand. Confirm you understand the *actual* ask.
-3. **CONSTRAINTS → complexity.** What does the input size imply about the target Big-O?
-4. **NAME THE PATTERN** + a 3-line approach sketch. Write your guess in the header + the log.
-   - Before "two pointers," ask out loud: **"Is the data sorted/monotonic?"** No → **hashing**.
-     (MISTAKE #9 — your 3×-recurring reflex.)
-   - Before "sliding window," ask: **"Can values be negative / did I transform to ±1?"**
-     Yes → **prefix + hash**, not a window.
-5. **Open the link** in `LINKS.md`, **code in the stub**, and **submit** to LeetCode
-   (the judge is ground truth — my approval is not).
-6. **Run the boundary checklist** before you submit (empty / single / first&last / overflow).
-
-**Order of attack:** go top to bottom — it's already interleaved. Don't batch by pattern.
+Canonical must-knows are included even though you may have seen them years ago — those build
+the mind; re-derive them fresh, don't recall old code.
 
 ---
 
-## EASY (1–15)
+## THE RULES (these ARE the drill — don't skip)
+For **every** problem, in the `.cpp` header, in this order:
+1. **RESTATE** in ONE plain sentence. (MISTAKE #10 — the thing that cost you Q4/Q6. No
+   pattern call until you can restate it.)
+2. **DRY-RUN** the example by hand.
+3. **CONSTRAINTS → complexity.** What Big-O does the input size demand?
+4. **NAME THE PATTERN** + a 3-line sketch. Say the gates out loud:
+   - Before "two pointers": **"Is it sorted/monotonic?"** No → **hashing**. (MISTAKE #9.)
+   - Before "sliding window": **"Negatives / ±1 transform?"** Yes → **prefix+hash**.
+5. **Open the link** (`LINKS.md`), code in the stub, **submit** to LeetCode.
+6. **Boundary checklist** before submit: empty / single / first&last / overflow & magnitude.
 
+Go **top to bottom** — it's already interleaved. Don't batch by pattern.
+
+---
+
+## EASY (1–8)
 - **P1** `p01-pair-sum-to-target` — two numbers in an UNSORTED array adding to a target; return indices.
-- **P2** `p02-remove-sorted-duplicates` — remove dups in place from a SORTED array, return the new count.
-- **P3** `p03-smallest-letter-greater` — smallest letter strictly greater than a target in a sorted, wrapping list.
-- **P4** `p04-min-start-value` — min positive start so a running total of given steps never drops below 1.
-- **P5** `p05-min-recolors-k-black` — fewest W→B recolors to get k consecutive black blocks.
-- **P6** `p06-isomorphic-strings` — do two strings map char-for-char one-to-one?
-- **P7** `p07-merge-two-sorted` — merge two SORTED arrays in place into the first.
-- **P8** `p08-first-bad-version` — first bad version given a good→bad oracle, fewest checks.
-- **P9** `p09-highest-altitude` — highest altitude reached from a list of net gains.
-- **P10** `p10-max-vowels-substring` — max vowels in any substring of fixed length k.
-- **P11** `p11-word-pattern` — do space-separated words follow a pattern, one-to-one both ways?
-- **P12** `p12-reverse-string` — reverse a char array in place, O(1) space.
-- **P13** `p13-integer-sqrt` — integer (floor) square root without built-in sqrt.
-- **P14** `p14-subsequence-check` — is s a subsequence of t (in order, not contiguous)?
-- **P15** `p15-guess-number` — find a hidden number in [1,n] via higher/lower replies.
+- **P2** `p02-remove-sorted-duplicates` — remove dups in place from a SORTED array, return new count.
+- **P3** `p03-integer-sqrt` — integer (floor) square root, no built-in sqrt.
+- **P4** `p04-highest-altitude` — highest altitude from a list of net gains.
+- **P5** `p05-max-vowels-substring` — max vowels in any substring of fixed length k.
+- **P6** `p06-ransom-note` — can note be built from magazine letters (each used once)?
+- **P7** `p07-subsequence-check` — is s a subsequence of t (in order, not contiguous)?
+- **P8** `p08-first-bad-version` — first bad version via a good→bad oracle, fewest checks.
 
-## MEDIUM (16–30)
-
-- **P16** `p16-binary-subarrays-sum` — count contiguous subarrays of a BINARY array summing to goal.
-- **P17** `p17-fruit-into-baskets` — longest contiguous run using at most 2 distinct values.
-- **P18** `p18-four-sum` — all unique quadruplets summing to a target.
-- **P19** `p19-search-rotated` — find a target in a rotated sorted array, O(log n).
-- **P20** `p20-sort-by-frequency` — sort a string's chars by decreasing frequency.
-- **P21** `p21-longest-after-k-replaces` — longest single-letter run after ≤ k replacements.
+## MEDIUM (9–24)
+- **P9** `p09-count-subarrays-sum-k` — count subarrays summing to k (values may be negative).
+- **P10** `p10-four-sum-count` — count 4-array tuples summing to 0.
+- **P11** `p11-search-rotated` — find a target in a rotated sorted array, O(log n).
+- **P12** `p12-zero-sum-triplets` — all unique triplets summing to 0.
+- **P13** `p13-longest-after-k-replaces` — longest single-letter run after ≤ k replacements.
+- **P14** `p14-count-exactly-k-odds` — count subarrays with exactly k odd numbers.
+- **P15** `p15-sort-by-frequency` — sort a string's chars by decreasing frequency.
+- **P16** `p16-min-ship-capacity` — min ship capacity to ship ordered packages within D days.
+- **P17** `p17-sort-three-values` — sort 0/1/2 in place in ONE pass (3-way partition, not selection sort).
+- **P18** `p18-all-rearrangement-indices` — all start indices of anagrams of p in s.
+- **P19** `p19-min-subarray-remove-divisible` — shortest subarray to remove so the rest is divisible by p.
+- **P20** `p20-longest-consecutive` — longest run of consecutive integers in an unsorted array, O(n).
+- **P21** `p21-find-a-peak` — any peak element, O(log n).
 - **P22** `p22-closest-triplet-sum` — three-element sum closest to a target.
-- **P23** `p23-min-subarray-remove-divisible` — shortest subarray to remove so the rest is divisible by p.
-- **P24** `p24-min-ship-capacity` — min ship capacity to ship ordered packages within D days.
-- **P25** `p25-all-rearrangement-indices` — all start indices of substrings that are anagrams of p.
-- **P26** `p26-sort-three-values` — sort 0/1/2 in place in ONE pass. *(Do it as the 3-way partition, not selection sort.)*
-- **P27** `p27-count-exactly-k-odds` — count subarrays with exactly k odd numbers.
-- **P28** `p28-find-a-peak` — any peak element in O(log n).
-- **P29** `p29-four-array-zero-tuples` — count 4-array tuples summing to 0.
-- **P30** `p30-longest-ones-delete-one` — longest run of 1s after deleting exactly one element.
+- **P23** `p23-fruit-into-baskets` — longest contiguous stretch using at most 2 distinct values.
+- **P24** `p24-min-in-rotated` — minimum of a rotated sorted array, O(log n).
 
-## HARD (31–35) — restate + dry run is MANDATORY here
-
-- **P31** `p31-trapped-rain-water` — water trapped between bar heights.
-- **P32** `p32-min-largest-split` — split into m contiguous parts minimizing the largest sum.
-- **P33** `p33-shortest-covering-substring` — shortest substring of s covering all of t.
-- **P34** `p34-median-two-sorted` — median of two sorted arrays in O(log(m+n)).
-- **P35** `p35-kth-smallest-pair-distance` — k-th smallest pairwise distance. *(You cracked its twin last session — prove it stuck.)*
+## HARD (25–30) — restate + dry run is MANDATORY
+- **P25** `p25-trapped-rain-water` — water trapped between bar heights.
+- **P26** `p26-min-largest-split` — split into m contiguous parts minimizing the largest sum.
+- **P27** `p27-shortest-covering-substring` — shortest substring of s covering all of t.
+- **P28** `p28-median-two-sorted` — median of two sorted arrays in O(log(m+n)).
+- **P29** `p29-subarrays-k-distinct` — count subarrays with exactly k distinct integers.
+- **P30** `p30-kth-smallest-pair-distance` — k-th smallest pairwise distance. *(Prove last session stuck.)*
 
 ---
 
-## RECOGNITION LOG (fill as you go — this is your scoreboard)
+## RECOGNITION LOG (your scoreboard — fill as you go)
 
-| # | My pattern guess | Correct? (✓/✗) | Restated correctly first try? | AC on judge? | Notes / where I slipped |
+| # | My pattern guess | Correct? (✓/✗) | Restated right first try? | AC on judge? | Notes / where I slipped |
 |---|---|---|---|---|---|
 | 1 | | | | | |
 | 2 | | | | | |
@@ -113,12 +115,13 @@ Open `pNN-*/problem.cpp` and, for **every** problem, in this exact order:
 | 28 | | | | | |
 | 29 | | | | | |
 | 30 | | | | | |
-| 31 | | | | | |
-| 32 | | | | | |
-| 33 | | | | | |
-| 34 | | | | | |
-| 35 | | | | | |
 
-> When you've done a batch, bring me the log. We grade recognition together, log misses to
-> `MISTAKE_JOURNAL.md` with root cause + re-test, update `PROGRESS.md` levels with the
-> evidence, and only patterns you name **cold and correct on first instinct** move toward L5.
+> **Grading:** bring me a batch and we grade recognition together. A pattern earns progress
+> toward L5 only when you name it **cold and correct on first instinct**. Misses → logged to
+> `MISTAKE_JOURNAL.md` with root cause + re-test. Pass Drill 1 well → Drill 2 gets harder.
+
+### Pass bar for Drill 1 (what "came out better" means)
+- **Recognition:** ≥ 26/30 patterns named correctly on first instinct (incl. P1 as hashing, no sort-reflex).
+- **Restate discipline:** restated correctly first try on ≥ 27/30 (the MISTAKE #10 fix).
+- **Independence:** all 8 easies + ≥ 12/16 mediums solved with no hints; hards may use the hint ladder.
+- **Judge:** every attempted problem ends in an Accepted submission (fix-and-resubmit is fine).

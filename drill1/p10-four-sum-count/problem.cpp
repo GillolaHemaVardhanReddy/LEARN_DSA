@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 8   [easy]
+  DRILL 1  —  Problem 10   [medium]
 ================================================================
-  Versions 1..n; from some version onward everything is bad and stays bad. Given an isBad(v) oracle, find the FIRST bad version in the fewest checks.
+  Given four integer arrays of length n, COUNT the tuples (i,j,k,l) with A[i]+B[j]+C[k]+D[l]==0.
 
-  Example:     n=5, first bad=4  ->  4
-  Constraints: 1 <= n <= 2^31-1
+  Example:     A=[1,2],B=[-2,-1],C=[-1,2],D=[0,2]  ->  2
+  Constraints: 1 <= n <= 200
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):

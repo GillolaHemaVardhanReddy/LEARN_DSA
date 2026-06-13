@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 8   [easy]
+  DRILL 1  —  Problem 11   [medium]
 ================================================================
-  Versions 1..n; from some version onward everything is bad and stays bad. Given an isBad(v) oracle, find the FIRST bad version in the fewest checks.
+  A SORTED array was rotated at an unknown pivot. Find a target's index in O(log n), or -1.
 
-  Example:     n=5, first bad=4  ->  4
-  Constraints: 1 <= n <= 2^31-1
+  Example:     [4,5,6,7,0,1,2], target=0  ->  4
+  Constraints: 1 <= n <= 5000, distinct
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):

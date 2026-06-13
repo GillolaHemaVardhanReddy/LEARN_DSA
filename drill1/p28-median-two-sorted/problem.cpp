@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 8   [easy]
+  DRILL 1  —  Problem 28   [HARD]
 ================================================================
-  Versions 1..n; from some version onward everything is bad and stays bad. Given an isBad(v) oracle, find the FIRST bad version in the fewest checks.
+  Find the MEDIAN of two SORTED arrays combined, in O(log(m+n)).
 
-  Example:     n=5, first bad=4  ->  4
-  Constraints: 1 <= n <= 2^31-1
+  Example:     [1,3] and [2] -> 2.0 ;  [1,2] and [3,4] -> 2.5
+  Constraints: 0 <= m,n <= 1000
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):
