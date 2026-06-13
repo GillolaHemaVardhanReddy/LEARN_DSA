@@ -85,7 +85,7 @@ Go **top to bottom** — it's already interleaved. Don't batch by pattern.
 
 | # | My pattern guess | Correct? (✓/✗) | Restated right first try? | AC on judge? | Notes / where I slipped |
 |---|---|---|---|---|---|
-| 1 | | | | | |
+| 1 | Two pointers (→ recovered to Hashing) | ✗ | ✓ | ✓ AC | #9 reflex fired AGAIN (sorted+2ptr); also misread complexity (saw 1e9 value→hunted O(log n); real: n≤1e4, O(n) floor). Recovered to one-pass hash map after coaching. Gate "sorted? indices? → hashing" must fire FIRST. |
 | 2 | | | | | |
 | 3 | | | | | |
 | 4 | | | | | |
