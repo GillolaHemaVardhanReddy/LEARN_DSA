@@ -7,7 +7,28 @@
 | # | Gap (what I didn't know) | The fix / idiom | Surfaced on | Reviewed |
 |---|---|---|---|---|
 | 1 | How to copy one vector into another | `b = a;` (whole copy) · `b.assign(a.begin(), a.end());` (from range) · `vector<int> b(a);` (at construction). NOTE: `b(a.begin(),a.end())` only works when *declaring*, not on an existing vector. | drill1 P2 | — |
-| 2 | Integer overflow — type too small for the arithmetic | `int` ≈ ±2.1e9; `long long` ≈ ±9.2e18. Binary search mid: `mid = lo + (hi-lo)/2` (never `(lo+hi)/2`). Accumulators that can exceed ~2e9 → `long long` (incl. the function's return type). | LC875 Koko (MISTAKE #8) | — |
+| 2 | Integer overflow — type too small for the arithmetic | See the OVERFLOW DETECTION RULE below. | LC875 Koko + drill1 P3 (MISTAKE #8, recurring) | — |
+
+---
+
+## ⭐ OVERFLOW DETECTION RULE (run at DESIGN time, every `+`/`*`/accumulator)
+**Ceilings:** `int` ≈ ±2.1e9 (2,147,483,647) · `long long` ≈ ±9.2e18.
+
+**The question:** "what's the MAX this expression can reach given the constraints? > ~2e9? → `long long`."
+
+**Three red flags (quick math from constraints):**
+1. **Multiply two values** — if both can be ≥ ~46,000, the product overflows int (√2.1e9 ≈ 46,340).
+   (`i*i` with i up to 46,341 → 2.15e9 ✗;  `a*b` with a,b up to 1e5 → 1e10 ✗.)
+2. **Sum/accumulate many elements** — `n × maxValue`. n=1e5 × val=1e5 → 1e10 ✗. Prefix sums = classic trap.
+3. **Add two large values** — `a+b` each ~1e9 → ~2e9 (edge). Binary search: use `mid = lo + (hi-lo)/2`.
+
+**Casting subtlety (bites everyone):** cast BEFORE the op, on ONE operand.
+- `long long x = a * b;`            ✗ (a*b done in int first, overflows, THEN widened)
+- `long long x = (long long)a * b;` ✓ (promotes whole multiply to 64-bit)
+- If the function RETURNS the big value, its return type must be `long long` too.
+
+**Lazy-but-safe default:** values near 1e9, or multiplying/accumulating and unsure → just use `long long`.
+Reserve `int` for things known small (indices, counts < ~1e6, loop variables).
 
 ---
 

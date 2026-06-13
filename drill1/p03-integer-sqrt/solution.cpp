@@ -20,12 +20,12 @@ int main() {
 
     int mySqrt(int x) {
         int lo = 0, hi = x, ans = 0;
-        for(int i = lo; i <= hi; i++) {
-            if(i*i > x) break;
-            else if(i*i < x) {
-                ans = max(ans, i);
-            } else return i;
-        }
+        // for(int i = lo; i <= hi; i++) {
+        //     if((long long)i*i > x) break;
+        //     else if((long long)i*i < x) {
+        //         ans = max(ans, i);
+        //     } else return i;
+        // }
         return ans;
     }
 }
