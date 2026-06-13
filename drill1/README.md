@@ -92,9 +92,9 @@ Go **top to bottom** — it's already interleaved. Don't batch by pattern.
 | 2 | Hashing (over-applied; correct = Two Pointers in-place) | ✗ | ✓ | extra-vector | ✓ AC | SORTED array → 2ptr, but reached for hash map+extra vector (P1 over-correction). C++ gap found: copy a vector (`nums=d` / `.assign`). Off-by-one: forgot first element counts → fixed by returning `j`. Boundary leak (first-element). TODO: redo in-place O(1) space as the optimal. |
 | 3 | BS-on-answer (monotonic i*i) — RECOGNIZED ✓ | ✓ | — | ✓ O(√x) | ✓ AC (O(log x)) | WIN: named & coded BS-on-monotonic-answer himself for the optimal. Brute→optimal both AC. Overflow handled `(long long)mid*mid`. RESIDUAL: structure bug AGAIN (method defined inside main() instead of the Solution class — 3rd occurrence; AC only because LeetCode pastes into the class). "method in class, main calls it" not yet a reflex. |
 | 4 | Prefix / running sum | ✓ (after dry-run) | ~ (confused first; opened link to disambiguate my too-thin statement, then derived it) | running-sum | ✓ AC | Got prefix-sum eventually; process slip = opened link for clarity instead of dry-running first (statement was too terse — my fix). Boundary (start 0) handled. CODE REVIEW: had a dead first loop (min gains) — redundant; cleaned to a 3-line running-sum, ans=0 init removes need for the clamp. STRUCTURE FIXED ✓ (method in class). |
-| 5 | | | | | |
-| 6 | | | | | |
-| 7 | | | | | |
+| 5 | Fixed sliding window | ~ (had brute; named SW after a cue) | ✓ | hashmap double-loop O(n·k) | ✓ AC | Good complexity reasoning (n²=1e10>1e8/s → need O(n)). Left "my pattern" blank until cued by "fixed length k". Two bugs fixed: `"a"` (string) vs `'a'` (char) in set insert; and `if/else if` skipped the entering char when leaving was a vowel → made them independent ifs + `ans=max` every step. Clean now. |
+| 6 | | | | | | |
+| 7 | | | | | | |
 | 8 | | | | | |
 | 9 | | | | | |
 | 10 | | | | | |

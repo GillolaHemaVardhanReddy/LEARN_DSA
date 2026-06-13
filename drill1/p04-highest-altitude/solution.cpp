@@ -10,9 +10,6 @@ public:
     int largestAltitude(vector<int>& gain) {
         int n = gain.size(), sum = 0, ans = 0;
         for(int i = 0 ; i < n; i++){
-            ans = min(gain[i], ans);
-        }
-        for(int i = 0 ; i < n; i++){
             sum+=gain[i];
             ans = max(ans, sum);
         }

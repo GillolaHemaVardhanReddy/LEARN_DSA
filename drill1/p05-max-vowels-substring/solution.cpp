@@ -7,7 +7,24 @@ using namespace std;
 class Solution {
 public:
     // Paste the exact method signature from the LeetCode link (LINKS.md), implement here.
-
+    int maxVowels(string s, int k) {
+        int n = s.length(), ans = 0, sum = 0;
+        unordered_set<char> ch;
+        ch.insert({'a', 'e', 'i','o', 'u'});
+        for(int i = 0 ; i < k; i++) {
+            if(ch.count(s[i])){
+                sum++;
+            }
+        }
+        ans = max(ans, sum);
+        
+        for(int i = k; i < n; i++){
+            if(ch.count(s[i-k])) sum--;
+            if(ch.count(s[i])) sum++;
+            ans = max(ans, sum);
+        }
+        return ans;
+    }
 };
 
 // ---------- local test harness (optional) — build the example and print the result ----------
