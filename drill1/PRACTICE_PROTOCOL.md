@@ -7,6 +7,28 @@
 
 ---
 
+## File & code structure (so you never write boilerplate)
+
+Each drill is one folder (`drill1/`, `drill2/`, …) containing:
+- `README.md` — rules + problem index + recognition log (your scoreboard).
+- `PRACTICE_PROTOCOL.md` — this file.
+- `LINKS.md` — LeetCode links only (open AFTER you've guessed the pattern).
+- one folder **per problem**: `pNN-slug/`
+
+Inside every `pNN-slug/`:
+- **`notes.md`** — your THINKING, fixed 8-section template (restate → complexity → pattern
+  guess → brute → bottleneck → optimal → compare/cue → bugs → result). Fill it **top-down**;
+  don't open LINKS.md or the signature until section 4 is written. See
+  `drill1/p01-pair-sum-to-target/notes.md` for a fully filled **worked example**.
+- **`solution.cpp`** — ready-to-run skeleton: `#include <bits/stdc++.h>`, `using namespace std;`,
+  an empty `Solution` class, and a `main()` test harness. You only paste the LeetCode method
+  signature and write the body — no setup, no I/O plumbing.
+
+Compile & run a solution locally:  `g++ -std=c++17 solution.cpp -o sol && ./sol`
+(LeetCode is still the final judge — the harness is just for quick sanity checks.)
+
+---
+
 ## Per-problem loop (PRACTICE mode)
 
 For each problem, in order:
