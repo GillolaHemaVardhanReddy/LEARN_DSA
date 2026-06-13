@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 9   [easy]
+  DRILL 1  —  Problem 5   [easy]
 ================================================================
-  Find an index where the sum of everything to its LEFT equals the sum to its RIGHT. Return the leftmost such index, or -1.
+  Given a string of 'B' (black) and 'W' (white) blocks and integer k, find the MINIMUM number of white blocks you must recolor to black to get k CONSECUTIVE black blocks.
 
-  Example:     [1,7,3,6,5,6]  ->  3
-  Constraints: 1 <= n <= 1e4, values may be negative
+  Example:     blocks="WBBWWBBWBW", k=7  ->  3
+  Constraints: 1 <= k <= len <= 100
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):
@@ -15,7 +15,7 @@
     4. NAME THE PATTERN. Gates to say out loud:
          - "Is the data SORTED?"  no  -> probably hashing, not two pointers.
          - "Any NEGATIVES / a +-1 transform?"  yes -> prefix+hash, not a window.
-    5. Reveal the link in ../ANSWER_KEY.md, then code below & SUBMIT to the judge.
+    5. Find this problem on LeetCode (LINKS.md has the link), then code below & SUBMIT.
     6. Boundary checklist before submit: empty / single / first&last / overflow.
   ----------------------------------------------------------------
   My restatement     :
@@ -29,8 +29,7 @@ using namespace std;
 
 class Solution {
 public:
-    // TODO: copy the exact method signature from the LeetCode link in ANSWER_KEY.md,
-    //       then implement it here.
+    // TODO: copy the exact method signature from the LeetCode link, then implement here.
 
 };
 

@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 17   [medium]
+  DRILL 1  —  Problem 30   [medium]
 ================================================================
-  Find the length of the LONGEST substring with no repeating characters.
+  Given a BINARY array, you must DELETE exactly one element. Return the size of the longest run of 1s in the resulting array.
 
-  Example:     "abcabcbb"  ->  3  ("abc")
-  Constraints: 0 <= len <= 5e4
+  Example:     [0,1,1,1,0,1,1,0,1]  ->  5
+  Constraints: 1 <= n <= 1e5
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):
@@ -15,7 +15,7 @@
     4. NAME THE PATTERN. Gates to say out loud:
          - "Is the data SORTED?"  no  -> probably hashing, not two pointers.
          - "Any NEGATIVES / a +-1 transform?"  yes -> prefix+hash, not a window.
-    5. Reveal the link in ../ANSWER_KEY.md, then code below & SUBMIT to the judge.
+    5. Find this problem on LeetCode (LINKS.md has the link), then code below & SUBMIT.
     6. Boundary checklist before submit: empty / single / first&last / overflow.
   ----------------------------------------------------------------
   My restatement     :
@@ -29,8 +29,7 @@ using namespace std;
 
 class Solution {
 public:
-    // TODO: copy the exact method signature from the LeetCode link in ANSWER_KEY.md,
-    //       then implement it here.
+    // TODO: copy the exact method signature from the LeetCode link, then implement here.
 
 };
 

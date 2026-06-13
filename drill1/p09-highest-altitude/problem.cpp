@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 4   [easy]
+  DRILL 1  —  Problem 9   [easy]
 ================================================================
-  You'll be asked many times for the sum of elements between index i and j (inclusive) of a FIXED integer array. Make each query fast.
+  A trip starts at altitude 0. You're given the net GAIN at each step (can be negative). Return the HIGHEST altitude reached at any point.
 
-  Example:     sumRange(0,2) on [-2,0,3,-5,2,-1]  ->  1
-  Constraints: up to 1e4 queries
+  Example:     [-5,1,5,0,-7]  ->  1
+  Constraints: 1 <= n <= 100
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):
@@ -15,7 +15,7 @@
     4. NAME THE PATTERN. Gates to say out loud:
          - "Is the data SORTED?"  no  -> probably hashing, not two pointers.
          - "Any NEGATIVES / a +-1 transform?"  yes -> prefix+hash, not a window.
-    5. Reveal the link in ../ANSWER_KEY.md, then code below & SUBMIT to the judge.
+    5. Find this problem on LeetCode (LINKS.md has the link), then code below & SUBMIT.
     6. Boundary checklist before submit: empty / single / first&last / overflow.
   ----------------------------------------------------------------
   My restatement     :
@@ -29,8 +29,7 @@ using namespace std;
 
 class Solution {
 public:
-    // TODO: copy the exact method signature from the LeetCode link in ANSWER_KEY.md,
-    //       then implement it here.
+    // TODO: copy the exact method signature from the LeetCode link, then implement here.
 
 };
 

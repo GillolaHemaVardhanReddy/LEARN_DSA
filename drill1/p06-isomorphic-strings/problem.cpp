@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 16   [medium]
+  DRILL 1  —  Problem 6   [easy]
 ================================================================
-  Given an integer array (values may be NEGATIVE) and integer k, COUNT how many contiguous subarrays sum to exactly k.
+  Decide if two strings are ISOMORPHIC: characters of s can be replaced to get t with a CONSISTENT one-to-one mapping (no two chars map to the same char).
 
-  Example:     nums=[1,1,1], k=2  ->  2
-  Constraints: 1 <= n <= 2e4, -1000 <= nums[i] <= 1000
+  Example:     "egg","add" -> true ;  "foo","bar" -> false
+  Constraints: 1 <= len <= 5e4
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):
@@ -15,7 +15,7 @@
     4. NAME THE PATTERN. Gates to say out loud:
          - "Is the data SORTED?"  no  -> probably hashing, not two pointers.
          - "Any NEGATIVES / a +-1 transform?"  yes -> prefix+hash, not a window.
-    5. Reveal the link in ../ANSWER_KEY.md, then code below & SUBMIT to the judge.
+    5. Find this problem on LeetCode (LINKS.md has the link), then code below & SUBMIT.
     6. Boundary checklist before submit: empty / single / first&last / overflow.
   ----------------------------------------------------------------
   My restatement     :
@@ -29,8 +29,7 @@ using namespace std;
 
 class Solution {
 public:
-    // TODO: copy the exact method signature from the LeetCode link in ANSWER_KEY.md,
-    //       then implement it here.
+    // TODO: copy the exact method signature from the LeetCode link, then implement here.
 
 };
 

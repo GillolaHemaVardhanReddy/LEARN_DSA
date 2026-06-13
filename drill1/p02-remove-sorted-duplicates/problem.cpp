@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 13   [easy]
+  DRILL 1  —  Problem 2   [easy]
 ================================================================
-  Given a SORTED array and a target, return the index where the target is, or where it WOULD be inserted to keep it sorted. O(log n).
+  Given a SORTED array, remove duplicates IN PLACE so each unique value appears once, keeping order. Return the count of unique elements (the first k slots must hold them).
 
-  Example:     [1,3,5,6], target=5 -> 2 ;  target=2 -> 1
-  Constraints: 1 <= n <= 1e4, distinct
+  Example:     [0,0,1,1,1,2,2,3,3,4]  ->  5, array starts [0,1,2,3,4,...]
+  Constraints: 1 <= n <= 3e4
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):
@@ -15,7 +15,7 @@
     4. NAME THE PATTERN. Gates to say out loud:
          - "Is the data SORTED?"  no  -> probably hashing, not two pointers.
          - "Any NEGATIVES / a +-1 transform?"  yes -> prefix+hash, not a window.
-    5. Reveal the link in ../ANSWER_KEY.md, then code below & SUBMIT to the judge.
+    5. Find this problem on LeetCode (LINKS.md has the link), then code below & SUBMIT.
     6. Boundary checklist before submit: empty / single / first&last / overflow.
   ----------------------------------------------------------------
   My restatement     :
@@ -29,8 +29,7 @@ using namespace std;
 
 class Solution {
 public:
-    // TODO: copy the exact method signature from the LeetCode link in ANSWER_KEY.md,
-    //       then implement it here.
+    // TODO: copy the exact method signature from the LeetCode link, then implement here.
 
 };
 

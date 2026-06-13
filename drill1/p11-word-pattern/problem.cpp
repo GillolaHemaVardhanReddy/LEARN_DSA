@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 3   [easy]
+  DRILL 1  —  Problem 11   [easy]
 ================================================================
-  Given a SORTED array and a target, return the index of the target, or -1 if absent. Must run in O(log n).
+  Given a pattern string and a sentence of space-separated words, decide if the words follow the pattern with a CONSISTENT one-to-one mapping (each pattern letter <-> one word, both ways).
 
-  Example:     nums=[-1,0,3,5,9,12], target=9  ->  4
-  Constraints: 1 <= n <= 1e4, all distinct
+  Example:     pattern="abba", s="dog cat cat dog"  ->  true
+  Constraints: 1 <= lengths <= 3000
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):
@@ -15,7 +15,7 @@
     4. NAME THE PATTERN. Gates to say out loud:
          - "Is the data SORTED?"  no  -> probably hashing, not two pointers.
          - "Any NEGATIVES / a +-1 transform?"  yes -> prefix+hash, not a window.
-    5. Reveal the link in ../ANSWER_KEY.md, then code below & SUBMIT to the judge.
+    5. Find this problem on LeetCode (LINKS.md has the link), then code below & SUBMIT.
     6. Boundary checklist before submit: empty / single / first&last / overflow.
   ----------------------------------------------------------------
   My restatement     :
@@ -29,8 +29,7 @@ using namespace std;
 
 class Solution {
 public:
-    // TODO: copy the exact method signature from the LeetCode link in ANSWER_KEY.md,
-    //       then implement it here.
+    // TODO: copy the exact method signature from the LeetCode link, then implement here.
 
 };
 

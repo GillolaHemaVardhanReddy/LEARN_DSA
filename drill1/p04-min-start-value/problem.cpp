@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 5   [easy]
+  DRILL 1  —  Problem 4   [easy]
 ================================================================
-  Given an array and a fixed window length k, find the MAXIMUM AVERAGE of any contiguous block of k elements.
+  Given an array of step values, you start with some positive value and add the steps one by one. Find the MINIMUM positive starting value so the running total is never below 1.
 
-  Example:     nums=[1,12,-5,-6,50,3], k=4  ->  12.75
-  Constraints: 1 <= k <= n <= 1e5
+  Example:     [-3,2,-3,4,2]  ->  5
+  Constraints: 1 <= n <= 100, -100 <= step <= 100
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):
@@ -15,7 +15,7 @@
     4. NAME THE PATTERN. Gates to say out loud:
          - "Is the data SORTED?"  no  -> probably hashing, not two pointers.
          - "Any NEGATIVES / a +-1 transform?"  yes -> prefix+hash, not a window.
-    5. Reveal the link in ../ANSWER_KEY.md, then code below & SUBMIT to the judge.
+    5. Find this problem on LeetCode (LINKS.md has the link), then code below & SUBMIT.
     6. Boundary checklist before submit: empty / single / first&last / overflow.
   ----------------------------------------------------------------
   My restatement     :
@@ -29,8 +29,7 @@ using namespace std;
 
 class Solution {
 public:
-    // TODO: copy the exact method signature from the LeetCode link in ANSWER_KEY.md,
-    //       then implement it here.
+    // TODO: copy the exact method signature from the LeetCode link, then implement here.
 
 };
 

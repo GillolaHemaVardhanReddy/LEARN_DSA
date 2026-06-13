@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 12   [easy]
+  DRILL 1  —  Problem 20   [medium]
 ================================================================
-  Move all zeros to the end while keeping the relative order of the non-zero elements, IN PLACE.
+  Sort the characters of a string in DECREASING order of frequency (ties: any order). Return the resulting string.
 
-  Example:     [0,1,0,3,12]  ->  [1,3,12,0,0]
-  Constraints: 1 <= n <= 1e4
+  Example:     "tree"  ->  "eert" (or "eetr")
+  Constraints: 1 <= len <= 5e5
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):
@@ -15,7 +15,7 @@
     4. NAME THE PATTERN. Gates to say out loud:
          - "Is the data SORTED?"  no  -> probably hashing, not two pointers.
          - "Any NEGATIVES / a +-1 transform?"  yes -> prefix+hash, not a window.
-    5. Reveal the link in ../ANSWER_KEY.md, then code below & SUBMIT to the judge.
+    5. Find this problem on LeetCode (LINKS.md has the link), then code below & SUBMIT.
     6. Boundary checklist before submit: empty / single / first&last / overflow.
   ----------------------------------------------------------------
   My restatement     :
@@ -29,8 +29,7 @@ using namespace std;
 
 class Solution {
 public:
-    // TODO: copy the exact method signature from the LeetCode link in ANSWER_KEY.md,
-    //       then implement it here.
+    // TODO: copy the exact method signature from the LeetCode link, then implement here.
 
 };
 

@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 11   [easy]
+  DRILL 1  —  Problem 17   [medium]
 ================================================================
-  Decide if one string is a rearrangement of another (same characters, same counts).
+  You pick fruit moving along a row of trees; each tree has one fruit TYPE. You have two baskets, each holding one type only. Find the MAXIMUM number of fruit (contiguous trees) you can collect.
 
-  Example:     "anagram","nagaram"  ->  true ;  "rat","car"  ->  false
-  Constraints: 1 <= len <= 5e4
+  Example:     fruits=[1,2,3,2,2]  ->  4  (types [2,3,2,2])
+  Constraints: 1 <= n <= 1e5
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):
@@ -15,7 +15,7 @@
     4. NAME THE PATTERN. Gates to say out loud:
          - "Is the data SORTED?"  no  -> probably hashing, not two pointers.
          - "Any NEGATIVES / a +-1 transform?"  yes -> prefix+hash, not a window.
-    5. Reveal the link in ../ANSWER_KEY.md, then code below & SUBMIT to the judge.
+    5. Find this problem on LeetCode (LINKS.md has the link), then code below & SUBMIT.
     6. Boundary checklist before submit: empty / single / first&last / overflow.
   ----------------------------------------------------------------
   My restatement     :
@@ -29,8 +29,7 @@ using namespace std;
 
 class Solution {
 public:
-    // TODO: copy the exact method signature from the LeetCode link in ANSWER_KEY.md,
-    //       then implement it here.
+    // TODO: copy the exact method signature from the LeetCode link, then implement here.
 
 };
 

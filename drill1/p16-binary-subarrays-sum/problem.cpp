@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 2   [easy]
+  DRILL 1  —  Problem 16   [medium]
 ================================================================
-  Decide if a string reads the same forwards and backwards, considering ONLY alphanumeric characters and ignoring case.
+  Given a BINARY array (0s and 1s) and integer goal, COUNT the contiguous subarrays whose sum equals goal.
 
-  Example:     "A man, a plan, a canal: Panama"  ->  true
-  Constraints: 1 <= len <= 2e5
+  Example:     nums=[1,0,1,0,1], goal=2  ->  4
+  Constraints: 1 <= n <= 3e4, 0 <= goal <= n
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):
@@ -15,7 +15,7 @@
     4. NAME THE PATTERN. Gates to say out loud:
          - "Is the data SORTED?"  no  -> probably hashing, not two pointers.
          - "Any NEGATIVES / a +-1 transform?"  yes -> prefix+hash, not a window.
-    5. Reveal the link in ../ANSWER_KEY.md, then code below & SUBMIT to the judge.
+    5. Find this problem on LeetCode (LINKS.md has the link), then code below & SUBMIT.
     6. Boundary checklist before submit: empty / single / first&last / overflow.
   ----------------------------------------------------------------
   My restatement     :
@@ -29,8 +29,7 @@ using namespace std;
 
 class Solution {
 public:
-    // TODO: copy the exact method signature from the LeetCode link in ANSWER_KEY.md,
-    //       then implement it here.
+    // TODO: copy the exact method signature from the LeetCode link, then implement here.
 
 };
 

@@ -1,10 +1,10 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 6   [easy]
+  DRILL 1  —  Problem 23   [medium]
 ================================================================
-  Given an UNSORTED array, return true if any value appears at least twice.
+  Given an array and integer p, remove the SHORTEST contiguous subarray so the sum of the rest is DIVISIBLE by p. Return its length, or -1 if impossible (can't remove the whole array).
 
-  Example:     [1,2,3,1]  ->  true
+  Example:     nums=[3,1,4,2], p=6  ->  1  (remove [4])
   Constraints: 1 <= n <= 1e5
 
   ----------------------------------------------------------------
@@ -15,7 +15,7 @@
     4. NAME THE PATTERN. Gates to say out loud:
          - "Is the data SORTED?"  no  -> probably hashing, not two pointers.
          - "Any NEGATIVES / a +-1 transform?"  yes -> prefix+hash, not a window.
-    5. Reveal the link in ../ANSWER_KEY.md, then code below & SUBMIT to the judge.
+    5. Find this problem on LeetCode (LINKS.md has the link), then code below & SUBMIT.
     6. Boundary checklist before submit: empty / single / first&last / overflow.
   ----------------------------------------------------------------
   My restatement     :
@@ -29,8 +29,7 @@ using namespace std;
 
 class Solution {
 public:
-    // TODO: copy the exact method signature from the LeetCode link in ANSWER_KEY.md,
-    //       then implement it here.
+    // TODO: copy the exact method signature from the LeetCode link, then implement here.
 
 };
 

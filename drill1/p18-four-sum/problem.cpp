@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 30   [medium]
+  DRILL 1  —  Problem 18   [medium]
 ================================================================
-  Given a binary array and integer k, find the longest run of consecutive 1s if you may FLIP AT MOST k zeros.
+  Return ALL unique quadruplets that sum to a given target. No duplicate quadruplets.
 
-  Example:     nums=[1,1,1,0,0,0,1,1,1,1,0], k=2  ->  6
-  Constraints: 1 <= n <= 1e5
+  Example:     nums=[1,0,-1,0,-2,2], target=0  ->  [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
+  Constraints: 1 <= n <= 200, values & target may be large
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):
@@ -15,7 +15,7 @@
     4. NAME THE PATTERN. Gates to say out loud:
          - "Is the data SORTED?"  no  -> probably hashing, not two pointers.
          - "Any NEGATIVES / a +-1 transform?"  yes -> prefix+hash, not a window.
-    5. Reveal the link in ../ANSWER_KEY.md, then code below & SUBMIT to the judge.
+    5. Find this problem on LeetCode (LINKS.md has the link), then code below & SUBMIT.
     6. Boundary checklist before submit: empty / single / first&last / overflow.
   ----------------------------------------------------------------
   My restatement     :
@@ -29,8 +29,7 @@ using namespace std;
 
 class Solution {
 public:
-    // TODO: copy the exact method signature from the LeetCode link in ANSWER_KEY.md,
-    //       then implement it here.
+    // TODO: copy the exact method signature from the LeetCode link, then implement here.
 
 };
 

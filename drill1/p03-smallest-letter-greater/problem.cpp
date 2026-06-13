@@ -1,11 +1,11 @@
 /*
 ================================================================
-  DRILL 1  —  Problem 23   [medium]
+  DRILL 1  —  Problem 3   [easy]
 ================================================================
-  Given an integer array (values may be NEGATIVE) and integer k, COUNT the contiguous subarrays whose sum is DIVISIBLE by k.
+  Given a list of letters sorted in non-decreasing order and a target letter, find the SMALLEST letter strictly greater than the target. The list wraps around (if none is greater, return the first letter).
 
-  Example:     nums=[4,5,0,-2,-3,1], k=5  ->  7
-  Constraints: 1 <= n <= 3e4
+  Example:     letters=['c','f','j'], target='a'  ->  'c' ;  target='c'  ->  'f'
+  Constraints: 2 <= n <= 1e4, lowercase
 
   ----------------------------------------------------------------
   BEFORE YOU CODE (in order — this IS the drill):
@@ -15,7 +15,7 @@
     4. NAME THE PATTERN. Gates to say out loud:
          - "Is the data SORTED?"  no  -> probably hashing, not two pointers.
          - "Any NEGATIVES / a +-1 transform?"  yes -> prefix+hash, not a window.
-    5. Reveal the link in ../ANSWER_KEY.md, then code below & SUBMIT to the judge.
+    5. Find this problem on LeetCode (LINKS.md has the link), then code below & SUBMIT.
     6. Boundary checklist before submit: empty / single / first&last / overflow.
   ----------------------------------------------------------------
   My restatement     :
@@ -29,8 +29,7 @@ using namespace std;
 
 class Solution {
 public:
-    // TODO: copy the exact method signature from the LeetCode link in ANSWER_KEY.md,
-    //       then implement it here.
+    // TODO: copy the exact method signature from the LeetCode link, then implement here.
 
 };
 
