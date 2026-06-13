@@ -9,20 +9,21 @@ A trip starts at altitude 0; you're given the net GAIN at each step (can be nega
 > Fill this TOP-DOWN. Do NOT open LINKS.md or solution.cpp's signature until step 4 is written.
 
 ## 1. Restate (one sentence, my own words)
--
+- i actually thought altitude means its always going up i was confused so opened the link and then saw example then i understood that
+its just prefix sum
 
 ## 2. Constraints -> target complexity
-- n bound / value range:
-- target Big-O (and WHY):
+- n bound / value range: 
+- target Big-O (and WHY): O(n)
 
 ## 3. Pattern guess (FIRST instinct — run the gates aloud)
-- sorted / monotonic? ->
-- unsorted pair / duplicate? ->
-- negatives or +-1 transform? ->
+- sorted / monotonic? -> no
+- unsorted pair / duplicate? ->  yes
+- negatives or +-1 transform? -> yes
 - **My pattern:**
 
 ## 4. Brute force
-- Idea:
+- Idea:  dont know what to do as brute force
 - Time / Space:
 - (medium/hard: code it & submit it before optimizing)
 
