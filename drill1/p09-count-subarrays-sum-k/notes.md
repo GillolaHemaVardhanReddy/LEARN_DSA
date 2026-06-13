@@ -9,30 +9,30 @@ Given an integer array (values may be NEGATIVE) and integer k, COUNT contiguous 
 > Fill this TOP-DOWN. Do NOT open LINKS.md or solution.cpp's signature until step 4 is written.
 
 ## 1. Restate (one sentence, my own words)
--
+- they are asking us to get count of sub arrays who have sum = k 
 
 ## 2. Constraints -> target complexity
-- n bound / value range:
-- target Big-O (and WHY):
+- n bound / value range: 10^4
+- target Big-O (and WHY): it needs to be O(n)
 
 ## 3. Pattern guess (FIRST instinct — run the gates aloud)
-- sorted / monotonic? ->
-- unsorted pair / duplicate? ->
-- negatives or +-1 transform? ->
-- **My pattern:**
+- sorted / monotonic? -> no
+- unsorted pair / duplicate? -> unsorted
+- negatives or +-1 transform? -> -ves also
+- **My pattern:** prefix sum + hash map
 
 ## 4. Brute force
-- Idea:
-- Time / Space:
+- Idea: just double loop and run for ever item mapped to next all items
+- Time / Space: O(n^2)
 - (medium/hard: code it & submit it before optimizing)
 
 ## 5. Bottleneck (where brute wastes work)
--
+- need to search and sum repetatively for all
 
 ## 6. Optimal
-- Pattern that kills the bottleneck:
-- Why it works:
-- Time / Space:
+- Pattern that kills the bottleneck:prefix sum + hash map
+- Why it works: it removed the inner loop 
+- Time / Space: O(n)
 
 ## 7. Compare & extract the CUE
 - brute vs optimal (time/space):
