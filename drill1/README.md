@@ -95,8 +95,8 @@ Go **top to bottom** — it's already interleaved. Don't batch by pattern.
 | 5 | Fixed sliding window | ~ (had brute; named SW after a cue) | ✓ | hashmap double-loop O(n·k) | ✓ AC | Good complexity reasoning (n²=1e10>1e8/s → need O(n)). Left "my pattern" blank until cued by "fixed length k". Two bugs fixed: `"a"` (string) vs `'a'` (char) in set insert; and `if/else if` skipped the entering char when leaving was a vowel → made them independent ifs + `ans=max` every step. Clean now. |
 | 6 | Hashing (frequency count) | ~ (got "hashmap"; restate misread as substring; presence-vs-count gap) | ~ | presence-loop O(n²) | ✓ AC | Restate drifted to "substring" (wrong — order/contiguity irrelevant; counterexample ab/ba). Brute checked PRESENCE not COUNTS — same trap as anagram Q7 (recurring presence-vs-frequency). Optimal = freq count `int[26]`, magazine ≥ note. (Tommy OVER-REVEALED the optimal — protocol breach, noted.) Placed on hashing sub-pattern map: frequency-count flavor. |
 | 7 | Hashing (✗) → Two Pointers (after 1 nudge) | ~ | ✓ | his brute WAS already 2ptr | ✓ AC | First instinct = "hashmap removes inner loop" (over-applied hashing AGAIN). Recovered to two pointers after one hint (the ORDER question). KEY LEARNING: order matters → hashmap loses order → disqualified → two sequences walked in tandem = two pointers. His own brute (j never resets) was already the O(n+m) optimal. |
-| 8 | | | | | |
-| 9 | | | | | |
+| 8 | Binary search (monotonic predicate) — RECOGNIZED ✓ | ✓ | ~ ("min bad point" loose) | linear scan O(n·api) | ✓ AC | Clean first-instinct recognition off the monotonicity gate. Algorithm fully correct (store-candidate lower-bound, overflow-safe mid). ONLY bug = lo/hi SWAPPED in init (`hi=1, lo=n`) → loop never ran, returned 0. Boundary/init-value leak again. Fix = say each boundary's meaning aloud before running. |
+| 9 | | | | | | |
 | 10 | | | | | |
 | 11 | | | | | |
 | 12 | | | | | |

@@ -7,7 +7,17 @@ using namespace std;
 class Solution {
 public:
     // Paste the exact method signature from the LeetCode link (LINKS.md), implement here.
-
+    int firstBadVersion(int n) {
+        int hi = n, lo = 1, ans = 0;
+        while(lo <= hi) {
+            int mid = lo + (hi-lo)/2;
+            if(isBadVersion(mid)){
+                ans = mid;
+                hi = mid-1;
+            } else lo = mid+1;
+        }
+        return ans;
+    }
 };
 
 // ---------- local test harness (optional) — build the example and print the result ----------
