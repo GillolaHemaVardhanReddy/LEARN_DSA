@@ -90,7 +90,7 @@ Go **top to bottom** — it's already interleaved. Don't batch by pattern.
 |---|---|---|---|---|---|---|
 | 1 | Two pointers (→ recovered to Hashing) | ✗ | ✓ | — | ✓ AC | #9 reflex fired AGAIN (sorted+2ptr); also misread complexity (saw 1e9 value→hunted O(log n); real: n≤1e4, O(n) floor). Recovered to one-pass hash map after coaching. Gate "sorted? indices? → hashing" must fire FIRST. |
 | 2 | Hashing (over-applied; correct = Two Pointers in-place) | ✗ | ✓ | extra-vector | ✓ AC | SORTED array → 2ptr, but reached for hash map+extra vector (P1 over-correction). C++ gap found: copy a vector (`nums=d` / `.assign`). Off-by-one: forgot first element counts → fixed by returning `j`. Boundary leak (first-element). TODO: redo in-place O(1) space as the optimal. |
-| 3 | (brute: linear scan); optimal pending | — | — | ✓ O(√x) | ✓ AC | Brute AC after 2 fixes: nested-function bug (mySqrt inside main) + `i*i` int overflow at x≈INT_MAX → `(long long)i*i` (MISTAKE #8 recurred). Optimal = BS-on-answer (monotonic i*i) O(log x) still to do. Spawned the overflow-detection rule in CPP_GAPS.md. |
+| 3 | BS-on-answer (monotonic i*i) — RECOGNIZED ✓ | ✓ | — | ✓ O(√x) | ✓ AC (O(log x)) | WIN: named & coded BS-on-monotonic-answer himself for the optimal. Brute→optimal both AC. Overflow handled `(long long)mid*mid`. RESIDUAL: structure bug AGAIN (method defined inside main() instead of the Solution class — 3rd occurrence; AC only because LeetCode pastes into the class). "method in class, main calls it" not yet a reflex. |
 | 4 | | | | | | |
 | 5 | | | | | |
 | 6 | | | | | |

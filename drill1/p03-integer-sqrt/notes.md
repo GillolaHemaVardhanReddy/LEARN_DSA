@@ -23,16 +23,16 @@ Given a non-negative integer x, return the integer (floor) square root, WITHOUT 
 
 ## 4. Brute force
 - Idea: x = sqrt(n) so simply x^2 = n find the x that is nearest min of n
-- Time / Space: O(n) / O(1)
+- Time / Space: O(sqrt(n)) / O(1)
 - (medium/hard: code it & submit it before optimizing)
 
-## 5. Bottleneck (where brute wastes work)
+## 5. Bottleneck (where brute wastes work) we check all range
 - x is 2^31 max almost 10^6 so we can do in O(n) 
 
 ## 6. Optimal
-- Pattern that kills the bottleneck:
-- Why it works:
-- Time / Space:
+- Pattern that kills the bottleneck: Binary search
+- Why it works: it jumps directly to the side it is correct and skips one whole half
+- Time / Space: O(logn)
 
 ## 7. Compare & extract the CUE
 - brute vs optimal (time/space):
