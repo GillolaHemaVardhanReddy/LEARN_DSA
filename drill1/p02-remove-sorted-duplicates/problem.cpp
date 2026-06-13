@@ -18,9 +18,9 @@
     5. Open the link (LINKS.md), code below, and SUBMIT to LeetCode (the judge is truth).
     6. Boundary checklist before submit: empty / single / first&last / overflow.
   ----------------------------------------------------------------
-  My restatement     :
-  My pattern guess   :
-  My target Big-O    :
+  My restatement     : we need to remove duplicates and keep the numbers in correct order and return count of unique numbers left
+  My pattern guess   : this is simple i first got into my mind simple one look and count with hash map count if not in hash map since we only need count
+  My target Big-O    : O(n)
 ================================================================
 */
 
@@ -29,8 +29,23 @@ using namespace std;
 
 class Solution {
 public:
-    // TODO: copy the exact method signature from the LeetCode link, then implement here.
-
+    int removeDuplicates(vector<int>& nums) {
+      sort(nums.begin(), nums.end());
+      int n = nums.size(), ans = 0, k = nums[0], j = 0 ;
+      vector<int> d(n);
+      d[j] = nums[0];
+      j++;
+      for(int i = 1 ; i < n ; i++) {
+        if(nums[i] != k){
+          d[j] = nums[i];
+          j++;
+          ans++;
+        } 
+        k = nums[i];
+      }
+      nums.assign(d.begin(), d.end());
+      return ans;
+    }
 };
 
 int main() {

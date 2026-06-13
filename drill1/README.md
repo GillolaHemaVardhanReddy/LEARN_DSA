@@ -1,11 +1,14 @@
-# DRILL 1 — Calibration Grind (Hema Vardhan)
+# DRILL 1 — PRACTICE Drill (Hema Vardhan)
 
 > **30 problems — 8 easy · 16 medium · 6 hard**, interleaved across every pattern we've
 > covered **except monotonic stack**: Sliding Window · Prefix Sum · Hashing · Two Pointers ·
 > Binary Search. Statements are **disguised** (no titles, no patterns) so you train
-> *recognition*, not title-matching. This is a genuine **calibration test** — do well and
-> Drill 2 ratchets up (fewer easies, harder mediums, more multi-tool hards), all the way to
-> FAANG-ready.
+> *recognition*, not title-matching.
+>
+> **This is a PRACTICE drill — learning mode.** Read **`PRACTICE_PROTOCOL.md`** first: every
+> problem runs **brute force → bottleneck → pattern hunt → optimal → compare**, hints allowed
+> (≤4 small, then full explanation). After a few practice drills comes a **TEST drill**
+> (no scaffolding, graded) to prove it transferred — then difficulty ratchets toward FAANG-ready.
 >
 > **No answer key.** `LINKS.md` has only the LeetCode link per problem. Guess the pattern
 > FIRST (in the `.cpp` header), then open the link, submit, and verify on the judge — the
@@ -83,9 +86,10 @@ Go **top to bottom** — it's already interleaved. Don't batch by pattern.
 
 ## RECOGNITION LOG (your scoreboard — fill as you go)
 
-| # | My pattern guess | Correct? (✓/✗) | Restated right first try? | AC on judge? | Notes / where I slipped |
-|---|---|---|---|---|---|
-| 1 | Two pointers (→ recovered to Hashing) | ✗ | ✓ | ✓ AC | #9 reflex fired AGAIN (sorted+2ptr); also misread complexity (saw 1e9 value→hunted O(log n); real: n≤1e4, O(n) floor). Recovered to one-pass hash map after coaching. Gate "sorted? indices? → hashing" must fire FIRST. |
+| # | My pattern guess | Correct? (✓/✗) | Restated first try? | Brute done? | AC on judge? | Notes / where I slipped |
+|---|---|---|---|---|---|---|
+| 1 | Two pointers (→ recovered to Hashing) | ✗ | ✓ | — | ✓ AC | #9 reflex fired AGAIN (sorted+2ptr); also misread complexity (saw 1e9 value→hunted O(log n); real: n≤1e4, O(n) floor). Recovered to one-pass hash map after coaching. Gate "sorted? indices? → hashing" must fire FIRST. |
+| 2 | Hashing (over-applied; correct = Two Pointers in-place) | ✗ | ✓ | — | (fixing) | SORTED array → 2ptr, but reached for hash map+extra vector again (P1 over-correction). C++ gap found: how to copy a vector (`nums=d` / `.assign`). Then off-by-one: forgot first element counts → return `j` not `ans`. Boundary leak (first-element). TODO: redo in-place O(1) space. |
 | 2 | | | | | |
 | 3 | | | | | |
 | 4 | | | | | |
