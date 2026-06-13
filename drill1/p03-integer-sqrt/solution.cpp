@@ -6,8 +6,7 @@ using namespace std;
 
 class Solution {
 public:
-    // Paste the exact method signature from the LeetCode link (LINKS.md), implement here.
-
+   
 };
 
 // ---------- local test harness (optional) — build the example and print the result ----------
@@ -18,5 +17,15 @@ int main() {
     //   auto r = sol.yourMethod(nums, 9);
     //   for (auto x : r) cout << x << ' ';
     //   cout << '\n';
-    return 0;
+
+    int mySqrt(int x) {
+        int lo = 0, hi = x, ans = 0;
+        for(int i = lo; i <= hi; i++) {
+            if(i*i > x) break;
+            else if(i*i < x) {
+                ans = max(ans, i);
+            } else return i;
+        }
+        return ans;
+    }
 }

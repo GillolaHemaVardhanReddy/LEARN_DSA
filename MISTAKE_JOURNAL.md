@@ -67,7 +67,7 @@ Correct understanding: `mid=lo+(hi-lo)/2` keeps every intermediate ≤ hi (≤1e
 Prevention rule: **NEW checklist line — for every `+`, `*`, and running accumulator, ask "what's the max value, and does it fit `int`?" If it can pass ~2e9 → `long long`. Always use `mid=lo+(hi-lo)/2`.**
 Re-test problem (similar, unseen): a future search-on-answer (LC1011 Capacity to Ship / LC410 Split Array) — set the value range + a long-long accumulator correctly on the FIRST write, no overflow crash.
 Re-attempt on: 2026-06-12 (next search-on-answer problem)
-Status: Open (LC875 AC'd 6/10 after the fix + coaching on the magnitude reasoning)
+Status: **RE-TESTED FAIL (2026-06-13, drill1 P3 Sqrt(x))** — brute force `if(i*i > x)` with `i` an int: at x≈INT_MAX, `i*i` (≈2.15e9) overflows int BEFORE the comparison → "signed integer overflow." Same root cause (magnitude not reasoned up front), now on a `*` instead of a `+`. Fix = `(long long)i*i`. The magnitude checklist line is NOT yet a reflex. ALSO recurred: nested-function structure bug (defined mySqrt inside main instead of in the Solution class — same as 6/10). Keep #8 OPEN; clears on a first-write-clean overflow-prone problem.
 
 ### [#7] Reactive debugging — band-aid `if(s==e)` patches instead of reasoning edges up front
 Date: 2026-06-09

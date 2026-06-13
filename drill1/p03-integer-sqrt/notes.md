@@ -9,25 +9,25 @@ Given a non-negative integer x, return the integer (floor) square root, WITHOUT 
 > Fill this TOP-DOWN. Do NOT open LINKS.md or solution.cpp's signature until step 4 is written.
 
 ## 1. Restate (one sentence, my own words)
--
+- asked to return floor value of the square root of given number
 
 ## 2. Constraints -> target complexity
 - n bound / value range:
-- target Big-O (and WHY):
+- target Big-O (and WHY): O(n)
 
 ## 3. Pattern guess (FIRST instinct — run the gates aloud)
-- sorted / monotonic? ->
-- unsorted pair / duplicate? ->
-- negatives or +-1 transform? ->
-- **My pattern:**
+- sorted / monotonic? -> monotonic
+- unsorted pair / duplicate? -> none
+- negatives or +-1 transform? -> +ve only always
+- **My pattern:** binary search
 
 ## 4. Brute force
-- Idea:
-- Time / Space:
+- Idea: x = sqrt(n) so simply x^2 = n find the x that is nearest min of n
+- Time / Space: O(n) / O(1)
 - (medium/hard: code it & submit it before optimizing)
 
 ## 5. Bottleneck (where brute wastes work)
--
+- x is 2^31 max almost 10^6 so we can do in O(n) 
 
 ## 6. Optimal
 - Pattern that kills the bottleneck:
