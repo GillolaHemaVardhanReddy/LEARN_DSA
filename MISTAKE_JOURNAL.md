@@ -30,6 +30,19 @@ Status: Open / Re-tested-pass / Re-tested-fail
 ## Entries
 > Newest first. Keep them short and honest.
 
+### [#10] Skipped "restate the problem" → two MISreads under drill pressure
+Date: 2026-06-13
+Module / Pattern: Process (problem-solving loop step 1) — surfaced on M6 search-on-answer (Q4) + binary-search-on-answer combo (Q6)
+Problem: hard interleaved drill — Q4 (max-min router gap) read as "find min difference / avoid consecutive"; Q6 (k-th smallest pairwise distance) read TWICE as "find the minimum distance".
+Type: Concept-misunderstanding / comprehension
+What I did (the wrong move): jumped straight to pattern-hunting on the surface words ("distance", "pair", "min") without first restating what the problem actually asks. Q4: collapsed "maximize the minimum gap" into "find the min gap." Q6: collapsed "k-th smallest distance" into "the smallest distance" — even after a correction, repeated the same misread.
+Root cause: under drill/time pressure, step 1 of the loop (restate + tiny dry run) gets skipped. The pattern vocabulary is strong enough that it fires on keywords before comprehension finishes — so a misread problem gets a confidently-wrong pattern. Both misses were READING failures, not tool failures: once the statement was pinned down (via a 3-element dry run), the right pattern (binary-search-on-answer) came quickly.
+Correct understanding: ALWAYS restate the problem in one plain sentence + run a 3-element dry run BEFORE naming a pattern. For Q4 "largest possible minimum gap" and Q6 "k-th smallest among all pairwise distances," a tiny example (e.g. [1,3,7], k=2 → distances {2,4,6} → 4) instantly exposes the real ask.
+Prevention rule: **Before pattern-hunting, write/say: (1) one-sentence restatement, (2) the answer on a 3-5 element example by hand.** If I can't produce both, I don't understand the problem yet — no pattern call allowed.
+Re-test problem (similar, unseen): next drill — a wordy/disguised statement (esp. a min/max-of-something or k-th-something) restated correctly on the FIRST read with a dry run, before naming a tool.
+Re-attempt on: 2026-06-14 (next drill)
+Status: Open
+
 ### [#9] Unsorted-pair FIRST instinct still reaches for two pointers (recovers, but isn't reflexive)
 Date: 2026-06-10
 Module / Pattern: M2 Hashing ↔ M3 Two Pointers discrimination (drill Q1)
@@ -41,7 +54,7 @@ Correct understanding: unsorted + find a pair (esp. return INDICES) → **one-pa
 Prevention rule: before saying "two pointers," run the gate OUT LOUD — "Is it sorted? No → two pointers is OFF the table → hashing." Make the disqualifier the first thought, not the recovery.
 Re-test problem (similar, unseen): next `/drill` — an unsorted pair/complement question named HASHING on the first instinct, no two-pointers detour. Earns Hashing + Two-Pointers L5 together.
 Re-attempt on: 2026-06-14 (next interleaved drill)
-Status: Open
+Status: **RE-TESTED FAIL (2026-06-13 hard drill, Q1)** — unsorted-pair "does any two sum to T" → led with "sort + two pointers, O(n log n)" again. Same first-instinct, third occurrence. The disqualifier gate ("is it sorted? no → hashing") is still NOT firing first. Hashing + Two-Pointers stay at L4 (L5 NOT earned). Re-test again next drill; this is now the single thing gating two L5s.
 
 ### [#8] Integer overflow — didn't reason the MAGNITUDE of the arithmetic (only indices)
 Date: 2026-06-10
@@ -156,7 +169,7 @@ Status: **RE-TESTED PASS (2026-06-05)** — derived `prefix[R]-prefix[L-1]` cold
 | Pattern of error | Times seen | Standing rule | Last occurrence |
 |---|---|---|---|
 | **Logic right, boundary/sentinel/ORDER/INDEX value wrong** (prefix L-1; min-init+return; off-by-one `right-left+1` & `i+1`; `prefix[-1]`/`prefix[n]` OOB; forgot `seen[0]=-1`; `if(map[key])` index-0 trap; first-index overwrite; reverse-loop `i++`; LC567 missing `-'a'` ×2 + left-never-incremented; LC1 lookup-vs-insert ORDER; LC128 fwd-vs-bwd compare + loop `<size()-1` + empty-array) | **12** | Run the pre-code boundary checklist BEFORE coding. #1 leak — STILL the dominant failure mode. EVERY problem this session leaked here while the logic was right. Standing pre-submit Qs: does the loop touch FIRST & LAST element? empty input? consistent compare direction? lookup-before-insert? RE-RUN after any edit. | 2026-06-08 (LC1 order, LC128 ×3) |
-| **Unsorted pair/duplicate/complement → FIRST instinct = "two pointers" instead of HASHING** | **3 (improving)** | Before "two pointers," ask "is the data SORTED/monotonic?" If no → hashing. 6/10 drill: dup-within-k now CORRECT (Q7 ✓); but unsorted Two Sum (Q1) still flickered to 2ptr before recovering. Recognition restored, first-instinct not yet reflexive. See #9. | 2026-06-10 (drill Q1) |
+| **Unsorted pair/duplicate/complement → FIRST instinct = "two pointers" instead of HASHING** | **4 (NOT improving on this sub-case)** | Before "two pointers," ask "is the data SORTED/monotonic?" If no → hashing. 6/13 drill Q1: unsorted-pair-sum STILL led with "sort + 2ptr." The dup-within-k sub-case is fixed, but the *unsorted pair-sum* sub-case keeps firing the sort reflex. Make the gate the FIRST spoken thought. See #9. | 2026-06-13 (drill Q1) |
 | **Sliding window over-fires onto problems with negatives / ±1 transforms** | **1** | Before "sliding window," ask "can values be negative (or did I transform to ±1)?" If yes → prefix+hash. | 2026-06-08 (drill Q6) |
 | **Reactive debugging — patch the failing test instead of reasoning edges up front** | **2ptr+BS** | Trace the edges BEFORE submit. No band-aid `if(s==e)` patches — trust the clean template. 6/10: band-aids GONE on LC34/875 ✅, but Koko still hit a debug cycle on overflow (an edge not reasoned up front). | 2026-06-10 (LC875 overflow) |
 | **Integer OVERFLOW — type too small for the magnitude of `+`/`*`/accumulator** | **1** | For every add/multiply/accumulator ask "max value? fits int (±2.1e9)? else long long." Always `mid=lo+(hi-lo)/2`. (LC875: `(s+e)` and `int sum` of Σceil both overflowed.) | 2026-06-10 (LC875) |
