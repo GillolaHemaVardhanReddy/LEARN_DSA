@@ -31,7 +31,7 @@ class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
       sort(nums.begin(), nums.end());
-      int n = nums.size(), ans = 0, k = nums[0], j = 0 ;
+      int n = nums.size(), k = nums[0], j = 0 ;
       vector<int> d(n);
       d[j] = nums[0];
       j++;
@@ -39,12 +39,11 @@ public:
         if(nums[i] != k){
           d[j] = nums[i];
           j++;
-          ans++;
         } 
         k = nums[i];
       }
       nums.assign(d.begin(), d.end());
-      return ans;
+      return j;
     }
 };
 

@@ -89,7 +89,7 @@ Go **top to bottom** — it's already interleaved. Don't batch by pattern.
 | # | My pattern guess | Correct? (✓/✗) | Restated first try? | Brute done? | AC on judge? | Notes / where I slipped |
 |---|---|---|---|---|---|---|
 | 1 | Two pointers (→ recovered to Hashing) | ✗ | ✓ | — | ✓ AC | #9 reflex fired AGAIN (sorted+2ptr); also misread complexity (saw 1e9 value→hunted O(log n); real: n≤1e4, O(n) floor). Recovered to one-pass hash map after coaching. Gate "sorted? indices? → hashing" must fire FIRST. |
-| 2 | Hashing (over-applied; correct = Two Pointers in-place) | ✗ | ✓ | — | (fixing) | SORTED array → 2ptr, but reached for hash map+extra vector again (P1 over-correction). C++ gap found: how to copy a vector (`nums=d` / `.assign`). Then off-by-one: forgot first element counts → return `j` not `ans`. Boundary leak (first-element). TODO: redo in-place O(1) space. |
+| 2 | Hashing (over-applied; correct = Two Pointers in-place) | ✗ | ✓ | extra-vector | ✓ AC | SORTED array → 2ptr, but reached for hash map+extra vector (P1 over-correction). C++ gap found: copy a vector (`nums=d` / `.assign`). Off-by-one: forgot first element counts → fixed by returning `j`. Boundary leak (first-element). TODO: redo in-place O(1) space as the optimal. |
 | 2 | | | | | |
 | 3 | | | | | |
 | 4 | | | | | |
