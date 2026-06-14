@@ -9,30 +9,30 @@ A SORTED array was rotated at an unknown pivot. Find a target's index in O(log n
 > Fill this TOP-DOWN. Do NOT open LINKS.md or solution.cpp's signature until step 4 is written.
 
 ## 1. Restate (one sentence, my own words)
--
+- just need to find the element's index
 
 ## 2. Constraints -> target complexity
-- n bound / value range:
-- target Big-O (and WHY):
+- n bound / value range: 5000
+- target Big-O (and WHY): can go upto O(n^2)
 
 ## 3. Pattern guess (FIRST instinct — run the gates aloud)
-- sorted / monotonic? ->
-- unsorted pair / duplicate? ->
-- negatives or +-1 transform? ->
-- **My pattern:**
+- sorted / monotonic? -> yes
+- unsorted pair / duplicate? -> no
+- negatives or +-1 transform? -> never mentioned
+- **My pattern:** Binary search
 
 ## 4. Brute force
-- Idea:
-- Time / Space:
+- Idea: keep a loop searching for the target and return index
+- Time / Space: O(n)
 - (medium/hard: code it & submit it before optimizing)
 
 ## 5. Bottleneck (where brute wastes work)
 -
 
 ## 6. Optimal
-- Pattern that kills the bottleneck:
-- Why it works:
-- Time / Space:
+- Pattern that kills the bottleneck: binary search
+- Why it works: doesnt scan whole array finds best possible instinct
+- Time / Space:O(n)
 
 ## 7. Compare & extract the CUE
 - brute vs optimal (time/space):
