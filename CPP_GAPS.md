@@ -34,6 +34,8 @@ Reserve `int` for things known small (indices, counts < ~1e6, loop variables).
 ---
 
 ## Idioms worth drilling (add as they come up)
+- **`vector`/pair as a set/map key:** `unordered_set<vector<int>>` does NOT compile — `vector` has no built-in `std::hash`. Use `set<vector<int>>` (tree, needs only `<`, which vector has) — auto-sorts + dedupes. Same for `map` vs `unordered_map` with vector/pair keys.
+- **Return a set as a vector:** `return vector<vector<int>>(s.begin(), s.end());` (or `return {s.begin(), s.end()};`). A `set` is not implicitly a `vector`.
 - Frequency array vs map: `int cnt[26]={0};` for lowercase letters; `unordered_map<int,int>` for arbitrary keys.
 - `unordered_map` presence: use `.count(k)` or `.find(k)!=end()` — NOT `if(map[k])` (index/value 0 is falsy, and `[]` inserts).
 - Sort with comparator: `sort(v.begin(), v.end(), [](auto&a, auto&b){ return a > b; });` (descending).

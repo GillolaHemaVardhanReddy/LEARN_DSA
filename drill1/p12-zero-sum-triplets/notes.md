@@ -9,21 +9,21 @@ Return ALL unique triplets that sum to zero. No duplicate triplets.
 > Fill this TOP-DOWN. Do NOT open LINKS.md or solution.cpp's signature until step 4 is written.
 
 ## 1. Restate (one sentence, my own words)
--
+- we need to find the 3 numbers that sum to 0 and answer shouldnt have the duplicates
 
 ## 2. Constraints -> target complexity
-- n bound / value range:
-- target Big-O (and WHY):
+- n bound / value range: 3000
+- target Big-O (and WHY): since its too low n we can go upto O(n^3) also
 
 ## 3. Pattern guess (FIRST instinct — run the gates aloud)
-- sorted / monotonic? ->
-- unsorted pair / duplicate? ->
-- negatives or +-1 transform? ->
-- **My pattern:**
+- sorted / monotonic? -> no
+- unsorted pair / duplicate? -> no
+- negatives or +-1 transform? -> yes -ve's
+- **My pattern:** 2 pointer approach
 
 ## 4. Brute force
-- Idea:
-- Time / Space:
+- Idea: we just need 3 loops slecting each inner for each outer loop and checking and storing in a set 
+- Time / Space: O(n^3)
 - (medium/hard: code it & submit it before optimizing)
 
 ## 5. Bottleneck (where brute wastes work)
