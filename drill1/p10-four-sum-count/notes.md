@@ -19,20 +19,20 @@ Given four integer arrays of length n, COUNT the tuples (i,j,k,l) with A[i]+B[j]
 - sorted / monotonic? -> no never mentioned its sorted so i cant imagine
 - unsorted pair / duplicate? -> yes unsorted
 - negatives or +-1 transform? -> ys -ve's
-- **My pattern:**
+- **My pattern:** hash map 
 
 ## 4. Brute force
-- Idea: take 2 loops for 2 arrays and separate 2 loops for another 2 arrays find out the sums of all pairs of 1st and then check if the 2nd one gives us the -ve of same sum if yes then count and at end retun the count
-- Time / Space: O(n^2)
+- Idea: write 4 loops and check in all 4 arrays for all combinations
+- Time / Space: O(n^4)
 - (medium/hard: code it & submit it before optimizing)
 
 ## 5. Bottleneck (where brute wastes work)
 -
 
 ## 6. Optimal
-- Pattern that kills the bottleneck:
-- Why it works:
-- Time / Space:
+- Pattern that kills the bottleneck: hash map
+- Why it works:take 2 loops for 2 arrays and separate 2 loops for another 2 arrays find out the sums of all pairs of 1st and then check if the 2nd one gives us the -ve of same sum in hash if yes then count and at end retun the count
+- Time / Space: O(n^2)
 
 ## 7. Compare & extract the CUE
 - brute vs optimal (time/space):
