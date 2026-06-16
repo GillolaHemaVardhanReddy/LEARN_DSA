@@ -17,6 +17,7 @@
 | sorted array, find pair/triple | Two pointers |
 | compare from both ends | Two pointers |
 | longest/shortest **contiguous** subarray/substring | Sliding window |
+| **COUNT subarrays with EXACTLY k _____** | `atMost(k) − atMost(k−1)` (each window-friendly), OR transform→prefix+hash |
 | sum/count over many ranges; subarray sum = k | Prefix sum (+ hash) |
 | sorted, or monotonic yes/no, or minimize-the-max | Binary search (on answer) |
 | matching / nesting | Stack |
@@ -118,6 +119,16 @@ Taught me by: LC209 Min Size Subarray Sum (shortest) + LC3 Longest Substring No-
 `unordered_set`) + LC1004 Max Consecutive Ones III (longest, ≤k zeros) + **LC567 Permutation in String
 (fixed window + freq-match, incremental slide)**. **Order rule learned:** include → restore-validity → record
 (record only when window is valid). Fixed-window: slide unconditionally, compare after.
+**⚠️ EXACTLY-k COUNT — when a lone window CANNOT do it (P14/LC1248, derived 2026-06-16):** a window
+shrinks only on a **one-sided/monotonic violation** ("too many → shrink back"). It can detect crossing
+ONE threshold in ONE direction. **"count subarrays with EXACTLY k"** is a **two-sided** target (`> k-1`
+AND `≤ k`) — "equal" is the GOAL, not a violation, so there's nothing to shrink *on*. **My own words:** a
+window only works on a yes/no (monotonic) condition; "exactly k" is a *third* state (`<`, `>`, `=`) it can't
+camp on. **THE FIX (the recognition gold):** `exactly(k) = atMost(k) − atMost(k−1)` — each `atMost` IS a
+clean monotonic window (shrink while `> k`), and counting subarrays inside it is `ans += right-left+1` each
+step. Convert one impossible question into two easy ones. **Second route:** transform odd→1/even→0, then
+"exactly k odds" == "subarray sum exactly k" == LC560 prefix+hash (P9). Family: LC1248, LC992 (K distinct),
+LC930 (binary sum).
 
 ### Prefix Sum (+ Hash Map of keys)
 Level: **L4 (approaching L5)** — drill Q4 (count subarrays sum=k WITH negatives) named cold w/ correct trigger, but it's ONE clean call after a 6/08 miss (routed prefix→SW). L5 needs a clean track record; re-test 6/14. Mediums LC560/LC974/LC525 AC + LC724 easy AC.

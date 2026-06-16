@@ -35,6 +35,14 @@
   the gap with a concrete trace of *what the variable holds at each step*, not more
   prose.
 
+- **GROWTH (2026-06-16, P14):** this time he *replaced the broken frame himself* — after
+  hitting the shrink-on-equal wall he asked "help me strengthen the *identification* so I
+  can do this class of problem in future," not "help me patch my code." Then derived the
+  WHY unaided: "a window only works on a yes/no (monotonic) condition; exactly-k has a
+  third state (`<`, `>`, `=`) so it can't be pushed into a window." That's the
+  patches-symptoms shape *self-corrected*. Naming the failure-as-structural (not as a bug)
+  is what flipped him from patching to reframing — keep doing that.
+
 ---
 
 ## What "he really gets it" sounds like

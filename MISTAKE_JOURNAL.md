@@ -30,6 +30,19 @@ Status: Open / Re-tested-pass / Re-tested-fail
 ## Entries
 > Newest first. Keep them short and honest.
 
+### [#11] `atMost(k)−atMost(k−1)`: filtered the helper to "exactly k" + merged counter into answer
+Date: 2026-06-16
+Module / Pattern: Sliding window — count-subarrays-with-exactly-k via `atMost(k) − atMost(k−1)` (P14 / LC1248)
+Problem: P14 Count Number of Nice Subarrays, the third (window-subtraction) approach.
+Type: Concept-misunderstanding + Implementation
+What I did (the wrong move): (a) Inside `atMost`, mentally counted only subarrays with EXACTLY k odds — threw out the shorter windows with fewer odds (e.g. claimed `[2,2,3,2,3]`'s suffixes `[2 3]` and `[3]` "don't count" because they have 1 odd, not 2). (b) In code, stapled the subarray-count length `r−l+1` onto the odd-COUNTER variable `cnt` (`cnt += r−l+1`) instead of onto `ans`; and clung to an `if(cnt<=k) ans+=… else { while-shrink; ans++ }` structure that double-counted and under-added.
+Root cause: didn't internalize WHY `atMost` must over-count — the whole machine works because `atMost(k)` deliberately includes the 0-odd and skimpy windows, and the subtraction cancels everything below exactly-k. Suppressing them inside the helper breaks the cancellation. The code leak is the same boundary-family habit: two responsibilities (count-the-odds vs count-the-subarrays) collapsed into one variable, plus a redundant guard after a `while` whose invariant already guarantees `cnt<=k`.
+Correct understanding: `atMost(k)` = for each r, shrink while `cnt>k`, then UNCONDITIONALLY `ans += r−l+1` (every subarray ending at r is valid because the while restored the invariant — the `if(cnt<=k)` after it is dead code). `exactly(k) = atMost(k) − atMost(k−1)`: exactly-k survives (+1−0), fewer-than-k cancels (1−1), more-than-k stays 0 (0−0).
+Prevention rule: (1) One variable = one job — a COUNTER counts events, the ANSWER accumulates results; never `+=` a length onto a counter. (2) After a `while` that restores a condition, that condition is an INVARIANT — don't re-guard it with an `if`. (3) For `atMost−atMost`, never filter the helper to "exactly" — the helper MUST over-count or the subtraction is meaningless.
+Re-test problem (similar, unseen): LC930 Binary Subarrays With Sum (goal==S) or LC992 Subarrays with K Different Integers — both want exactly-k via `atMost(k)−atMost(k−1)`; write `atMost` clean from scratch (unconditional `ans += r−l+1`).
+Re-attempt on: 2026-06-19 (also in REVISION_QUEUE.md)
+Status: Open
+
 ### [#10] Skipped "restate the problem" → two MISreads under drill pressure
 Date: 2026-06-13
 Module / Pattern: Process (problem-solving loop step 1) — surfaced on M6 search-on-answer (Q4) + binary-search-on-answer combo (Q6)
