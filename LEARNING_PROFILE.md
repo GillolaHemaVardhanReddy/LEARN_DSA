@@ -1,6 +1,6 @@
-# LEARNING_PROFILE.md — How Hema Vardhan Learns (Kera's model)
+# LEARNING_PROFILE.md — How Hema Vardhan Learns (Kira's model)
 
-> Kera's running hypothesis log about *how* Hema Vardhan learns — which hint
+> Kira's running hypothesis log about *how* Hema Vardhan learns — which hint
 > modalities land, which fall flat, the shapes of his confusion, what "he really
 > gets it" sounds like. Read at session start. Update whenever you learn something
 > about his learning (not about DSA content — that goes in the other journals).

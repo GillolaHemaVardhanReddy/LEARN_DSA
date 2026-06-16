@@ -2,7 +2,7 @@
 
 > 6-day intensive. Goal: ~6 high-ROI linear-pattern topics to **L3–L4** ("solve mediums if I
 > think hard") = ~25% of the 24 modules, but the 25% that covers 50%+ of easy/medium problems.
-> **How to use:** when you return, say the date (or "continue") — Kera opens that day, runs any
+> **How to use:** when you return, say the date (or "continue") — Kira opens that day, runs any
 > **revision due** first (closed-book, from `REVISION_QUEUE.md`), then the day's topic.
 >
 > **Status legend:** ☐ not started · ◐ in progress · ✅ fully covered (topic hit its level goal)

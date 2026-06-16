@@ -19,5 +19,5 @@
 | 4 | LC 75 Sort Colors | **med** | **Dutch-flag 3-way partition** (low/mid/high pointers — new skill) | https://leetcode.com/problems/sort-colors/ |
 
 ## After this set
-Ping Kera with the results. AC on 167 + 75 solo → **M3 Two Pointers L4 earned**. Then: LC42 Trapping (weekend),
+Ping Kira with the results. AC on 167 + 75 solo → **M3 Two Pointers L4 earned**. Then: LC42 Trapping (weekend),
 and the deferred L5 recognition `/drill` later. Optional stretch: LC16 (3Sum Closest), LC18 (4Sum).

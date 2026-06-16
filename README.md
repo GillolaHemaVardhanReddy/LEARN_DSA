@@ -1,6 +1,6 @@
 # DSA Mastery — Claude Code setup
 
-A self-contained DSA learning system run by **Kera**, your mentor. Claude Code reads
+A self-contained DSA learning system run by **Kira**, your mentor. Claude Code reads
 the state files at the start of each session and writes your progress back at the end,
 so nothing is ever lost to a forgotten save.
 
@@ -33,17 +33,17 @@ git commit -m "init: DSA mastery system"
 claude
 ```
 
-On the **first** launch, `PROGRESS.md` is empty, so Kera runs a short diagnostic and
+On the **first** launch, `PROGRESS.md` is empty, so Kira runs a short diagnostic and
 will ask three things: your **primary coding language**, your **weekly hours**, and your
 **start date**. Answer those and it builds your real schedule.
 
 ## Daily loop
-- **Start:** run `claude`, then type `/continue`. Kera reads your state, shows the
+- **Start:** run `claude`, then type `/continue`. Kira reads your state, shows the
   dashboard, folds in anything due for revision, and picks up where you left off.
 - **During:** solve problems into `solutions/`. Use `STUCK` to get exactly one hint
   level at a time. Use `/drill` to train pattern recognition.
 - **End:** type **`/endsession`**. This is the one habit that matters — it writes your
-  progress to the files and commits. (Kera also updates files as you go, but
+  progress to the files and commits. (Kira also updates files as you go, but
   `/endsession` guarantees a clean save + commit.)
 
 ## Commands
@@ -64,7 +64,7 @@ will ask three things: your **primary coding language**, your **weekly hours**, 
 
 ## The three rules that make this work
 1. **End every session with `/endsession`** (or your progress sits only in chat).
-2. **"Solved" = accepted on LeetCode**, not "looks right." Kera can run code locally,
+2. **"Solved" = accepted on LeetCode**, not "looks right." Kira can run code locally,
    but the judge is the final word.
 3. **Volume still matters.** This organizes the grind and stops you forgetting — it
    doesn't replace the ~150–300 problems to your goal.

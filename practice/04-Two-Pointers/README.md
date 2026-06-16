@@ -28,7 +28,7 @@
 3. Use the **constraints → target complexity** (10⁸ rule) to know what you're aiming for.
 4. Code it. Run the **boundary checklist** before submit (your #1 leak):
    - `while(L < R)` bound · skip-duplicate edges · `a[L]+a[R]` overflow (use `long`/`int` care) · empty/size-1.
-5. Submit to LeetCode. Bring Kera whichever fights back.
+5. Submit to LeetCode. Bring Kira whichever fights back.
 
 ## After the set
 We fill the `🔲 TO FILL AFTER REPS` section of `Notes/03-Two-Pointers.md` with your real cues + gotchas,

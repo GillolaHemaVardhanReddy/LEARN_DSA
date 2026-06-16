@@ -2,7 +2,7 @@
 
 > Pulled from the real playlist (verified via yt-dlp, 2026-06-05): 315 videos, real IDs.
 > **Use our module order (M1→M24) as the spine.** When you start a module, watch the
-> videos listed under it, then come back to Kera for the active practice loop.
+> videos listed under it, then come back to Kira for the active practice loop.
 > Links are `https://youtu.be/<id>` — all verified from the live playlist.
 
 ## Master links (VERIFIED 2026-06-05)

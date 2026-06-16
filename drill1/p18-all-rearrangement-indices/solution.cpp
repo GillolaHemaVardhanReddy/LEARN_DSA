@@ -1,22 +1,48 @@
-// See notes.md for the statement + your thinking.
-// Workflow: fill notes.md steps 1-4 BEFORE you open LINKS.md / paste the signature.
+// P18 — all rearrangement indices (LeetCode signature wired in below).
+// Workflow: fill BRUTE first (your words + TC/SC), then derive OPTIMAL in the
+// bridge comment, then implement OPTIMAL. No notes.md needed.
 
 #include <bits/stdc++.h>
 using namespace std;
 
 class Solution {
 public:
-    // Paste the exact method signature from the LeetCode link (LINKS.md), implement here.
+    // ============================ BRUTE FORCE ============================
+    // My idea (plain words):
+    //   ...
+    //
+    // Time:  O(?)   — why: ...
+    // Space: O(?)   — why: ...
+    vector<int> findAnagramsBrute(string s, string p) {
+        // TODO(boss): implement.
+        return {};
+    }
 
+    // ================= HOW I DERIVED BRUTE -> OPTIMAL =================
+    // The Bridge (answer in order, your own words):
+    //   1. Where is the repeated work?        -> ...
+    //   2. What is it recomputing each pass?   -> ...
+    //   3. What tool kills that recompute?     -> ...
+    //
+    // My derivation, clearly:
+    //   ...
+    // =================================================================
+
+    // ============================== OPTIMAL =============================
+    // My idea (plain words):
+    //   ...
+    //
+    // Time:  O(?)   — why: ...
+    // Space: O(?)   — why: ...
+    vector<int> findAnagrams(string s, string p) {
+        // TODO(boss): implement.
+        return {};
+    }
 };
 
-// ---------- local test harness (optional) — build the example and print the result ----------
+// ---------- local test harness (optional) — build an example and print ----------
 int main() {
     Solution sol;
-    // Example: construct the input from notes.md and call your method, e.g.:
-    //   vector<int> nums = {2, 7, 11, 15};
-    //   auto r = sol.yourMethod(nums, 9);
-    //   for (auto x : r) cout << x << ' ';
-    //   cout << '\n';
+    // build the example input, call brute + optimal, compare outputs.
     return 0;
 }
