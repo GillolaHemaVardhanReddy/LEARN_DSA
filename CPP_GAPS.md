@@ -9,6 +9,8 @@
 | 1 | How to copy one vector into another | `b = a;` (whole copy) · `b.assign(a.begin(), a.end());` (from range) · `vector<int> b(a);` (at construction). NOTE: `b(a.begin(),a.end())` only works when *declaring*, not on an existing vector. | drill1 P2 | — |
 | 2 | Integer overflow — type too small for the arithmetic | See the OVERFLOW DETECTION RULE below. | LC875 Koko + drill1 P3 (MISTAKE #8, recurring) | — |
 | 3 | **Method placement** — keep writing the method INSIDE `main()` (nested function) | Methods live INSIDE the `class Solution { public: ... };`. `main()` is separate and only CALLS them: `Solution sol; sol.method(args);`. A function cannot be defined inside another function in C++. | drill1 P3 (3rd time, also 6/10) | — |
+| 4 | **Can't sort a `map`/`unordered_map` by value** (map is ordered by KEY, unordered has no order) | Copy it into a `vector<pair<K,V>>`, then sort the vector. Put the field you sort on **FIRST** in the pair so the default/`greater<>()` comparator just works: `vector<pair<int,char>> v; for(auto& [ch,cnt]: freq) v.push_back({cnt,ch}); sort(v.begin(),v.end(),greater<>());` | drill1 P15 | — |
+| 5 | **Loop a map** + **build a repeated-char string** | Structured bindings (C++17): `for(auto& [key,val] : mp){...}`. Make a char repeated N times: `string(n, ch)` or `ans.append(n, ch)` — **count FIRST, char second**. | drill1 P15 | — |
 
 ---
 

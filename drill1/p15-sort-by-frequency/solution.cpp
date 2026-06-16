@@ -11,11 +11,24 @@ public:
     // My idea (plain words):
     //   ...
     //
-    // Time:  O(?)   — why: ...
-    // Space: O(?)   — why: ...
+    // Time:  O(n)   — why: ...
+    // Space: O(1)   — why: ...
     string frequencySortBrute(string s) {
-        // TODO(boss): implement.
-        return "";
+        int n = s.length();
+        unordered_map<char,int> check;
+        for(int i = 0 ; i < n ; i++){
+            check[s[i]]++;
+        }
+        vector<pair<char,int>> check2;
+        for(auto& [key, value]: check){
+            check2.push_back({value, key});
+        }
+        sort(check2.begin(), check2.end(), greater<>());
+        string ans = "";
+        for(auto& [v,c]: check2){
+            ans.append(v,c);
+        }
+        return ans;
     }
 
     // ================= HOW I DERIVED BRUTE -> OPTIMAL =================
