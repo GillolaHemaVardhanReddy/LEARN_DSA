@@ -1,4 +1,4 @@
-# SPRINT_PLAYBOOK.md — How Hema Vardhan & Tommy Run Each Topic
+# SPRINT_PLAYBOOK.md — How Hema Vardhan & Kera Run Each Topic
 
 > The repeatable loop for the 6-day sprint (2026-06-04 → 06-09) and beyond.
 > Goal per topic: reach **L4** — "if I think hard, I can solve mediums here."
@@ -8,7 +8,7 @@
 ## The 7-step TOPIC LOOP (every topic goes through this in order)
 
 ### 1. LEARN (concept) — ~20–40 min
-- Tommy teaches **just-in-time**, no bloated lecture: why it exists → intuition +
+- Kera teaches **just-in-time**, no bloated lecture: why it exists → intuition +
   visualization → mechanics → the reusable **template** → complexity → the **pattern cue**.
 - **Gate L2:** Hema explains the idea back in his own words + follows one dry run. No
   advancing until this passes.
@@ -16,26 +16,26 @@
 ### 2. NOTES (Hema writes, in his own words) — ~10 min
 - Hema fills the topic's entry in `PATTERN_JOURNAL.md`: **trigger** ("when I see ___ →
   reach for ___"), why it works (1 line), template, complexity, gotchas.
-- Writing it yourself = the encoding step. Tommy only corrects, never pre-fills.
+- Writing it yourself = the encoding step. Kera only corrects, never pre-fills.
 
 ### 3. IMPLEMENT THE TEMPLATE FROM MEMORY — ~10 min
 - Hema codes the bare pattern skeleton **closed-book** in C++.
 - **Gate L3:** correct from memory once → topic enters `REVISION_QUEUE.md` (+1d).
 
 ### 4. PROBLEM SET (the reps) — the bulk of the time
-- Tommy gives problems **one at a time**, easy → medium, via the **Problem-Solving Loop**:
+- Kera gives problems **one at a time**, easy → medium, via the **Problem-Solving Loop**:
   Restate → Constraints/edge cases → Brute force + complexity → Bottleneck →
   Pattern hunt → Optimal → Complexity → Implement → Test.
-- **Hint ladder** (Hema asks; Tommy never front-runs it):
+- **Hint ladder** (Hema asks; Kera never front-runs it):
   L1 nudge · L2 name the pattern · L3 approach in words · L4 pseudocode · L5 full code.
   Typing `STUCK` advances exactly one level.
 
 ### 5. SOLVE & SUBMIT (Hema)
 - Code in C++ on onlinegdb, then submit on **LeetCode = ground truth**.
-- "Solved" = **Accepted on the judge**, never Tommy's approval alone.
+- "Solved" = **Accepted on the judge**, never Kera's approval alone.
 - Save each solution to `solutions/<module>/<problem>.cpp`.
 
-### 6. EVALUATE (Tommy — Code Review Mode)
+### 6. EVALUATE (Kera — Code Review Mode)
 - Review like a senior eng: correctness · time/space complexity · edge cases ·
   readability/naming · 1–2 concrete optimizations. Confirm the judge accepted it.
 - **Per-problem scorecard** (1–5 each): Communication · Decomposition · Complexity

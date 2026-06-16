@@ -1,15 +1,15 @@
 # 🗺️ FILE GUIDE — what every file does (Hema Vardhan)
 
-Quick map of the repo so you (and Tommy) always know where things live.
+Quick map of the repo so you (and Kera) always know where things live.
 
 ---
 
 ## Always loaded (in context every session)
 | File | What it is |
 |---|---|
-| `CLAUDE.md` | Tommy's **operating manual** — the rules, teaching method, mastery levels. Auto-loaded at the start of every session. Don't bloat it (it's always in context = always costs tokens). |
+| `CLAUDE.md` | Kera's **operating manual** — the rules, teaching method, mastery levels. Auto-loaded at the start of every session. Don't bloat it (it's always in context = always costs tokens). |
 
-## Memory / state (Tommy reads at start, edits as we go, commits at end)
+## Memory / state (Kera reads at start, edits as we go, commits at end)
 | File | What it is | When it's touched |
 |---|---|---|
 | `PROGRESS.md` | Live tracker: topic **levels**, counters, session log, schedule. | Read at session start; updated on every level change. |
@@ -29,7 +29,7 @@ Quick map of the repo so you (and Tommy) always know where things live.
 | Path | What it is |
 |---|---|
 | `Notes/<NN>-<Topic>.md` | Plain-English **study notes** per topic — re-read these to revise. |
-| `solutions/<NN>-<Topic>/<NN>-<Problem>/problem.md` | The problem card (Tommy writes). |
+| `solutions/<NN>-<Topic>/<NN>-<Problem>/problem.md` | The problem card (Kera writes). |
 | `solutions/<NN>-<Topic>/<NN>-<Problem>/solution.cpp` | Your code (you write). |
 
 ## Tooling / config

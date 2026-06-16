@@ -53,13 +53,13 @@ For each problem, in order:
 ---
 
 ## Hint ladder (when stuck)
-Tommy gives **at most 4 small hints**, one at a time, only escalating when you're still stuck:
+Kera gives **at most 4 small hints**, one at a time, only escalating when you're still stuck:
 1. Nudge toward the right question.
 2. Name the key observation / which pattern family.
 3. Discuss the approach in words.
 4. Pseudocode.
 
-If you're **still** stuck after the 4th hint → Tommy explains **fully and in depth**, then you
+If you're **still** stuck after the 4th hint → Kera explains **fully and in depth**, then you
 **re-derive it from scratch** before moving on. (Tapping out is allowed; re-derivation is not optional.)
 
 ---
@@ -68,7 +68,7 @@ If you're **still** stuck after the 4th hint → Tommy explains **fully and in d
 - **Recognition** = did you name the right pattern on FIRST instinct (before hints)?
 - **Restate** = did you restate correctly first try?
 - **Brute** = did you produce a correct brute force baseline?
-- **AC** = Accepted on the judge (ground truth, not Tommy's approval).
+- **AC** = Accepted on the judge (ground truth, not Kera's approval).
 - **Notes** = where you slipped + the cue learned.
 
 Misses → `MISTAKE_JOURNAL.md` (root cause + re-test). Cues → `PATTERN_JOURNAL.md`.

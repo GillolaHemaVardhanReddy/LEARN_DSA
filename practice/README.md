@@ -2,7 +2,7 @@
 
 > Goal: real clarity & confidence on **Prefix Sum, Sliding Window, Hashing** before moving on.
 > Each topic = **2 easy + 2 medium + 1 hard**, the canonical best-suited problems.
-> Work a topic top-to-bottom, then **discuss with Tommy** before the next topic.
+> Work a topic top-to-bottom, then **discuss with Kera** before the next topic.
 > (Two Pointers intentionally skipped — not covered yet.)
 > Fill the "Before you code" thinking + Result log in each `problem.md` as you go.
 

@@ -12,7 +12,7 @@
 4. Code it. Run the **pre-code boundary checklist** before submitting (your #1 leak):
    - loop touches FIRST and LAST element? empty input? consistent compare direction?
    - look-up BEFORE insert for pair problems? `.count()` not `if(map[x])`?
-5. Submit to LeetCode. Bring Tommy only the ones that fight back.
+5. Submit to LeetCode. Bring Kera only the ones that fight back.
 
 ## The set (do in this order)
 | # | Problem | Difficulty | Link |
@@ -26,5 +26,5 @@
 #2 is also your drill re-test (Q7 — you misfiled it as "two pointers"; prove it's hashing).
 
 ## After this set
-Ping Tommy for a fresh `/drill` — if hashing recognition is ≥ solid there, M2 Hashing
+Ping Kera for a fresh `/drill` — if hashing recognition is ≥ solid there, M2 Hashing
 advances toward L5 and we move to the next topic (Two Pointers / Binary Search).

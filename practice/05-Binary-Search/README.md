@@ -25,7 +25,7 @@ For every problem, decide BEFORE coding:
 2. State the 4 knobs in words.
 3. Predict complexity from constraints (10⁸ rule): O(log n) or O(n·log range).
 4. Code it → **boundary checklist before submit** (your #1 leak + the BS pitfalls): `lo<=hi` vs `lo<hi`, `mid=lo+(hi-lo)/2`, `lo=mid+1` makes progress (no infinite loop), `hi=mid` vs `hi=mid-1`, empty array, target out of range.
-5. Submit. Bring Tommy whatever fights back.
+5. Submit. Bring Kera whatever fights back.
 
 ## Cadence
 This week: **01–04** (2 easy + 2 medium). **05 (hard) → weekend.** After the set: fill `Notes/06` TO-FILL + spaced drill later.
