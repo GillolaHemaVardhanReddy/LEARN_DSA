@@ -20,6 +20,7 @@
 | **COUNT subarrays with EXACTLY k _____** | `atMost(k) − atMost(k−1)` (each window-friendly), OR transform→prefix+hash |
 | sum/count over many ranges; subarray sum = k | Prefix sum (+ hash) |
 | sorted, or monotonic yes/no, or minimize-the-max | Binary search (on answer) |
+| **sort/group by a COUNT or frequency; key is an int in a small range** | Bucket / counting sort (index = the key) |
 | matching / nesting | Stack |
 | next/previous greater or smaller element | Monotonic stack |
 | max/min of every window size k | Monotonic deque |
@@ -187,7 +188,8 @@ Complexity: O(log n); search-on-answer = O(n · log(range)).
 Variants & gotchas: exact / lower-upper bound / **search-on-answer (Koko: lo,hi are VALUES, feasible(k)=Σceil(pile/k)≤h, use long long)** / rotated (one half always sorted) / 2D / on-a-function. **PITFALLS (my #1 leak):** `lo<=hi` vs `lo<hi`, `mid=lo+(hi-lo)/2`, `lo=mid+1` makes progress (no infinite loop), `hi=mid` vs `hi=mid-1`. **NO band-aid `if(s==e)` patches — clean template handles single/empty by design; reason 4 edges BEFORE submit.**
 ⚠️ **OVERFLOW IS A 5th EDGE (Koko, LC875):** when lo/hi are VALUES up to 1e9, two arithmetic spots overflow `int`: (1) `mid=(lo+hi)/2` — the SUM hits 2.4e9 before the /2; fix = `mid=lo+(hi-lo)/2` (every intermediate ≤ hi). (2) the feasibility accumulator `sum=Σceil(pile/k)` — at k=1 that's the total bananas = up to 1e4·1e9 = **1e13**; `sum` and `find_hours`'s RETURN must be `long long`. Lesson: reason the MAGNITUDE of every `+`/`*`/accumulator, not just indices. (int ≈ ±2.1e9, long long ≈ ±9.2e18.)
 **Rotated array (LC33):** at each mid, ONE half is always sorted — test if target lies inside that sorted half; if yes search it, else the other. Still O(log n).
-Taught me by: LC704 (exact), LC35 (lower bound), LC34 (first/last), **LC875 Koko (search-on-answer + the overflow lesson, see MISTAKE #8)** AC. Rotated/2D/split-array pending.
+**SEARCH-ON-ANSWER — the universal brute→optimal (P16/LC1011, 2026-06-17):** the BRUTE for *any* search-on-answer is **linearly try every candidate answer + a feasibility check**; the OPTIMAL is **binary-search the candidate** because feasibility is monotonic (NO-NO-NO-YES-YES). Brute & optimal **share the exact same `feasible()`** — only the outer search changes (O(range)·n → O(n·log range)). **The feasibility function is PROBLEM-SPECIFIC — don't import it:** Koko's piles are *divisible* → `feasible(k)=Σceil(pile/k)≤h`; ship packages (LC1011) are *indivisible & in-order* → feasibility is a **greedy consecutive day-count** (`days=1, load=0; for w: if load+w>cap {days++; load=0;} load+=w; feasible ⇔ days≤D`). Using `ceil(sum/cap)` for ships is WRONG (it pretends you can split/repack — counterexample `[3,4,3]`, cap 5: ceil=2 but real greedy=3 days). Range for ship = `[*max_element, accumulate(...)]` (capacity must hold the heaviest single package; one-day upper bound = total). Direction knob: `feasible(mid)` TRUE → store + shrink right (`end=mid-1`); FALSE → `start=mid+1`.
+Taught me by: LC704 (exact), LC35 (lower bound), LC34 (first/last), **LC875 Koko (search-on-answer + the overflow lesson, see MISTAKE #8)** AC, **LC1011 Capacity to Ship (search-on-answer; derived the greedy day-count feasibility himself, debugged the trailing-day boundary bug)** AC. Rotated/2D/split-array pending.
 
 ### Stack (plain LIFO)
 Level: **L2 (theory 2026-06-10; videos [297][298][301] watched)** — not yet coded from memory.
@@ -217,6 +219,31 @@ for (int i = 0; i < n; i++) {
 Complexity: **O(n) AMORTIZED** — each element pushed once & popped at most once = 2n ops total, even with the inner while. (Same "enter once / leave once" argument as sliding window — this is the GATE for the topic.)
 Variants & gotchas: direction (next vs previous) = scan L→R vs R→L; greater vs smaller = flip the `>` and the stack's monotonic direction; circular array (NGE II) = loop `i` over `2n` with `%n`. Strict vs non-strict (`>` vs `>=`) matters for duplicates (subarray-min problems).
 Taught me by: theory + Daily Temperatures dry run; Striver [301][303][302][311]. Code next session = L3.
+
+### Bucket / Counting Sort (non-comparison sort)
+Level: **L3 (2026-06-17)** — P15 LC451 Sort Characters by Frequency: brute (count+sort) AC, then bucket optimal AC from memory after deriving the design himself.
+Trigger (my words): "sort or group by a **COUNT / frequency**" or "the sort key is an **integer in a small, bounded range**" → don't comparison-sort, **use the key itself as an array index**. Cue word: "by frequency", "most common", "sort by how many times".
+Why it works: comparison sorts are stuck at Ω(n log n) because they *compare*. Bucket sort **refuses to compare** — it scatters each item into `bucket[key(item)]`, then gathers buckets in index order. Index-placement replaces compare-and-sort → O(n + K).
+Template/skeleton:
+```cpp
+// LC451: sort chars by frequency, high→low
+int n = s.size();
+unordered_map<char,int> cnt;                  // 1) count fully FIRST
+for (char c : s) cnt[c]++;
+vector<string> bucket(n+1);                    // 2) index = frequency; size n+1 (a char can hit freq n!)
+for (auto& [ch, f] : cnt) bucket[f].push_back(ch);   // scatter ONCE at final freq (push_back, don't overwrite)
+string ans;
+for (int f = n; f >= 1; f--)                    // 3) gather high→low
+    for (char ch : bucket[f]) ans.append(f, ch);     // append(count, char) — COUNT first!
+return ans;
+```
+Complexity: time **O(n + K)** / space **O(K)** where K = key range. Special cases: **counting sort** (buckets hold counts of equal keys), **radix sort** (bucket-sort chained per digit).
+Variants & gotchas:
+- **The bucket array is sized by the KEY RANGE, not the # of distinct items.** Here key = frequency ∈ [0,n] → array size **n+1** (boundary: a char can appear n times → index n; start the gather loop at `f=n`, not `n-1`).
+- **It's a TIME↔SPACE TRADEOFF, not always an upgrade.** On THIS problem the distinct-char count is bounded (≤~62), so a plain count+sort is ~same time AND uses **less** aux space (O(1) vs the bucket's O(n)). Bucket *wins* only when the key range is small relative to n (e.g. sort 10⁷ ints in [0,100]). **Decide by: does the key range or the element count dominate?**
+- **Each slot needs a COLLECTION** (string / vector) — multiple items can share a key. `bucket[f].push_back(...)`, never `bucket[f] = ...` (overwrite loses data).
+- C++ idiom: `s.append(count, ch)` repeats a char — args are **(count, char)**, NOT Python's `ch*count`.
+Taught me by: P15 / LC451 (derived count-fully-then-place-once myself; debugged my own overwrite, arg-swap, and n-vs-n+1 boundary). Bucket index = the COUNT, not the char.
 
 ### Fast & Slow Pointers
 Level: L0
