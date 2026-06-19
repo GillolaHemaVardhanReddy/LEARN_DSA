@@ -118,8 +118,21 @@ first window over `[0, len-1]`, check it, then slide `right` from `len`: `+s2[ri
 the add+remove are **unconditional every step**, NOT a reaction to a mismatch; left is implicit = `right-len`.
 Taught me by: LC209 Min Size Subarray Sum (shortest) + LC3 Longest Substring No-Repeat (longest,
 `unordered_set`) + LC1004 Max Consecutive Ones III (longest, ≤k zeros) + **LC567 Permutation in String
-(fixed window + freq-match, incremental slide)**. **Order rule learned:** include → restore-validity → record
+(fixed window + freq-match, incremental slide)** + **LC438 Find All Anagrams (P18) — fixed window + two
+26-count arrays**. **Order rule learned:** include → restore-validity → record
 (record only when window is valid). Fixed-window: slide unconditionally, compare after.
+**⚠️ FIXED-WINDOW ANAGRAM/PERMUTATION RECOGNITION (P18/LC438, 2026-06-19):** cue = "fixed length `m`,
+is this window an **anagram / permutation / same multiset** as a target?" → **drop the sort, keep two
+`int[26]` count arrays**: P (frozen counts of the target, never changes) and W (live counts of the current
+window in s — mutate it: `--` the char leaving, `++` the char entering). Match ⇔ all 26 buckets equal
+(`k==26`, NOT `k==m` — you compare BUCKETS not length; classic leftover-from-brute bug). Per-slide cost
+O(26)=O(1) → total **O(n)**, space O(1) (two const-size arrays — say what they are, don't claim "no extra").
+**THE BOUNDARY LESSON (his #1 leak, caught again):** a **check-then-advance** loop checks an element ONE
+iteration AFTER it's brought in, so the loop must run **one step past** the final add — AND that extra step
+must check, then **guard the trailing add** so it doesn't read off the end (`if(r>=n) break;` before the
+`++`). Twin fix = flip to **add-first-then-check** so the window is always complete when you look (no
+trailing add to guard). Note `r<=n-1` ≡ `r<n` — same bug, no change. GOOD: he added `if(n<m) return {}`
+unprompted — boundary muscle firing on its own.
 **⚠️ EXACTLY-k COUNT — when a lone window CANNOT do it (P14/LC1248, derived 2026-06-16):** a window
 shrinks only on a **one-sided/monotonic violation** ("too many → shrink back"). It can detect crossing
 ONE threshold in ONE direction. **"count subarrays with EXACTLY k"** is a **two-sided** target (`> k-1`
