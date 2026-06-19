@@ -14,8 +14,18 @@ public:
     // Time:  O(?)   — why: ...
     // Space: O(?)   — why: ...
     int minSubarrayBrute(vector<int>& nums, int p) {
-        // TODO(boss): implement.
-        return 0;
+        int n = nums.size(), ans = INT_MAX;
+        long long S = accumulate(nums.begin(), nums.end(), 0);
+        for(int i = 0 ; i < n ; i++ ) {
+            long long sum = 0;
+            int j;
+            for(j = i ; j < n ; j++ ) {
+                sum+=nums[j];
+                if((S-sum)%p==0) ans = min(ans, j - i + 1);
+            }
+        }
+        if(ans == INT_MAX) return -1;
+        return ans;
     }
 
     // ================= HOW I DERIVED BRUTE -> OPTIMAL =================
