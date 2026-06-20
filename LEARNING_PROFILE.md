@@ -59,6 +59,12 @@
 
 ---
 
+- **GROWTH (2026-06-20, P21): the 3-bucket edge framework is becoming a REFLEX.** He asked "what are the 3 buckets?" mid-P20, and ~an hour later on P21 he ran SHAPE/VALUE/ANSWER **unprompted** at Gate A. The scaffold is converting to habit fast. Keep naming frameworks explicitly — he internalizes named checklists quickly once they're his.
+- **CONFIRMED AGAIN (2026-06-20): lead-with-the-trace is the #1 unlock, now 4×.** P20 TLE (handed `[1,1,1,1,2,3,4]` → he found the duplicate-walk himself), P21 brute OOB (`[1,2,1]` i=0 → he found `nums[-1]`), the slope-discard intuition. Prose-for-structure still slides; a hostile input he hand-runs lands every time.
+- **⚠️ MOTIVATION/IDENTITY LEAK — he measures himself by the WRONG scoreboard (3× in ONE day, 2026-06-20).** (1) P20: "embarrassing I couldn't solve this" (a famous Medium that baits everyone). (2) Contest zero: "I can't even solve 1 problem" (16 days in, contests pull from the whole 24-module map). (3) "there's so much left." TELL: he benchmarks day-16-himself against the hardest possible yardstick and ignores the evidence of progress. **FIX THAT WORKS:** name the wrong-scoreboard explicitly + show concrete same-day receipts (5/6 recognition, sort-complexity fixed, reflex firing). He responds to *specific evidence*, not generic reassurance. Watch for this dip after any hard/contest session and pre-empt it.
+- **THE "TWO" WORD-COLLISION (2026-06-20) — his reflexes can be triggered by SURFACE WORDS, not structure.** He diagnosed it himself: "2 sum means I just directly go to 2 pointer, I don't know why." "**Two** Sum" ↔ "**Two** Pointers" share the word → keyword match overrides the sorted-gate. Likely generalizes: watch for other name/keyword → wrong-tool reflexes. Re-anchoring by separating the WORD from the TECHNIQUE landed.
+- **COACHING NOTE ON MYSELF (2026-06-20): I over-revealed on P21** — asked the recognition question "what algorithm is this?" then answered "binary search" myself two words later. He called it out (his standing pattern — he WILL catch over-reveal). The recognition rep (him naming the pattern cold) is the highest-value rep; do NOT steal it. **Rule: after asking a recognition question, STOP and wait for his answer — full stop.**
+
 ## What "he really gets it" sounds like
 - Genuine: he restates the mechanism in his *own* concrete terms and predicts a result
   ("it comes 1 because it never goes > k"). That's transfer.

@@ -57,8 +57,9 @@ Rule of thumb: if Kira is teaching/hinting, it's LEARN or PRACTICE. If you're co
 | **Overflow magnitude** (#8) | 2026-06-20 | 0 🔴 | Gate C: seed/accumulator type, size the number |
 | **Gate slip** (sorted?→2ptr vs hash; set vs map) | 2026-06-20 | 0 🔴 | Gate C: container + sorted check |
 
-**First-submit-clean streak:** `0`  ·  **best:** `0` (baseline — start the count on P20)
+**First-submit-clean streak:** `0`  ·  **best:** `0`  (P20 TLE'd mid-stream · P21 optimal owed-buggy → next clean shot = P21 fix or P22)
 *(A clean solve = AC on judge with ZERO boundary band-aids and no overflow/reduction/gate slip.)*
+*Positive signals 2026-06-20: boundary CAUGHT-in-review on the P21 brute (he traced + guarded it himself); #8 overflow — he asked WHY `mid=lo+(hi-lo)/2` unprompted (partial win); 3-bucket framework ran unprompted at P21 Gate A.*
 
 ---
 
