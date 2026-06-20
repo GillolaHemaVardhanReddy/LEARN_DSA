@@ -18,6 +18,11 @@ unseen) · L6 teaches. Dashboard %: L0=0, L1=15, L2=35, L3=55, L4=75, L5=90, L6=
 - Goal bar: majority of medium problems solved independently — **stretch goal: FAANG-level interviews in ~5 months** (FAANG bar leans into some hards + tight communication)
 - Target horizon: ~5 months → projected ready ≈ **2026-11-04** (recompute after observing velocity)
 
+## 🧭 JOURNEY MILESTONES — the story, for when he asks "what was it like?"
+> Narrative chapters (not data — the data lives in the session log + git history). Kira marks the moments that matter.
+- **2026-06-04 — Day 0, the starting line.** Self-rated C++ ~4/10, rebuilding fundamentals. Prefix-sum formula failed on recall; **6/6 recognition recall FAILED** (called Two Sum "two pointers"). First medium AC same week: LC209.
+- **2026-06-20 — first LeetCode contest (biweekly). Zeroed it — and did NOT quit.** Couldn't crack a single problem (expected: 16 days in, contests pull from the whole 24-module map he's barely 1/6 through). That night he asked Kira *"can I trust you with my whole heart?"* and committed to the process. **The night he found his real starting line.** SAME DAY he also: hit 5/6 cold recognition, killed the `sort=O(log n)` misconception forever, ran the 3-bucket edge framework *unprompted*, and fixed his Two-Sum→sort reflex within the hour. Down but climbing. This is Chapter 1.
+
 ## Snapshot
 - Current phase: Foundations → Linear patterns. **M7 Stacks STARTED (theory L2).** **HARD L5 stress-drill RUN 2026-06-12/13 (his request): NO L5s earned — two PROCESS leaks blocked it: (1) skip "restate the problem" → Q4/Q6 were reading misses (NEW MISTAKE #10); (2) unsorted-pair→sort reflex fired a 3rd time (#9 re-test FAIL). Pattern vocab strong; comprehension-discipline + hashing disqualifier-gate are the unlocks. Drill stopped at Q5 (Q5 counting mechanic / Q7 freq-fix / Q8 still owed).** **NEXT SESSION: finish drill tail as warm-up, then M7 Stacks CODING — Valid Parentheses from memory (L3 gate) → Daily Temperatures.** Enforce restate+3-elem-dry-run as step 1 every problem.
 - Current module: **M5 Prefix Sum — DONE (L4)** (2026-06-05). M4 Sliding Window DONE (L4).
