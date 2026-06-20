@@ -11,10 +11,17 @@ public:
     // My idea (plain words):
     //   ...
     //
-    // Time:  O(?)   — why: ...
-    // Space: O(?)   — why: ...
+    // Time:  O(n)   — why: one loop only
+    // Space: O(1)   — why: no extra space
     int findPeakElementBrute(vector<int>& nums) {
-        // TODO(boss): implement.
+        int n = nums.size();
+        if(n==1) return 0;
+        for(int i = 0 ; i < n; i++) {
+            if( ((i==n-1) && (nums[i]>nums[i-1])  
+                || ((i==0) && (nums[i] > nums[i+1]))
+                || ( (!(i==n-1) && !(i==0)) && (nums[i-1] < nums[i]) && (nums[i] > nums[i+1])))
+            ) return i;
+        }
         return 0;
     }
 
@@ -35,8 +42,19 @@ public:
     // Time:  O(?)   — why: ...
     // Space: O(?)   — why: ...
     int findPeakElement(vector<int>& nums) {
-        // TODO(boss): implement.
-        return 0;
+        int n = nums.size(), mid = 0, l = 0 , r = n-1;
+        if(n==1) return 0;
+        while(l<=r){
+            mid = l + ( r - l ) / 2 ;
+            if(nums[mid] < nums[mid+1]){
+                l = mid + 1;
+            } else if(nums[mid - 1] > nums[mid]){
+                r = mid - 1;
+            } else {
+                return mid;
+            }
+        }
+        return mid;
     }
 };
 

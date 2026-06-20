@@ -8,10 +8,10 @@
 
 ## ▶️ TODAY  *(Kira re-renders this block at session start)*
 - **Date:** 2026-06-20
-- **Current topic / workspace:** drill1 P20 (`practice/drills/drill1/p20-longest-consecutive/`)
-- **Revision due:** P19 prefix-MOD re-derive (6/21) · overdue: MISTAKE #9 unsorted-gate, #10 restate, #11 atMost, #12 reduction-trap · drill tail Q5/Q7/Q8
-- **Next action:** P20 (longest consecutive) — run the **pre-flight ritual out loud** (`CHECKLIST.md`)
-- **Clean-streak focus:** first-submit-clean streak = **0** → goal: bank the first one on P20.
+- **Current topic / workspace:** drill1 **P21 optimal OWED** (`practice/drills/drill1/p21-find-a-peak/`) → then P22
+- **Revision due:** P19 prefix-MOD re-derive (6/21) · overdue: MISTAKE #9 unsorted-gate (**FAILED 4× on 6/20 recap**), #10 restate, #11 atMost, #12 reduction-trap · drill tail Q5/Q7/Q8
+- **Next action:** fix P21 optimal — clean BS `while(l<r)`, compare `nums[mid]` vs `nums[mid+1]` only, `else r=mid`, `return l` (current code OOBs on `[1,2,3]`/`[3,2,1]`)
+- **Clean-streak focus:** first-submit-clean streak = **0** (P20 TLE'd mid-stream, P21 optimal buggy) → next clean shot = P21 fix or P22.
 
 ---
 

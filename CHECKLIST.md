@@ -31,6 +31,32 @@ Say each:
 
 ---
 
+## 🪣 THE 3-BUCKET EDGE FRAMEWORK  *(boss's reference — the source of Gate C's edges)*
+> Before submit, interrogate the input from **three angles**. Every bug hides in one of these.
+> The drill: walk all three OUT LOUD and ask *"does my code survive each one?"* Not every problem
+> hits every bucket — a bucket being **empty is a valid check**, not a quota to fill.
+
+**1. 🔲 SHAPE — the *structure*, ignoring the values.** *"What's the smallest/weirdest shape this input can take?"*
+- Array: empty `[]` · size-1 `[x]` · size-n
+- String: `""` · length-1 · all-same-char
+- Matrix: `0×0` · `1×n` row · `n×1` col · square
+- Linked list: empty · single node · **has a cycle**
+- Tree: empty · single node · skewed vs balanced
+
+**2. 🔢 VALUE — the *contents*.** *"What nasty values could be inside?"*
+- Duplicates · negatives · zero
+- Huge numbers → **overflow** (leak #8 lives here — check `int` ~2.1e9, seed types `0LL`)
+
+**3. 🎯 ANSWER — the *output* extremes.**  ← **boss's #1 blind spot. Logic-right, answer-edge-wrong.**
+- The answer is **"none exists"** (return -1 / 0 / empty)
+- The answer is **"the whole thing"** (use the entire input)
+- The answer is **"do nothing"** (input already satisfies the goal → return it untouched)
+> *Proof it's your leak:* every P19 hole was an ANSWER edge ("whole array can't be removed", "S%p==0 → 0").
+> And on P20 the empty-array SHAPE edge **collided** with your "no run → return 1" ANSWER rule
+> (empty must return 0). SHAPE finds the case; ANSWER tells you the value. Run both.
+
+---
+
 ## 🧪 STRESS-TEST HARNESS (standing rule — fill `main()` on every coded problem)
 The **brute is the oracle** (correct-by-construction). Generate random tiny inputs, run brute vs
 optimal, `assert` they match, loop thousands of times. The first disagreement is a bug — usually
