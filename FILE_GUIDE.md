@@ -4,6 +4,12 @@ Quick map of the repo so you (and Kira) always know where things live.
 
 ---
 
+## 🚪 The front door (read FIRST, every session)
+| File | What it is |
+|---|---|
+| `COMMAND_CENTER.md` | **The single front door.** Today's plan + per-topic hub (level · video · solved · open leaks · next action) + mode legend (learn/practice/test) + the **leak scoreboard** (your execution bottleneck + first-submit-clean streak). Indexes everything; doesn't duplicate it. |
+| `CHECKLIST.md` | Your **pre-flight ritual** (Gate A restate · Gate B reduction-attack · Gate C boundary/overflow/container) — you run it out loud, Kira verifies. Plus the reusable **stress-test harness**. |
+
 ## Always loaded (in context every session)
 | File | What it is |
 |---|---|
@@ -16,6 +22,7 @@ Quick map of the repo so you (and Kira) always know where things live.
 | `REVISION_QUEUE.md` | Spaced-repetition queue — what's due for recall, and when. | Read at start; opens each day. |
 | `PATTERN_JOURNAL.md` | Per-pattern **recognition cues** + templates (the terse cheat-sheet). | After each problem / pattern. |
 | `MISTAKE_JOURNAL.md` | Every mistake: root cause + re-test date + the pre-submit checklist. | When you get something wrong. |
+| `LEARNING_PROFILE.md` | Kira's model of **how you learn** (which hints land, confusion shapes). | When something is learned about *how* you learn. |
 
 ## Planning & reference (read on demand, change rarely)
 | File | What it is |
@@ -25,12 +32,13 @@ Quick map of the repo so you (and Kira) always know where things live.
 | `SPRINT_SCHEDULE.md` | June 4–9 day-by-day plan. Say a date to resume that day. |
 | `FILE_GUIDE.md` | This file. |
 
-## Your study material
-| Path | What it is |
-|---|---|
-| `Notes/<NN>-<Topic>.md` | Plain-English **study notes** per topic — re-read these to revise. |
-| `solutions/<NN>-<Topic>/<NN>-<Problem>/problem.md` | The problem card (Kira writes). |
-| `solutions/<NN>-<Topic>/<NN>-<Problem>/solution.cpp` | Your code (you write). |
+## Your study material — split by the 3 MODES (this is why there are 3 folders)
+| Path | Mode | What it is |
+|---|---|---|
+| `Notes/<NN>-<Topic>.md` | — | Plain-English **study notes** per topic — re-read to revise. |
+| `learn/<NN>-<Topic>/<NN>-<Problem>/` | **LEARN** | First-time guided solves (Socratic, brute→bridge→optimal). `problem.md` (Kira) + `solution.cpp` (you). |
+| `practice/<NN>-Topic/` · `practice/drills/drillN/` · `practice/day-NN/` | **PRACTICE** | Reps & calibration: topic mastery sets, the disguised escalating drill series, daily cold sets. No level promotion. |
+| `test/cold-recognition/` · `/drill` · `/interview` | **TEST** | Cold, closed-book — the ONLY mode that promotes L4→L5. |
 
 ## Tooling / config
 | File | What it is |

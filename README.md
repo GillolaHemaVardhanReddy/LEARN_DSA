@@ -12,7 +12,7 @@ so nothing is ever lost to a forgotten save.
 - `MISTAKE_JOURNAL.md` — root-cause log + scheduled re-tests.
 - `REVISION_QUEUE.md` — date-stamped spaced repetition.
 - `.claude/commands/` — your slash commands (below).
-- `solutions/` — where your code goes.
+- `learn/` — where your code goes.
 
 ## One-time setup
 You need Node.js installed (you already have it). Then:
@@ -40,7 +40,7 @@ will ask three things: your **primary coding language**, your **weekly hours**, 
 ## Daily loop
 - **Start:** run `claude`, then type `/continue`. Kira reads your state, shows the
   dashboard, folds in anything due for revision, and picks up where you left off.
-- **During:** solve problems into `solutions/`. Use `STUCK` to get exactly one hint
+- **During:** solve problems into `learn/`. Use `STUCK` to get exactly one hint
   level at a time. Use `/drill` to train pattern recognition.
 - **End:** type **`/endsession`**. This is the one habit that matters — it writes your
   progress to the files and commits. (Kira also updates files as you go, but

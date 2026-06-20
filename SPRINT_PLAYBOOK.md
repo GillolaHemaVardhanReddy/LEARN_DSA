@@ -33,7 +33,7 @@
 ### 5. SOLVE & SUBMIT (Hema)
 - Code in C++ on onlinegdb, then submit on **LeetCode = ground truth**.
 - "Solved" = **Accepted on the judge**, never Kira's approval alone.
-- Save each solution to `solutions/<module>/<problem>.cpp`.
+- Save each solution to `learn/<module>/<problem>.cpp`.
 
 ### 6. EVALUATE (Kira — Code Review Mode)
 - Review like a senior eng: correctness · time/space complexity · edge cases ·
@@ -79,5 +79,5 @@ Quality over count: a problem fully reasoned + reviewed + cue-extracted beats fi
 - `MISTAKE_JOURNAL.md` — every error: root cause + re-test date.
 - `REVISION_QUEUE.md` — what's due when.
 - `PROGRESS.md` — levels + session log (the audit trail).
-- `solutions/<module>/` — your actual C++ code.
+- `learn/<module>/` — your actual C++ code.
 - Commit at every session end — the git history IS the progress log.

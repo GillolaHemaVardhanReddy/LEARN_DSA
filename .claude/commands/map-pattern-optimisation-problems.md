@@ -8,7 +8,7 @@ by remembering what's been seen.* This spans Two Sum-style complement lookup, pr
 (sum=k / divisible / equal-counts), frequency maps, and remainder maps.
 
 ## Steps
-1. Read `PROGRESS.md` (level), `practice/PRACTICE_LOG`-style history, and `solutions/` to avoid repeats.
+1. Read `PROGRESS.md` (level), `practice/PRACTICE_LOG`-style history, and `learn/` to avoid repeats.
 2. Generate a focused set (default 4: ~2 easy + 2 medium; honor `$ARGUMENTS` for count/difficulty/number).
 3. Each problem must be one where the **insight is "store seen values in a map, look one up in O(1)"**.
    Good pool: Two Sum, Subarray Sum = K, Subarrays Divisible by K, Contiguous Array, Longest

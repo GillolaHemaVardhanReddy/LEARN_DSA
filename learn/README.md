@@ -1,9 +1,9 @@
-# solutions/
+# learn/
 
 Your code lives here, organized by curriculum module. **Layout (one folder per problem):**
 
 ```
-solutions/
+learn/
   04-Sliding-Window/                       ← "04" = curriculum order, then the real name
     01-Minimum-Size-Subarray-Sum/          ← "01" = problem order within the topic
       problem.md      ← the question, examples, constraints, "before you code" checklist
