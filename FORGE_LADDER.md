@@ -5,16 +5,19 @@
 > answers, and tracks the rung here. **Mastery = N consecutive top-rung clears, cold, across all 4 tracks.**
 > Born 2026-06-20 (first biweekly contest — zeroed; gaps were comprehension + constructive + uncovered patterns).
 
-## The 4 skill tracks
-1. **Comprehension** — decode a dense statement by DRAWING it (the 2026-06-20 contest gap: couldn't parse grid `(i,j)` notation; flipped `(m-1,n-1)`). Restate in 1 sentence + 3-element dry run before any pattern.
-2. **Recognition** — name the pattern under disguise.
-3. **Constructive / ad-hoc** — small cases → find structure/invariant → simplest valid construction → generalize.
-4. **Complexity-from-constraints** — read the limits → pick the tool.
+## Two modes (set by the `/forge` argument)
+- **`/forge 1` → FAANG / INTERVIEW** = disguised **pattern recognition** + **complexity-from-constraints**.
+- **`/forge 2` → CONSTRUCTIVE / CONTEST** = **ad-hoc construction** + **decoding dense statements**.
+- **`/forge` (blank)** = continue last mode / calibrate.
+- **Comprehension** (decode by DRAWING) is woven into both; Mode 2 leans on it harder.
 
-## Current rung
-- **Rung:** 1 (calibration — not yet started)
-- **Focus next:** **Comprehension** (start exactly where the contest broke — grid/coordinate notation)
-- **Streak at top rung:** 0
+## Current rung (tracked PER MODE)
+| Mode | Rung | Focus next | Streak at top rung |
+|---|---|---|---|
+| **1 — FAANG/pattern** | 1 (not started) | recognition under light disguise + read-the-constraints | 0 |
+| **2 — Constructive/contest** | 1 (not started) | **start where the contest broke** — decode grid `(i,j)` notation by drawing | 0 |
+
+> Mastery (per mode) = N consecutive top-rung clears, cold.
 
 ## History
 | Date | Track | Question gist | Result | Rung after |
