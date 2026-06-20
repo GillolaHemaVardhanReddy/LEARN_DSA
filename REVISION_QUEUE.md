@@ -38,6 +38,8 @@
 | 2026-06-12 | M4 SW + M5 Prefix L5 (next interval +2d) | +2d | `/drill` | Keep L5 warm — re-confirm cold in the next interleaved set (don't let fresh L5 decay). |
 | weekend | **2ptr REVISIT: re-code LC75 as Dutch-flag** | revisit | solo | L4 gap — implement the low/mid/high 3-way partition (NOT selection-sort) to cement the technique. + LC42 Trapping (hard). |
 | ongoing | **Boundary EXECUTION (WEAK, the #1 leak)** | standing | re-test | Now framed as PROCESS: trust clean template + reason 4 edges before submit (Notes/00 framework). Clears after 2 mediums solved first-submit with zero band-aid patches. |
+| **2026-06-21** | **P19 LC1590 prefix-MOD + hash — re-derive cold (+1d)** | +1d | solo | He flagged it himself: "need to revise this to make it stick." Cold: from `(S−X)%p==0` derive `target=S%p` & lookup `(cur−target+p)%p`; store residue→latest index; the 3 guards (target==0→0, `ans<n` whole-array, `0LL`). MUST NOT slide to "equal residues" (that's LC974/target-0). Re-test the reduction defense: attack with a hostile `>p` element. |
+| **ongoing** | **Reduction trap (MISTAKE #12) — drop-the-constraint when reducing** | re-test | recall | Twice reduced "remove subarray so leftover%p==0" → "sum==target", dropping the mod (2026-06-19 & again on the optimal 2026-06-20). DEFENSE: before marrying a reduction, hand-run ORIGINAL vs REDUCED on a HOSTILE input (element > p); if they disagree the reduction dropped something. Clears when he catches his own reduction on a fresh problem unprompted. |
 | after M8 Deques | LC862 Shortest Subarray Sum≥K (**PARKED**) | deferred | hard | Needs monotonic deque. Revisit once M8 is learned — it'll be natural then. |
 
 ## Scheduled (upcoming)

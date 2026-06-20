@@ -30,6 +30,20 @@
   see this, name it explicitly and move him to a *new* structure (scaffold/grounded),
   don't let him keep bolting on.
 
+- **Reduction trap: drops the constraint when simplifying a problem.** P19 (2026-06-19 AND
+  again 2026-06-20): twice reduced "remove subarray so leftover `% p == 0`" down to the cleaner
+  "subarray sum `== target`" / "equal residues" — silently dropping the **mod**. It's the pull
+  toward the *prettier, already-known* shape (LC560, LC974/target-0). Tell: he reaches for a
+  pattern he's solved before and the new constraint quietly vanishes. **What fixed it both times:**
+  a HOSTILE concrete input (element `> p`, `[8,1,2,7] p=7`) that he traces through BOTH the original
+  and his reduction — the disagreement is undeniable and he climbs out himself. Don't argue the
+  reduction in prose; hand him the breaking input. (This is the counterexample-trace strength again.)
+
+- **CONFIRMED (2026-06-20): concrete counterexample-trace is his #1 unlock, twice over.** Both P19
+  catches (whole-array fake-winner, and the equal-residue reduction) were resolved by making him
+  hand-run a specific input, not by explanation. Prose explanations of WHY (`+p` wrap, seed type)
+  landed only *after* / alongside a concrete number or clock-walk. Lead with the trace, always.
+
 - **Abstraction → code gap.** He can state an insight verbally ("count subarrays with
   same k but different l") yet not translate it into the right variable/loop. Bridge
   the gap with a concrete trace of *what the variable holds at each step*, not more

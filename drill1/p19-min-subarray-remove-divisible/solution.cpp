@@ -15,13 +15,14 @@ public:
     // Space: O(?)   — why: ...
     int minSubarrayBrute(vector<int>& nums, int p) {
         int n = nums.size(), ans = INT_MAX;
-        long long S = accumulate(nums.begin(), nums.end(), 0);
+        long long S = accumulate(nums.begin(), nums.end(), 0LL);
+        if(S%p==0) return 0;
         for(int i = 0 ; i < n ; i++ ) {
             long long sum = 0;
             int j;
             for(j = i ; j < n ; j++ ) {
                 sum+=nums[j];
-                if((S-sum)%p==0) ans = min(ans, j - i + 1);
+                if((S-sum)%p==0 && ((j - i + 1) < n)) ans = min(ans, j - i + 1);
             }
         }
         if(ans == INT_MAX) return -1;
@@ -45,8 +46,27 @@ public:
     // Time:  O(?)   — why: ...
     // Space: O(?)   — why: ...
     int minSubarray(vector<int>& nums, int p) {
-        // TODO(boss): implement.
-        return 0;
+        int n = nums.size(), ans = INT_MAX;
+        long long sum = 0;
+        long long S = 0;
+        for(int i = 0 ; i < n ; i++ ) {
+            S+=nums[i];
+        }
+        unordered_map<int, int> seen;
+        int tar = S%p;
+        if(tar==0) return 0;
+        seen[0] = -1;
+        for(int r = 0 ; r < n ; r++ ) {
+            sum+=nums[r];
+            int curr = (sum%p+p)%p;
+            int need = (curr - tar + p)%p;
+            if(seen.count(need)){
+                ans = min(ans, r - seen[need]);
+            }
+            seen[curr] = r;
+        }
+        if(ans == INT_MAX) return -1;
+        return ans<n ? ans : -1;
     }
 };
 

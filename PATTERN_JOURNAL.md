@@ -180,6 +180,24 @@ equal 0s/1s (transform) · **product except self = prefix×suffix, LC238** (÷ a
 subarray XOR=k · 2D prefix. **Mental model: the hash map IS the inner loop** — it remembers every earlier
 prefix so "scan all starts" becomes one O(1) lookup (O(n²)→O(n)). **`map`(O(log n)) vs `unordered_map`(O(1))**:
 use unordered_map when you don't need sorted keys (LC523: 150ms→81ms just by switching).
+**⚠️ REMOVE-A-SUBARRAY-TO-MAKE-DIVISIBLE (P19/LC1590, AC 2026-06-20):** "remove the SHORTEST subarray so the
+LEFTOVER sum % p == 0." THE REDUCTION (where I fell in the trap twice): `(S − X) % p == 0 ⟺ X % p == S % p`,
+so set `target = S % p` and **find the shortest subarray whose sum % p == target** (NOT sum == target — that
+DROPS THE MOD; and NOT "divisible/target 0" — that's the LC974 special case). Then it's LC560 with `%p` on the
+key: store **prefix residue → latest index**, and for current residue `cur`, look up `need = (cur − target + p) % p`
+(the LC974 negative-normalize: `+p` rotates one full lap into `[0,p)` so it matches stored keys). Length of the
+removed chunk = `r − seen[need]` (difference of the two prefix INDICES = the subarray between them; `seen[need]`
+is a position, not a subarray). **The 3 guards (all my boundary family, owed overnight):** (1) `target==0 → return 0`
+(already divisible, remove nothing/empty); (2) **forbid whole-array removal** — the full prefix always has residue
+== target so it's ALWAYS a fake length-`n` "winner"; end with `return ans < n ? ans : -1` (kills both the illegal
+n-length answer AND the unfound INT_MAX in one shot); (3) overflow: `accumulate(...,0LL)` — the SEED's type
+decides the accumulation type (int seed → overflows before assigning to long long). **Bugs caught in review:**
+`unordered_set<int,int>` used like a map (set/map family-leak — needs `unordered_map`); stored `seen[need]=r`
+instead of `seen[cur]=r` (filed current index under the looked-up residue, not its OWN residue); missing `seen[0]=-1`
+seed. **THE TRANSFER WIN:** he saw it's "LC560 refactored with %p for the hashmap" — same machine, mod wrapped
+around the key. **THE DEFENSE (re-stated, MISTAKE #12-ish, reduction trap):** before marrying a reduction, attack
+it with a HOSTILE input (an element > p, e.g. `[8,1,2,7], p=7`); hand-run the ORIGINAL and the REDUCED problem — if
+they disagree, the reduction dropped something (here: the mod).
 
 ### Binary Search (incl. on answer)
 Level: **L4 EARNED 2026-06-10** — LC34 (first/last) + LC875 (Koko, search-on-answer) mediums AC, on top of LC704/35 easies. Recognition independent on both. Support on Koko was a PRIMITIVE (integer-overflow magnitude), not the pattern. Drill 6/10 Q5/Q6 (search-on-answer + rotated) named cold — L5 HELD only because it's same-day as L4 (cadence: don't test transfer the day you reach the level). Full notes: `Notes/06`.
