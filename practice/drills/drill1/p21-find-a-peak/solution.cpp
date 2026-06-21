@@ -46,9 +46,9 @@ public:
         if(n==1) return 0;
         while(l<=r){
             mid = l + ( r - l ) / 2 ;
-            if(nums[mid] < nums[mid+1]){
+            if((mid < n-1) && (nums[mid] < nums[mid+1])){
                 l = mid + 1;
-            } else if(nums[mid - 1] > nums[mid]){
+            } else if((mid>0) && (nums[mid - 1] > nums[mid])){
                 r = mid - 1;
             } else {
                 return mid;

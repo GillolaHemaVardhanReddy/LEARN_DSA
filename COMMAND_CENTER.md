@@ -7,11 +7,11 @@
 ---
 
 ## ▶️ TODAY  *(Kira re-renders this block at session start)*
-- **Date:** 2026-06-20
-- **Current topic / workspace:** drill1 **P21 optimal OWED** (`practice/drills/drill1/p21-find-a-peak/`) → then P22
-- **Revision due:** P19 prefix-MOD re-derive (6/21) · overdue: MISTAKE #9 unsorted-gate (**FAILED 4× on 6/20 recap**), #10 restate, #11 atMost, #12 reduction-trap · drill tail Q5/Q7/Q8
-- **Next action:** fix P21 optimal — clean BS `while(l<r)`, compare `nums[mid]` vs `nums[mid+1]` only, `else r=mid`, `return l` (current code OOBs on `[1,2,3]`/`[3,2,1]`)
-- **Clean-streak focus:** first-submit-clean streak = **0** (P20 TLE'd mid-stream, P21 optimal buggy) → next clean shot = P21 fix or P22.
+- **Date:** 2026-06-21
+- **Current topic / workspace:** drill1 **P22 Closest Triplet Sum — AC (brute + optimal)** → next **P23 Fruit Into Baskets** (`practice/drills/drill1/p23-fruit-into-baskets/`)
+- **Revision due:** ✅ P19 prefix-MOD re-derive PASSED cold (6/21, next +3d ≈ 6/24) · NEW queued: BS-via-discard-ability reps (6/23) · still overdue: MISTAKE #9 unsorted-gate, #10 restate, #11 atMost · drill tail Q5/Q7/Q8
+- **Next action:** P23 Fruit Into Baskets (LC904 — variable sliding window, "longest subarray with ≤2 distinct"). Run the loop; chase first-submit-clean.
+- **Clean-streak focus:** first-submit-clean streak = **0** (P22 not clean — brute dropped distinct-indices, optimal had pointer-naming/direction bug) → next clean shot = **P23**.
 
 ---
 
@@ -52,14 +52,15 @@ Rule of thumb: if Kira is teaching/hinting, it's LEARN or PRACTICE. If you're co
 
 | Leak | Last seen | Days clean | Catch it with |
 |---|---|---|---|
-| **Boundary / index / sentinel** | 2026-06-20 | 0 🔴 | Gate C: 4 boundary edges + ANSWER edge |
-| **Reduction trap** (drops a constraint) | 2026-06-20 | 0 🔴 | Gate B: hostile input, run ORIGINAL vs REDUCED |
-| **Overflow magnitude** (#8) | 2026-06-20 | 0 🔴 | Gate C: seed/accumulator type, size the number |
-| **Gate slip** (sorted?→2ptr vs hash; set vs map) | 2026-06-20 | 0 🔴 | Gate C: container + sorted check |
+| **Boundary / index / sentinel** | 2026-06-21 | 0 🔴 | Gate C: 4 boundary edges + ANSWER edge |
+| **Constraint-drop** (brute omits a stated rule) | 2026-06-21 | 0 🔴 | Gate A: every constraint is load-bearing ("distinct indices") |
+| **Reduction trap** (drops a constraint) | 2026-06-20 | 1 🟡 | Gate B: hostile input, run ORIGINAL vs REDUCED |
+| **Overflow magnitude** (#8) | 2026-06-20 | 1 🟡 | Gate C: seed/accumulator type, size the number |
+| **Gate slip** (sorted?→2ptr vs hash; set vs map) | 2026-06-21 | 0 🔴 | Gate C: container + sorted check |
 
-**First-submit-clean streak:** `0`  ·  **best:** `0`  (P20 TLE'd mid-stream · P21 optimal owed-buggy → next clean shot = P21 fix or P22)
+**First-submit-clean streak:** `0`  ·  **best:** `0`  (P21 fixed (AC, owed) · P22 AC but not clean: brute dropped distinct-indices + optimal pointer-naming/direction bug → next clean shot = **P23**)
 *(A clean solve = AC on judge with ZERO boundary band-aids and no overflow/reduction/gate slip.)*
-*Positive signals 2026-06-20: boundary CAUGHT-in-review on the P21 brute (he traced + guarded it himself); #8 overflow — he asked WHY `mid=lo+(hi-lo)/2` unprompted (partial win); 3-bucket framework ran unprompted at P21 Gate A.*
+*Positive signals 2026-06-21: **P19 prefix-MOD re-derived COLD, reduction-trap DEFUSED** (rebuilt the mod-preserving reduction from scratch, no slide to equal-residues); **the HASHING-vs-ORDER gate landed on P22** — he killed his own hash-map instinct via a trace, realized "closest needs ORDER → sort+2ptr, hashing = exact-only". Recognition engine firing; residual leak stays EXECUTION (constraint-drop + pointer naming/direction).*
 
 ---
 

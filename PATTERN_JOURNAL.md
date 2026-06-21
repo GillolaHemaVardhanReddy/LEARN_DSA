@@ -16,6 +16,7 @@
 | "seen before? / how many times?" | Hashing / frequency map |
 | sorted array, find pair/triple | Two pointers |
 | compare from both ends | Two pointers |
+| **CLOSEST / NEAREST sum, or MIN DIFFERENCE to a target** (pair/triplet near a value, not exactly it) | **Sort + two pointers** — order lets you STEER; **NOT hashing** (hash = exact lookup only, no "nearest") |
 | longest/shortest **contiguous** subarray/substring | Sliding window |
 | **COUNT subarrays with EXACTLY k _____** | `atMost(k) − atMost(k−1)` (each window-friendly), OR transform→prefix+hash |
 | sum/count over many ranges; subarray sum = k | Prefix sum (+ hash) |
@@ -87,6 +88,7 @@ Trigger: the REAL rule is a **provably-safe move** (discarding one side never lo
 ⚠️ **GATE for the PAIR-SUM family: is it SORTED?** If NOT sorted → **HASHING**, not two pointers. (My #1 recognition leak — see MISTAKE #6.) But "two pointers" ≠ "needs sorted" in general.
 Why it works: a provable safe-discard each step → O(n). For sums: too-big drops the largest. For Container: shorter wall caps area, so move it.
 The 3 shapes: **converging** (opposite ends — sum-steered or greedy) · **fast/slow** (read/write in place) · **fix-one + two-pointer** (3Sum). Plus **Dutch flag** (3-way partition, low/mid/high — left-known/right-unknown asymmetry: advance mid on a 0-swap, NOT on a 2-swap).
+**⚠️ CLOSEST / NEAREST sum — the HASHING-vs-ORDER gate (P22/LC16 3Sum Closest, 2026-06-21):** cue = "pick a pair/triplet whose sum is **closest** to a target (min `|sum−target|`), return the SUM not the indices." He first reached for a **hash map** — KILLED it himself via the trace `{3,7,9,14,20}` goal 10: a hash map answers *"is this EXACT value present?"* in O(1) but has **no order**, so finding the **NEAREST** key costs a full scan. **"Closest/nearest" needs ORDER → sort + fix-one + converging two pointers**, steered by sum vs target: `sum<target → lo++` (grow), `sum>target → hi--` (shrink), `sum==target → return` (distance 0, can't beat). Track best with a SEPARATE distance var (`compare=INT_MAX`, `ans` follows) so the first triplet always wins — he used this cleanly. O(n²) time / O(1) space. **Leaks that fired (NOT first-submit-clean):** (1) brute dropped the "**distinct indices**" constraint (loops from 0 → fixed with `j=i+1,k=j+1`; same constraint-drop family as P19 whole-array); (2) **named pointers backwards** (`l`=high, `r`=low) → moved the WRONG pointer → OOB, then inverted the `while` guard. LESSON: name pointers `lo`/`hi` by ROLE so the direction logic reads itself; a naming flip MANUFACTURES bugs.
 Complexity: O(n) (O(n log n) if you sort first) / O(1) space — the selling point vs hashing.
 Variants & gotchas: 3Sum = sort + fix-one + steer + **skip dups at i AND L/R** (structural skip beats set<vector> which TLEs on constant factor). Valid Palindrome II = converging + **commit the ONE deletion at the mismatch** → check both halves fully (helper). Boundary traps: `L<R` bound, skip-dup needs `L<R &&` guard, `a[L]+a[R]` overflow.
 Taught me by: LC167 (converging) · LC15 3Sum · LC11 Container (greedy) · LC125/977/283/680 · LC75 (Dutch-flag concept). LC42 Trapping = weekend.

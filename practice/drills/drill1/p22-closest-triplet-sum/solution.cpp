@@ -11,11 +11,23 @@ public:
     // My idea (plain words):
     //   ...
     //
-    // Time:  O(?)   — why: ...
-    // Space: O(?)   — why: ...
+    // Time:  O(n^3)   — why: 3 loops
+    // Space: O(1)   — why: no extra space
     int threeSumClosestBrute(vector<int>& nums, int target) {
-        // TODO(boss): implement.
-        return 0;
+        int n = nums.size(), sum = 0 , ans = INT_MAX, compare = INT_MAX;
+        for(int i = 0 ; i < n ; i++ ) {
+            for(int j = i+1 ; j < n ; j++ ) {
+                for(int k = j+1 ; k < n ; k++ ) {
+                    sum = nums[i]+nums[j]+nums[k];
+                    if(compare > abs(sum - target)){
+                        compare = abs(sum - target);
+                        ans = sum;
+                    }
+
+                }
+            }
+        }
+        return ans;
     }
 
     // ================= HOW I DERIVED BRUTE -> OPTIMAL =================
@@ -35,8 +47,25 @@ public:
     // Time:  O(?)   — why: ...
     // Space: O(?)   — why: ...
     int threeSumClosest(vector<int>& nums, int target) {
-        // TODO(boss): implement.
-        return 0;
+        int n = nums.size(), l = 0 , r = n-1, sum = 0, ans = INT_MAX, compare = INT_MAX;
+        sort(nums.begin(), nums.end());
+        for(int f = 0 ; f < n ; f++ ) {
+            l = f+1; r = n-1;
+            while(r>l){
+                sum = nums[f] + nums[r] + nums[l];
+                if(compare > abs(sum-target)){
+                    compare = abs(sum-target);
+                    ans = sum;
+                }
+                if((sum<target)) l++;
+                else if((sum > target)) r--;
+                else {
+                    r--;
+                    l++;
+                }
+            }
+        }
+        return ans;
     }
 };
 
