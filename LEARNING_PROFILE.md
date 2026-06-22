@@ -29,6 +29,27 @@
   pass/fail between mirror cases** = the structure is wrong, stop patching. When you
   see this, name it explicitly and move him to a *new* structure (scaffold/grounded),
   don't let him keep bolting on.
+  - **RECURRED P24 (2026-06-22), and he climbed out fast once named:** boundary search where
+    `r=mid-1` discarded the answer → his fix was to **add an `ans` tracker** (bolt-on), not fix the
+    structure. Naming it "band-aid vs structural fix" + giving the rule ("could mid be the answer? →
+    keep it") got him to the clean `while(l<r)` form himself. **NEW HYPOTHESIS (strong):** he is now
+    *responsive* to "you're patching, replace the frame" as an explicit callable — say it by name.
+
+- **⭐ CROSS-PATTERN PRINCIPLE TRANSFER works, and fast (2026-06-22).** Taught "derive state, don't
+  maintain it" on a sliding window (P23), and within the same hour he *spontaneously* applied it to
+  BINARY SEARCH (P24 — deleted the `ans` he was maintaining, let the converging pointers hold the
+  answer). When a lesson is framed as a **principle with a one-line handle** ("one driver, one
+  invariant, derive the rest") rather than a problem-specific fix, it generalizes for him. Prefer
+  teaching the portable rule + a memorable phrase over the local patch.
+
+- **Self-trap-calling is emerging (2026-06-22).** He flagged BOTH his own traps unprompted: "this
+  optimal is over-engineered" (P23) and "this brute is too easy = I'm dodging the rep" (P24). Lean
+  into this — when he names a smell, make HIM articulate the fix before I do; he's often 80% there.
+
+## TRACE-FIRST reconfirmed as the #1 unlock (2026-06-22)
+P23 reading miss (summed type-values) AND P24 boundary bug (`r=mid-1` drops the min) were BOTH caught
+by handing him a hostile concrete input to trace himself (`[2,2,2]→6-from-3-trees`; `[3,1,2]→returns 3`),
+not by prose. Keep leading with the breaking input. Prose-for-structure still slides off.
 
 - **Reduction trap: drops the constraint when simplifying a problem.** P19 (2026-06-19 AND
   again 2026-06-20): twice reduced "remove subarray so leftover `% p == 0`" down to the cleaner

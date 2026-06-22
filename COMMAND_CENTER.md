@@ -7,11 +7,11 @@
 ---
 
 ## ▶️ TODAY  *(Kira re-renders this block at session start)*
-- **Date:** 2026-06-21
-- **Current topic / workspace:** drill1 **P22 Closest Triplet Sum — AC (brute + optimal)** → next **P23 Fruit Into Baskets** (`practice/drills/drill1/p23-fruit-into-baskets/`)
-- **Revision due:** ✅ P19 prefix-MOD re-derive PASSED cold (6/21, next +3d ≈ 6/24) · NEW queued: BS-via-discard-ability reps (6/23) · still overdue: MISTAKE #9 unsorted-gate, #10 restate, #11 atMost · drill tail Q5/Q7/Q8
-- **Next action:** P23 Fruit Into Baskets (LC904 — variable sliding window, "longest subarray with ≤2 distinct"). Run the loop; chase first-submit-clean.
-- **Clean-streak focus:** first-submit-clean streak = **0** (P22 not clean — brute dropped distinct-indices, optimal had pointer-naming/direction bug) → next clean shot = **P23**.
+- **Date:** 2026-06-22
+- **Current topic / workspace:** drill1 **P23 Fruit Into Baskets — AC** + **P24 Find Min in Rotated — AC + stress-proven (100k)** → next **P25 Trapping Rain Water** (`practice/drills/drill1/p25-trapped-rain-water/`)
+- **Revision due:** P19 prefix-MOD next +3d ≈ 6/24 · **BS-via-discard-ability (6/23) — P24/LC153 done early off that ladder** · **NEW: derive-don't-maintain — cold recall 6/25 + standing window/2ptr audit (P27/P29)** · still overdue: MISTAKE #9 unsorted-gate, #10 restate, #11 atMost · drill tail Q5/Q7/Q8
+- **Next action:** P25 Trapping Rain Water (LC42, **hard** — two-pointer / prefix-max). Run the loop; stress-test in `main()` now that local g++ works (`g++ -std=c++20 -O2 -Wall solution.cpp -o x && ./x`).
+- **Clean-streak focus:** first-submit-clean streak = **0** (P23 had a Gate-A reading miss + over-engineered optimal; P24 went band-aid→clean, not first-submit) → next clean shot = **P25** (stretch — it's a hard).
 
 ---
 
@@ -52,15 +52,16 @@ Rule of thumb: if Kira is teaching/hinting, it's LEARN or PRACTICE. If you're co
 
 | Leak | Last seen | Days clean | Catch it with |
 |---|---|---|---|
-| **Boundary / index / sentinel** | 2026-06-21 | 0 🔴 | Gate C: 4 boundary edges + ANSWER edge |
-| **Constraint-drop** (brute omits a stated rule) | 2026-06-21 | 0 🔴 | Gate A: every constraint is load-bearing ("distinct indices") |
+| **Boundary / index / sentinel** | 2026-06-22 | 0 🔴 | Gate C: 4 boundary edges + ANSWER edge — **P24: `r=mid-1` discarded the min** (exact-target template on a boundary search). Cue: "could mid be the answer?" → keep it (`r=mid`, `l<r`, return nums[l]). |
+| **Band-aid / redundant maintained state** (patch over wrong structure) | 2026-06-22 | 0 🔴 | **⭐ Derive-don't-maintain:** P23 hand-synced 6 vars (cut to 2); P24 bolted on an `ans` tracker to patch a bad `mid±1`. Audit before submit: any var that's really `r-l+1`? any two vars that must agree? |
+| **Constraint-drop / reading miss** (brute omits a stated rule, or misreads what's asked) | 2026-06-22 | 0 🔴 | Gate A: **P23 dry run summed type VALUES instead of counting fruits** — caught by the `[2,2,2]→6-from-3-trees` trace. Every constraint load-bearing; restate WHAT is returned. |
 | **Reduction trap** (drops a constraint) | 2026-06-20 | 1 🟡 | Gate B: hostile input, run ORIGINAL vs REDUCED |
 | **Overflow magnitude** (#8) | 2026-06-20 | 1 🟡 | Gate C: seed/accumulator type, size the number |
 | **Gate slip** (sorted?→2ptr vs hash; set vs map) | 2026-06-21 | 0 🔴 | Gate C: container + sorted check |
 
-**First-submit-clean streak:** `0`  ·  **best:** `0`  (P21 fixed (AC, owed) · P22 AC but not clean: brute dropped distinct-indices + optimal pointer-naming/direction bug → next clean shot = **P23**)
+**First-submit-clean streak:** `0`  ·  **best:** `0`  (P23 AC — Gate-A reading miss + over-engineered optimal · P24 AC — band-aid→clean, not first-submit → next clean shot = **P25**, a hard)
 *(A clean solve = AC on judge with ZERO boundary band-aids and no overflow/reduction/gate slip.)*
-*Positive signals 2026-06-21: **P19 prefix-MOD re-derived COLD, reduction-trap DEFUSED** (rebuilt the mod-preserving reduction from scratch, no slide to equal-residues); **the HASHING-vs-ORDER gate landed on P22** — he killed his own hash-map instinct via a trace, realized "closest needs ORDER → sort+2ptr, hashing = exact-only". Recognition engine firing; residual leak stays EXECUTION (constraint-drop + pointer naming/direction).*
+*Positive signals 2026-06-22: **the ⭐ DERIVE-DON'T-MAINTAIN principle TRANSFERRED across patterns in one session** — taught on a window (P23), he applied it to BINARY SEARCH an hour later (P24: killed his own `ans` band-aid → clean `while(l<r)` converge). **TRACE-FIRST caught BOTH misses** (P23 reading, P24 boundary) — his #1 modality confirmed again. **First local stress-test ever run** (100k cases, oracle silent) — toolchain unblocked, this is now standing. **He CALLED his own traps** twice (P23 "this is over-engineered", P24 "this is too easy = I'm dodging the rep"). Residual leak = FIRST-INSTINCT execution (defaults to exact-target BS template + redundant maintained state), then fixes on review — now NAMED + SCHEDULED.*
 
 ---
 
