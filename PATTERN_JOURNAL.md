@@ -242,13 +242,18 @@ Variants & gotchas: exact / lower-upper bound / **search-on-answer (Koko: lo,hi 
 Taught me by: LC704 (exact), LC35 (lower bound), LC34 (first/last), **LC875 Koko (search-on-answer + the overflow lesson, see MISTAKE #8)** AC, **LC1011 Capacity to Ship (search-on-answer; derived the greedy day-count feasibility himself, debugged the trailing-day boundary bug)** AC. Rotated/2D/split-array pending.
 
 ### Stack (plain LIFO)
-Level: **L2 (theory 2026-06-10; videos [297][298][301] watched)** — not yet coded from memory.
+Level: **L3 EARNED 2026-06-22** — LC20 Valid Parentheses coded from memory, **AC on judge**. (Heavy execution coaching on boundaries, so NOT cold/independent — L3 is "coded from memory", which this is; L4 still owed via more solo reps.)
 Trigger (WHEN to use): "**matching / nesting / balanced**" or "the **most recent unmatched** thing decides" → stack. Brackets, undo, browser-back, anything LIFO.
 Why it works: holds the unresolved items in order, most-recent on top — exactly what a closer/next-item needs to check. Beats a COUNTER: a counter handles ONE bracket type but fails on mixed types (`([)]` counts to 0 yet is invalid) because it forgets WHICH opener is most recent.
 Template/skeleton: `stack<char> st;` push openers; on closer, `st.empty()||st.top()!=match → false`, else pop. Balanced ⇔ stack empty at end. All ops O(1).
 Complexity: O(n) time / O(n) space.
-Variants & gotchas: carry extra state on the stack when needed (Min Stack = push (val, min-so-far)). Empty-stack check BEFORE top()/pop() (boundary!).
-Taught me by: theory + Striver [297][298][300]. Code next session (Valid Parentheses) = L3.
+**⚠️ VALID PARENTHESES — the 3 leaks that fired (LC20, 2026-06-22):**
+1. **"Match" ≠ "equal".** First instinct was `if(s[i] != poppedOpen) return false;` — but a close bracket is **never the same char as its opener** (`')' != '('` is always TRUE). The check is "is the popped open the **PARTNER** of this close?", not equality. He read `)` and `(` as "same" because they pair in his head; the computer sees two different symbols. (Caught by tracing his code on `"()"` → it returned false on the simplest valid string.)
+2. **Empty-stack-on-close (boundary).** A lone `")"` runs `top()/pop()` on an empty stack → UB. Guard `if(st.empty()) return false;` **before** reading, at the start of the close branch — not just an end-check.
+3. **Leftover opens (the ANSWER edge).** `"("` pushes and falls through to `return true` — wrong. Must end with `return st.empty();` (everything must have matched). He fixed #3 but initially missed it was separate from #2 — **both** boundary traps live in this one problem.
+**META:** logic was right after the partner fix; *everything else was boundaries* (his #1 leak). The catches were coached (I pointed at each via Gate C); the rep to grow = running the 4 boundary edges on himself BEFORE calling it done. C++ gaps surfaced → CPP_GAPS #6 (`stack::pop()` returns void), #7 (`string::find`→npos), #8 (char vs string literal).
+Variants & gotchas: carry extra state on the stack when needed (Min Stack = push (val, min-so-far)). Empty-stack check BEFORE top()/pop() (boundary!). Brute oracle for bracket validity = **repeated removal** (erase any `"()"/"[]"/"{}"`, loop till no change, valid ⇔ empty) — dead-simple & obviously correct, the whole point of a brute oracle.
+Taught me by: theory + Striver [297][298][300] + **LC20 Valid Parentheses (P-learn 07-01, AC) = L3**. Next: monotonic stack (Daily Temperatures) for M7 → L4.
 
 ### Monotonic Stack
 Level: **L2 (theory 2026-06-10; video [301] watched)** — not yet coded from memory.

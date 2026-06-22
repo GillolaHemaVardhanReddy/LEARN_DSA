@@ -7,11 +7,11 @@
 ---
 
 ## ▶️ TODAY  *(Kira re-renders this block at session start)*
-- **Date:** 2026-06-22
-- **Current topic / workspace:** drill1 **P23 Fruit Into Baskets — AC** + **P24 Find Min in Rotated — AC + stress-proven (100k)** → next **P25 Trapping Rain Water** (`practice/drills/drill1/p25-trapped-rain-water/`)
-- **Revision due:** P19 prefix-MOD next +3d ≈ 6/24 · **BS-via-discard-ability (6/23) — P24/LC153 done early off that ladder** · **NEW: derive-don't-maintain — cold recall 6/25 + standing window/2ptr audit (P27/P29)** · still overdue: MISTAKE #9 unsorted-gate, #10 restate, #11 atMost · drill tail Q5/Q7/Q8
-- **Next action:** P25 Trapping Rain Water (LC42, **hard** — two-pointer / prefix-max). Run the loop; stress-test in `main()` now that local g++ works (`g++ -std=c++20 -O2 -Wall solution.cpp -o x && ./x`).
-- **Clean-streak focus:** first-submit-clean streak = **0** (P23 had a Gate-A reading miss + over-engineered optimal; P24 went band-aid→clean, not first-submit) → next clean shot = **P25** (stretch — it's a hard).
+- **Date:** 2026-06-22 (evening — M7 session)
+- **Current topic / workspace:** **M7 Stacks — LC20 Valid Parentheses AC → plain-stack L2→L3** (`learn/07-Stacks/01-Valid-Parentheses/`). Next: **Daily Temperatures (LC739)** scaffolded at `learn/07-Stacks/02-Daily-Temperatures/` — owed in the MORNING after fresh monotonic-stack theory.
+- **MORNING PLAN (he tapped out, by his call):** (1) **monotonic-stack theory FRESH** — closed-book recall first (he decayed it over ~12d). (2) He maps it onto **Daily Temperatures himself** + codes the optimal (do NOT re-spoil — I over-revealed the trace 6/22). AC = **M7 → L4.**
+- **Revision due:** Daily Temps (morning) · plain-stack concept +1d (6/23) · C++ gaps #6/#7/#8 standing · P19 prefix-MOD +3d ≈ 6/24 · derive-don't-maintain cold recall 6/25 · BS discard-ability remainder (LC852/540/33, 6/23) · still overdue: MISTAKE #9 unsorted-gate, #10 restate, #11 atMost · drill tail Q5/Q7/Q8 · **P25 Trapping (LC42, hard) = WEEKEND.**
+- **Clean-streak focus:** first-submit-clean streak = **0** (LC20 AC but heavy pre-submit boundary debugging — coached, not self-run Gate C). Next clean shot = **Daily Temperatures** (run the 4 boundary edges on himself BEFORE submit).
 
 ---
 
@@ -26,7 +26,7 @@ Level scale: L0–L6 (see `PROGRESS.md` §6). 🎥 = Striver video id (`STRIVER_
 | M4 Sliding Window | **L5** ✅ | — | M:3+ | (clean) | keep warm in drills |
 | M5 Prefix Sum | **L4** | — | approaching L5 (pulled back, needs track record) | P19 re-derive 6/21 | L5 drill after streak |
 | M6 Binary Search | **L4** | [045/046/047/056] | E:2 M:2 | #8 overflow magnitude; LC33/LC74 unsolved | LC33 + LC74 |
-| M7 Stacks + Monotonic | **L2** | [297][298][300][301] | 0 | not yet coded from memory | Valid Parens from memory → L3 |
+| M7 Stacks + Monotonic | **L3** | [297][298][300][301] | LC20 | plain-stack L3 ✓; monotonic still L2 (theory only) | Daily Temps (LC739) → L4 |
 | M8 Queues/Deque | L0 | — | — | — | after M7 |
 | M9+ Recursion → DP → Graphs | L0 | see STRIVER_VIDEOS | — | — | back half (heavier per-pattern) |
 
@@ -52,9 +52,9 @@ Rule of thumb: if Kira is teaching/hinting, it's LEARN or PRACTICE. If you're co
 
 | Leak | Last seen | Days clean | Catch it with |
 |---|---|---|---|
-| **Boundary / index / sentinel** | 2026-06-22 | 0 🔴 | Gate C: 4 boundary edges + ANSWER edge — **P24: `r=mid-1` discarded the min** (exact-target template on a boundary search). Cue: "could mid be the answer?" → keep it (`r=mid`, `l<r`, return nums[l]). |
+| **Boundary / index / sentinel** | 2026-06-22 | 0 🔴 | Gate C: 4 boundary edges + ANSWER edge — **LC20: TWO traps in one problem** (empty-stack-on-close → guard before top(); leftover-opens → `return st.empty()`). Also **P24: `r=mid-1` discarded the min**. Cue: "could mid be the answer?" + "what does an EMPTY container / a leftover do here?" Run all 4 edges BEFORE submit (coached today, not self-run). |
 | **Band-aid / redundant maintained state** (patch over wrong structure) | 2026-06-22 | 0 🔴 | **⭐ Derive-don't-maintain:** P23 hand-synced 6 vars (cut to 2); P24 bolted on an `ans` tracker to patch a bad `mid±1`. Audit before submit: any var that's really `r-l+1`? any two vars that must agree? |
-| **Constraint-drop / reading miss** (brute omits a stated rule, or misreads what's asked) | 2026-06-22 | 0 🔴 | Gate A: **P23 dry run summed type VALUES instead of counting fruits** — caught by the `[2,2,2]→6-from-3-trees` trace. Every constraint load-bearing; restate WHAT is returned. |
+| **Constraint-drop / reading miss** (brute omits a stated rule, or misreads what's asked) | 2026-06-22 | 0 🔴 | Gate A: **LC739 restate said "find the POS of warmer day" → dry-run wrote `answer[1]=2` (the index) instead of 1 (the WAIT)** — `answer[i]` is a DISTANCE `j-i`, not a position. Also P23 summed VALUES instead of counting. Restate WHAT is returned, in exact units; Gate A keeps earning its keep. |
 | **Reduction trap** (drops a constraint) | 2026-06-20 | 1 🟡 | Gate B: hostile input, run ORIGINAL vs REDUCED |
 | **Overflow magnitude** (#8) | 2026-06-20 | 1 🟡 | Gate C: seed/accumulator type, size the number |
 | **Gate slip** (sorted?→2ptr vs hash; set vs map) | 2026-06-21 | 0 🔴 | Gate C: container + sorted check |
