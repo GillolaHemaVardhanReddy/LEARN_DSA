@@ -64,18 +64,14 @@ public:
     vector<int> nextGreater(vector<int>& nums) {
         int n = nums.size();
         stack<int> st;
-        vector<int> ans;
+        vector<int> ans(nums.size(), -1);
         for(int i = 0 ; i < n ; i++ ) {
             int ch = nums[i];
             while(!(st.empty()) && ch > nums[st.top()]){
-                ans.push_back(st.top());
+                ans[st.top()] = nums[i];
                 st.pop();
             }
             st.push(i);
-        }
-        while(!st.empty()){
-            ans.push_back(-1);
-            st.pop();
         }
         return ans;
     }

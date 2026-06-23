@@ -14,8 +14,17 @@ using namespace std;
 class SolutionBrute {
 public:
     vector<int> dailyTemperatures(vector<int>& t) {
-        // TODO (boss): for each i, inner loop j=i+1.. find first t[j] > t[i].
-        return {};
+        int n = t.size();
+        vector<int> ans(n, 0);
+        for(int i = 0 ; i < n ; i++) {
+            for(int j = i+1 ; j < n ; j++ ) {
+                if(t[i]<t[j]){
+                    ans[i] = j-i;
+                    break;
+                }
+            }
+        }
+        return ans;
     }
 };
 
@@ -41,8 +50,17 @@ public:
 class Solution {
 public:
     vector<int> dailyTemperatures(vector<int>& t) {
-        // TODO (boss): code it from memory.
-        return {};
+        int n = t.size();
+        vector<int> ans(n, 0);
+        stack<int> check;
+        for(int i = 0 ; i < n ; i++) {
+            while((!check.empty()) && (t[check.top()] < t[i])){
+                ans[check.top()] = i - check.top();
+                check.pop();
+            }
+            check.push(i);
+        }
+        return ans;
     }
 };
 
