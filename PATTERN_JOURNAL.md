@@ -256,7 +256,11 @@ Variants & gotchas: carry extra state on the stack when needed (Min Stack = push
 Taught me by: theory + Striver [297][298][300] + **LC20 Valid Parentheses (P-learn 07-01, AC) = L3**. Next: monotonic stack (Daily Temperatures) for M7 → L4.
 
 ### Monotonic Stack
-Level: **L2 (theory 2026-06-10; video [301] watched)** — not yet coded from memory.
+Level: **L2 (concept REBUILT cold 2026-06-23)** — theory 2026-06-10; re-learned closed-book 6/23 (trigger was cold; WHY/why-monotonic/amortization rebuilt via his own trace of `[3,1,2,5,4]`). **Still L2, not L3** — generic NGE warm-up coded but optimal not yet clean (see bugs below). L3 the moment the NGE optimal stresses green from memory.
+**⚠️ THE 3 OPTIMAL BUGS to beat (NGE warm-up, 2026-06-23) — all EXECUTION, the concept was right:**
+1. **`if` vs `while`.** A newcomer can resolve a BATCH (the `5` in `[3,1,2,5,4]` pops both `2` and `3`). `if` pops one → wrong. Must be `while(!st.empty() && nums[i] > nums[st.top()])`. (He traced the batch by hand, then still wrote `if` — execution lag, not understanding.)
+2. **Push the INDEX, not the value.** `st.push(i)`, never `st.push(nums[i])` — else `nums[st.top()]` indexes the array by a *value* and reads OOB (`nums[5]` on a size-5 array). Stack holds indices; derive value (`nums[j]`) and distance (`i-j`) from them.
+3. **Write the answer at its SLOT, don't append in pop-order.** `vector<int> ans(n,-1); ... ans[j]=nums[i];` — NOT `ans.push_back(...)`. Elements pop in resolution order, so appending scrambles the array; pre-sizing to `-1` also deletes the trailing leftover loop. (His own derive-don't-maintain: the `-1` default + indexed write make leftovers free.)
 Trigger (WHEN to use): "**for each element, find the NEXT or PREVIOUS greater/smaller element**" → monotonic stack. Also: Daily Temperatures, Stock Span, histogram-area, "how far until something bigger/smaller."
 Why it works: the stack holds elements **still waiting for their answer**, kept in monotonic order. A new element that breaks the order **resolves** the ones it beats — pop each and record the answer as you push. (Next-GREATER → keep a DECREASING stack; pop while new ≥ top.)
 Template/skeleton:
