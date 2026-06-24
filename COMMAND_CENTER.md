@@ -7,12 +7,14 @@
 ---
 
 ## ▶️ TODAY  *(Kira re-renders this block at session start)*
-- **Date:** 2026-06-23 (evening — NGE warm-up FINISHED + Daily Temps coded; session ended, continues morning)
-- **Current topic / workspace:** **M7 Monotonic Stack — L3 EARNED** (NGE warm-up 100k stress GREEN). **Daily Temperatures (LC739)** coded, brute+optimal stress-GREEN + canonical example — **judge-AC PENDING** (MCP not signed in → 403). Next folder: `learn/07-Stacks/03-Next-Greater-Element-II/` (scaffolded).
-- **MORNING PLAN (3 things):** (1) **Restart Claude Code** so MCP signs in, then **submit LC739 in browser** → confirm AC (link in `02-Daily-Temperatures/problem.md`). (2) **NGE II (LC503)** solo — circular twist: loop `0→2n-1`, read `nums[i%n]`, store value, 2nd lap only RESOLVES. (3) **Stock Span (LC901)** solo — engine flipped to previous-greater + a span count. DT-AC + these 2 = **M7 L4**.
-- **WIN to bank loud:** monotonic stack is L3 — he rebuilt the concept closed-book AND coded the engine clean (100k green). Biggest growth: on NGE he **found his own bugs by tracing his own code** — the premature-"done" antidote, working.
-- **Revision due:** monotonic concept +1d (6/24) · plain-stack concept recall · C++ gaps #6/#7/#8 standing · P19 prefix-MOD +3d ≈ 6/24 · derive-don't-maintain cold recall 6/25 · BS discard-ability remainder (LC852/540/33) · still overdue: MISTAKE #9 unsorted-gate, #10 restate, #11 atMost · drill tail Q5/Q7/Q8 · **P25 Trapping (LC42, hard) = WEEKEND.**
-- **Clean-streak focus:** first-submit-clean streak = **0**. The **premature-"done"** leak fired **3× more on Daily Temps** (fixes one bug, asks "check," doesn't self-trace the rest) — BUT the antidote landed on NGE (he self-traced and found both bugs). The morning rep = on NGE II / Stock Span, **trace his OWN code on a hostile input BEFORE saying done.** Next clean shot = NGE II or Stock Span.
+- **Date:** 2026-06-24 (morning session — boss out till evening; will return with the assigned haul, then `/endsession`)
+- **Current topic / workspace:** **M7 Monotonic Stack** — **NGE II (LC503) AC'd ✅** (correct `nums[i%n]`, clean two-lap structure; file synced + Idea cue written in his words). Daily Temps (LC739) still judge-AC PENDING (submit in browser). Toward **M7 L4**.
+- **⭐ BIG META THIS SESSION — Kira upgraded at his request:** installed **BOSS'S 6 GATES** (`CLAUDE.md` §5.1) = 3 defense (kryptonite pre-load · refuse-to-check self-trace · he builds the hostile input) + 3 offense (teach-it-back · predict-before-reveal · calibration check) + a **DOSE CAP** (≤1 gate/question per turn — he called out question-spam, now capped in writing). Trigger: he caught me in a factual error (claimed decreasing array → no NGE II solutions; WRONG, circular saves all but the global max) and rightly leaned on the judge over my word.
+- **ASSIGNED WHILE OUT (review this evening):** **4 LESSON** (LeetCode links only, LEARN together tonight): LC496 NGE I · LC901 Stock Span · LC735 Asteroid Collision · LC402 Remove K Digits. **5 PRACTICE** scaffolded in `practice/06-Stacks-Monotonic/` (real sigs, blank PATTERN line, brute oracle + 100k stress, all compile): LC155 Min Stack · LC456 132 Pattern · LC219 Contains Dup II *(hashing)* · LC1004 Max Consec Ones III *(SW — re-test for Mistake #2)* · LC33 Search Rotated *(BS — open leak)*. **3 of 5 are interleaved keep-warm on purpose** — offered him a swap to pure-monotonic (LC496/1019/1475) if he prefers; awaiting his call.
+- **Revision NOTES written:** `Notes/07-Stacks-Monotonic.md` (template · 4 variants · circular trick · his bug-watch). Monotonic-concept revision (+1d, due 6/24) → covered by this note; have him rebuild it cover-the-page evening.
+- **WIN to bank loud:** he didn't just solve a problem — he **upgraded his own coach** (turned his mistake history into standing gates) AND caught my error by trusting the judge. That's the engineer's instinct, louder than any single AC.
+- **Revision due:** monotonic concept cover-the-page (6/24, note ready) · plain-stack recall · C++ gaps #6/#7/#8 · P19 prefix-MOD +3d ≈ 6/24 · derive-don't-maintain cold recall 6/25 · BS discard-ability (LC852/540/33) · overdue: MISTAKE #9 unsorted-gate, #10 restate, #11 atMost · drill tail Q5/Q7/Q8 · **P25 Trapping (LC42, hard) = WEEKEND.**
+- **Clean-streak focus:** first-submit-clean streak = **0**. NGE II AC'd but NOT first-submit-clean (index-vs-value + empty while-body fixed mid-convo). Next clean shot = one of the 5 practice or the 4 lesson — **run the 6 gates, self-trace before "done."**
 
 ---
 
@@ -48,6 +50,7 @@ Rule of thumb: if Kira is teaching/hinting, it's LEARN or PRACTICE. If you're co
 ---
 
 ## 🩹 LEAK SCOREBOARD — boss's execution bottleneck (the #1 thing we're fixing)
+> **⭐ BOSS'S 6 GATES now standing (`CLAUDE.md` §5.1)** — 3 defense (kryptonite pre-load · refuse-to-check · he builds the hostile input) + 3 offense (teach-it-back · predict-before-reveal · calibration check). Run every problem; adopted 2026-06-24 at his request.
 > Recognition is strong; **execution** is the leak. Every bug updates this; every clean solve grows the streak.
 > 🔴 = fired recently · 🟡 = building clean days · 🟢 = reflex forming. Update dates whenever a leak fires.
 

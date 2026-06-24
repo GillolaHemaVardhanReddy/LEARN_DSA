@@ -18,8 +18,19 @@ using namespace std;
 class SolutionBrute {
 public:
     vector<int> nextGreaterElements(vector<int>& nums) {
-        // TODO (boss): for each i, step k=1..n-1, look at nums[(i+k)%n], first > nums[i] wins.
-        return {};
+        int n = nums.size(), chk = 0;
+        vector<int> ans(n, -1);
+        for(int i = 0 ; i < n ; i++ ) {
+            int untill = 2*n-1;
+            for(int j = i+1 ; j < untill ; j++){
+                if(nums[i] < nums[j%n]){
+                    chk++;
+                    ans[i] = nums[j%n];
+                    break;
+                }
+            }
+        }
+        return ans;
     }
 };
 
@@ -41,14 +52,26 @@ public:
 // =============================================================================
 //  OPTIMAL — monotonic stack (of indices), two laps
 // =============================================================================
-//  Idea:
+//  Idea: "find first greater element to its right" => monotonic stack (decreasing, holds
+//        INDICES). Circular: one lap stops at the end and leaves the suffix-maxima still on the
+//        stack with no greater-to-the-right yet; loop 2n and read nums[i%n] so a 2nd lap lets
+//        those leftovers wrap around and get resolved. Only push on lap 1 (if i<n).
 //  Time:  O(n)
 //  Space: O(n)
 class Solution {
 public:
     vector<int> nextGreaterElements(vector<int>& nums) {
-        // TODO (boss): code it from memory. Hint lives in your own bridge above.
-        return {};
+        int n = nums.size();
+        vector<int> ans(n, -1);
+        stack<int> chk;
+        for(int i = 0 ; i < 2*n-1 ; i++) {
+            while(!chk.empty() && (nums[i%n] > nums[chk.top()])){
+                ans[chk.top()] = nums[i%n];
+                chk.pop();
+            }
+            if(i<n) chk.push(i);
+        }
+        return ans;
     }
 };
 

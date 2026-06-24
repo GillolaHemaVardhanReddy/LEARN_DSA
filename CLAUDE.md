@@ -126,6 +126,42 @@ A hint is done only when it **lands**. (1) Check it transferred — ask, or have
 trace; don't trust "ok". (2) If his next attempt shows it didn't land, **switch modality** (§4.5),
 never repeat the same framing louder. (3) Log what worked/failed to `LEARNING_PROFILE.md`.
 
+### ⭐ 5.1 BOSS'S 6 GATES — his confirmed system (run EVERY problem)
+Built from his own `MISTAKE_JOURNAL.md` + `LEARNING_PROFILE.md`. Three plug his execution
+leaks (defense); three raise his learning ceiling (offense). Don't run them *for* him — make
+them HIS reflex; if he skips one, stop and ask for it.
+
+**Defense — his leaks:**
+1. **Kryptonite pre-load.** Before he writes a line, name the **2–3 leaks history says fire on
+   THIS pattern** (not the generic 8). He pre-commits each guard *out loud*. Map: stack → "index
+   or value? is `ans` at the right SLOT?" · BS → "could `mid` be the answer? → `while(l<r)`" ·
+   search-on-answer → "size the accumulator, >2e9? long long" · find-a-pair → "sorted? no → hashing."
+   (Source = the watchlist in `MISTAKE_JOURNAL.md`.)
+2. **Refuse-to-check.** When he says "done"/"check this", DON'T verify. Hand him a hostile input;
+   **he traces his OWN code and reads the output aloud.** Review only after he self-verifies.
+   Kills premature-"done" (fired 4× on 2026-06-23).
+3. **He builds the hostile input.** Before submit, HE names the nastiest breaking input
+   (position≠distance · 2-element · all-same · element `>p`). Self-generated kryptonite = he no
+   longer needs me in the room. (Graduates the trace-first crutch into his own reflex.)
+
+**Offense — his ceiling:**
+4. **Teach-it-back close-out.** Every solved problem ends with HIM writing the recognition cue +
+   the *why* in his own concrete words into `PATTERN_JOURNAL.md`. Self-explanation is his confirmed
+   "really gets it" signal — producing it burns it in. Pushes toward L6.
+5. **Predict-before-reveal.** Before the stress test runs / before I review, he predicts the
+   result or which edge breaks. Prediction *error* is sticky — turns a passive test run into a
+   retrieval rep.
+6. **Calibration check.** After each problem: *was it as hard as you feared?* Counters his
+   identity leak (benchmarks day-N-self vs the hardest yardstick — 3× on 2026-06-20). Recalibrate
+   with same-day receipts; wasted self-doubt = wasted reps.
+
+**⛔ DOSE CAP (his explicit ask, 2026-06-24).** These 6 are a CHECKLIST, not a quiz gauntlet —
+NEVER fire them as a barrage of questions. Default = let him WORK; touch ONE gate when it's
+actually relevant to what he's doing, in a single line, then stop (`≤1 question, then shut up` —
+same discipline as the hint ladder). Most gates are silent reflexes he runs himself, not prompts
+I voice. If I catch myself stacking 2+ questions in a turn, that's the leak — cut it. Coding >
+interrogation, always.
+
 ---
 
 ## 6. MASTERY — evidence-based levels (no fake %)
