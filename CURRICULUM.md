@@ -9,11 +9,19 @@
 
 ## Goal calibration
 
-**Bar:** solve the **majority of medium problems independently**, with correct
-time/space analysis, by recognizing the underlying pattern.
-**Core tier** (Phases 1–6) is everything needed to hit that bar.
-**Advanced tier** is optional — it's competitive-programming material that most
-standard SWE interviews never test. Do it only if time and goals warrant.
+**Goal sequence (decided 2026-06-24): Interview → CP → Advanced.**
+1. **INTERVIEW-READY FIRST (priority #1, ~Nov 2026):** solve the **majority of medium problems
+   independently**, with correct time/space analysis, by recognizing the underlying pattern.
+   **Core tier = Phases 1–6** is everything needed to hit that bar (NeetCode 150 / Blind 75 spine).
+2. **COMPETITIVE / CONTEST TRACK SECOND (Phase 7, after interview-ready):** the advanced tier is no
+   longer "optional" — it's the **planned back half**. Goal: LeetCode-contest competitive (reliable
+   Q3, fighting for Q4) + Codeforces rating climb. This needs CP-specific topics + a timed-contest
+   regimen the interview track never touches (see Phase 7).
+3. **ADVANCED TIER THIRD (Phase 8, after contest-competitive):** kept on the map, sequenced last — the
+   red-coder/ICPC-deep layer (lazy segtree, suffix automaton, flows, DP optimizations, HLD, FFT).
+
+Interview skills transfer 100% into CP — nothing is wasted. But CP has a **higher ceiling and longer
+road**; do NOT dilute Phase 1–6 to rush it. Interview-ready is the gate that unlocks the CP track.
 
 Schedule below is **indicative**. The real projected date is recomputed in
 `PROGRESS.md` from actual weekly hours and observed velocity.
@@ -69,7 +77,8 @@ is "cleared" only when its mastery gate (L5+) is met in `PROGRESS.md`.
 | 4 — Graphs | Representation, BFS/DFS, Topo sort, Union-Find, Dijkstra (intro) | 16–20 |
 | 5 — DP + Greedy | 1D DP, 2D DP, Greedy, Intervals, Bit Manipulation | 20–25 |
 | 6 — Consolidation | Mixed pattern drills, Blind 75 / NeetCode 150, mock interviews | 25–26+ |
-| Advanced (optional) | Segment/Fenwick trees, KMP/Z/Rabin-Karp, sweep line, meet-in-the-middle, Mo's | as needed |
+| **7 — Competitive track** | CP topics + timed-contest regimen (see Phase 7 below) — **starts AFTER interview-ready** | post-Nov-2026 |
+| **8 — Advanced tier** | Red-coder depth (lazy segtree, suffix automaton, flows, DP opts, HLD, FFT) — **AFTER contest-competitive** | post-Phase-7 |
 
 ---
 
@@ -261,14 +270,50 @@ LeetCode/Blind-75-style problems. Work the ladder top-to-bottom.
 
 ---
 
-# ADVANCED TIER (optional — only if goal/time warrants)
+# PHASE 7 — COMPETITIVE PROGRAMMING TRACK  (the planned back half — starts AFTER interview-ready)
 
-Not required for "solve most mediums independently." Tackle only after Phase 6 is solid.
+> Decided 2026-06-24: boss wants to be **LeetCode-contest competitive + Codeforces rating climber**.
+> This is a *second sport* on top of the interview foundation. Do NOT start until Phases 1–6 are
+> solid (interview-ready gate met) — but it IS the plan, not an afterthought. Detailed ladders get
+> built when we arrive; this is the scope sketch.
 
-- **Range structures:** Segment Tree, Fenwick (BIT), Sparse Table.
-- **String algorithms:** KMP, Z-algorithm, Rabin-Karp (rolling hash), suffix array/automaton.
-- **Techniques:** coordinate compression, sweep line, meet-in-the-middle, Mo's algorithm, offline queries.
-- **Trees++:** AVL / Red-Black (understand *why* balancing exists; rarely hand-coded in interviews), LCA with binary lifting, tree DP, bitmask DP.
+**Why a separate track:** interview prep = recognize ~18 known patterns. CP = *speed on unseen shapes*
+under a 90-min, 4-problem, ranked-by-time format. Different muscle. Foundation transfers; ceiling is higher.
+
+### CP-specific TOPICS (not covered, or only grazed, in the interview core)
+- **Math heavy:** number theory (primes, sieve, modular inverse, CRT), combinatorics (nCr mod p,
+  inclusion-exclusion), probability/expected value, basic game theory (Nim, Grundy).
+- **Advanced DP:** bitmask DP, digit DP, DP on trees, DP optimizations (prefix/convex-hull/divide-conquer).
+- **Range structures:** Segment Tree (point update/range query), Fenwick/BIT, Sparse Table.
+- **Graphs++:** Bellman-Ford, Floyd-Warshall, MST (Kruskal/Prim), bridges/articulation, SCC (Tarjan/Kosaraju),
+  LCA (binary lifting).
+- **Strings:** KMP, Z-algorithm, Rabin-Karp (rolling hash), tries++.
+- **Geometry:** convex hull, line sweep, orientation/cross-product basics.
+- **Techniques:** coordinate compression, meet-in-the-middle, ternary search, constructive/greedy with proof, ad-hoc.
+
+### CP-specific REGIMEN (the part that's NOT just "more topics")
+- **Weekly timed contests** (LeetCode weekly/biweekly + Codeforces Div 3/2) — the speed rep.
+- **Upsolving:** after every contest, solve the 1–2 you couldn't, cold, and journal the trick.
+- **Virtual contests** for volume; track a **rating goal** (e.g. CF pupil → specialist → expert).
+- **Speed-typing the templates** (the interview track doesn't need this; CP does).
+
+> Until interview-ready is banked, CP stays parked. The moment we clear Phase 6, this becomes the live plan.
+
+---
+
+# PHASE 8 — ADVANCED TIER  (the deepest layer — AFTER you're already contest-competitive)
+
+> Kept on the map (boss's call, 2026-06-24), sequenced **after Phase 7**. This is red-coder / ICPC-deep
+> material — overkill for most contests until you're consistently fighting for the hard problems. Don't
+> touch until the CP track has you contest-competitive.
+
+- **Range structures++:** Segment Tree with **lazy propagation**, persistent/merge-sort tree, **Mo's
+  algorithm** + offline queries.
+- **Strings++:** suffix array, suffix automaton, Aho-Corasick.
+- **Flows/matching:** max-flow / min-cut (Dinic), min-cost-max-flow, bipartite matching.
+- **DP optimizations:** convex-hull trick, divide-and-conquer DP, Knuth, SOS DP.
+- **Trees++:** heavy-light decomposition, centroid decomposition, Euler tour + segtree.
+- **Math++:** FFT/NTT, advanced number theory (Möbius, multiplicative functions), matrix exponentiation.
 
 ---
 
