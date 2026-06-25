@@ -17,21 +17,27 @@ using namespace std;
 
 class MinStack {
 public:
-    MinStack() {
-        // TODO (boss)
-    }
+    vector<int> stack;
+    vector<int> minstack;
+    MinStack() {}
+
     void push(int value) {
-        // TODO
+        stack.push_back(value);
+        if(stack.size()==1) minstack.push_back(value);
+        else {
+            int val = min(minstack[minstack.size()-1], value);
+            minstack.push_back(val);
+        }
     }
     void pop() {
-        // TODO
+        stack.pop_back();
+        minstack.pop_back();
     }
     int top() {
-        // TODO
-        return 0;
+        return stack.back();
     }
     int getMin() {
-        // TODO
+        if(minstack.size()) return minstack[minstack.size()-1];
         return 0;
     }
 };

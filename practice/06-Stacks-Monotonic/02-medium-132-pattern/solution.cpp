@@ -18,7 +18,16 @@ using namespace std;
 class Solution {
 public:
     bool find132pattern(vector<int>& nums) {
-        // TODO (boss): name the pattern above, then code the optimal.
+        int n = nums.size(), maxi = INT_MIN;
+        stack<int> chk;
+        for(int j = n-1; j>=0 ; j--) {
+            if(maxi > nums[j]) return true;
+            while(!(chk.size()) && (chk.top() < nums[j])){
+                maxi = max(maxi, chk.top());
+                chk.pop();
+            }
+            chk.push(nums[j]);
+        }
         return false;
     }
 };

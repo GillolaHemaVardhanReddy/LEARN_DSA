@@ -17,7 +17,15 @@ using namespace std;
 class Solution {
 public:
     bool containsNearbyDuplicate(vector<int>& nums, int k) {
-        // TODO (boss): name the pattern above, then code the optimal.
+        int n = nums.size();
+        stack<int> chk;
+        for(int i = n-1 ; i>=0 ; i-- ) {
+            while((!chk.size()) && (nums[i] ==nums[chk.top()])){
+                if(abs(i - chk.top()) <= k) return true;
+                chk.pop();
+            }
+            chk.push(nums[i]);
+        }
         return false;
     }
 };
