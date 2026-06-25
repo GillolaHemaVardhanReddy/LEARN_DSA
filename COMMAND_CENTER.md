@@ -8,7 +8,7 @@
 
 ## ▶️ TODAY  *(Kira re-renders this block at session start)*
 - **Date:** 2026-06-25 (returned from out-day with the full haul; verified on the judge → `/endsession`)
-- **Current topic / workspace:** **M7 Stacks & Monotonic → L4 EARNED ✅** — **LC739 Daily Temps + LC503 NGE II both judge-AC** (MCP-confirmed). Plus practice set: **LC155 Min Stack AC · LC456 132 Pattern AC · LC219 Contains Dup II AC**. Next module decision: remaining 3 practice (LC1004/LC33 + Stock Span) → then **M8 Queues/Deque** or a cold L5-push drill.
+- **Current topic / workspace:** **M7 Stacks & Monotonic → L4 EARNED ✅** — **LC739 Daily Temps + LC503 NGE II both judge-AC** (MCP-confirmed). Plus practice set: **LC155 Min Stack AC · LC456 132 Pattern AC · LC219 Contains Dup II AC · LC33 Search Rotated AC** (first-submit-clean, closed a 2-week BS leak). Next module: Stock Span + LC1004 fresh-submit → then **M8 Queues/Deque** or a cold L5-push drill.
 - **⭐ BIG WINS THIS SESSION:** (1) **the premature-"done" antidote LANDED** — his self-trace caught a boundary bug LOCALLY *twice* (Min Stack empty-edge before submit = first judge submit clean; 132 negation). His #1 lifetime leak intercepted by his own hands. (2) **He named his own bottleneck** ("careful reading the question fully") and got the fix that matters: **ritual, not volume** (Gate A every problem; reading IS the first move of solving). (3) **Friction-as-signal recognition** — felt the wrong tool on the interleaved LC219 trap and scrapped the stack for hashing himself.
 - **Honest ledger (no inflation):** Min Stack = **first judge submit clean → first-submit-clean BEST moved 0→1** (scaffolded, so an execution win not a recognition win); 132 = WA→AC + **I over-revealed** (re-derive owed 6/28); LC219 = Compile-Error→AC (C++ mechanical gap, not logic). Streak currently **0** (broke on 132's WA) but best is no longer 0.
 - **Revision due (next session):** 132 cold re-derive (6/28) · monotonic concept recall (6/28, +3d) · Min Stack aux-stack recall (6/26) · remaining stacks practice **LC1004** (Mistake #2 re-test) + **LC33** (open BS leak) + **LC901 Stock Span** · still-overdue: P19 prefix-MOD +3d · derive-don't-maintain cold recall · BS discard-ability (LC852/540/33) · MISTAKE #9/#10/#11 re-tests · drill tail Q5/Q7/Q8 · **P25 Trapping (LC42, hard) = WEEKEND.**
@@ -26,7 +26,7 @@ Level scale: L0–L6 (see `PROGRESS.md` §6). 🎥 = Striver video id (`STRIVER_
 | M3 Two Pointers | **L4** | [049+] | E:4 M:2 | Dutch-flag re-code (LC75); over-fire gate | weekend LC75 + L5 drill |
 | M4 Sliding Window | **L5** ✅ | — | M:3+ | (clean) | keep warm in drills |
 | M5 Prefix Sum | **L4** | — | approaching L5 (pulled back, needs track record) | P19 re-derive 6/21 | L5 drill after streak |
-| M6 Binary Search | **L4** | [045/046/047/056] | E:2 M:2 | #8 overflow magnitude; LC33/LC74 unsolved | LC33 + LC74 |
+| M6 Binary Search | **L4** | [045/046/047/056] | E:2 M:3 | #8 overflow magnitude; **LC33 ✅ (6/25, first-submit-clean)**; LC74 unsolved | LC74 2D + LC852/LC540 ladder → L5 |
 | M7 Stacks + Monotonic | **L4** ✅ | [297][298][300][301][303] | LC20 · LC739 · LC503 · LC155 · LC456 · LC219 | **L4 EARNED** (DT+NGE II judge-AC); 132 over-revealed→re-derive 6/28; Stock Span owed for depth | LC1004/LC33/Stock Span → then M8 |
 | M8 Queues/Deque | L0 | — | — | — | next up (or cold L5-push drill first) |
 | M9+ Recursion → DP → Graphs | L0 | see STRIVER_VIDEOS | — | — | back half (heavier per-pattern) |
@@ -62,7 +62,7 @@ Rule of thumb: if Kira is teaching/hinting, it's LEARN or PRACTICE. If you're co
 | **Overflow magnitude** (#8) | 2026-06-20 | 1 🟡 | Gate C: seed/accumulator type, size the number |
 | **Gate slip** (sorted?→2ptr vs hash; set vs map) | 2026-06-21 | 0 🔴 | Gate C: container + sorted check |
 
-**First-submit-clean streak:** `0`  ·  **best:** `1` 🆕  (**Min Stack 6/25 = first judge submit clean** — boundary self-caught locally before submit; scaffolded so an execution win not recognition. Broke immediately on 132's WA. Next clean shot = a SOLO start-to-finish: **LC1004 or LC33.**)
+**First-submit-clean streak:** `1` 🆕  ·  **best:** `1`  (**LC33 Search Rotated 6/25 = first submit clean, recognized cold** — closed a 2-week-open BS leak; approach-coached (which-half-sorted) but execution clean. Earlier Min Stack also first-submit-clean (scaffolded) then broke on 132 WA / Contains-Dup-II CE; LC33 restarts the streak at 1. Next: keep it alive with another SOLO clean.)
 *(A clean solve = AC on judge with ZERO boundary band-aids and no overflow/reduction/gate slip.)*
 *Positive signals 2026-06-22: **the ⭐ DERIVE-DON'T-MAINTAIN principle TRANSFERRED across patterns in one session** — taught on a window (P23), he applied it to BINARY SEARCH an hour later (P24: killed his own `ans` band-aid → clean `while(l<r)` converge). **TRACE-FIRST caught BOTH misses** (P23 reading, P24 boundary) — his #1 modality confirmed again. **First local stress-test ever run** (100k cases, oracle silent) — toolchain unblocked, this is now standing. **He CALLED his own traps** twice (P23 "this is over-engineered", P24 "this is too easy = I'm dodging the rep"). Residual leak = FIRST-INSTINCT execution (defaults to exact-target BS template + redundant maintained state), then fixes on review — now NAMED + SCHEDULED.*
 
