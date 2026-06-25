@@ -1,7 +1,7 @@
 # TRAINING PLAN — Becoming a Strong Problem Solver (Hema Vardhan)
 
 > Kira's plan, not a mirror of requests. Written 2026-06-13. Pairs with
-> `practice/drills/drill1/PRACTICE_PROTOCOL.md` (per-problem mechanics) and the state files
+> `practice/drills/01-mixed-gauntlet/PRACTICE_PROTOCOL.md` (per-problem mechanics) and the state files
 > (`PROGRESS.md`, `PATTERN_JOURNAL.md`, `MISTAKE_JOURNAL.md`, `REVISION_QUEUE.md`).
 
 ---
