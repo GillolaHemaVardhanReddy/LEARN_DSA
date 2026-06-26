@@ -16,8 +16,22 @@ using namespace std;
 class Solution {
 public:
     string removeDuplicates(string s) {
-        // TODO (boss): name the flavor above, then code the optimal.
-        return "";
+        int n = s.length();
+        stack<int> chk;
+        for(int i = n-1; i>=0; i--){
+            int push = 1;
+            while(chk.size() && (s[i]==s[chk.top()])){
+                chk.pop();
+                push = 0;
+            }
+            if(push) chk.push(i);
+        }
+        string ans = "";
+        while(chk.size()){
+            ans+=s[chk.top()];
+            chk.pop();
+        }
+        return ans;
     }
 };
 
@@ -32,7 +46,7 @@ public:
 class SolutionBrute {
 public:
     string removeDuplicates(string s) {
-        // TODO (boss): the obvious repeated-removal version — it's the oracle.
+        
         return "";
     }
 };

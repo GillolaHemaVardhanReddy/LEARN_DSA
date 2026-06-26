@@ -15,8 +15,33 @@ using namespace std;
 class Solution {
 public:
     int calPoints(vector<string>& operations) {
-        // TODO (boss)
-        return 0;
+        int n = o.size();
+        stack<string> chk;
+        for(int i = 0 ; i < n ; i++ ) {
+            if(o[i]=="+"){
+                if(chk.size()>=2){
+                    string base = chk.top();
+                    chk.pop();
+                    string k = to_string(stoi(chk.top()) + stoi(base));
+                    chk.push(base);
+                    chk.push(k);
+                }
+            }
+            else if(o[i]=="C"){
+                if(chk.size()) chk.pop();
+            }
+            else if(o[i]=="D"){
+                if(chk.size()) chk.push(to_string(2 * stoi(chk.top())));
+            } else {
+                chk.push(o[i]);
+            }
+        }
+        int ans = 0;
+        while(chk.size()){
+            ans += stoi(chk.top());
+            chk.pop();
+        }
+        return ans;
     }
 };
 

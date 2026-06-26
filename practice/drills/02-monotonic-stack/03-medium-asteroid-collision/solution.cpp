@@ -16,8 +16,21 @@ using namespace std;
 class Solution {
 public:
     vector<int> asteroidCollision(vector<int>& asteroids) {
-        // TODO (boss)
-        return {};
+        int n = a.size();
+        stack<int> chk;
+        for(int i = n-1 ; i >= 0 ; i-- ) {
+            while(chk.size() && (abs(a[i]) > abs(a[chk.top()]))){
+                chk.pop();
+            }
+            if(chk.size() && (abs(a[i]) < abs(a[chk.top()]))) continue;
+            chk.push(i);
+        }
+        vector<int> ans;
+        while(chk.size()){
+            ans.push_back(chk.top());
+            chk.pop();
+        }
+        return ans;
     }
 };
 
