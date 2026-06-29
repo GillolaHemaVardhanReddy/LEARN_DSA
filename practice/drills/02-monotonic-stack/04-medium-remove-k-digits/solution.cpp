@@ -16,7 +16,7 @@ using namespace std;
 //   Idea: ____      Time: O(n)   Space: O(n)
 class Solution {
 public:
-    string removeKdigits(string num, int k) {
+    string removeKdigits(string nums, int k) {
         int n = nums.length(), comp = k;
         stack<int> chk;
         for(int i = 0 ; i < n ; i++ ) {
