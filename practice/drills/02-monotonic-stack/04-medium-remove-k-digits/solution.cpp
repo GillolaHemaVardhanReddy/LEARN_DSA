@@ -17,8 +17,34 @@ using namespace std;
 class Solution {
 public:
     string removeKdigits(string num, int k) {
-        // TODO (boss)
-        return "";
+        int n = nums.length(), comp = k;
+        stack<int> chk;
+        for(int i = 0 ; i < n ; i++ ) {
+            while(chk.size() && comp && (nums[chk.top()] > nums[i])){
+                chk.pop();
+                comp--;
+            }
+            chk.push(i);
+        }
+        while(comp>0){
+            chk.pop();
+            comp--;
+        }
+        string ans = "";
+        while(chk.size()){
+            ans+=nums[chk.top()];
+            chk.pop();
+        }
+        reverse(ans.begin(), ans.end());
+        if(ans.empty()) return "0";
+        int m = 0 ; 
+        while(m<ans.length()){
+            if(ans[m]!='0') break;
+            m++;
+        }
+        string an = ans.substr(m, ans.length());
+        if(an.empty()) return "0";
+        return an;
     }
 };
 
@@ -34,9 +60,46 @@ public:
 //   Exponential — fine for the tiny stress sizes. Strip leading zeros; empty -> "0".
 class SolutionBrute {
 public:
-    string removeKdigits(string num, int k) {
-        // TODO (boss): brute-force every keep-(n-k) subsequence, return the min — oracle.
-        return "";
+    bool checkNumbers(int i, int t){
+        int count = 0;
+        while(i){
+            if(i&1) count++;
+            i >>= 1;
+        }
+        return count == t;
+    }
+    string removeKdigits(string nums, int k) {
+        int n = nums.length();
+        string check = "";
+        int comp = INT_MAX;
+        string ans = "";
+        for(int i = 0 ; i < (1<<n) ; i++) {
+            check = "";
+            if(checkNumbers(i, n-k)){
+                for(int j = 0 ; j < n ; j++ ) {
+                    if(i & (1<<j)){
+                        check += nums[j];
+                    }
+                }
+                if(check != "" && stoi(check) < comp){
+                    int m = 0;
+                    if(stoi(check)==0) return "0";
+                    while(m<check.length()){
+                        if(check[m] != '0'){
+                            break;
+                        } 
+                        m++;
+                    }
+                    ans = check.substr(m, check.length());
+                    comp = stoi(check);
+                } 
+                if(check == "") {
+                    ans = "0";
+                    comp = 0;
+                }
+            }
+        }
+        return ans;
     }
 };
 

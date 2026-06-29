@@ -15,19 +15,29 @@ using namespace std;
 //   Idea: ____      Time: O(n)   Space: O(n)
 class Solution {
 public:
-    vector<int> asteroidCollision(vector<int>& asteroids) {
+    vector<int> asteroidCollision(vector<int>& a) {
         int n = a.size();
         stack<int> chk;
         for(int i = n-1 ; i >= 0 ; i-- ) {
-            while(chk.size() && (abs(a[i]) > abs(a[chk.top()]))){
+            while(chk.size() 
+            && ((a[chk.top()] < 0) && (a[i] >= 0))
+            && (a[i] > abs(a[chk.top()]))){
                 chk.pop();
             }
-            if(chk.size() && (abs(a[i]) < abs(a[chk.top()]))) continue;
+            if(chk.size() 
+            && ((a[chk.top()] < 0) && (a[i] >= 0))
+            && (abs(a[i]) < abs(a[chk.top()]))) continue;
+            if(chk.size() 
+            && ((a[chk.top()] < 0) && (a[i] >= 0))
+            && (abs(a[i]) == abs(a[chk.top()]))){
+                chk.pop();
+                continue;
+            }
             chk.push(i);
         }
         vector<int> ans;
         while(chk.size()){
-            ans.push_back(chk.top());
+            ans.push_back(a[chk.top()]);
             chk.pop();
         }
         return ans;
