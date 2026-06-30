@@ -28,6 +28,7 @@ Quick map of the repo so you (and Kira) always know where things live.
 | File | What it is |
 |---|---|
 | `CURRICULUM.md` | The full 24-module map, problem ladders, primitives. The territory. |
+| `PHASE_1_MAP.md` | **One-place index of everything Phase-1** (notes/learn/practice/drills/hard-gauntlet/test) **+ the per-pattern skeleton Phase 2 clones.** Read when opening a new phase or hunting a Phase-1 asset. |
 | `SPRINT_PLAYBOOK.md` | How we run each topic (the 7-step loop, problems-per-topic, scoring). |
 | `SPRINT_SCHEDULE.md` | June 4–9 day-by-day plan. Say a date to resume that day. |
 | `FILE_GUIDE.md` | This file. |

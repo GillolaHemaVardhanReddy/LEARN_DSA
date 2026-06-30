@@ -1,6 +1,6 @@
 // LC84 — Largest Rectangle in Histogram · Hard
 // https://leetcode.com/problems/largest-rectangle-in-histogram/
-// DRILL 02 · P5 (HARD). Paste ONLY the Solution class into LeetCode. main() is local.
+// HARD GAUNTLET · P8 (Stacks/monotonic). Paste ONLY the Solution class into LeetCode. main() local.
 //
 // GATES: name the flavor · build your OWN hostile input · self-trace before "done".
 //

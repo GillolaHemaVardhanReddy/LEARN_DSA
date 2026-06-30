@@ -15,12 +15,14 @@
 - **Revision CLEARED 6/30 (3/3 PASS):** ~~132 cold re-derive~~ ✅ (debt cleared, his cue banked) · ~~monotonic concept recall~~ ✅ ("stack holds INDICES") · ~~Min Stack aux-stack~~ ✅ ("remember don't recompute"). All rescheduled +7d ≈ 2026-07-07. **Still owed:** remaining stacks practice **LC1004** (Mistake #2 re-test) + **LC901 Stock Span** · P19 prefix-MOD · derive-don't-maintain cold recall · BS discard-ability (LC852/540) · MISTAKE #9/#10/#11 re-tests · **hards block tomorrow (LC84 · LC42 Trapping · LC410).**
 - **Clean-streak focus:** **best 1 (LC33/Min Stack), current 1.** LC402 will NOT be clean (multiple RE/WA submits already) — fine, it's a learning grind on a *new* pattern. Next clean shot = a fresh SOLO start-to-finish once LC402 closes. Run the 6 gates, self-trace before "done" — the antidote is working.
 
-### 📋 BOSS'S FORWARD PLAN (set 2026-06-29) — Phase-1 close-out sequence
-1. **Finish P5 LC84** (current hard) → completes Stacks, the last new pattern in Phase 1.
-2. **Deep revision pass** — recognition + all owed MISTAKE re-tests (overdue 6/28 monotonic recall, 132 re-derive, Stock Span, #9/#10/#11/#12 re-tests, etc.).
-3. **Clear ALL owed hards** (LC42 Trapping = weekend · LC410 Split Array · **note: LC862 genuinely needs M8 deques → it rides to Phase 2, can't precede it**).
-4. **NEW PRACTICE drill ("drill 03"): 30 Q end-to-end, Prefix Sum → Monotonic Stacks**, interleaved/disguised. Runs ALONGSIDE M8+ (Phase 2) learning — practice-while-we-advance.
-5. **TEST drill for Phase 1** (cold, closed-book, the only L4→L5 path) — built after the practice drill, run ALONGSIDE Phase 2.
+### 📋 BOSS'S FORWARD PLAN (restructured 2026-06-30) — Phase-1 close-out + Phase-2 open
+> **Map of everything Phase-1 + the skeleton Phase 2 clones: `PHASE_1_MAP.md`.**
+0. ✅ **DONE 6/30: consolidated ALL Phase-1 hards into ONE home** — `practice/drills/03-hard-gauntlet/` (8 active + LC862 parked). Swept every folder, deduped the triplicated LC42/LC410, folded in the 5 I'd missed (LC149/LC76/LC992/LC4/LC719). Removed the scattered `practice/<topic>/05-hard-*` + drill1's p25–30 tail (empty dups). drill1 → 24 Q (easy/med recognition only).
+1. **TOMORROW: the HARD BLOCK** — grind `03-hard-gauntlet` (start LC84 → LC42 → LC410 → the rest). All scaffolded brute→bridge→optimal→stress, ready to open.
+2. **Deep revision pass** — ✅ 132 / monotonic / Min Stack cleared 6/30; still owed Stock Span, #9/#10/#11/#12 re-tests (note: #11 LC992 + LC719 now live in the gauntlet).
+3. **NEW practice drill — 20 Q, Phase-1 UNSEEN, help-allowed** (FAANG prep, PRACTICE mode). → `practice/drills/04-phase1-unseen/`. Runs ALONGSIDE Phase 2.
+4. **TEST drill — 20 Q, Phase-1 COLD SOLO** (the only L4→L5 path, TEST mode). → `test/phase1-gauntlet/`. Built after #3, run ALONGSIDE Phase 2.
+5. **Phase 2 opens: M8 Queues/Deque (fast, monotonic-stack twin, clears parked LC862) → M9 Recursion (the keystone, deep).** Clone the `PHASE_1_MAP.md` skeleton per pattern.
 
 ---
 

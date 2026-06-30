@@ -1,6 +1,12 @@
 # DRILL 1 — PRACTICE Drill (Hema Vardhan)
 
-> **30 problems — 8 easy · 16 medium · 6 hard**, interleaved across every pattern we've
+> **⚠️ UPDATED 2026-06-30:** the **6 hards (P25–P30) graduated out** to the consolidated
+> **`practice/drills/03-hard-gauntlet/`** (all Phase-1 hards now live in one place). This drill is now
+> **24 problems — 8 easy · 16 medium** of disguised *recognition* reps. P25–30 below are kept as a
+> historical record but the live scaffolds are in the hard gauntlet (P25→LC42, P26→LC410, P27→LC76,
+> P28→LC4, P29→LC992, P30→LC719).
+>
+> **24 problems — 8 easy · 16 medium**, interleaved across every pattern we've
 > covered **except monotonic stack**: Sliding Window · Prefix Sum · Hashing · Two Pointers ·
 > Binary Search. Statements are **disguised** (no titles, no patterns) so you train
 > *recognition*, not title-matching.
