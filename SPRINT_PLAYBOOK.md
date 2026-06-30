@@ -33,14 +33,14 @@
 ### 5. SOLVE & SUBMIT (Hema)
 - Code in C++ on onlinegdb, then submit on **LeetCode = ground truth**.
 - "Solved" = **Accepted on the judge**, never Kira's approval alone.
-- Save each solution to `learn/<module>/<problem>.cpp`.
+- Save each solution to `phase-1/learn/<module>/<problem>.cpp`.
 
 ### 6. EVALUATE (Kira — Code Review Mode)
 - Review like a senior eng: correctness · time/space complexity · edge cases ·
   readability/naming · 1–2 concrete optimizations. Confirm the judge accepted it.
 - **Per-problem scorecard** (1–5 each): Communication · Decomposition · Complexity
   accuracy · Code quality · **Independence** (max hint level used — lower = better).
-- Then **extract the cue** → update `PATTERN_JOURNAL.md`. Any error → `MISTAKE_JOURNAL.md`.
+- Then **extract the cue** → update `PATTERN_JOURNAL.md`. Any error → `phase-1/mistakes.md`.
 
 ### 7. GATE & LOG
 - **L4 evidence:** ≥2 easy + ≥2 medium solved largely independently (hints ≤ L2).
@@ -76,8 +76,8 @@ Quality over count: a problem fully reasoned + reviewed + cue-extracted beats fi
 
 ## FILES = MEMORY (where everything lands)
 - `PATTERN_JOURNAL.md` — your cue cheat-sheet + templates (you write these).
-- `MISTAKE_JOURNAL.md` — every error: root cause + re-test date.
+- `phase-1/mistakes.md` — every error: root cause + re-test date.
 - `REVISION_QUEUE.md` — what's due when.
 - `PROGRESS.md` — levels + session log (the audit trail).
-- `learn/<module>/` — your actual C++ code.
+- `phase-1/learn/<module>/` — your actual C++ code.
 - Commit at every session end — the git history IS the progress log.

@@ -5,14 +5,17 @@ the state files at the start of each session and writes your progress back at th
 so nothing is ever lost to a forgotten save.
 
 ## What's in here
+**Root = the live cross-phase operating system:**
 - `CLAUDE.md` — the operating manual. **Auto-loaded every session** — you don't paste it anywhere.
 - `CURRICULUM.md` — the dependency-ordered path with a concrete problem ladder per pattern.
 - `PROGRESS.md` — your live tracker (mastery levels, schedule, session log).
 - `PATTERN_JOURNAL.md` — your growing "when you see ___ → consider ___" recognition guide.
-- `MISTAKE_JOURNAL.md` — root-cause log + scheduled re-tests.
 - `REVISION_QUEUE.md` — date-stamped spaced repetition.
-- `.claude/commands/` — your slash commands (below).
-- `learn/` — where your code goes.
+- `COMMAND_CENTER.md` — the single front door (read first each session). · `.claude/commands/` — slash commands (below).
+
+**Each phase = one self-contained folder** (`phase-1/` = M1–M7; Phase 2 copies the skeleton):
+- `phase-1/learn/` — where your code goes · `phase-1/practice/` + `phase-1/drills/` — reps · `phase-1/test/` — cold checks.
+- `phase-1/notes/` — study notes · `phase-1/syllabus.md` — patterns covered · `phase-1/mistakes.md` — root-cause log + scheduled re-tests.
 
 ## One-time setup
 You need Node.js installed (you already have it). Then:
@@ -40,7 +43,7 @@ will ask three things: your **primary coding language**, your **weekly hours**, 
 ## Daily loop
 - **Start:** run `claude`, then type `/continue`. Kira reads your state, shows the
   dashboard, folds in anything due for revision, and picks up where you left off.
-- **During:** solve problems into `learn/`. Use `STUCK` to get exactly one hint
+- **During:** solve problems into `phase-1/learn/`. Use `STUCK` to get exactly one hint
   level at a time. Use `/drill` to train pattern recognition.
 - **End:** type **`/endsession`**. This is the one habit that matters — it writes your
   progress to the files and commits. (Kira also updates files as you go, but

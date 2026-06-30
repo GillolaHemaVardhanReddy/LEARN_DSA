@@ -84,7 +84,7 @@ RULE: unsorted + pair/duplicate/complement ⇒ hash map (two pointers needs SORT
 Taught me by: LC3 (unordered_set), the whole M5 prefix+hash family; 6/8 drill flagged the recognition gap. NEXT: formal lesson + LC1 Two Sum.
 
 ### Two Pointers
-Level: **L4 (converging) 2026-06-09** — LC167 clean solo + LC11 Container largely his. Full notes: `Notes/03`. GAPS: Dutch-flag re-code, boundary reflex, L5. **Drill 6/10: Q2 (sorted pair) clean ✓ BUT Q1 (UNSORTED pair) over-fired here — reached for two pointers when the data isn't sorted. The disqualifier check ("is it sorted? loses indices?") isn't automatic yet. L5 held: fix the OVER-application, the twin of the hashing under-fire.**
+Level: **L4 (converging) 2026-06-09** — LC167 clean solo + LC11 Container largely his. Full notes: `phase-1/notes/03`. GAPS: Dutch-flag re-code, boundary reflex, L5. **Drill 6/10: Q2 (sorted pair) clean ✓ BUT Q1 (UNSORTED pair) over-fired here — reached for two pointers when the data isn't sorted. The disqualifier check ("is it sorted? loses indices?") isn't automatic yet. L5 held: fix the OVER-application, the twin of the hashing under-fire.**
 Trigger: the REAL rule is a **provably-safe move** (discarding one side never loses the answer). SORTED enables that for **sum/pair** problems — but it's NOT the only enabler (Container/Trapping are UNSORTED, use "move the limiting side"). Quick screen: "sorted + pair by sum?".
 ⚠️ **GATE for the PAIR-SUM family: is it SORTED?** If NOT sorted → **HASHING**, not two pointers. (My #1 recognition leak — see MISTAKE #6.) But "two pointers" ≠ "needs sorted" in general.
 Why it works: a provable safe-discard each step → O(n). For sums: too-big drops the largest. For Container: shorter wall caps area, so move it.
@@ -218,7 +218,7 @@ it with a HOSTILE input (an element > p, e.g. `[8,1,2,7], p=7`); hand-run the OR
 they disagree, the reduction dropped something (here: the mod).
 
 ### Binary Search (incl. on answer)
-Level: **L4 EARNED 2026-06-10** — LC34 (first/last) + LC875 (Koko, search-on-answer) mediums AC, on top of LC704/35 easies. Recognition independent on both. Support on Koko was a PRIMITIVE (integer-overflow magnitude), not the pattern. Drill 6/10 Q5/Q6 (search-on-answer + rotated) named cold — L5 HELD only because it's same-day as L4 (cadence: don't test transfer the day you reach the level). Full notes: `Notes/06`.
+Level: **L4 EARNED 2026-06-10** — LC34 (first/last) + LC875 (Koko, search-on-answer) mediums AC, on top of LC704/35 easies. Recognition independent on both. Support on Koko was a PRIMITIVE (integer-overflow magnitude), not the pattern. Drill 6/10 Q5/Q6 (search-on-answer + rotated) named cold — L5 HELD only because it's same-day as L4 (cadence: don't test transfer the day you reach the level). Full notes: `phase-1/notes/06`.
 Trigger (my words): the real cue is **MONOTONICITY** — any "NO NO NO YES YES YES" flip, not just "sorted array".
 "sorted + search" · "first/last/boundary/insert-position" · "**min/max value such that feasible**" (search the ANSWER) · "monotonic yes/no".
 Why it works: each step halves the search space → O(log n). Safe to discard a half because monotonicity guarantees the answer isn't there.

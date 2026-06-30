@@ -262,7 +262,7 @@ LeetCode/Blind-75-style problems. Work the ladder top-to-bottom.
 ### M25. Mixed pattern drills + problem sets
 - Run `DRILL` sessions (name-the-pattern, no full coding) across all Phase 1–5 patterns until recognition is automatic.
 - Work a curated track: **Blind 75 → NeetCode 150** (or Grind 169 if more reps help).
-- Re-solve previously failed problems from `MISTAKE_JOURNAL.md` cold.
+- Re-solve previously failed problems from `phase-1/mistakes.md` cold.
 
 ### M26. Interview skills
 - `INTERVIEW MODE` mocks: think aloud, state complexity unprompted, test your own code, discuss tradeoffs and alternatives.

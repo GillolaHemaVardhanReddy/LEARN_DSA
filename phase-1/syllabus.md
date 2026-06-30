@@ -29,7 +29,7 @@
 - `syllabus.md` — this file.
 
 ## Still owed in Phase 1 (before it's fully closed)
-- **Hard gauntlet** (`drills/03-hard-gauntlet/`) — 8 hards to grind (weekend cadence).
+- **Hard gauntlet** (`phase-1/drills/03-hard-gauntlet/`) — 8 hards to grind (weekend cadence).
 - **L5 push** — cold TEST drill on the top patterns.
 - A few mistake re-tests (see `mistakes.md` + root `REVISION_QUEUE.md`): #9, #10, #11, #12; Stock Span.
 - **LC862** (prefix+deque) is parked → it rides into Phase 2 once M8 Deque is learned.

@@ -13,7 +13,7 @@
 | 04 | LC875 Koko Eating Bananas | med | **Search on the ANSWER** — `lo/hi` are VALUES `[1, max(pile)]`; `feasible(k)` = hours ≤ h. |
 | 05 | LC410 Split Array Largest Sum | **hard** | Hard search-on-answer — `feasible(maxSum)` = can split into ≤ k parts. **WEEKEND.** |
 
-## The 4 knobs (from `Notes/06-Binary-Search.md`)
+## The 4 knobs (from `phase-1/notes/06-Binary-Search.md`)
 For every problem, decide BEFORE coding:
 1. **Condition** — `a[mid]==x` / `a[mid]>=x` / `feasible(mid)` ?
 2. **Move direction** — min/first → go LEFT on a hit; max/last → go RIGHT.
@@ -28,5 +28,5 @@ For every problem, decide BEFORE coding:
 5. Submit. Bring Kira whatever fights back.
 
 ## Cadence
-This week: **01–04** (2 easy + 2 medium). **05 (hard) → weekend.** After the set: fill `Notes/06` TO-FILL + spaced drill later.
+This week: **01–04** (2 easy + 2 medium). **05 (hard) → weekend.** After the set: fill `phase-1/notes/06` TO-FILL + spaced drill later.
 Optional extensions: LC33 (rotated), LC162 (peak), LC69 (sqrt), LC1011 (ship capacity).

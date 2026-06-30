@@ -16,7 +16,7 @@
 - **Clean-streak focus:** **best 1 (LC33/Min Stack), current 1.** LC402 will NOT be clean (multiple RE/WA submits already) — fine, it's a learning grind on a *new* pattern. Next clean shot = a fresh SOLO start-to-finish once LC402 closes. Run the 6 gates, self-trace before "done" — the antidote is working.
 
 ### 📋 BOSS'S FORWARD PLAN (restructured 2026-06-30) — Phase-1 close-out + Phase-2 open
-> **All Phase-1 work now lives in one self-contained folder: `phase-1/` (notes/learn/practice/drills/test/syllabus.md/mistakes.md). Phase 2 = copy that skeleton.**
+> **All Phase-1 work now lives in one self-contained folder: `phase-1/` (`notes/ learn/ practice/ drills/ test/ syllabus.md mistakes.md`). Phase 2 = copy that skeleton.**
 0. ✅ **DONE 6/30: (a) consolidated ALL Phase-1 hards into ONE home** — `phase-1/drills/03-hard-gauntlet/` (8 active + LC862 parked); swept every folder, deduped triplicated LC42/LC410, folded in the 5 missed (LC149/LC76/LC992/LC4/LC719); removed scattered `05-hard-*` + drill1 p25–30 (empty dups), drill1 → 24Q. **(b) Physically moved all Phase-1 assets into `phase-1/`.**
 1. **TOMORROW: the HARD BLOCK** — grind `phase-1/drills/03-hard-gauntlet/` (start LC84 → LC42 → LC410 → the rest). All scaffolded brute→bridge→optimal→stress, ready to open.
 2. **Deep revision pass** — ✅ 132 / monotonic / Min Stack cleared 6/30; still owed Stock Span, #9/#10/#11/#12 re-tests (note: #11 LC992 + LC719 now live in the gauntlet).

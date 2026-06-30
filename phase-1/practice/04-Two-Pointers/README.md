@@ -17,7 +17,7 @@
 > as a rung). Treated as a **fresh** topic — no assumptions of prior knowledge.
 > Optional warmup if 03 feels steep: **LC167 Two Sum II** (the pure sum-steered converging rep).
 
-## The 3 shapes (from `Notes/03-Two-Pointers.md`)
+## The 3 shapes (from `phase-1/notes/03-Two-Pointers.md`)
 - **Converging** (opposite ends → toward each other): 01, 03, 04, 05
 - **Fast/slow** (same direction, read races / write trails): 02
 - **Fix-one-then-two-pointer**: 03 (and its extension, 4Sum)
@@ -31,5 +31,5 @@
 5. Submit to LeetCode. Bring Kira whichever fights back.
 
 ## After the set
-We fill the `🔲 TO FILL AFTER REPS` section of `Notes/03-Two-Pointers.md` with your real cues + gotchas,
+We fill the `🔲 TO FILL AFTER REPS` section of `phase-1/notes/03-Two-Pointers.md` with your real cues + gotchas,
 then a `/drill` to test recognition. Optional extensions: LC16 (3Sum Closest), LC18 (4Sum), LC75 (Sort Colors / Dutch flag), LC680 (Valid Palindrome II).

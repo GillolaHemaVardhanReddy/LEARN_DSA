@@ -9,10 +9,10 @@
 - Checkpoints: **+1d, +3d, +7d, +14d, +30d, +90d** from the last successful recall.
 - Revisions are **closed-book first**: reconstruct the idea/template before looking.
 - A **pass** advances to the next interval. A **fail** resets to +1d and flags the
-  topic weak in `PROGRESS.md` + may create a `MISTAKE_JOURNAL.md` entry.
+  topic weak in `PROGRESS.md` + may create a `phase-1/mistakes.md` entry.
 - Revision sets are **interleaved** (mix topics) — this trains *which tool applies*,
   i.e. pattern recognition, not just recall of one thing.
-- Mistake re-tests (from `MISTAKE_JOURNAL.md`) also land here on their re-attempt date.
+- Mistake re-tests (from `phase-1/mistakes.md`) also land here on their re-attempt date.
 
 ---
 
@@ -46,7 +46,7 @@
 | **2026-06-13** | **Overflow rule re-test (MISTAKE #8, +1d RESET)** | +1d | recall | Failed to surface 6/12. Closed-book: write the safe mid + say WHY `(lo+hi)/2` dies (sum computed before division, ~3e9 > int max) + when `long long` accumulator is needed. |
 | 2026-06-12 | M4 SW + M5 Prefix L5 (next interval +2d) | +2d | `/drill` | Keep L5 warm — re-confirm cold in the next interleaved set (don't let fresh L5 decay). |
 | weekend | **2ptr REVISIT: re-code LC75 as Dutch-flag** | revisit | solo | L4 gap — implement the low/mid/high 3-way partition (NOT selection-sort) to cement the technique. + LC42 Trapping (hard). |
-| ongoing | **Boundary EXECUTION (WEAK, the #1 leak)** | standing | re-test | Now framed as PROCESS: trust clean template + reason 4 edges before submit (Notes/00 framework). Clears after 2 mediums solved first-submit with zero band-aid patches. |
+| ongoing | **Boundary EXECUTION (WEAK, the #1 leak)** | standing | re-test | Now framed as PROCESS: trust clean template + reason 4 edges before submit (phase-1/notes/00 framework). Clears after 2 mediums solved first-submit with zero band-aid patches. |
 | **on every window/2ptr problem** | **⭐ "DERIVE-DON'T-MAINTAIN" variable-minimization check (P23/LC904)** | standing | self-audit | His own ask (2026-06-22): wants this spaced ON PROBLEMS, not as theory. **Before submitting any sliding-window / two-pointer solve, run the audit OUT LOUD:** (1) is there a `sum`/`count` I maintain by hand that's really just `r-l+1`? → delete it. (2) any variable that must AGREE with another (key↔target, sum↔window)? → derive one from the other. (3) one `for` driver + one `while` invariant, or did I build a compound loop / pre-seed / 3-way branch? Target shape = grow(r) → while(broken) shrink(l) → record `r-l+1`. **Explicit re-test problems:** P27 LC76 Min Window Substring · P29 LC992 Subarrays K Different — both windows; audit variable count BEFORE coding. Clears when he runs the audit unprompted and ships a window solve with no redundant maintained state. |
 | **2026-06-25** | **Derive-don't-maintain — recall the principle cold (+3d)** | +3d | recall | Closed-book: state the rule in one line ("one driver, one invariant, derive the rest") + name what you'd DELETE from a hand-rolled window (the `sum` var, the min-scan for which type to drop). If foggy, re-read PATTERN_JOURNAL Sliding Window ⭐ DESIGN PRINCIPLE. |
 | **2026-06-23** | **BS recognition via DISCARD-ABILITY (not sortedness) — cold reps** | recog | solo | He flagged it himself after P21: needs the "can one mid-check kill a half?" trigger to fire on problems that DON'T look sorted. Ladder: LC852 Peak in Mountain Array (twin) → ~~LC153 Find Min in Rotated~~ **✅ DONE 2026-06-22 (P24, AC + 100k stress-proven; nailed the discard rule `nums[mid] vs nums[right]` + the exact-vs-boundary template split)** → LC540 Single Element in Sorted Array (discard on parity-index) → ~~LC33 Search Rotated~~ **✅ DONE 2026-06-25 (AC, FIRST-SUBMIT CLEAN, recognized cold — which-half-is-sorted + range-check; the 2-week-open leak, closed)**. Remaining: LC852/LC540 (+ LC74 2D). For EACH: before coding, state WHY a half is provably answer-free + ask "could mid be the answer?" (boundary→`l<r` keep mid). Earns BS L5 coverage. |

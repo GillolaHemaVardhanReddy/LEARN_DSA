@@ -18,7 +18,7 @@ Readable-names rule (no cryptic codes):
 - **Topic folder** = `<2-digit order>-<Readable-Topic-Name>` (e.g. `04-Sliding-Window`).
 - **Problem folder** = `<2-digit order>-<Readable-Problem-Name>` (e.g. `01-Minimum-Size-Subarray-Sum`).
   The LeetCode number + link live **inside** `problem.md`, not in the folder name.
-- Study notes per topic live in the top-level `Notes/` folder (e.g. `Notes/04-Sliding-Window.md`).
+- Study notes per topic live in the top-level `phase-1/notes/` folder (e.g. `phase-1/notes/04-Sliding-Window.md`).
 - `problem.md` = Kira writes the problem card. `solution.cpp` = Hema writes the code.
 - `solution.cpp` keeps a `main()` test harness so you can run it on onlinegdb; paste **only**
   the `Solution` class into LeetCode.

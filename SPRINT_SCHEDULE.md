@@ -16,7 +16,7 @@
 ## Day 1 — Thu June 4  ·  Sliding Window  ·  ✅ DONE (M4 → L4)
 - **Goal:** M4 → L4. Learn Variable Sliding Window (both variants). **ACHIEVED.**
 - **Done:** ✅ Variable window taught · ✅ LC209 (shortest) AC · ✅ LC3 (longest) AC ·
-  ✅ LC1004 (≤k zeros) AC · infra built (run.sh, MCP, Notes/, schedule, /recap-patterns).
+  ✅ LC1004 (≤k zeros) AC · infra built (run.sh, MCP, phase-1/notes/, schedule, /recap-patterns).
 - **Key insight:** boundary/order values recurred 3× → now the #1 tracked weak area; pre-code
   boundary checklist is standing. Pattern recognition itself is strong.
 - **Revision due:** none (first day).

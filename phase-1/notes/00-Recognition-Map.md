@@ -33,7 +33,7 @@ These are the *exact* mistakes from my drill (scored 4/7). Each is a "looks like
 - ⚠️ My repeated leak: parking every pair/duplicate problem under "two pointers." STOP — ask "sorted?" first.
 - 🔸 **But "two pointers" is NOT limited to sorted arrays in general.** The real requirement is a *provably-safe move*
   (discarding one side never loses the answer). Sorted enables that for sums; a greedy property enables it elsewhere —
-  e.g. **Container/Trapping (LC11/LC42) are UNSORTED** and use the "move the limiting side" proof. See `Notes/03`.
+  e.g. **Container/Trapping (LC11/LC42) are UNSORTED** and use the "move the limiting side" proof. See `phase-1/notes/03`.
 
 ### 🔴 Sliding Window vs Prefix+Hash
 > **THE ONE-LINE TEST:** *Can the window's target move MONOTONICALLY as the window grows?*

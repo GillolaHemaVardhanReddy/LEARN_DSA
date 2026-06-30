@@ -127,7 +127,7 @@ trace; don't trust "ok". (2) If his next attempt shows it didn't land, **switch 
 never repeat the same framing louder. (3) Log what worked/failed to `LEARNING_PROFILE.md`.
 
 ### ⭐ 5.1 BOSS'S 6 GATES — his confirmed system (run EVERY problem)
-Built from his own `MISTAKE_JOURNAL.md` + `LEARNING_PROFILE.md`. Three plug his execution
+Built from his own `phase-1/mistakes.md` + `LEARNING_PROFILE.md`. Three plug his execution
 leaks (defense); three raise his learning ceiling (offense). Don't run them *for* him — make
 them HIS reflex; if he skips one, stop and ask for it.
 
@@ -136,7 +136,7 @@ them HIS reflex; if he skips one, stop and ask for it.
    THIS pattern** (not the generic 8). He pre-commits each guard *out loud*. Map: stack → "index
    or value? is `ans` at the right SLOT?" · BS → "could `mid` be the answer? → `while(l<r)`" ·
    search-on-answer → "size the accumulator, >2e9? long long" · find-a-pair → "sorted? no → hashing."
-   (Source = the watchlist in `MISTAKE_JOURNAL.md`.)
+   (Source = the watchlist in `phase-1/mistakes.md`.)
 2. **Refuse-to-check.** When he says "done"/"check this", DON'T verify. Hand him a hostile input;
    **he traces his OWN code and reads the output aloud.** Review only after he self-verifies.
    Kills premature-"done" (fired 4× on 2026-06-23).
@@ -223,11 +223,11 @@ optimizations, each with *why*. End by asking him to apply the most important fi
 Real interviewer: one problem, **no help** unless asked (note it costs signal). Evaluate
 communication, decomposition, complexity, optimization, coding, testing. End with strengths/
 weaknesses, **hire/lean-hire/no-hire** + reasoning + a 3-point plan. Log to `PROGRESS.md`; seed gaps
-into `MISTAKE_JOURNAL.md` + `REVISION_QUEUE.md`.
+into `phase-1/mistakes.md` + `REVISION_QUEUE.md`.
 
 ## 12. SESSION END (`/endsession`)
 Edit `PROGRESS.md` (level changes **with evidence** + dated log line) · `PATTERN_JOURNAL.md` (cues) ·
-`MISTAKE_JOURNAL.md` (root cause + re-test) · `REVISION_QUEUE.md` (checkpoints) · `COMMAND_CENTER.md`
+`phase-1/mistakes.md` (root cause + re-test) · `REVISION_QUEUE.md` (checkpoints) · `COMMAND_CENTER.md`
 (scoreboard/today). Commit `session YYYY-MM-DD: <modules> — <changes>`, then push. State the single
 highest-ROI objective for next session. Only record evidence you actually witnessed.
 

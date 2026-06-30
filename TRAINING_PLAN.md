@@ -1,8 +1,8 @@
 # TRAINING PLAN — Becoming a Strong Problem Solver (Hema Vardhan)
 
 > Kira's plan, not a mirror of requests. Written 2026-06-13. Pairs with
-> `practice/drills/01-mixed-gauntlet/PRACTICE_PROTOCOL.md` (per-problem mechanics) and the state files
-> (`PROGRESS.md`, `PATTERN_JOURNAL.md`, `MISTAKE_JOURNAL.md`, `REVISION_QUEUE.md`).
+> `phase-1/drills/01-mixed-gauntlet/PRACTICE_PROTOCOL.md` (per-problem mechanics) and the state files
+> (`PROGRESS.md`, `PATTERN_JOURNAL.md`, `phase-1/mistakes.md`, `REVISION_QUEUE.md`).
 
 ---
 
@@ -101,7 +101,7 @@ New topics always **fold back** into mixed drills so old patterns stay warm (spa
    Negatives/±1? → prefix+hash. Say the disqualifier first.
 3. **Brute force first in practice** (baseline + exposes the bottleneck). On a TEST, go straight to optimal.
 4. **Boundary checklist before every submit** (empty/single/first&last/overflow). No band-aid patches.
-5. **Extract the cue** → `PATTERN_JOURNAL.md`. Every bug → `MISTAKE_JOURNAL.md` (root cause + re-test).
+5. **Extract the cue** → `PATTERN_JOURNAL.md`. Every bug → `phase-1/mistakes.md` (root cause + re-test).
 6. **Re-derive after any tap-out.** A given answer doesn't count until you rebuild it cold.
 7. **The judge is truth.** "Solved" = Accepted on LeetCode, not Kira's approval.
 
