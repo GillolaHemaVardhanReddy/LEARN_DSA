@@ -47,7 +47,7 @@ legend · leak scoreboard). Indexes the rest; doesn't duplicate it.
 | `PROGRESS.md` | Mastery **levels** (§6), counters, dated session log, schedule. The live tracker. |
 | `REVISION_QUEUE.md` | Date-stamped spaced-repetition queue. |
 | `PATTERN_JOURNAL.md` | Per-pattern **recognition trigger** + template + variants. The recognition engine. |
-| `MISTAKE_JOURNAL.md` | Per mistake: root cause + corrected model + re-test problem & date. |
+| `phase-N/mistakes.md` | Per mistake: root cause + corrected model + re-test problem & date. **Lives inside the current phase folder** (Phase 1 = `phase-1/mistakes.md`). |
 | `LEARNING_PROFILE.md` | How boss learns: which hints land/fall flat, confusion shapes. |
 | `CHECKLIST.md` | The pre-flight ritual (§5) + the stress-test harness template. |
 | `CURRICULUM.md` | The 24-module map, ladders, primitives. Changes rarely. |
@@ -101,7 +101,7 @@ what "he truly gets it" sounds like, optimal hint dose.
 target complexity → 3. **Brute force** (correct first; state complexity) → 4. **Bottleneck** →
 5. **Pattern hunt** (spend real time — the transferable skill) → 6. **Optimal**, designed not
 recalled, explain *why* *(if he REDUCES to a known problem → Gate B)* → 7. **Complexity** →
-8. **Implement** (he writes it, into `learn/`, §15) → 9. **Review** (§10) + test the step-2 edges
+8. **Implement** (he writes it, into `phase-N/learn/`, §15) → 9. **Review** (§10) + test the step-2 edges
 *(Gate C)* → 10. **Extract the cue** → `PATTERN_JOURNAL.md`.
 
 ### ⭐ PRE-FLIGHT RITUAL — boss runs it OUT LOUD, Kira verifies (his choice)
@@ -252,13 +252,19 @@ advance the hint ladder one level.
 ---
 
 ## 15. REPO LAYOUT
-- `CLAUDE.md` (this, auto-loaded) · `COMMAND_CENTER.md` (front door) · `CHECKLIST.md` (ritual +
-  harness) · state files (§2) · `.claude/commands/` (§13).
-- **Three MODES = three folders:**
-  - `learn/<NN>-Topic/<NN>-Problem/` — **LEARN**: first-time guided solves. Builds toward L3.
-  - `practice/` — **PRACTICE** (no promotion): topic sets `practice/<NN>-Topic/`, the disguised drill
-    series `practice/drills/drillN/`, daily cold sets `practice/day-NN/`.
-  - `test/` — **TEST** (cold/closed-book; the only L4→L5 path): `test/cold-recognition/`, `/drill`, `/interview`.
+- **Root = the live cross-phase operating system:** `CLAUDE.md` (this, auto-loaded) ·
+  `COMMAND_CENTER.md` (front door) · `CHECKLIST.md` (ritual + harness) · `PROGRESS.md` ·
+  `REVISION_QUEUE.md` · `PATTERN_JOURNAL.md` · `LEARNING_PROFILE.md` · `CURRICULUM.md` (24-module
+  master) · `.claude/commands/` (§13). These span ALL phases — never move them into a phase folder.
+- **Each phase = ONE self-contained folder** `phase-N/` holding everything for that phase:
+  - `phase-N/notes/` — study notes per pattern.
+  - `phase-N/learn/<NN>-Topic/<NN>-Problem/` — **LEARN**: first-time guided solves (→ L3).
+  - `phase-N/practice/` — **PRACTICE** (no promotion): topic sets `<NN>-Topic/` + the disguised
+    `drills/` series. (daily cold sets `day-NN/` if used.)
+  - `phase-N/drills/` — the disguised + hard drill gauntlets (`01-…`, `02-…`, `03-hard-gauntlet`).
+  - `phase-N/test/` — **TEST** (cold/closed-book; the only L4→L5 path): `cold-recognition/`, `/drill`, `/interview`.
+  - `phase-N/syllabus.md` — patterns covered this phase. `phase-N/mistakes.md` — phase mistakes (root cause + re-test).
+  - **Phase 2 = copy `phase-1/`'s skeleton, new topic numbers.** (`phase-1/` = M1–M7 linear patterns.)
 - Under git — commit history is the durable log.
 
 **`solution.cpp` STANDING STRUCTURE — every file: BRUTE → BRIDGE → OPTIMAL.**

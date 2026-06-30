@@ -21,25 +21,27 @@ Quick map of the repo so you (and Kira) always know where things live.
 | `PROGRESS.md` | Live tracker: topic **levels**, counters, session log, schedule. | Read at session start; updated on every level change. |
 | `REVISION_QUEUE.md` | Spaced-repetition queue — what's due for recall, and when. | Read at start; opens each day. |
 | `PATTERN_JOURNAL.md` | Per-pattern **recognition cues** + templates (the terse cheat-sheet). | After each problem / pattern. |
-| `MISTAKE_JOURNAL.md` | Every mistake: root cause + re-test date + the pre-submit checklist. | When you get something wrong. |
+| `phase-N/mistakes.md` | Every mistake of that phase: root cause + re-test date + pre-submit checklist. **Inside the phase folder** (Phase 1 = `phase-1/mistakes.md`). | When you get something wrong. |
 | `LEARNING_PROFILE.md` | Kira's model of **how you learn** (which hints land, confusion shapes). | When something is learned about *how* you learn. |
 
 ## Planning & reference (read on demand, change rarely)
 | File | What it is |
 |---|---|
 | `CURRICULUM.md` | The full 24-module map, problem ladders, primitives. The territory. |
-| `PHASE_1_MAP.md` | **One-place index of everything Phase-1** (notes/learn/practice/drills/hard-gauntlet/test) **+ the per-pattern skeleton Phase 2 clones.** Read when opening a new phase or hunting a Phase-1 asset. |
 | `SPRINT_PLAYBOOK.md` | How we run each topic (the 7-step loop, problems-per-topic, scoring). |
 | `SPRINT_SCHEDULE.md` | June 4–9 day-by-day plan. Say a date to resume that day. |
 | `FILE_GUIDE.md` | This file. |
 
-## Your study material — split by the 3 MODES (this is why there are 3 folders)
+## Your study material — inside `phase-N/`, split by the 3 MODES
+> **Each phase is one self-contained folder.** `phase-1/` = M1–M7. Phase 2 = copy this skeleton.
+> Also inside: `phase-N/syllabus.md` (patterns covered) + `phase-N/mistakes.md` (phase mistakes).
+
 | Path | Mode | What it is |
 |---|---|---|
-| `Notes/<NN>-<Topic>.md` | — | Plain-English **study notes** per topic — re-read to revise. |
-| `learn/<NN>-<Topic>/<NN>-<Problem>/` | **LEARN** | First-time guided solves (Socratic, brute→bridge→optimal). `problem.md` (Kira) + `solution.cpp` (you). |
-| `practice/<NN>-Topic/` · `practice/drills/drillN/` · `practice/day-NN/` | **PRACTICE** | Reps & calibration: topic mastery sets, the disguised escalating drill series, daily cold sets. No level promotion. |
-| `test/cold-recognition/` · `/drill` · `/interview` | **TEST** | Cold, closed-book — the ONLY mode that promotes L4→L5. |
+| `phase-N/notes/<NN>-<Topic>.md` | — | Plain-English **study notes** per topic — re-read to revise. |
+| `phase-N/learn/<NN>-<Topic>/<NN>-<Problem>/` | **LEARN** | First-time guided solves (Socratic, brute→bridge→optimal). `problem.md` (Kira) + `solution.cpp` (you). |
+| `phase-N/practice/<NN>-Topic/` · `phase-N/drills/<NN>-…/` | **PRACTICE** | Reps & calibration: topic mastery sets, disguised drills, the hard gauntlet. No level promotion. |
+| `phase-N/test/cold-recognition/` · `/drill` · `/interview` | **TEST** | Cold, closed-book — the ONLY mode that promotes L4→L5. |
 
 ## Tooling / config
 | File | What it is |
