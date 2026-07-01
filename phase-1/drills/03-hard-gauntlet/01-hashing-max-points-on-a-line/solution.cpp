@@ -17,8 +17,18 @@ using namespace std;
 class Solution {
 public:
     int maxPoints(vector<vector<int>>& points) {
-        // TODO (boss)
-        return 0;
+        int n = points.size(), maxi = INT_MIN;
+        unordered_map<float , int> check;
+        if(n<=2) return n;
+        for(int i = 0 ; i < n ; i++ ) {
+            for(int j = 0 ; j < n ; j++ ) {
+                if((points[j][0] - points[i][0]) == 0) continue;
+                float ans = check[((points[j][1]-points[i][1])/(points[j][0] - points[i][0]))];
+                check[ans]++;
+                maxi = max(maxi, check[ans]);
+            }
+        }
+        return maxi;
     }
 };
 
@@ -33,9 +43,30 @@ public:
 // BRUTE ORACLE — fill FIRST. For each pair (i,j), count points collinear with them via cross product. O(n^3).
 class SolutionBrute {
 public:
-    int maxPoints(vector<vector<int>>& p) {
-        // TODO (boss): triple loop, collinear test = cross product == 0.
-        return 0;
+    pair<int, int> getabc(vector<int> point1, vector<int> point2){
+        vector<int> ans;
+        if((point2[0] - point1[0]) == 0) return {0, 0};
+        int m = ((point2[1] - point1[1])/(point2[0] - point1[0]));
+        // y - mx = y1 - mx1
+        int c = point1[1] - m * point1[0];
+        return {m, c};
+    }
+    int maxPoints(vector<vector<int>>& points) {
+        int n = points.size(), maxi = INT_MIN;
+        if(n<=2) return n;
+        for(int i = 0 ; i < n ; i++ ) {
+            for(int j = i+1 ; j < n ; j++ ) {
+                int ans = 0;
+                for(int k = 0 ; k < n ; k++ ) {
+                    int check = ((points[j][0]-points[i][0])*(points[k][1] - points[i][1]))-((points[j][1]-points[i][1])*(points[k][0] - points[i][0]));
+                    if(!(check)){
+                        ans++;
+                    }
+                }
+                maxi = max(maxi, ans);
+            }
+        }
+        return maxi;
     }
 };
 

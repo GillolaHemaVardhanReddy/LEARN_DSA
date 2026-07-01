@@ -409,3 +409,13 @@ Template/skeleton:
 Complexity:
 Variants & gotchas:
 Taught me by:
+
+### Geometry — Collinearity (cross product)  (LC149 Max Points on a Line, 2026-06-30)
+Level: L2 (derived it back, own words)
+Trigger: "are these points on ONE line?" / "most collinear points" / any 3-point-on-a-line check.
+Recognition cue (my words): **collinear ⇒ slopes equal ⇒ cross-multiply to kill the division ⇒ integer cross product.** I don't memorize the formula — I rebuild it from slope equality.
+Why it works: anchor at `i`, make vectors `A=j−i`, `B=k−i`. Collinear iff same direction (θ=0 or 180) iff `sinθ=0`. Cross product `= |A||B|sinθ`, so **cross == 0 ⇔ collinear**. (Dot product is useless here — nonzero for every angle.) Cross = signed area of the parallelogram = determinant `|ax bx; ay by|`; zero area ⇔ vectors dependent ⇔ parallel.
+Formula (DERIVE, don't cram): slopes equal `(yj−yi)/(xj−xi)=(yk−yi)/(xk−xi)` → cross-multiply → `ax*by − ay*bx == 0` where `ax=xj−xi, ay=yj−yi, bx=xk−xi, by=yk−yi`.
+Gotchas: (1) **subtract the anchor first** — raw coords measure cross from origin, not translation-invariant → wrong. (2) Cross-pair ACROSS the two vectors (`ax*by`, not `ax*ay`). (3) It's INTEGER math — no float, vertical lines free. Same reason the O(n²) optimal hashes a reduced `(dy,dx)` pair, never a `double` slope. (4) overflow: coords ≤1e4 → `ax*by` ≤ 4e8, safe in int here; larger ⇒ `long long`.
+Complexity: brute oracle O(n³); optimal anchor+slope-hash O(n²)/O(n).
+Taught me by: Kira — LC149 hard gauntlet P1. Brute AC'd; slope-hash O(n²) optimal still TODO.
