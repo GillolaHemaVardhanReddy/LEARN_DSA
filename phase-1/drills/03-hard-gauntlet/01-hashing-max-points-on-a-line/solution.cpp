@@ -18,17 +18,23 @@ class Solution {
 public:
     int maxPoints(vector<vector<int>>& points) {
         int n = points.size(), maxi = INT_MIN;
-        unordered_map<float , int> check;
+        map<pair<int, int> , int> check;
         if(n<=2) return n;
         for(int i = 0 ; i < n ; i++ ) {
+            check.clear();
             for(int j = 0 ; j < n ; j++ ) {
-                if((points[j][0] - points[i][0]) == 0) continue;
-                float ans = check[((points[j][1]-points[i][1])/(points[j][0] - points[i][0]))];
+                int num = (points[j][1]-points[i][1]);
+                int den = (points[j][0] - points[i][0]);
+                int g = __gcd(num, den);
+                if(g==0) continue;
+                num = num/g;
+                den = den/g;
+                pair<int, int> ans = {num, den};
                 check[ans]++;
                 maxi = max(maxi, check[ans]);
             }
         }
-        return maxi;
+        return maxi+1;
     }
 };
 
