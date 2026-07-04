@@ -14,6 +14,7 @@
 | 6 | **`std::stack::pop()` returns `void`** — wrote `char c = st.pop();` (won't compile) | Reading and removing are TWO calls: `char c = st.top();` (read) then `st.pop();` (remove). Same for `queue`/`priority_queue`. | phase-1/learn/07 Valid Parentheses (LC20) | — |
 | 7 | **`string::find()` returns a position OR `string::npos`** — used it as a bool (`if(s.find("()"))`) → inverted logic + crash | `find` returns the index if found (can be `0`!) or **`npos`** = `(size_t)-1` (unsigned → max value ≈ 1.8e19) if NOT found. **Always compare `!= string::npos`**, never truthiness (index 0 is falsy, npos is truthy = exactly backwards). Same sentinel family as a boundary leak. | phase-1/learn/07 Valid Parentheses (LC20) | — |
 | 8 | **char literal vs string literal** — wrote `s.find('()')` and `s.find({})` | Single quotes = **one char** (`'a'`); double quotes = **string** (`"()"`). `'()'` is a (bad) multi-char constant, `{}` won't compile. A pair pattern is a string → `s.find("()")`. | phase-1/learn/07 Valid Parentheses (LC20) | — |
+| 9 | **`.back()`/`.front()`/`.top()` on an EMPTY container is UNDEFINED BEHAVIOR — believed it "returns 0"** | It does NOT return 0 — it reads unowned memory (garbage or crash). **Always guarantee non-empty before reading an end**, either with `!c.empty()` in the loop condition or a proven invariant (LC933: the just-pushed `t` is always `≥ t-3000`, so it's a sentinel that keeps the deque non-empty). This is his #1 boundary/empty-container leak in C++ clothing. | phase-2/learn/08 LC933 Recent Calls (7/04) | — |
 
 ---
 
