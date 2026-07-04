@@ -8,7 +8,7 @@
 | ID | Module | Status | Notes |
 |----|--------|--------|-------|
 | M8 | Queues & Deque | **STARTED 2026-07-03** | FIFO/circular buffer + ⭐ monotonic deque (twin of monotonic stack). Trigger: "max/min of EVERY window of size k" → monotonic deque O(n). Payoff: LC239 Sliding Window Maximum. Clears parked LC862. Striver [312]. |
-| M9 | Recursion | L0 | The keystone — deep. |
+| M9 | Recursion | **NEXT (opens 2026-07-05 AM)** | THE keystone — foundation under Backtracking/Trees/DP. Go slower+deeper. Notes ready (`notes/09-recursion.md`). Striver Step 7 [008–012]. Ladder: print N → 1..N → sum/factorial (param+functional) → reverse/palindrome → Fibonacci (multiple recursion → gateway to trees/DP). Unlock = the "leap of faith" (trust the smaller call). |
 | M10 | Backtracking | L0 | Builds on recursion. |
 | M11 | Linked Lists | L0 | Fast/slow pointers, reversal. |
 
