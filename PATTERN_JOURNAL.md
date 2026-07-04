@@ -27,7 +27,10 @@
 | matching / nesting | Stack |
 | next/previous greater or smaller element | Monotonic stack |
 | **build the smallest/largest RESULT by removing/keeping items IN ORDER** | **Greedy monotonic build** — a string/stack you pop bigger (or smaller) predecessors from while a removal budget remains |
-| max/min of every window size k | Monotonic deque |
+| max/min of every window size k | Monotonic **deque** — store **INDICES** (front index vs `i-k` tells you what expired); `pop_front` expire + `pop_back` monotonic |
+| window validity depends on **max AND min** | **two** monotonic deques (one decreasing, one increasing) |
+| **DP transition = max/min over a sliding window of previous states** | deque over the dp array (turns O(n·k) → O(n)) |
+| shortest subarray sum ≥ K **with negatives** | monotonic deque over **prefix sums** (window-shrink fails on negatives) |
 | cycle / middle / kth-from-end in a list | Fast & slow pointers |
 | all subsets / permutations / combinations / placements | Backtracking |
 | process nodes / depth / paths in a tree | Tree DFS |
@@ -288,6 +291,30 @@ Variants & gotchas: direction (next vs previous) = scan L→R vs R→L; greater 
 **⚠️ READING TRAP (132, his miss): index order ≠ value order.** He read "132 pattern" as "3 consecutive increasing." Killed via `[1,2,3,4]` → his reading says TRUE, real answer FALSE (strictly increasing can never put the MIDDLE value last). And the indices are a *subsequence* — `[3,5,0,3,4]` answers TRUE via `i=0,j=1,k=4` (0,1,4 NOT adjacent). Rule banked: **`i<j<k` alone = ANY positions in order; adjacency is a restriction problems always spell out ("subarray/contiguous/consecutive"), never imply.**
 **⭐ GREEDY MONOTONIC BUILD (LC402 Remove K Digits, judge-AC 2026-06-29) — the "construct the optimal result digit-by-digit" variant:** cue (his words, banked) = **"build the smallest/largest RESULT by removing/keeping items IN ORDER."** Unlock he DERIVED BY HAND off `1432219,k=3`→`[1,2,1,9]`→"1219": scanning L→R, **a big digit in a HIGH place hurts most**, so while you still have removals (`k>0`) and the incoming digit is SMALLER than the stack top, **pop the bigger predecessor** — the survivors form a monotonic-**increasing** stack, and that stack IS the answer (he saw "the result-list I'm building is the monotonic stack" before it was named). **THE 3 END-TRAPS:** (1) **leftover k** after the pass → trim from the END (the tail is the largest survivors); (2) **leading zeros** → strip from the FRONT (`"10200",k=1`→`"0200"`→`"200"`; **trailing zeros are KEPT** — low place, harmless); (3) **empty result** → return `"0"`. ⚠️ **MAGNITUDE LEAK FIRED:** result can be 1e5 digits → **never `stoi`/`stol`** it (RE `out_of_range`); do the empty/all-zero check string-only (`.empty()`). O(n)/O(n) — already optimal, can't beat. **Cleaner shape (DEFERRED refactor he derived):** use a `string` AS the stack — `push_back` survivors, `pop_back` on a pop, `back()` for top → builds in order, **kills the reverse + the index indirection**. (Brute oracle = bitmask subset enumeration over all keep-(n-k) subsequences — primitive learned just-in-time: `mask&(1<<i)` + `__builtin_popcount`.)
 Taught me by: theory + **generic NGE warm-up (100k stress green) = L3 (6/23)** + **LC739 Daily Temperatures (distance variant) + LC503 NGE II (circular) both judge-AC = L4 (6/25)** + **LC456 132 Pattern (track-best-2 R→L, over-revealed, re-derive owed)** + **LC402 Remove K Digits (greedy build, judge-AC 6/29)**; Striver [301][303][302][311]. Next for depth: Stock Span (LC901, previous-greater + span count) + **P5 LC84 histogram-area (in progress — the canonical hard)**.
+
+### Monotonic Deque  (M8 · LC239 Sliding Window Maximum, 2026-07-04)
+Level: **L3 EARNED 2026-07-04** — LC239 judge-AC + 20k stress-green + gate explained in his words. Twin of the monotonic stack, second eviction from the front because the window moves.
+Trigger (his words): **"max/min of every window of size k → monotonic deque, O(n)."** Also: window validity that needs max AND min (two deques); a DP transition that's "max/min over the last k states" (deque over dp); shortest-subarray-sum-≥K-with-negatives (deque over prefix sums).
+**⭐ THE UNLOCK he hit (and it TRANSFERRED from the monotonic stack): store INDICES, not values.** He got stuck on "how do I drop the front?" — his gut correctly refused a counter ("counters make the code worse" = his derive-don't-maintain reflex). The fix: the deque holds indices, so the **front index vs `i-k`** tells you when the front has slid out — you *derive* expiry, no counter. His words: _"the current index and front index comparison is great — if front index `<= i-k` that means it's past the min eligible window limit, then we pop."_ Killed by the hostile trace `[5,3,1,2],k=3` (values-only deque wrongly reports `[5,5]` because it can't tell the 5 at index 0 expired; truth `[5,3]`).
+**The 3 moves each step `i` (order matters):**
+1. **Expire front:** `while(dq.size() && dq.front() <= i-k) dq.pop_front();`  (⚠️ exact edge = `<= i-k`, not `< i-k`; window ending at `i` is `[i-k+1 .. i]`)
+2. **Enter back:** `while(dq.size() && nums[dq.back()] < nums[i]) dq.pop_back();` then `dq.push_back(i);`
+3. **Record:** `if(i >= k-1) ans.push_back(nums[dq.front()]);`
+Why front = max: the `pop_back` loop keeps values **decreasing front→back**, so front is the max by construction. Why O(n): each index enters once and leaves once → ≤ 2n ops total (his LC232 amortized argument, reused verbatim).
+```cpp
+vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+    deque<int> dq; vector<int> ans;          // dq holds INDICES, vals decreasing
+    for (int i = 0; i < (int)nums.size(); i++) {
+        if (dq.size() && dq.front() <= i-k) dq.pop_front();
+        while (dq.size() && nums[dq.back()] < nums[i]) dq.pop_back();
+        dq.push_back(i);
+        if (i >= k-1) ans.push_back(nums[dq.front()]);
+    }
+    return ans;                              // window MIN: flip back-pop to '>'
+}
+```
+Stack vs deque line: **unbounded** next/previous greater → monotonic **stack**; extreme inside a **moving bounded window** → monotonic **deque**.
+Taught me by: LC232 (two-stack FIFO, amortized O(1)) + LC933 (front-expiry queue) mechanics → **LC239 gate (judge-AC + stress-green) = L3**. Striver [297][312]. **Practice queued** (`phase-2/practice/08-Queues-Deque/`): LC622 ring buffer · LC1438 two-deque · LC862 deque-over-prefix (unlocks the parked hard) · LC1696 deque-over-DP.
 
 ### Bucket / Counting Sort (non-comparison sort)
 Level: **L3 (2026-06-17)** — P15 LC451 Sort Characters by Frequency: brute (count+sort) AC, then bucket optimal AC from memory after deriving the design himself.

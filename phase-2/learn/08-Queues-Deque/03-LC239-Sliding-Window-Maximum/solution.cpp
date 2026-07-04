@@ -17,8 +17,13 @@ using namespace std;
 //    >>> BOSS FILLS THIS FIRST. <<<
 // ---------------------------------------------------------------------------
 vector<int> maxSlidingWindowBrute(vector<int>& nums, int k) {
+    int n = nums.size();
     vector<int> ans;
-    // TODO(boss): for each window [i .. i+k-1], find the max, push it.
+    for (int i = 0; i + k <= n; i++) {          // window start i, covers [i .. i+k-1]
+        int mx = nums[i];
+        for (int j = i; j < i + k; j++) mx = max(mx, nums[j]);
+        ans.push_back(mx);
+    }
     return ans;
 }
 
@@ -37,9 +42,15 @@ vector<int> maxSlidingWindowBrute(vector<int>& nums, int k) {
 //    >>> boss writes after brute + bridge. <<<
 // ---------------------------------------------------------------------------
 vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+    int n = nums.size();
     vector<int> ans;
-    // TODO(boss): deque of INDICES, values decreasing front->back.
-    //   expire left (front <= i-k) · enter right (pop_back while smaller) · read front when window full
+    deque<int> chk;                              // holds INDICES, values decreasing front->back
+    for (int i = 0; i < n; i++) {
+        if (chk.size() && chk.front() <= i - k) chk.pop_front();   // expire left
+        while (chk.size() && nums[chk.back()] < nums[i]) chk.pop_back(); // enter right
+        chk.push_back(i);
+        if (i >= k - 1) ans.push_back(nums[chk.front()]);          // record
+    }
     return ans;
 }
 
