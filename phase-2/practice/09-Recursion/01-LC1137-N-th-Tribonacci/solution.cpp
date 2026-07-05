@@ -10,9 +10,9 @@ using namespace std;
 //    base: n==0 -> 0, n<=2 -> 1, else trib(n-1)+trib(n-2)+trib(n-3).
 //    >>> boss fills first <<<
 int tribBrute(int n) {
-    // TODO(boss): base cases (n==0 -> 0, n<=2 -> 1), else sum of the three previous calls.
-    // >>> boss fills <<<
-    return -1;   // placeholder so it compiles
+    if(n<=1) return n;
+    if(n==2) return 1;
+    return memo[n] = tribBrute(n-1) + tribBrute(n-2) + tribBrute(n-3);
 }
 
 // 2) BRIDGE: brute recomputes the same T(k) an exponential number of times.
@@ -24,15 +24,15 @@ int tribBrute(int n) {
 //
 // 3) OPTIMAL: top-down memo — check cache, compute+store, reuse.  O(n) time, O(n) space.
 //    >>> boss writes <<<
+int trimemo(int n , vector<int>& memo){
+    if(n<=1) return n;
+    if(n==2) return 1;
+    if(memo[n] != -1) return memo[n];
+    return memo[n] = trimemo(n-1, memo) + trimemo(n-2, memo) + trimemo(n-3, memo);
+}
 int trib(int n) {
-    static int memo[38];
-    static bool seen[38];   // 0 <= n <= 37
-    // TODO(boss):
-    //   base: n==0 -> 0, n<=2 -> 1
-    //   if seen[n] return memo[n]
-    //   memo[n] = trib(n-1) + trib(n-2) + trib(n-3); seen[n] = true; return memo[n]
-    // >>> boss fills <<<
-    return -1;   // placeholder so it compiles
+    vector<int> memo(n+1, -1);
+    return trimemo(n, memo);
 }
 
 // ORACLE (correct, iterative): the truth we test both boss-functions against.
