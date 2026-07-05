@@ -59,12 +59,26 @@ Recursion isn't just numbers — it shines on self-similar data. Optional stretc
 
 ---
 
+## 📁 What's scaffolded (folders here, brute→bridge→optimal→stress, you fill the stubs)
+| Folder | Problem |
+|---|---|
+| `01-LC1137-N-th-Tribonacci/` | LC1137 (fib with 3 terms) |
+| `02-LC231-Power-of-Two/` | LC231 (halve-while-even recursion) |
+| `03-LC50-Powx-n/` | LC50 (⭐ fast power O(log n)) |
+| `04-LC746-Min-Cost-Climbing-Stairs/` | LC746 (fib skeleton, `+`→`min`) |
+| `05-LC198-House-Robber/` | LC198 (⭐ the rob-vs-skip DP template) |
+
+**Reuse your LEARN solutions** (don't rescaffold — just submit): **LC509** → `learn/09-Recursion/06-Fibonacci`,
+**LC344** → `learn/09-Recursion/04-Reverse-Array`, **LC125** → `learn/09-Recursion/05-Check-Palindrome`.
+
+**Tier 3–4 (LC78/46/206/104)** are M10/M11/M12 machinery — I'll scaffold each when you reach it; just
+ping **"scaffold LC78"** (or code it straight and submit). ⚠️ Run on **onlinegdb** — the local `ld`
+toolchain bug blocks linking here.
+
 ## How to work this ladder
-- **Tier 1** first — bank 5 quick greens, feel unstoppable. (LC344/LC509 you basically already own.)
+- **Tier 1** first — bank quick greens, feel unstoppable. (LC344/LC509 you basically already own.)
 - **Tier 2** is the real muscle — the recursion→memo move on fresh problems. **LC198 House Robber is the
   keystone**; nail its "rob vs skip → max" and half of DP opens up.
 - **Tier 3–4** when you want to stretch — they literally open M10/M11/M12. No rush.
-- Scaffolds (brute→bridge→optimal→stress) get created just-in-time when you reach each — ping me
-  ("scaffold LC198") and I'll wire the file, or just code it straight and submit.
 
 **Confidence bar:** clear Tier 1 + Tier 2 → you can walk into any interview recursion warm-up cold. 🔥
