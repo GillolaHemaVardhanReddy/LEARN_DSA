@@ -12,19 +12,26 @@ using namespace std;
 //    Else:  return isPowRec(n / 2)      (peel one factor of 2)
 //    >>> boss fills first <<<
 
-bool isPowRec(int n) {
-    // >>> YOUR CODE — fresh start <<<
-    // ⚠️ do NOT search every exponent (that's O(n) over a ~2e9 range → TLE).
-    // PEEL one factor of 2 each call instead → O(log n), ~31 steps max:
-    //   base:  n == 1              -> true
-    //   guard: n <= 0 || n%2 != 0  -> false   (check BEFORE recursing)
-    //   else:  return isPowRec(n / 2)
-    return false; // placeholder — replace me
+
+// --- Approach A: HALVING — peel one factor of 2 each call.  O(log n) ---
+//     base n==1; guard n<=0 or odd; else recurse on ITSELF (not isPowerOfTwo).
+bool isPowHalve(int n) {
+    if(n==1) return true;
+    if(n<=0 || n%2) return false;
+    return isPowHalve(n/2);          // <-- recurse on itself (the self-ref fix)
 }
 
-// The public method LeetCode calls.
+// --- Approach B: DOUBLING — build 1,2,4,8,... up to n.  O(log n) ---
+//     long long i so i*2 can't overflow past INT_MAX; overshoot (i>n) => not a power.
+bool isPowDouble(long long i, int n) {
+    if(i > n) return false;
+    if(i == n) return true;
+    return isPowDouble(i*2, n);
+}
+
+// The public method LeetCode calls — pick either; here we use halving.
 bool isPowerOfTwo(int n) {
-    return isPowRec(n);
+    return isPowHalve(n);
 }
 
 // 2) BRIDGE: why the guards come BEFORE the recursive call.
@@ -49,7 +56,7 @@ int main() {
     // explicit edge cases first
     int edges[] = {0, 1, -1, 2, 3, 4, INT_MIN, INT_MAX};
     for (int n : edges) {
-        if (isPowerOfTwo(n) != isPowOracle(n)) {
+        if (isPowHalve(n) != isPowOracle(n) || isPowDouble(1, n) != isPowOracle(n)) {
             printf("MISMATCH (edge) n=%d  got=%d exp=%d\n",
                    n, (int)isPowerOfTwo(n), (int)isPowOracle(n));
             return 1;
@@ -69,7 +76,7 @@ int main() {
             // small values around the tricky low end
             n = rand() % 41 - 20;   // [-20, 20]
         }
-        if (isPowerOfTwo(n) != isPowOracle(n)) {
+        if (isPowHalve(n) != isPowOracle(n) || isPowDouble(1, n) != isPowOracle(n)) {
             printf("MISMATCH n=%d  got=%d exp=%d\n",
                    n, (int)isPowerOfTwo(n), (int)isPowOracle(n));
             return 1;
