@@ -32,6 +32,9 @@
 | **DP transition = max/min over a sliding window of previous states** | deque over the dp array (turns O(n·k) → O(n)) |
 | shortest subarray sum ≥ K **with negatives** | monotonic deque over **prefix sums** (window-shrink fails on negatives) |
 | cycle / middle / kth-from-end in a list | Fast & slow pointers |
+| **problem BREAKS INTO A SMALLER COPY OF ITSELF** (self-similar) + a reachable base | **Recursion** — assume the smaller call is correct (leap of faith), handle ONE layer; natural over a loop when it BRANCHES |
+| **a correct recursion TLEs AND the same subproblem recurs** (forking tree, overlap) | **Memoization** — recursion + a notepad: cache each state once (`memo[state]`), impossible-value sentinel = top-down DP. (Straight-line recursion like factorial → memo does nothing) |
+| **"count the ways" / "min-max cost over a sequence of choices" + small-ish n** | brute recursion → **memoize** (the DP on-ramp: LC70/198/322) — small n + "try all / count" often SIGNALS exponential |
 | all subsets / permutations / combinations / placements | Backtracking |
 | process nodes / depth / paths in a tree | Tree DFS |
 | level-by-level / shortest unweighted | BFS |

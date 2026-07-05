@@ -9,42 +9,11 @@ Only stack ops allowed: push-to-top, top/pop-from-top, size, empty.
 ```cpp
 class MyQueue {
 public:
-    int arr[100];
-    int first = -1, last = -1;
-    MyQueue() {
-        
-    }
-    
-    void push(int x) {
-        if(last>=100) return;
-        last++;
-        if(last==0) first=0;
-        arr[last] = x;
-        return;
-    }
-    
-    int pop() {
-        if(first==-1) return 0;
-        int ans = 0;
-        if(first == last ) {
-            ans = arr[first];
-            first = last = -1;
-            return ans;
-        }
-        ans = arr[first];
-        first++;
-        return ans;
-    }
-    
-    int peek() {
-        if(first != -1) return arr[first];
-        return 0;
-    }
-    
-    bool empty() {
-        if(first == last && last==-1) return true;
-        return false;
-    }
+    MyQueue();
+    void push(int x);   // add to back of queue
+    int  pop();         // remove & return front
+    int  peek();        // return front
+    bool empty();
 };
 ```
 
