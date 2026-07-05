@@ -12,24 +12,17 @@ using namespace std;
 //    Else:  return isPowRec(n / 2)      (peel one factor of 2)
 //    >>> boss fills first <<<
 
-bool isPowerOfTwoBrute(int n) {
-    for(int i = 0 ; i < n ; i++ ) {
-        if(pow(2, i) == n) return true;
-    }
-    return false;
-}
-
-
-bool checkpower(int i , int n){
-    if(i>=n) return false;
-    if(pow(2, i)==n) return true;
-    return checkpower(i+1, n);
-}
 bool isPowRec(int n) {
-    return checkpower(0, n);
+    // >>> YOUR CODE — fresh start <<<
+    // ⚠️ do NOT search every exponent (that's O(n) over a ~2e9 range → TLE).
+    // PEEL one factor of 2 each call instead → O(log n), ~31 steps max:
+    //   base:  n == 1              -> true
+    //   guard: n <= 0 || n%2 != 0  -> false   (check BEFORE recursing)
+    //   else:  return isPowRec(n / 2)
+    return false; // placeholder — replace me
 }
 
-// The public method LeetCode calls. Guard positivity, then recurse.
+// The public method LeetCode calls.
 bool isPowerOfTwo(int n) {
     return isPowRec(n);
 }

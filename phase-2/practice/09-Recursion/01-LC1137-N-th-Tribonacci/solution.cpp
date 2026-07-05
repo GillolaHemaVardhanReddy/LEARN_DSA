@@ -12,7 +12,7 @@ using namespace std;
 int tribBrute(int n) {
     if(n<=1) return n;
     if(n==2) return 1;
-    return memo[n] = tribBrute(n-1) + tribBrute(n-2) + tribBrute(n-3);
+    return tribBrute(n-1) + tribBrute(n-2) + tribBrute(n-3);   // BRUTE = no memo (memo isn't in scope here)
 }
 
 // 2) BRIDGE: brute recomputes the same T(k) an exponential number of times.
