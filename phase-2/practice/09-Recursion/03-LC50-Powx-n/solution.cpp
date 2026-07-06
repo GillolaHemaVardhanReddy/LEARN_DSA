@@ -6,19 +6,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 1) BRUTE: multiply x by itself |n| times, then invert if n<0.   O(|n|)
-//    >>> boss fills first <<<
-//    NOTE: this TLEs on LeetCode for large |n| (up to 2^31) — that's the
-//          whole motivation to find the O(log n) version below.
-double myPowBrute(double x, int n) {
-    // careful: -n overflows int when n == INT_MIN → widen to long long first.
-    long long e = n;                 // copy exponent into a wide type
-    bool neg = e < 0;
-    if (neg) e = -e;                 // safe now (e is long long)
-    double result = 1.0;
-    // TODO(boss): multiply `result` by x, e times   (for i in [0,e): result *= x)
-    //             then if (neg) result = 1.0 / result;
-    return result;                   // placeholder
+// 1) BRUTE ✅ DONE (boss, 2026-07-06): multiply x |n| times, invert if n<0.   O(|n|)
+//    LESSON BANKED (leak #8 overflow, new costume): first version used abs(n) on an
+//    INT → at n=INT_MIN the flip happens in int-land where +2^31 doesn't exist → UB.
+//    Fix = WIDEN FIRST (long long p = n), NEGATE SECOND. long long was never the limit.
+//    LC VERDICT ON THIS BRUTE = TLE/stack-overflow, NOT Wrong Answer: logic is correct,
+//    but n up to 2^31 ≈ 2.1e9 recursive frames vs a ~1e5-frame stack. No logic fix
+//    exists — the problem is BUILT to force the O(log n) idea below.
+
+double getpow(double x, long long e){
+    if(e==0) return 1;
+    return x * getpow(x, e-1);
+}
+double myBrutePow(double x, int n) {
+    long long p = n;
+        if(p<0) p = -p;
+        double result = getpow(x, p);
+        if(n<0){
+            return 1.0 / result;
+        }
+        return result;
 }
 
 // 2) BRIDGE: linear multiply redoes work — x^n recomputes every factor from scratch.

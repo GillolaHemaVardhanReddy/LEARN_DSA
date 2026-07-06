@@ -18,3 +18,13 @@
 - **Root cause:** wrote `print('hi')` — Python muscle memory. C++ has no `print`; `'hi'` is a multi-char CHAR literal, not a string.
 - **Corrected model:** print with `cout << "hi"`; **double quotes = string**, single quotes = one char. (Also self-caught a separate logic bug: `printNto1` recursed into `print1toN` — wrong self-reference — found by his own trace.) → CPP_GAPS.
 - **Re-test:** clears when a print/output line compiles first try with `cout <<` and correct quoting.
+
+### M#4 — negation in the NARROW type: `abs(n)` at INT_MIN (2026-07-06, LC50 Pow(x,n))
+- **Root cause:** brute used `getpow(x, abs(n))` — `abs` runs while n is still an **int**, so at n=INT_MIN it tries to produce +2^31, which doesn't exist in int → overflow/UB *before* the value ever reaches the `long long` parameter. The widening came too late. His first model of the bug was also wrong ("long long won't hold that big") — long long tops out at ~9.2e18; +2^31 is trivial for it. The container was never the problem; the ORDER was.
+- **Corrected model:** **widen BEFORE any arithmetic — negation counts as arithmetic.** `long long p = n; if (p<0) p = -p;` — copy into the wide type first, flip second. Same leak-#8 family as "size the accumulator," new costume: this time it's not the sum that overflows, it's the sign flip. He wrote the fixed version himself once the trap was traced.
+- **Re-test:** the optimal `myPow` (owed) must handle n=INT_MIN — clears when he widens-then-negates unprompted there, and on the next negative-bound problem.
+
+### M#5 — verdict literacy: read WHAT the judge says, not just red/green (2026-07-06, LC50)
+- **Root cause:** with the brute's logic fully fixed he reported "even now it's worst" — treating any red LC verdict as "my logic is wrong" and hunting for a logic bug that didn't exist. The actual verdict class was scale (TLE / stack overflow at n≈2.1e9 recursive frames vs ~1e5 stack), which no logic fix can cure. Extends M#2 (LC70: cost tracks CALLS, not n's size).
+- **Corrected model:** **WA = logic bug → hunt the trace. TLE/Runtime-Error at max constraints = scale wall → the ALGORITHM must change, stop polishing.** First move on any red: read the verdict TYPE + the failing input's size before touching code.
+- **Re-test:** next red verdict, he names the class (logic vs scale) out loud before editing anything. Clears when that call is right unprompted.
