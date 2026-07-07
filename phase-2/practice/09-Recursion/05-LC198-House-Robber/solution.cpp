@@ -1,47 +1,35 @@
 // LC198 — House Robber   (MEDIUM · THE keystone "choice" recursion)  ·  M9 practice
 // ---------------------------------------------------------------------
-// f(i) = max money robbing houses [0..i], can't rob two ADJACENT.
-//   at each house: ROB it (nums[i] + f(i-2))  OR  SKIP it (f(i-1))  -> MAX.
+// Rob houses in a row for the MAX total money; you can NOT rob two ADJACENT houses.
+//   Let f(i) = the best you can do considering houses [0..i].
+//   >>> At each house you face exactly TWO choices. Name them — and for each choice,
+//       which houses can you still legally rob afterward? That's your recurrence. <<<
 //   base: i < 0 -> 0.   answer = f(n-1).
-//   THIS is the canonical DP "choice" template — every take-vs-skip DP is this.
 //   URL: https://leetcode.com/problems/house-robber/
 // =====================================================================
 #include <bits/stdc++.h>
 using namespace std;
 
-// 1) BRUTE: naive choice recursion. rob(i) = max(nums[i]+rob(i-2), rob(i-1)).
-//    base i<0 -> 0.  Exponential — the two branches re-solve the same i over
-//    and over (overlapping subproblems).  O(2^n)
+// 1) BRUTE: naive choice recursion, NO cache.  Exponential — the branches re-solve
+//    the same i over and over (overlapping subproblems).  O(2^n)
 //    >>> boss fills first <<<
 int robBrute(vector<int>& nums, int i) {
-    // TODO(boss):
-    //   if (i < 0) return 0;
-    //   int robIt  = nums[i] + robBrute(nums, i - 2);   // take, jump the neighbor
-    //   int skipIt = robBrute(nums, i - 1);             // skip, look left
-    //   return max(robIt, skipIt);
+    // >>> boss: base case first, then the two choices at house i, then combine them.
     return 0;                                            // placeholder so it compiles
 }
 int robBrute(vector<int>& nums) { return robBrute(nums, (int)nums.size() - 1); }
 
-// 2) BRIDGE: from exponential -> linear.
-//    Q1: where's the repeated work?  (robBrute(i-2) & robBrute(i-1) both recompute
-//        the same smaller i's — the tree overlaps massively.)
-//    Q2: what state indexes ONE subproblem?  (just the index i — nothing else.)
-//    Q3: what tool kills the repeats?  (memoize: cache the answer per i, sentinel -1.)
-//    NOTE: this "max of ROB-vs-SKIP" is the canonical DP choice template. Learn it once,
-//          reuse it for every take/skip DP (paint house, delete-and-earn, ...).
+// 2) BRIDGE: from exponential -> linear.  Answer in your own words below.
+//    Q1: in the brute's call tree, where is the SAME subproblem recomputed?
+//    Q2: how many numbers pin down one call — i.e. what state indexes ONE subproblem?
+//    Q3: what tool kills the repeats, and which single line makes it O(n)?
 //    >>> your words:
 //
 //
-// 3) OPTIMAL: memoized rob. cache[i] holds f(i) once computed, -1 = not yet.  O(n)
+// 3) OPTIMAL: same recurrence as brute + a cache so each index is solved once.  O(n)
 //    >>> boss writes <<<
 int robMemo(vector<int>& nums, int i, vector<int>& memo) {
-    if (i < 0) return 0;
-    // TODO(boss):
-    //   if (memo[i] != -1) return memo[i];
-    //   int robIt  = nums[i] + robMemo(nums, i - 2, memo);
-    //   int skipIt = robMemo(nums, i - 1, memo);
-    //   return memo[i] = max(robIt, skipIt);
+    // >>> boss: same recursion as your brute + ONE line that reuses an already-solved index.
     return 0;                                           // placeholder so it compiles
 }
 int rob(vector<int>& nums) {

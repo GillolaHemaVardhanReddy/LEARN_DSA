@@ -9,11 +9,9 @@ using namespace std;
 
 // 1) BRUTE: naive recursion of f(i), NO cache.  Exponential (~2^n).
 //    >>> boss fills first <<<
-int fBrute(int i, vector<int>& cost) {
-    int n = cost.size();
-    // TODO(boss): base case -> if (i >= n) return 0;
-    // TODO(boss): return cost[i] + min( fBrute(i+1,cost), fBrute(i+2,cost) );
-    return 0;   // placeholder so it compiles
+int fBrute(int i , vector<int>& cost){
+    if (i >= cost.size()) return 0;
+    return cost[i] + min(fBrute(i+1, cost),fBrute(i+2, cost));
 }
 int minCostClimbingStairsBrute(vector<int>& cost) {
     return min(fBrute(0, cost), fBrute(1, cost));
@@ -30,11 +28,9 @@ int minCostClimbingStairsBrute(vector<int>& cost) {
 // 3) OPTIMAL: same recurrence, but cache f(i).  Each index solved once -> O(n).
 //    >>> boss writes <<<
 int fMemo(int i, vector<int>& cost, vector<int>& memo) {
-    int n = cost.size();
-    // TODO(boss): if (i >= n) return 0;
-    // TODO(boss): if (memo[i] != -1) return memo[i];
-    // TODO(boss): return memo[i] = cost[i] + min( fMemo(i+1,cost,memo), fMemo(i+2,cost,memo) );
-    return 0;   // placeholder so it compiles
+    if (i >= cost.size()) return 0;
+    if(memo[i] != -1) return memo[i];
+    return memo[i] = cost[i] + min(fBrute(i+1, cost, memo),fBrute(i+2, cost, memo));
 }
 int minCostClimbingStairsMemo(vector<int>& cost) {
     int n = cost.size();
