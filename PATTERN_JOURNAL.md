@@ -35,6 +35,7 @@
 | **problem BREAKS INTO A SMALLER COPY OF ITSELF** (self-similar) + a reachable base | **Recursion** — assume the smaller call is correct (leap of faith), handle ONE layer; natural over a loop when it BRANCHES |
 | **a correct recursion TLEs AND the same subproblem recurs** (forking tree, overlap) | **Memoization** — recursion + a notepad: cache each state once (`memo[state]`), impossible-value sentinel = top-down DP. (Straight-line recursion like factorial → memo does nothing) |
 | **"count the ways" / "min-max cost over a sequence of choices" + small-ish n** | brute recursion → **memoize** (the DP on-ramp: LC70/198/322) — small n + "try all / count" often SIGNALS exponential |
+| **compute x^n / a^b with a HUGE exponent** (n up to ±2³¹, or "mod 1e9+7 power") | **Fast power (binary exponentiation)** — halve the exponent, recurse **ONCE** into a variable (`t=f(e/2); t*t`, odd → extra `x`) → O(log n). ⚠️ write the call TWICE and it's O(n) again |
 | all subsets / permutations / combinations / placements | Backtracking |
 | process nodes / depth / paths in a tree | Tree DFS |
 | level-by-level / shortest unweighted | BFS |
@@ -343,6 +344,34 @@ Variants & gotchas:
 - **Each slot needs a COLLECTION** (string / vector) — multiple items can share a key. `bucket[f].push_back(...)`, never `bucket[f] = ...` (overwrite loses data).
 - C++ idiom: `s.append(count, ch)` repeats a char — args are **(count, char)**, NOT Python's `ch*count`.
 Taught me by: P15 / LC451 (derived count-fully-then-place-once myself; debugged my own overwrite, arg-swap, and n-vs-n+1 boundary). Bucket index = the COUNT, not the char.
+
+### Fast Power / Binary Exponentiation  (M9 · LC50 Pow(x,n), 2026-07-07)
+Level: **L3 EARNED 2026-07-07** — LC50 judge-AC (boss reports) + 20k stress-green vs iterative oracle. The recursion module's marquee "halve the problem" rep.
+Trigger (his words): **"O(n) → O(log n) collapse because each recursion halves n."** Surface cue: compute x^n / a^b where the exponent can be huge (±2³¹, or "answer mod 1e9+7" in contest form) — repeated multiplication is a scale wall by design.
+Why it works: `x^n = (x^(n/2))²` — one squaring replaces half the multiplications, every level. ~31 calls at n=2³¹ instead of 2.1 billion. Odd exponent leaves ONE stray `x` to glue on after the square; negative n = `1 / x^|n|`.
+Template/skeleton:
+```cpp
+double getpow(double x, long long e){        // e ≥ 0, long long on purpose
+    if(e==0) return 1;
+    if(e==1) return x;
+    double t = getpow(x, e/2);               // ⭐ call ONCE, hold it
+    if(e%2) return x * t * t;                // odd → one leftover x
+    else return t * t;
+}
+double myPow(double x, int n) {
+    long long p = n;                          // WIDEN first (INT_MIN trap, M#4)
+    if(p<0) p = -p;                           // negate second
+    double result = getpow(x, p);
+    return n<0 ? 1.0/result : result;
+}
+```
+Complexity: time **O(log n)** · space **O(log n)** call stack (iterative bit-loop version = O(1), see the oracle in the LC50 file).
+Variants & gotchas (all three paid for in blood, 2026-07-06/07):
+- **⭐ THE TWO-CALL TRAP (his TLE):** `return getpow(x,e/2) * getpow(x,e/2);` runs BOTH calls — the machine can't see they're equal. Calls double per level while e halves → the doubling cancels the halving → **O(n) wearing an O(log n) costume** (T(e)=2T(e/2)+1 = O(e); ~4 billion calls at n=2³¹). His words: *"calling recursion in multiple places made multiple calls where we can just use one time response."* **Fast power wins by halving the WORK, not just the exponent — recurse once per level.**
+- **MEMO ≠ the fix here (his MLE):** the fixed recursion visits each exponent ONCE (straight chain e, e/2, e/4…1) → a memo gets ZERO hits while `vector(n)` at n=2³¹ costs ~17 GB. **A memo earns its memory by HITS (forking tree + overlap, like fib). Repeated work on ONE LINE needs a variable, not a table.**
+- **INT_MIN negation (M#4, re-test PASSED here unprompted):** widen to `long long` BEFORE flipping the sign — `abs(n)` on the int is UB at −2³¹.
+- Doubles: compare with tolerance in tests, never `==`; oracle = your own binary-power, not `std::pow` (different rounding).
+Taught me by: LC50 (M9 practice Q3) — brute TLE by design → derived the halving from "2¹⁰ = 32×32" → hit the two-call TLE live → counted the call tree → t-variable fix → memo detour killed by counting cache hits → AC. Related: LC231 power-of-two (halving twin), memoization entry above (when a table IS right).
 
 ### Fast & Slow Pointers
 Level: L0
