@@ -1,41 +1,43 @@
 // LC198 — House Robber   (MEDIUM · THE keystone "choice" recursion)  ·  M9 practice
 // ---------------------------------------------------------------------
 // Rob houses in a row for the MAX total money; you can NOT rob two ADJACENT houses.
-//   Let f(i) = the best you can do considering houses [0..i].
-//   >>> At each house you face exactly TWO choices. Name them — and for each choice,
-//       which houses can you still legally rob afterward? That's your recurrence. <<<
-//   base: i < 0 -> 0.   answer = f(n-1).
+//   Let f(i) = best money if we TAKE house i and continue forward.
+//   >>> BOSS'S RECURRENCE (self-derived):  f(i) = nums[i] + max( f(i+2), f(i+3) )
+//       base: i >= n -> 0.   answer = max(f(0), f(1)).
+//   WHY i+2 OR i+3, never bigger:  values are NON-NEGATIVE (0..400). Take i, then the
+//   next take is i+2 (obvious non-adjacent) or i+3 (needed by cases like [2,1,1,2] where
+//   the winning pair is index 0 & 3). A gap of 4+ is never optimal — the skipped middle
+//   house is free money (non-adjacent to both neighbors, nums>=0), so you'd just take it.
+//   ⚠ This lens RELIES on nums>=0; the canonical skip-or-take lens does not.
 //   URL: https://leetcode.com/problems/house-robber/
 // =====================================================================
 #include <bits/stdc++.h>
 using namespace std;
 
-// 1) BRUTE: naive choice recursion, NO cache.  Exponential — the branches re-solve
-//    the same i over and over (overlapping subproblems).  O(2^n)
-//    >>> boss fills first <<<
+// 1) BRUTE: boss's always-take recurrence, NO cache.  Exponential — f(i) is re-solved
+//    from many callers (overlapping subproblems).  O(2^n)
 int robBrute(vector<int>& nums, int i) {
-    // >>> boss: base case first, then the two choices at house i, then combine them.
-    return 0;                                            // placeholder so it compiles
+    if (i >= (int)nums.size()) return 0;
+    return nums[i] + max(robBrute(nums, i + 2), robBrute(nums, i + 3)); // TAKE i, next take = i+2 or i+3
 }
-int robBrute(vector<int>& nums) { return robBrute(nums, (int)nums.size() - 1); }
+int robBrute(vector<int>& nums) { return max(robBrute(nums, 0), robBrute(nums, 1)); }
 
-// 2) BRIDGE: from exponential -> linear.  Answer in your own words below.
-//    Q1: in the brute's call tree, where is the SAME subproblem recomputed?
-//    Q2: how many numbers pin down one call — i.e. what state indexes ONE subproblem?
-//    Q3: what tool kills the repeats, and which single line makes it O(n)?
-//    >>> your words:
+// 2) BRIDGE: from exponential -> linear.  (boss's words)
+//    Q1: the SAME index i is reached by many different jump-paths from the left, so the
+//        whole subtree under i is recomputed every time -> the exponential blow-up.
+//    Q2: ONE number pins a subproblem — the index i. Nothing else. -> memo is a 1-D array.
+//    Q3: memoize. The line `if (memo[i] != -1) return memo[i];` hands back a solved index
+//        instead of re-exploring it, collapsing 2^n into O(n) (each index solved once).
 //
-//
-// 3) OPTIMAL: same recurrence as brute + a cache so each index is solved once.  O(n)
-//    >>> boss writes <<<
+// 3) OPTIMAL: same recurrence + cache f(i).  Each index solved once -> O(n).
 int robMemo(vector<int>& nums, int i, vector<int>& memo) {
-    // >>> boss: same recursion as your brute + ONE line that reuses an already-solved index.
-    return 0;                                           // placeholder so it compiles
+    if (i >= (int)nums.size()) return 0;
+    if (memo[i] != -1) return memo[i];
+    return memo[i] = nums[i] + max(robMemo(nums, i + 2, memo), robMemo(nums, i + 3, memo));
 }
 int rob(vector<int>& nums) {
-    int n = nums.size();
-    vector<int> memo(n, -1);
-    return robMemo(nums, n - 1, memo);
+    vector<int> memo(nums.size(), -1);
+    return max(robMemo(nums, 0, memo), robMemo(nums, 1, memo));
 }
 
 // ---- ORACLE (correct, DON'T touch): iterative rolling DP. This is the truth. ----
