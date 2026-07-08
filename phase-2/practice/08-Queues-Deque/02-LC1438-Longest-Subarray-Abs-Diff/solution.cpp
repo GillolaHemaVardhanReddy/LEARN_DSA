@@ -14,21 +14,32 @@ int longestSubarrayBrute(vector<int>& nums, int limit) {
     return best;
 }
 
-// 2) BRIDGE: brute re-derives max/min for every window. What keeps the window max in O(1)
-//    as it slides? (LC239.) You need BOTH ends of validity -> TWO monotonic deques.
+// 2) BRIDGE — the three questions.
+//    (1) Where's the repeated work? Brute re-scans the window to find its max and min every
+//        time the window moves by one. What did the previous window already know?
+//    (2) You solved "window max in O(1) as it slides" four days ago. What was it? (LC239.)
+//    (3) Validity here needs BOTH ends of the window's range, not one. So how many of that
+//        structure do you need, and what is each one's monotonic direction?
+//
+//    Then the shrink question — this is the part that actually bites:
+//        when the window is invalid and you move `l` forward, how does each structure learn
+//        that the element it was holding is no longer inside the window?
+//        (You answered this cold on 7/08: "expiry is a POSITION question." Use that.)
 //    >>> your words:
 //
 //
-// 3) OPTIMAL: maxDq (decreasing) + minDq (increasing), both holding INDICES.  O(n)
-//    >>> boss writes <<<
+//
+// 3) OPTIMAL: two monotonic deques.  O(n) time.  >>> boss writes <<<
 int longestSubarray(vector<int>& nums, int limit) {
     int n = nums.size(), best = 0, l = 0;
-    deque<int> maxDq, minDq;          // indices; maxDq vals decreasing, minDq vals increasing
+    deque<int> maxDq, minDq;          // what do these HOLD? indices or values? decide, then comment it
     // TODO(boss):
-    //   for r in [0,n): push r into both (pop_back to keep monotonic)
-    //     while nums[maxDq.front()] - nums[minDq.front()] > limit:
-    //         l++ ; pop_front any deque whose front index < l
-    //     best = max(best, r - l + 1)
+    //   Drive with r. For each r, three things happen in some order — figure out the order:
+    //     - the new element enters both deques (what gets evicted to preserve monotonicity?)
+    //     - while the window is invalid, l advances (what's the invalidity test, in one line?)
+    //     - record the best length
+    //   Trap to pre-commit against: when l advances, which deque(s) might need a pop_front,
+    //   and what is the guard condition? Write that guard BEFORE you write the loop.
     return best;
 }
 

@@ -15,24 +15,54 @@ int shortestSubarrayBrute(vector<int>& nums, int k) {
     return best == INT_MAX ? -1 : best;
 }
 
-// 2) BRIDGE: brute recomputes sums. Prefix sums make any subarray sum O(1) = P[r]-P[l].
-//    Negatives kill window-shrinking, so which left endpoints are worth keeping? -> monotonic deque.
+// 2) BRIDGE — this is the hard one. Earn it. Do NOT read ahead to the optimal.
+//
+//    (0) FIRST, the reduction — and Gate B applies, so attack it:
+//        LC209 (Minimum Size Subarray Sum) is the same sentence with "all positive" added.
+//        You know the O(n) sliding window for LC209. Try to reuse it here.
+//        Now the HOSTILE input:  nums = [2, -1, 2], k = 3.
+//        Hand-run LC209's window on it. What does it return? What's the true answer?
+//        Name — in one sentence — the exact property the window relied on that negatives destroy.
+//        (Write that sentence down. It is the whole reason this problem is a HARD.)
+//
+//    (1) Where's the repeated work? Brute re-adds the same elements. What makes any subarray
+//        sum O(1)? (You're L4 on this.) Define P[] and write sum(l..r-1) in terms of P.
+//
+//    (2) Restate the goal in terms of P only:
+//            "find r and l, l < r, with P[r] - P[l] >= k, minimizing ______"
+//
+//    (3) Now the insight. Fix r. You're scanning candidate left endpoints l.
+//        Take two of them, i < j (so j is closer to r, giving a SHORTER subarray).
+//        Suppose P[i] >= P[j].
+//          - Could i EVER be the best left endpoint for this r, or for any future r' > r?
+//          - Argue it in one line. (Hint: compare what each gives you — is j both shorter AND
+//            at least as much sum? if so, what is i good for?)
+//        That argument tells you exactly which candidates to THROW AWAY, which tells you the
+//        deque's monotonic direction. Derive the direction — don't guess it.
+//
+//    (4) Two different pops happen at each r, for two different reasons. Name each:
+//          - one pop RECORDS an answer and discards a candidate. Which end? why is it gone forever?
+//          - one pop DISCARDS a candidate that is dominated (your (3) argument). Which end?
+//
+//    ⚠️ MAGNITUDE (your leak, fired 7/06): |nums[i]|<=1e5 and n<=1e5 -> |P| up to 1e10. And k<=1e9.
+//        P is already long long below. Check every OTHER place a sum or compare happens.
 //    >>> your words:
 //
 //
-// 3) OPTIMAL: increasing-P deque of indices; answer-pop front, monotonic-pop back.  O(n)
-//    >>> boss writes <<<
+//
+//
+// 3) OPTIMAL: monotonic deque over prefix sums.  O(n)  >>> boss writes <<<
 int shortestSubarray(vector<int>& nums, int k) {
     int n = nums.size();
     vector<long long> P(n + 1, 0);
     for (int i = 0; i < n; i++) P[i + 1] = P[i] + nums[i];
     int best = INT_MAX;
-    deque<int> dq;                    // indices into P, P-values increasing front->back
+    deque<int> dq;                    // holds indices into P. Direction? YOU derived it in (3).
     // TODO(boss):
-    //   for r in [0..n]:
-    //     while dq.size() && P[r]-P[dq.front()] >= k : best=min(best, r-dq.front()); pop_front
-    //     while dq.size() && P[r] <= P[dq.back()]    : pop_back
-    //     push_back(r)
+    //   Loop r over [0..n]  (why n+1 iterations and not n? what does r=0 mean?)
+    //   Two while-loops and a push. You named all three in bridge (4). Order them.
+    //   Boundary to pre-commit: is the answer length r - dq.front(), or off by one? Prove it on
+    //   a 1-element array before you submit.
     return best == INT_MAX ? -1 : best;
 }
 

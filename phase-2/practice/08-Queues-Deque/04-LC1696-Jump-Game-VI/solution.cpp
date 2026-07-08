@@ -16,24 +16,34 @@ int maxResultBrute(vector<int>& nums, int k) {
     return dp[n - 1];
 }
 
-// 2) BRIDGE: the inner "max over last k dp values" is a sliding-window max -> monotonic deque.
+// 2) BRIDGE — the three questions.
+//    (1) Where's the repeated work? Write out the inner loop of the brute in plain English.
+//        "for each i, find the ______ of the last k dp values."
+//    (2) That sentence is a problem you have already solved. Name it. What was its answer?
+//    (3) What's DIFFERENT here: in LC239 the window slid over a fixed input array. Here the
+//        window slides over `dp` — an array you are BUILDING as you go. Does that break
+//        anything? (Trace it: when you compute dp[i], is every value the deque points at
+//        already final?)
+//
+//    Note the shape: this is a DP whose transition is a sliding-window max. That combination
+//    is the whole recognition cue — bank it.
 //    >>> your words:
 //
 //
-// 3) OPTIMAL: deque of indices over dp, front = max in window [i-k, i-1].  O(n)
-//    >>> boss writes <<<
+//
+// 3) OPTIMAL: deque-optimized DP.  O(n)  >>> boss writes <<<
 int maxResult(vector<int>& nums, int k) {
     int n = nums.size();
     vector<int> dp(n);
     dp[0] = nums[0];
-    deque<int> dq;                    // indices into dp, dp-values decreasing front->back
+    deque<int> dq;                    // holds what? over which array? which direction? comment it
     dq.push_back(0);
     // TODO(boss):
-    //   for i in [1,n):
-    //     while dq.front() < i-k : pop_front         (expire)
-    //     dp[i] = nums[i] + dp[dq.front()]
-    //     while dq.size() && dp[dq.back()] <= dp[i] : pop_back
-    //     dq.push_back(i)
+    //   for i in [1,n): three steps, and the ORDER matters more than in LC239 — think about why.
+    //     - expire: which indices are no longer reachable from i? (what's the window here — is it
+    //       [i-k, i-1] or [i-k, i]? get this exactly right, it's the whole boundary)
+    //     - read:   dp[i] = ?
+    //     - insert: what gets evicted from the back before i goes in? (<= or < ? does it matter?)
     return dp[n - 1];
 }
 
