@@ -373,6 +373,18 @@ Variants & gotchas (all three paid for in blood, 2026-07-06/07):
 - Doubles: compare with tolerance in tests, never `==`; oracle = your own binary-power, not `std::pow` (different rounding).
 Taught me by: LC50 (M9 practice Q3) — brute TLE by design → derived the halving from "2¹⁰ = 32×32" → hit the two-call TLE live → counted the call tree → t-variable fix → memo detour killed by counting cache hits → AC. Related: LC231 power-of-two (halving twin), memoization entry above (when a table IS right).
 
+### Recursion→Memo DP On-Ramp — "choose or skip" on a line  (M9 · LC746 + LC198, ACs 2026-07-07, entry banked 2026-07-08)
+Level: **L3** — both judge-AC 7/07 (commits 5d7aee4/6a8e157); entry backfilled at 7/08 endsession from the commit record. _Teach-it-back in his own live words still owed — fold into the 7/11 recall._
+Trigger: **linear sequence + at each position a CHOICE (take/skip, 1-or-2 step) + "min cost / max value / count ways" → brute recursion first, then JUSTIFY the memo by naming the overlap** (the same state reachable by different choice paths → forking tree → hits).
+Why it works: the answer from position i depends only on answers from a few positions ahead — self-similar subproblems; overlap (fork) is what makes the memo pay (contrast: fast-power's chain, zero hits — M#7).
+His derivation on LC198 (from the commit log): **non-standard ALWAYS-TAKE recurrence `f(i) = nums[i] + max(f(i+2), f(i+3))`** — every house is taken as a start candidate, and he **PROVED the gap never needs to exceed 3 when nums≥0** (skipping 3+ leaves a takeable house you'd always rather rob). Answer = max(f(0), f(1), f(2))-style seed. Not the textbook rob/skip pair — his own machine, stress-proven 500k vs brute.
+Complexity: brute O(2ⁿ)-ish fork → memo **O(n)** time / O(n) space.
+Variants & gotchas:
+- **Name the overlap BEFORE reaching for the memo** (M#2/M#7 discipline — both re-tests held on these two problems).
+- LC746 twist: can start at step 0 or 1, "top" = one past the last index — the ANSWER edge lives at the seed/return, not the recursion.
+- Greedy is the siren on these (LC746 fired a greedy→recursion turnaround before the brute).
+Taught me by: LC746 (brute recursion + memo, boss-derived) · LC198 (the always-take recurrence + gap≤3 proof). Related: LC70/LC1137 (count-ways fib family), memoization entry, fast-power entry (when a memo is WRONG).
+
 ### Fast & Slow Pointers
 Level: L0
 Trigger:
