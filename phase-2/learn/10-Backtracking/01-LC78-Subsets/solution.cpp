@@ -9,22 +9,20 @@
 using namespace std;
 
 
-    void getsets(vector<int>& nums, vector<vector<int>>& ans, int i, vector<int>& sett) {
-        if(i >= nums.size()){
-            ans.push_back(sett);
-            return;
-        }
-        sett.push_back(nums[i]);
-        getsets(nums, ans, i+1, sett);
-        sett.pop_back();
-        getsets(nums, ans, i+1, sett);
+// 1) BRUTE — bitmask subset enumeration (the LC402 primitive).
+//    Every subset <-> one n-bit mask. Bit i set  =>  nums[i] is in.
+//    Time: O(n * 2^n)   Space: O(n * 2^n) for the answer
+vector<vector<int>> subsetsBrute(vector<int>& nums) {
+    int n = nums.size();
+    vector<vector<int>> ans;
+    for (int mask = 0; mask < (1 << n); mask++) {
+        vector<int> cur;
+        for (int i = 0; i < n; i++)
+            if (mask & (1 << i)) cur.push_back(nums[i]);
+        ans.push_back(cur);
     }
-    vector<vector<int>> subsetsBrute(vector<int>& nums) {
-        vector<vector<int>> ans;
-        vector<int> sett;
-        getsets(nums, ans, 0, sett);
-        return ans;
-    }
+    return ans;
+}
 
 // 2) BRIDGE — this one is NOT about speed (both ways touch all 2^n subsets).
 //    It's about GENERALITY — why the recursion survives where the mask dies:
@@ -41,9 +39,21 @@ using namespace std;
 //    Recurse over indices; at each index fork pick / not-pick; base case pushes
 //    the current path into the answer.
 //    Time: O(?)   Space: O(?) (call stack + path)
+void getsets(vector<int>& nums, vector<vector<int>>& ans, int i, vector<int>& sett) {
+    if(i >= nums.size()){
+        ans.push_back(sett);
+        return;
+    }
+    sett.push_back(nums[i]);
+    getsets(nums, ans, i+1, sett);
+    sett.pop_back();
+    getsets(nums, ans, i+1, sett);
+}
 vector<vector<int>> subsets(vector<int>& nums) {
-    // TODO(boss): the recursion you traced — pick-branch first, then not-pick.
-    return {};
+    vector<vector<int>> ans;
+    vector<int> sett;
+    getsets(nums, ans, 0, sett);
+    return ans;
 }
 
 // ---------------------------------------------------------------------

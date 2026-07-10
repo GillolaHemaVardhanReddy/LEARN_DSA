@@ -7,6 +7,16 @@
 ---
 
 ## ▶️ TODAY  *(Kira re-renders this block at session start)*
+- **Date:** 2026-07-10 cont. (**M10 topic FULLY SCAFFOLDED — notes + videos + 6-rung learn ladder; boss back within ~1h**)
+- **⏯️ RESUME POINT (~1h) — start here, no lecture:**
+  1. Boss reads `phase-2/notes/10-backtracking.md` + watches Striver **[L6]** https://youtu.be/AxNNVECce8c and **[L7]** https://youtu.be/eQCS_v3bw0Q (consolidation — he already derived the core).
+  2. Then **LC46 Permutations** = `phase-2/learn/10-Backtracking/02-LC46-Permutations/solution.cpp`. **First move: answer bridge Q1 in writing** — how many recursive calls does frame 0 make, and what controls that number? This is the **M#8 re-test** (frame owns its choice, ZERO flag params; the loop-over-choices shape a boolean can't express).
+  3. Ladder after: LC39 (reuse) → LC90 (dup-skip) → LC131 (where-to-cut) → LC79 (grid + short-circuit bool). ≥2 more medium ACs = **M10 L4**. Map in `phase-2/learn/10-Backtracking/LADDER.md`.
+- **✅ LC78 CLOSED:** file rewired (recursion→`subsets()`, bitmask→`subsetsBrute()` = independent oracle), **20k stress GREEN**. LC78 AC is **CLAIMED only** (no MCP; NOT counted toward L4). M10 = **L3, 0 verified ACs** — boss himself caught Kira before an L4 over-bank ("we can't bank L4 for one problem"). 🔥 calibration win.
+- **🔐 SECURITY:** boss pasted a live LeetCode **session token** into chat — told him to sign out of all devices / rotate it, and never paste creds into a git-tracked repo again. Follow up that he did it.
+- **🩹 M#9 re-test PARTIAL:** file green, but Kira ran it + the brute was pre-built, not boss-derived → oracle-independence rep **stays open** until he catches a contaminated oracle unprompted. Premature-"done" touched again (handed the check back) — logged as fatigue, not re-scored.
+- **📌 Kira self-correction (logged):** over-ran the refuse-to-check gate on a file *Kira itself had edited* — that's bookkeeping, not boss's rep; it cost momentum. Gate 2 is for code BOSS wrote and wants blessed, not for verifying my own edits.
+- ---
 - **Date:** 2026-07-10 (**M10 BACKTRACKING L2→L3 🏆 — un-choose DERIVED FROM HIS OWN BUG; boss out ~1h**)
 - **🏆 THE REP OF THE WEEK — he taught himself un-choose.** It was withheld for two sessions on purpose. He wrote a flag-based recursion; Kira **refused to check it** and handed him `[1,2,3]`; he traced **his own code**, found the dupes + missing subsets himself. One question later (*"your `pop_back` sits between the two recursive calls of frame i — which element does it pop, and which do those calls decide about?"*) he answered cold: *"pop back decides current and recursion calls decide next."* Then, after a single `STUCK`→L3 nudge, he **stated the invariant unprompted**:
   > *"if we go to next call with a state and come back then we should have same state of sett"*
