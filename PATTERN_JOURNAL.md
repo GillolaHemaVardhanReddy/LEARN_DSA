@@ -395,13 +395,43 @@ Variants & gotchas:
 Taught me by:
 
 ### Backtracking
-Level: L0
-Trigger:
-Why it works:
+Level: **L3** (2026-07-10 — LC78 Subsets, un-choose derived from his own bug)
+Trigger: "return ALL X" / "every possible combination" / "enumerate all ways" — an answer that is a
+  COLLECTION of built things, not one number. Each element/slot has a small set of choices, and the
+  choices compose into a tree. If the answer is one number → think DP/greedy. If it's a LIST of
+  built objects → backtracking.
+Why it works: one shared `path` array walks the whole 2ⁿ tree without copying, because **every frame
+  leaves the world exactly as it found it.** Touch `path`, put it back.
+**⭐ THE INVARIANT — boss's own words (2026-07-10, derived from his own bug):**
+  > *"if we go to next call with a state and come back then we should have same state of sett"*
+  That sentence IS backtracking. Everything else is bookkeeping.
 Template/skeleton (choose→explore→un-choose):
-Complexity:
+```cpp
+void solve(int i) {
+    if (i == n) { ans.push_back(path); return; }   // base: path is one finished answer
+    path.push_back(nums[i]);   // CHOOSE
+    solve(i + 1);              // EXPLORE
+    path.pop_back();           // UN-CHOOSE  <- restores the invariant
+    solve(i + 1);              // the other branch, on a clean path
+}
+```
+  The push and the pop sit in a **straight line in the SAME frame**, pop AFTER the recursion returns.
+  Frame `i` owns the decision about `nums[i]`. The root is just `solve(0)` — no special case.
+Complexity: O(2ⁿ · n) time (2ⁿ leaves, O(n) to copy each path), O(n) extra space (call stack + path);
+  output itself is O(2ⁿ · n).
 Variants & gotchas:
-Taught me by:
+- ⚠️ **Never pass a `pick` flag down.** It's *redundant maintained state* (his own derive-don't-maintain
+  principle): a variable that must AGREE with "did I push?". See MISTAKE M#8. With the flag, the
+  decision lives at the PARENT's call site while the action lives in the child → choose and un-choose
+  drift into different frames, the pop lands between the two child calls, and the root forces one
+  branch so `{}` can never be born. Flagless = uniform frames = correct.
+- The general shape is a **loop over choices** inside the frame: `for (choice : choices) { choose;
+  explore; un-choose; }`. Pick/not-pick is that loop unrolled to 2 iterations. Permutations have n
+  choices per slot — the boolean flag can't express that. (This is Bridge Q1.)
+- Only the **base case** writes into `ans`. Nothing else.
+- Duplicates in input (LC90/LC40) → sort first, then skip `i > start && nums[i] == nums[i-1]`.
+Taught me by: **himself.** Kira refused to explain un-choose; boss traced his own broken tree on
+  `[1,2,3]`, saw duplicates + missing subsets, and named the invariant unprompted.
 
 ### Tree DFS / BFS
 Level: L0

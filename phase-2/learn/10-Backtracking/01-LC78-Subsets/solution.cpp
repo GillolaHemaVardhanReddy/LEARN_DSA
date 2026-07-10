@@ -8,14 +8,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 1) BRUTE — bitmask enumeration (you BANKED this primitive on LC402's oracle:
-//    `mask & (1<<i)` decides membership). n<=10 → how many masks total?
-//    Q: what does bit i of `mask` mean for element nums[i]?
-//    Time: O(?)   Space: O(?)
-vector<vector<int>> subsetsBrute(vector<int>& nums) {
-    // TODO(boss): loop every mask, build the subset each bit says to build.
-    return {};
-}
+
+    void getsets(vector<int>& nums, vector<vector<int>>& ans, int i, vector<int>& sett) {
+        if(i >= nums.size()){
+            ans.push_back(sett);
+            return;
+        }
+        sett.push_back(nums[i]);
+        getsets(nums, ans, i+1, sett);
+        sett.pop_back();
+        getsets(nums, ans, i+1, sett);
+    }
+    vector<vector<int>> subsetsBrute(vector<int>& nums) {
+        vector<vector<int>> ans;
+        vector<int> sett;
+        getsets(nums, ans, 0, sett);
+        return ans;
+    }
 
 // 2) BRIDGE — this one is NOT about speed (both ways touch all 2^n subsets).
 //    It's about GENERALITY — why the recursion survives where the mask dies:

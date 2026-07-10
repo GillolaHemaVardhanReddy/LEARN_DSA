@@ -35,6 +35,38 @@
     keep it") got him to the clean `while(l<r)` form himself. **NEW HYPOTHESIS (strong):** he is now
     *responsive* to "you're patching, replace the frame" as an explicit callable — say it by name.
 
+- **⭐⭐ THE STRONGEST TEACHING MOVE YET, CONFIRMED (2026-07-10, LC78 / un-choose): DON'T TEACH THE
+  CONCEPT — LET HIS BUG TEACH IT.** un-choose was deliberately withheld for two sessions. The scaffold
+  was built so his own code would *have* to hit it. It worked, in four beats:
+  (1) He wrote a broken flag-based recursion. (2) Kira refused to check it → handed him `[1,2,3]` and
+  made him trace **his own code**. He came back with the emit list and saw the dupes/missing subsets
+  himself. (3) ONE surgical question — *"your `pop_back` sits between the two recursive calls of frame
+  i: which element does it pop, and which do those calls decide about?"* — answered instantly and
+  correctly. (4) After a single `STUCK`→L3 (words, no code), he **stated the invariant unprompted**:
+  *"if we go to next call with a state and come back then we should have same state of sett."*
+  **A concept he was never told, produced in his own words, from his own failure.** That is L2-going-on-L6
+  in one sitting. **Generalize this: for any pattern whose core is an INVARIANT, do not lecture it —
+  scaffold a problem whose bug is the invariant's violation, refuse to check, and ask one question.**
+  Cost: ~4 exchanges. Compare with prose-first, which historically slides off him entirely.
+- **He asks "why is X wrong?" *after* fixing X — and that question is where the learning consolidates
+  (2026-07-10).** He fixed the flag bug, then asked *"but why does pick have disease?"* This is a
+  **retention gift, not a delay** — answer it in FULL and connect it to a principle he already owns.
+  Here: the `pick` flag = his own **derive-don't-maintain** rule in recursion costume. He did not have
+  to be sold on it; naming his own principle back to him closed it instantly. **Rule: when he asks a
+  post-hoc "why", spend the tokens, and always route the answer through a principle already in his
+  vocabulary rather than a new one.**
+- **⚠️ TELL — "run urself" = the tap-out (2026-07-10).** He asked Kira to run the stress test and ended
+  the session. Same family as premature-"done". It arrived right after a hard win, and right after he
+  mentioned skipping theory — read it as **fatigue, not laziness**. Response that seems right: comply,
+  but name it in one line without a lecture, and hand the check back as the FIRST item of next session.
+  (Do not moralize — he'd already done the hard cognitive work. The check is cheap; the derivation was not.)
+- **⚠️ He asks for "theory / Striver video" when he's stuck — and it's usually a DODGE of the last hard
+  inch (2026-07-10).** He requested the video *after* deriving the invariant and *before* writing 6 lines
+  of code. Declining was correct: he was one function from owning a self-derived pattern, and a lecture
+  would have overwritten his own derivation with someone else's. **Heuristic: if he's ≥80% of the way to
+  the idea, video = consolidation AFTER the code, never instruction before it.** (His standing
+  Striver-then-practice workflow still holds for *unopened* topics — this exception is for mid-derivation.)
+
 - **⭐ CROSS-PATTERN PRINCIPLE TRANSFER works, and fast (2026-06-22).** Taught "derive state, don't
   maintain it" on a sliding window (P23), and within the same hour he *spontaneously* applied it to
   BINARY SEARCH (P24 — deleted the `ans` he was maintaining, let the converging pointers hold the
