@@ -6,6 +6,12 @@ __pycache__/
 *.pyc
 target/
 
+# reference books — large + copyrighted, kept LOCAL only.
+# The tracked artifact is references/README.md (the map); the PDFs stay off git.
+references/*.pdf
+references/*.crdownload
+references/*.epub
+
 # editor / OS
 .DS_Store
 .idea/
