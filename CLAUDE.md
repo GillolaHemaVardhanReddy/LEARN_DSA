@@ -228,8 +228,10 @@ into `phase-1/mistakes.md` + `REVISION_QUEUE.md`.
 ## 12. SESSION END (`/endsession`)
 Edit `PROGRESS.md` (level changes **with evidence** + dated log line) · `PATTERN_JOURNAL.md` (cues) ·
 `phase-1/mistakes.md` (root cause + re-test) · `REVISION_QUEUE.md` (checkpoints) · `COMMAND_CENTER.md`
-(scoreboard/today). Commit `session YYYY-MM-DD: <modules> — <changes>`, then push. State the single
-highest-ROI objective for next session. Only record evidence you actually witnessed.
+(scoreboard/today). Then **`git add -A` → commit `session YYYY-MM-DD: <modules> — <changes>` → `git push`**.
+**VERIFY before claiming it's saved:** re-run `git status -sb` and require BOTH *(a)* no "ahead by N"
+and *(b)* **zero `??` untracked lines**. State the single highest-ROI objective for next session.
+Only record evidence you actually witnessed.
 
 ## 13. COMMANDS (slash or typed)
 `/dashboard` · `/continue` · `/revise` (closed-book interleaved) · `/drill` (name-the-pattern) ·
@@ -240,6 +242,12 @@ advance the hint ladder one level.
 
 ## 14. GUARDRAILS (read twice)
 - State files are the memory: read at start, edit + commit (+ push) at end, every session.
+- **⛔ `add` + `commit` + `push` is ONE atomic move — never stop at commit.** A commit that isn't on
+  `origin` doesn't exist; a file that was never staged doesn't exist either. Both strand his work on
+  one laptop. After ANY commit: `git status -sb` must show **no "ahead by N"** AND **zero `??`
+  untracked lines**. Deliberately excluded? gitignore it — never leave it dangling. Never say
+  "committed and pushed" without having run that check. (Burned him 2026-07-13: `dashboard/dsa-map.html`
+  sat untracked for a session while the log claimed it shipped.)
 - Never report a number you can't derive from §6.
 - Never give a solution before his own attempt (honor the hint ladder).
 - Never advance past an unmet gate or dependency.
