@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DSA Mastery Map — Hema Vardhan</title>
+<style>
+  /* ============ TOKENS ============ */
+  :root{
+    --bg:#f4f6fb; --bg2:#e9edf6; --panel:#ffffff; --panel2:#f7f9fd;
+    --ink:#1a2233; --ink-soft:#5a6784; --line:#c3ccdd; --line-soft:#e7ecf5;
+    --accent:#0e9bb5; --accent-soft:#7fd3e0;
+    --lv0:#aeb8ca; --lv1:#8290c0; --lv2:#3f79c9; --lv3:#d8901f;
+    --lv4:#1f9e63; --lv5:#12b489; --lv6:#c9971f;
+    --ink-on-bright:#12151d; --ink-on-dim:#f2f6ff;
+    --shadow:0 10px 40px rgba(28,40,74,.14); --shadow-sm:0 3px 14px rgba(28,40,74,.10);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#0a0e1a; --bg2:#0e1424; --panel:#141b2e; --panel2:#0f1626;
+      --ink:#e8eefc; --ink-soft:#93a1c2; --line:#2c3852; --line-soft:#1b2438;
+      --accent:#38d0e6; --accent-soft:#1c6b7a;
+      --lv0:#3a445c; --lv1:#5a6aa4; --lv2:#5089d6; --lv3:#e8a53c;
+      --lv4:#33b979; --lv5:#2fe0a8; --lv6:#ffce54;
+      --ink-on-bright:#0a0e18; --ink-on-dim:#e9f0ff;
+      --shadow:0 18px 60px rgba(0,0,0,.55); --shadow-sm:0 4px 18px rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#f4f6fb; --bg2:#e9edf6; --panel:#ffffff; --panel2:#f7f9fd;
+    --ink:#1a2233; --ink-soft:#5a6784; --line:#c3ccdd; --line-soft:#e7ecf5;
+    --accent:#0e9bb5; --accent-soft:#7fd3e0;
+    --lv0:#aeb8ca; --lv1:#8290c0; --lv2:#3f79c9; --lv3:#d8901f;
+    --lv4:#1f9e63; --lv5:#12b489; --lv6:#c9971f;
+    --ink-on-bright:#12151d; --ink-on-dim:#f2f6ff;
+    --shadow:0 10px 40px rgba(28,40,74,.14); --shadow-sm:0 3px 14px rgba(28,40,74,.10);
+  }
+  :root[data-theme="dark"]{
+    --bg:#0a0e1a; --bg2:#0e1424; --panel:#141b2e; --panel2:#0f1626;
+    --ink:#e8eefc; --ink-soft:#93a1c2; --line:#2c3852; --line-soft:#1b2438;
+    --accent:#38d0e6; --accent-soft:#1c6b7a;
+    --lv0:#3a445c; --lv1:#5a6aa4; --lv2:#5089d6; --lv3:#e8a53c;
+    --lv4:#33b979; --lv5:#2fe0a8; --lv6:#ffce54;
+    --ink-on-bright:#0a0e18; --ink-on-dim:#e9f0ff;
+    --shadow:0 18px 60px rgba(0,0,0,.55); --shadow-sm:0 4px 18px rgba(0,0,0,.4);
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{
+    background:radial-gradient(120% 90% at 50% -10%, var(--bg2), var(--bg) 60%);
+    color:var(--ink); overflow:hidden;
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace}
+  ::selection{background:var(--accent);color:var(--ink-on-bright)}
+
+  /* ============ HERO ============ */
+  #hero{position:fixed;inset:0;display:grid;place-content:center;justify-items:center;
+    gap:26px;text-align:center;z-index:20;transition:opacity .5s ease, transform .5s ease}
+  body.open #hero{opacity:0;transform:scale(1.14);pointer-events:none}
+  .eyebrow{font:600 12px/1 ui-monospace,monospace;letter-spacing:.42em;text-transform:uppercase;color:var(--ink-soft)}
+  .core{position:relative;width:230px;height:230px;border:none;background:none;cursor:pointer;display:grid;place-content:center}
+  .core .disc{position:absolute;inset:0;border-radius:50%;
+    background:radial-gradient(circle at 50% 40%, color-mix(in srgb,var(--accent) 34%,transparent), transparent 62%);
+    box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 40%,transparent) inset;}
+  .core .ring{position:absolute;border-radius:50%;border:1px solid color-mix(in srgb,var(--accent) 45%,transparent)}
+  .core .r1{inset:22px;animation:spin 22s linear infinite}
+  .core .r2{inset:52px;border-style:dashed;opacity:.6;animation:spin 34s linear infinite reverse}
+  .core .pulse{position:absolute;inset:70px;border-radius:50%;
+    background:linear-gradient(150deg,var(--accent),color-mix(in srgb,var(--accent) 40%, var(--lv5)));
+    box-shadow:0 0 46px color-mix(in srgb,var(--accent) 60%,transparent);animation:breathe 3.4s ease-in-out infinite}
+  .core .label{position:relative;z-index:2;font:800 40px/1 ui-monospace,monospace;letter-spacing:.06em;color:var(--ink-on-bright)}
+  .core:hover .pulse{transform:scale(1.05)}
+  .core:focus-visible{outline:none}
+  .core:focus-visible .disc{box-shadow:0 0 0 3px var(--accent)}
+  .hero-sub{max-width:36ch;color:var(--ink-soft);font-size:15px;line-height:1.55}
+  .hero-sub b{color:var(--ink)}
+  .enter-hint{font:600 12px/1 ui-monospace,monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);opacity:.9}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes breathe{0%,100%{transform:scale(1);filter:brightness(1)}50%{transform:scale(1.07);filter:brightness(1.12)}}
+
+  /* ============ APP SHELL ============ */
+  #app{position:fixed;inset:0;display:flex;flex-direction:column;opacity:0;transform:scale(.975);pointer-events:none;
+    transition:opacity .55s ease .1s, transform .55s ease .1s}
+  body.open #app{opacity:1;transform:none;pointer-events:auto}
+
+  header.bar{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:14px 22px;border-bottom:1px solid var(--line);
+    background:color-mix(in srgb,var(--panel) 70%,transparent);backdrop-filter:blur(8px)}
+  .brand{display:flex;align-items:center;gap:11px;font:800 15px/1 ui-monospace,monospace;letter-spacing:.04em}
+  .brand .dot{width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent)}
+  .stats{display:flex;gap:10px;flex-wrap:wrap;margin-left:auto}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:7px 13px;box-shadow:var(--shadow-sm);min-width:78px}
+  .stat .k{font:700 11px/1.4 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+  .stat .v{font:800 19px/1.1 ui-monospace,monospace;color:var(--ink);font-variant-numeric:tabular-nums;margin-top:3px}
+  .stat .v small{font-size:12px;color:var(--ink-soft);font-weight:600}
+  .iconbtn{border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer;width:38px;height:38px;
+    border-radius:10px;font-size:16px;display:grid;place-content:center;box-shadow:var(--shadow-sm)}
+  .iconbtn:hover{border-color:var(--accent)}
+
+  .toolrow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:11px 22px;border-bottom:1px solid var(--line-soft)}
+  .chips{display:flex;gap:7px;flex-wrap:wrap}
+  .chip{border:1px solid var(--line);background:var(--panel);color:var(--ink-soft);cursor:pointer;border-radius:999px;
+    padding:6px 13px;font:600 12.5px/1 ui-sans-serif,system-ui;transition:.15s}
+  .chip:hover{color:var(--ink);border-color:var(--accent-soft)}
+  .chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--ink-on-bright)}
+  .legend{display:flex;gap:13px;flex-wrap:wrap;margin-left:auto;align-items:center}
+  .lg{display:flex;align-items:center;gap:6px;font:600 11.5px/1 ui-monospace,monospace;color:var(--ink-soft)}
+  .lg i{width:12px;height:12px;border-radius:50%;display:inline-block;border:2px solid var(--panel);box-shadow:0 0 0 1px var(--line)}
+
+  /* ============ CANVAS ============ */
+  #stage{flex:1;overflow:auto;position:relative}
+  svg#tree{display:block;width:100%;min-width:960px;height:auto}
+
+  .zone rect{fill:color-mix(in srgb,var(--panel) 60%,transparent);stroke:var(--line-soft);stroke-width:1}
+  .ztab{fill:var(--ink-soft);font:700 11px ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase}
+  .zidx{fill:var(--accent);font:800 11px ui-monospace,monospace;letter-spacing:.1em}
+
+  .trunk-glow{fill:none;stroke:var(--accent);stroke-width:13;opacity:.14;stroke-linecap:round;stroke-linejoin:round}
+  .trunk{fill:none;stroke:var(--accent);stroke-width:5.5;stroke-linecap:round;stroke-linejoin:round;opacity:.9}
+  .link{fill:none;stroke:var(--line);stroke-width:2;opacity:.2;stroke-dasharray:1 6;stroke-linecap:round}
+  .link.hl{stroke:var(--accent);opacity:.95;stroke-dasharray:none;stroke-width:2.5}
+  .link.dim{opacity:.05}
+
+  .st{cursor:pointer}
+  .st .halo{fill:none;stroke:var(--n);stroke-width:2;opacity:0;transition:opacity .2s}
+  .st .ring{fill:var(--panel);stroke:var(--n);stroke-width:4}
+  .st.locked .ring{stroke:var(--lv0);stroke-dasharray:3 3;fill:var(--panel)}
+  .st .code{font:800 14px ui-monospace,monospace;fill:var(--n);text-anchor:middle;dominant-baseline:central;pointer-events:none}
+  .st.locked .code{fill:var(--ink-soft)}
+  .st .name{font:600 12.5px ui-sans-serif,system-ui;fill:var(--ink);text-anchor:middle;pointer-events:none}
+  .st .lvtag{font:700 9.5px ui-monospace,monospace;fill:var(--ink-soft);text-anchor:middle;pointer-events:none;letter-spacing:.05em}
+  .st:hover .halo{opacity:.55}
+  .st:hover .ring{filter:brightness(1.06)}
+  .st.dim{opacity:.24}
+  .st.current .halo{opacity:.9;animation:ring 2.2s ease-in-out infinite}
+  .st.current .ring{stroke:var(--lv6);stroke-width:5}
+  .youare{fill:var(--lv6);font:800 10px ui-monospace,monospace;text-anchor:middle;letter-spacing:.12em}
+  @keyframes ring{0%,100%{stroke-width:2;opacity:.5}50%{stroke-width:5;opacity:1}}
+
+  body.anim .st{opacity:0;animation:pop .45s cubic-bezier(.2,1.3,.4,1) forwards;animation-delay:calc(var(--i)*46ms + .55s)}
+  body.anim .st.dim{opacity:.24}
+  body.anim .trunk,body.anim .trunk-glow{stroke-dasharray:var(--tlen);stroke-dashoffset:var(--tlen);
+    animation:draw 1.5s ease forwards}
+  body.anim .link{opacity:0;animation:fade .6s ease forwards;animation-delay:1.5s}
+  @keyframes pop{from{opacity:0;transform:scale(.3);transform-box:fill-box;transform-origin:center}to{opacity:1;transform:scale(1)}}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes fade{to{opacity:.2}}
+
+  /* ============ MODAL ============ */
+  #scrim{position:fixed;inset:0;background:rgba(6,10,20,.55);backdrop-filter:blur(3px);display:none;place-content:center;z-index:40;padding:22px}
+  #scrim.show{display:grid}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);
+    width:min(560px,100%);max-height:86vh;overflow:auto;animation:rise .28s ease}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .card .top{padding:20px 22px 16px;border-bottom:1px solid var(--line-soft);
+    background:linear-gradient(180deg,color-mix(in srgb,var(--m) 15%,var(--panel)),var(--panel))}
+  .card .eyerow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .mcode{font:800 13px ui-monospace,monospace;color:var(--m)}
+  .mphase{font:600 11px ui-monospace,monospace;color:var(--ink-soft);letter-spacing:.1em;text-transform:uppercase}
+  .lvchip{margin-left:auto;display:inline-flex;align-items:center;gap:7px;background:color-mix(in srgb,var(--m) 16%,var(--panel2));
+    border:1px solid color-mix(in srgb,var(--m) 40%,var(--line));border-radius:999px;padding:5px 11px;font:700 12px ui-monospace,monospace;color:var(--ink)}
+  .lvchip i{width:9px;height:9px;border-radius:50%;background:var(--m)}
+  .card h2{margin:11px 0 0;font-size:21px;letter-spacing:-.01em;text-wrap:balance}
+  .card .obj{margin:7px 0 0;color:var(--ink-soft);font-size:14px;line-height:1.5}
+  .card .body-in{padding:18px 22px 22px;display:flex;flex-direction:column;gap:16px}
+  .sect .h{font:700 11px ui-monospace,monospace;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
+  .trigger{background:var(--panel2);border:1px solid var(--line-soft);border-left:3px solid var(--m);border-radius:9px;padding:11px 13px;font-size:13.5px;line-height:1.5}
+  .tags{display:flex;gap:7px;flex-wrap:wrap}
+  .tag{background:var(--panel2);border:1px solid var(--line);border-radius:7px;padding:5px 10px;font-size:12.5px;color:var(--ink)}
+  .ladder{display:flex;flex-direction:column;gap:5px}
+  .lad{display:flex;align-items:center;gap:9px;font-size:13.5px;padding:2px 0}
+  .lad .d{font:700 10px ui-monospace,monospace;width:20px;height:20px;border-radius:6px;display:grid;place-content:center;flex:none}
+  .d.E{background:color-mix(in srgb,var(--lv4) 22%,transparent);color:var(--lv4)}
+  .d.M{background:color-mix(in srgb,var(--lv3) 22%,transparent);color:var(--lv3)}
+  .d.H{background:color-mix(in srgb,#e5484d 22%,transparent);color:#e5484d}
+  .kv{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:13.5px}
+  .kv dt{color:var(--ink-soft);font:600 12px ui-monospace,monospace;white-space:nowrap}
+  .kv dd{margin:0;color:var(--ink)}
+  .reflink{font-family:ui-monospace,monospace;font-size:12.5px;color:var(--accent)}
+  .closeb{position:sticky;top:10px;float:right;margin:10px 12px 0 0;border:1px solid var(--line);background:var(--panel);color:var(--ink);
+    width:32px;height:32px;border-radius:9px;cursor:pointer;font-size:15px}
+  .closeb:hover{border-color:var(--accent)}
+  .foot{font-size:11.5px;color:var(--ink-soft);padding:0 22px 18px;line-height:1.5}
+  a{color:var(--accent)}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    body.anim .st{opacity:1}body.anim .st.dim{opacity:.24}
+    body.anim .trunk,body.anim .trunk-glow{stroke-dashoffset:0}body.anim .link{opacity:.2}
+  }
+  @media (max-width:640px){.stat{min-width:64px;padding:6px 10px}.legend{width:100%;margin:6px 0 0}}
+</style>
+</head>
+<body>
+
+  <section id="hero">
+    <div class="eyebrow">Hema Vardhan · C++ · interview-ready ~Nov 2026</div>
+    <button class="core" id="coreBtn" aria-label="Open the DSA mastery map">
+      <span class="disc"></span><span class="ring r1"></span><span class="ring r2"></span>
+      <span class="pulse"></span><span class="label mono">DSA</span>
+    </button>
+    <p class="hero-sub">Your mastery map — <b>25 modules</b> on one line you ride, station by station. Colored by how deep you've gone. See exactly where you stand.</p>
+    <div class="enter-hint" id="enterHint">▸ click to board the line</div>
+  </section>
+
+  <div id="app">
+    <header class="bar">
+      <div class="brand"><span class="dot"></span> DSA MASTERY LINE</div>
+      <div class="stats" id="stats"></div>
+      <button class="iconbtn" id="themeBtn" title="Toggle light / dark" aria-label="Toggle theme">◐</button>
+      <button class="iconbtn" id="homeBtn" title="Back to DSA core" aria-label="Back to core">⌂</button>
+    </header>
+    <div class="toolrow">
+      <div class="chips" id="filters" role="group" aria-label="Filter modules">
+        <button class="chip" data-f="all" aria-pressed="true">All</button>
+        <button class="chip" data-f="current" aria-pressed="false">You are here</button>
+        <button class="chip" data-f="progress" aria-pressed="false">In progress</button>
+        <button class="chip" data-f="mastered" aria-pressed="false">Mastered (L4+)</button>
+        <button class="chip" data-f="locked" aria-pressed="false">Not started</button>
+      </div>
+      <div class="legend" id="legend"></div>
+    </div>
+    <div id="stage"><svg id="tree" xmlns="http://www.w3.org/2000/svg"></svg></div>
+  </div>
+
+  <div id="scrim" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <div class="card" id="card"><button class="closeb" id="closeb" aria-label="Close">✕</button>
+      <div id="cardContent"></div>
+    </div>
+  </div>
+
+<script>
+/* ============ DATA (from PROGRESS.md · CURRICULUM.md · COMMAND_CENTER.md · references/README.md — 2026-07-11) ============ */
+const LV=[{n:"Not started",d:"L0"},{n:"Introduced",d:"L1"},{n:"Understands",d:"L2"},{n:"Implements",d:"L3"},{n:"Applies",d:"L4"},{n:"Recognizes",d:"L5"},{n:"Teaches",d:"L6"}];
+const LVPCT=[0,15,35,55,75,90,100];
+const PHASES=[{n:"Foundations"},{n:"Linear + Recursion"},{n:"Non-linear"},{n:"Graphs"},{n:"DP · Greedy · Bit · Math"}];
+const M=[
+ {id:"M1",name:"Complexity",ph:0,lv:3,deps:[],obj:"Evaluate a solution's cost before you code it.",
+  trig:"Constraints tell you the target complexity (n≤20→backtracking · n≤1e3→O(n²) · n≤1e5→O(n log n)/O(n)).",
+  topics:["Big-O / Θ / Ω","nested-loop counting","recurrences","amortized cost","log intuition"],
+  ladder:[["applied to every solve — no LC set","E"]],solved:"applied to every problem",status:"L3* — verify recall; fold into drills.",ref:"Skiena Ch.2"},
+ {id:"M2",name:"Arrays & Hashing",ph:0,lv:4,deps:["M1"],obj:"Trade time for space with maps/sets; master frequency logic.",
+  trig:"'Have I seen X? / how many times?' → hash map/set (collapses an O(n²) scan to O(n)).",
+  topics:["O(1) lookup","frequency counting","complement","group-by-key","membership"],
+  ladder:[["Contains Duplicate","E"],["Valid Anagram","E"],["Two Sum","E"],["Group Anagrams","M"],["Top K Frequent","M"],["Product Except Self","M"],["Longest Consecutive","M"]],
+  solved:"E:4 · M:4 solo (LC217/219/347/36…)",status:"L4 — #9 unsorted→hashing gate (3× fail); cold drill → L5.",ref:"Skiena Ch.3.7 · CTCI IX.1"},
+ {id:"M3",name:"Two Pointers",ph:0,lv:4,deps:["M2"],obj:"Sweep with two indices under a movement invariant.",
+  trig:"'Sorted + find a pair/triple' or 'compare from both ends' → two pointers.",
+  topics:["opposite-end","same-direction","Dutch-flag partition"],
+  ladder:[["Valid Palindrome","E"],["Two Sum II Sorted","M"],["3Sum","M"],["Container With Most Water","M"],["Trapping Rain Water","H"]],
+  solved:"E:4 · M:2 (LC167 clean; LC75 via sort)",status:"L4 — re-code LC75 as Dutch-flag; L5 drill.",ref:"Laaksonen · Two pointers"},
+ {id:"M4",name:"Sliding Window",ph:0,lv:5,deps:["M2","M3"],obj:"Grow/shrink a contiguous window under one invariant.",
+  trig:"'Longest/shortest/max/min over a CONTIGUOUS subarray/substring' → sliding window.",
+  topics:["fixed window","variable window","derive-don't-maintain"],
+  ladder:[["Best Time Buy/Sell","E"],["Longest Substring No Repeat","M"],["Longest Repeating Char Replace","M"],["Permutation in String","M"],["Minimum Window Substring","H"]],
+  solved:"M:3+ (clean)",status:"L5 ✅ — keep warm in drills.",ref:"Laaksonen · Sliding window min"},
+ {id:"M5",name:"Prefix Sum",ph:0,lv:4,deps:["M2"],obj:"Answer many range sums / count subarrays via prefix + hash.",
+  trig:"'Sum/count over many ranges' or 'subarray summing to k' → prefix sum (+ hash for k).",
+  topics:["prefix array","hash-of-prefix","residue / mod key"],
+  ladder:[["Range Sum Query","E"],["Find Pivot Index","E"],["Subarray Sum Equals K","M"],["Contiguous Array","M"]],
+  solved:"LC238 · LC523 · LC1590",status:"L4 — P19 re-derive; L5 drill after streak.",ref:"Laaksonen · Range queries"},
+ {id:"M6",name:"Binary Search",ph:0,lv:4,deps:["M1"],obj:"Halve a monotonic search space — including search-on-answer.",
+  trig:"'Sorted, OR a monotonic yes/no over a range, OR minimize-the-maximum' → binary search.",
+  topics:["classic / bounds","first-last occurrence","binary-search-on-answer","discard-ability"],
+  ladder:[["Binary Search","E"],["Search 2D Matrix","M"],["Koko Eating Bananas","M"],["Find Min Rotated","M"],["Search in Rotated","M"],["Median of Two Sorted","H"]],
+  solved:"LC33 (first-submit-clean) · LC34 · LC875 · LC153",status:"L4 — LC74 2D + LC852/540 → L5.",ref:"Skiena Ch.4 · CP4 3.3.1 (on-answer)"},
+ {id:"M7",name:"Stacks & Monotonic",ph:1,lv:4,deps:["M2"],obj:"LIFO matching + the monotonic-stack next-greater family.",
+  trig:"'Matching/nesting' → stack · 'next/previous greater/smaller' → monotonic stack.",
+  topics:["LIFO","stack holds INDICES","monotonic (next-greater)","amortized O(n)"],
+  ladder:[["Valid Parentheses","E"],["Min Stack","M"],["Eval RPN","M"],["Daily Temperatures","M"],["Car Fleet","M"],["Largest Rectangle","H"]],
+  solved:"LC20·LC739·LC503·LC155·LC456·LC219",status:"L4 ✅ — Stock Span owed for depth.",ref:"Laaksonen · Nearest smaller"},
+ {id:"M8",name:"Queues & Deque",ph:1,lv:3,deps:["M7"],obj:"FIFO, ring buffer, and the monotonic deque (window extreme).",
+  trig:"'Max/min of every window of size k' → monotonic deque.",
+  topics:["FIFO","circular buffer","monotonic deque","indices not values"],
+  ladder:[["Queue using Stacks","E"],["Number of Recent Calls","E"],["Sliding Window Maximum","H"]],
+  solved:"LC232 · LC933 · LC239",status:"L3 (light module) — grind ≥2 of LC622/1438/862/1696 → L4.",ref:"Laaksonen · Sliding window min"},
+ {id:"M9",name:"Recursion",ph:1,lv:4,deps:["M1"],obj:"Base + recursive case, the call stack, recursion trees.",
+  trig:"'Problem defined in terms of smaller versions of itself.'",
+  topics:["leap of faith","two shapes","memoization = recursion + notepad","fast power"],
+  ladder:[["Fibonacci / factorial","E"],["Reverse String rec","E"],["Pow(x,n)","M"],["Merge Two Lists rec","E"]],
+  solved:"LC70·LC1137·LC231·LC50·LC746·LC198",status:"L4 ✅ — call-tree magnitude cold (re-flag 7/11).",ref:"CTCI IX.8 · Skiena Ch.4"},
+ {id:"M10",name:"Backtracking",ph:1,lv:3,deps:["M9"],current:true,obj:"choose → explore → un-choose; prune dead branches.",
+  trig:"'Generate all subsets/permutations/combinations' or 'explore all paths/placements.'",
+  topics:["choose/explore/un-choose","state restore invariant","loop-over-choices","pruning","ZERO flag params"],
+  ladder:[["Subsets","M"],["Combination Sum","M"],["Permutations","M"],["Subsets II","M"],["Word Search","M"],["Palindrome Partitioning","M"],["N-Queens","H"]],
+  solved:"LC78 (AC claimed, unverified) · LC46 in flight",status:"L3 · YOU ARE HERE — LC46 is the M#8 re-test (no flags).",ref:"Skiena Ch.7 + Ch.14 · CP4 3.2"},
+ {id:"M11",name:"Linked Lists",ph:1,lv:0,deps:["M9","M3"],obj:"Dummy node, reversal, fast/slow pointers, merge.",
+  trig:"'Detect cycle / find middle / kth-from-end' → fast/slow · 'reorder in place' → pointer surgery.",
+  topics:["dummy node","in-place reversal","Floyd cycle","merge"],
+  ladder:[["Reverse List","E"],["Merge Two Lists","E"],["Linked List Cycle","E"],["Remove Nth From End","M"],["Reorder List","M"],["Copy w/ Random Ptr","M"],["Add Two Numbers","M"],["LRU Cache","M"],["Merge k Lists","H"]],
+  solved:"—",status:"L0 — next up after M10.",ref:"CTCI IX.2 · Skiena Ch.3.1"},
+ {id:"M12",name:"Trees",ph:2,lv:0,deps:["M9","M11"],obj:"DFS (pre/in/post), BFS levels, 'return info up the tree.'",
+  trig:"'Process all nodes / depth / path / level' → tree traversal.",
+  topics:["DFS orders","BFS level order","tree DP lite","DFS vs BFS choice"],
+  ladder:[["Invert Tree","E"],["Max Depth","E"],["Same Tree","E"],["Diameter","M"],["Balanced","M"],["Level Order","M"],["Right Side View","M"],["Max Path Sum","H"]],
+  solved:"—",status:"L0",ref:"CTCI IX.4 · Laaksonen · Tree algos"},
+ {id:"M13",name:"BST",ph:2,lv:0,deps:["M12","M6"],obj:"Exploit left<root<right; in-order = sorted → O(h).",
+  trig:"'Ordered tree / kth smallest / validate ordering.'",topics:["BST invariant","in-order sorted","O(h) not O(n)"],
+  ladder:[["LCA of BST","M"],["Validate BST","M"],["Kth Smallest","M"],["Construct from preorder","M"]],
+  solved:"—",status:"L0",ref:"Skiena Ch.3.4 · algs4 visuals"},
+ {id:"M14",name:"Heaps / PQ",ph:2,lv:0,deps:["M12"],obj:"Min/max heap, top-K, two-heaps for median.",
+  trig:"'k largest/smallest / running median / repeatedly take the extreme.'",topics:["heap property","top-K","two-heaps median","heap vs sort"],
+  ladder:[["Kth Largest in Stream","E"],["Last Stone Weight","E"],["K Closest Points","M"],["Kth Largest in Array","M"],["Task Scheduler","M"],["Median from Stream","H"]],
+  solved:"—",status:"L0",ref:"Skiena Ch.3.5/4.3 · CP4 2.3.1"},
+ {id:"M15",name:"Tries",ph:2,lv:0,deps:["M12"],obj:"Prefix tree for many-word lookups / autocomplete.",
+  trig:"'Prefix search / autocomplete / dictionary of many words.'",topics:["prefix tree","insert/search","space vs hash-set"],
+  ladder:[["Implement Trie","M"],["Add & Search Words","M"],["Word Search II","H"]],
+  solved:"—",status:"L0 — promote Word Search II to core.",ref:"Laaksonen · Trie"},
+ {id:"M16",name:"Graph BFS/DFS",ph:3,lv:0,deps:["M12","M8","M9"],obj:"Adjacency list, grid-as-graph, flood fill, multi-source BFS.",
+  trig:"'Grid/connections — reach/spread/components/shortest unweighted.'",topics:["adjacency list","grid as graph","flood fill","multi-source BFS","BFS vs DFS"],
+  ladder:[["Number of Islands","M"],["Clone Graph","M"],["Max Area of Island","M"],["Rotting Oranges","M"],["Pacific Atlantic","M"],["Surrounded Regions","M"]],
+  solved:"—",status:"L0 — the graph phase opens here.",ref:"Skiena Ch.5 · CP4 4.2"},
+ {id:"M17",name:"Topological Sort",ph:3,lv:0,deps:["M16"],obj:"Kahn's (in-degree BFS) / DFS post-order; DAG cycle detection.",
+  trig:"'Ordering with dependencies / prerequisites / can-you-finish.'",topics:["in-degree BFS","DFS post-order","cycle on DAG"],
+  ladder:[["Course Schedule","M"],["Course Schedule II","M"],["Graph Valid Tree","M"],["Alien Dictionary","H"]],
+  solved:"—",status:"L0 — add Alien Dictionary (proposed diff).",ref:"CP4 4.2.6 · Laaksonen"},
+ {id:"M18",name:"Union-Find",ph:3,lv:0,deps:["M16"],obj:"Disjoint sets with path compression + union by rank.",
+  trig:"'Dynamic connectivity / redundant connection / grouping.'",topics:["disjoint sets","path compression","union by rank","≈O(1) amortized"],
+  ladder:[["Connected Components","M"],["Redundant Connection","M"],["Accounts Merge","M"]],
+  solved:"—",status:"L0",ref:"CP4 2.4.2 · algs4"},
+ {id:"M19",name:"Dijkstra (+ MST)",ph:3,lv:0,deps:["M16","M14"],obj:"Shortest paths with weights (heap); MST intro (Prim/Kruskal).",
+  trig:"'Shortest/cheapest path with weights' → Dijkstra · 'connect all cheapest' → MST.",topics:["Dijkstra + min-heap","why non-negative","Prim / Kruskal MST"],
+  ladder:[["Network Delay Time","M"],["Cheapest Flights K Stops","M"],["Min Cost Connect Points","M"]],
+  solved:"—",status:"L0 — pull MST in from Phase 7 (proposed diff).",ref:"CP4 4.3–4.5 · Skiena Ch.6"},
+ {id:"M20",name:"1-D DP",ph:4,lv:0,deps:["M9","M1"],obj:"Memo → tabulation; define state + transition.",
+  trig:"'Count ways / max-min over choices / optimal substructure + overlap.'",topics:["memo→tab","state + transition","1-D recurrence"],
+  ladder:[["Climbing Stairs","E"],["House Robber","M"],["Coin Change","M"],["Longest Increasing Subseq","M"],["Word Break","M"],["Decode Ways","M"],["Longest Palindromic Substring","M"]],
+  solved:"—",status:"L0 — add Stock-DP family (proposed diff).",ref:"Skiena Ch.8 · CP4 3.5"},
+ {id:"M21",name:"2-D / Grid DP",ph:4,lv:0,deps:["M20"],obj:"Two-index state, grid paths, two-sequence DP, knapsack.",
+  trig:"'Two strings/arrays compared' or 'grid paths' or '0/1 knapsack-like.'",topics:["two-index state","grid paths","two-sequence DP","0/1 knapsack"],
+  ladder:[["Unique Paths","M"],["Longest Common Subseq","M"],["Coin Change II","M"],["Target Sum","M"],["Partition Equal Subset","M"],["Edit Distance","H"]],
+  solved:"—",status:"L0 — add Stock-DP w/ Cooldown/Fee (proposed diff).",ref:"CP4 3.5.2 · Laaksonen"},
+ {id:"M22",name:"Greedy",ph:4,lv:0,deps:["M1","M20"],obj:"Local-optimal-is-global — and PROVE it (exchange argument).",
+  trig:"'Can I justify the greedy choice is safe?' — prove it or fall back to DP.",topics:["exchange argument","local→global","greedy vs DP contrast"],
+  ladder:[["Maximum Subarray","M"],["Jump Game","M"],["Jump Game II","M"],["Gas Station","M"],["Hand of Straights","M"],["Partition Labels","M"]],
+  solved:"—",status:"L0",ref:"Laaksonen · Greedy + CP4 3.4"},
+ {id:"M23",name:"Intervals",ph:4,lv:0,deps:["M22"],obj:"Sort by start/end, sweep line, overlap logic.",
+  trig:"'Overlapping intervals / merge / max concurrent.'",topics:["sort key choice","merge","sweep line"],
+  ladder:[["Merge Intervals","M"],["Insert Interval","M"],["Non-overlapping","M"],["Meeting Rooms","E"],["Meeting Rooms II","M"]],
+  solved:"—",status:"L0",ref:"Laaksonen · Scheduling"},
+ {id:"M24",name:"Bit Manipulation",ph:4,lv:0,deps:["M2"],obj:"XOR tricks, masks, subset enumeration via bits.",
+  trig:"'Pairs cancel / toggle / fixed small set of states.'",topics:["XOR properties","get/set/clear/toggle","subset masks"],
+  ladder:[["Single Number","E"],["Number of 1 Bits","E"],["Counting Bits","M"],["Missing Number","E"],["Reverse Bits","E"],["Sum of Two Integers","M"]],
+  solved:"—",status:"L0",ref:"Laaksonen · Bit manipulation"},
+ {id:"M25",name:"Math & Geometry",ph:4,lv:0,deps:["M2"],proposed:true,obj:"Matrix transforms + number/geometry problems (proposed module).",
+  trig:"'Rotate/spiral/set-zero a matrix' or 'digit/number property' → math & geometry.",topics:["matrix in-place","spiral / rotate","number theory basics"],
+  ladder:[["Rotate Image","M"],["Spiral Matrix","M"],["Set Matrix Zeroes","M"],["Happy Number","E"],["Plus One","E"],["Valid Sudoku","M"],["Detect Squares","M"]],
+  solved:"—",status:"PROPOSED (syllabus diff) — closes NeetCode's biggest gap.",ref:"Laaksonen · Number theory / Geometry"}
+];
+
+/* ============ METRO LAYOUT (boustrophedon snake — one line, 5 zones) ============ */
+const NS="http://www.w3.org/2000/svg";
+const W=1300, L=118, R=W-64, TOP=64, ROWH=150, R_ST=21;
+const H=TOP+PHASES.length*ROWH+40;
+const byId={}; M.forEach(m=>byId[m.id]=m);
+const seq=M.map(m=>m.id);
+const seqIdx={}; seq.forEach((id,i)=>seqIdx[id]=i);
+const rows=PHASES.map(()=>[]); M.forEach(m=>rows[m.ph].push(m));
+
+const pos={};
+rows.forEach((list,ph)=>{
+  const y=TOP+ph*ROWH+ROWH*0.5;
+  const dir=ph%2===0?1:-1;              // even rows L→R, odd rows R→L
+  const n=list.length;
+  list.forEach((m,i)=>{
+    const t=n===1?0.5:i/(n-1);
+    const x=dir===1 ? L+(R-L)*t : R-(R-L)*t;
+    pos[m.id]={x,y};
+  });
+});
+
+const svg=document.getElementById("tree");
+svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
+svg.setAttribute("role","img");
+svg.setAttribute("aria-label","DSA module mastery metro line");
+
+/* zone bands + tabs */
+PHASES.forEach((p,ph)=>{
+  const y=TOP+ph*ROWH;
+  const g=document.createElementNS(NS,"g"); g.setAttribute("class","zone");
+  const rect=document.createElementNS(NS,"rect");
+  rect.setAttribute("x",14);rect.setAttribute("y",y+10);rect.setAttribute("width",W-28);
+  rect.setAttribute("height",ROWH-20);rect.setAttribute("rx",16);
+  rect.setAttribute("opacity",ph%2?0.7:0.4);g.appendChild(rect);
+  const idx=document.createElementNS(NS,"text");
+  idx.setAttribute("class","zidx");idx.setAttribute("x",30);idx.setAttribute("y",y+34);
+  idx.textContent="PHASE "+(ph+1);g.appendChild(idx);
+  const lab=document.createElementNS(NS,"text");
+  lab.setAttribute("class","ztab");lab.setAttribute("x",30);lab.setAttribute("y",y+51);
+  lab.textContent=p.n;g.appendChild(lab);
+  svg.appendChild(g);
+});
+
+/* the trunk line through all stations in order (orthogonal U-turns between rows) */
+let d=`M ${pos[seq[0]].x} ${pos[seq[0]].y}`;
+for(let i=1;i<seq.length;i++){
+  const a=pos[seq[i-1]], b=pos[seq[i]];
+  if(Math.abs(a.y-b.y)<1){ d+=` L ${b.x.toFixed(1)} ${b.y.toFixed(1)}`; }
+  else{ const my=((a.y+b.y)/2).toFixed(1);
+        d+=` L ${a.x.toFixed(1)} ${my} L ${b.x.toFixed(1)} ${my} L ${b.x.toFixed(1)} ${b.y.toFixed(1)}`; }
+}
+const glow=document.createElementNS(NS,"path"); glow.setAttribute("class","trunk-glow"); glow.setAttribute("d",d); svg.appendChild(glow);
+const trunk=document.createElementNS(NS,"path"); trunk.setAttribute("class","trunk"); trunk.setAttribute("d",d); svg.appendChild(trunk);
+try{const tl=trunk.getTotalLength();svg.style.setProperty("--tlen",tl.toFixed(0));}catch(e){svg.style.setProperty("--tlen","4000");}
+
+/* faint secondary links = real prerequisites that AREN'T the previous station on the line */
+const linkEls=[];
+M.forEach(m=>{
+  m.deps.forEach(dp=>{
+    if(seqIdx[m.id]-1===seqIdx[dp])return;     // that one rides on the trunk already
+    const a=pos[dp], b=pos[m.id]; if(!a||!b)return;
+    const mx=(a.x+b.x)/2, my=(a.y+b.y)/2, off=(a.y===b.y?-46:60);
+    const path=document.createElementNS(NS,"path");
+    path.setAttribute("class","link");
+    path.setAttribute("d",`M ${a.x} ${a.y} Q ${mx} ${my+off}, ${b.x} ${b.y}`);
+    path.dataset.from=dp;path.dataset.to=m.id;
+    svg.appendChild(path);linkEls.push(path);
+  });
+});
+
+/* stations */
+const stEls={};
+M.forEach((m,i)=>{
+  const p=pos[m.id];
+  const g=document.createElementNS(NS,"g");
+  g.setAttribute("class","st"+(m.lv===0?" locked":"")+(m.current?" current":""));
+  g.setAttribute("tabindex","0");g.setAttribute("role","button");
+  g.setAttribute("aria-label",`${m.id} ${m.name}, ${LV[m.lv].d} ${LV[m.lv].n}`);
+  g.style.setProperty("--n",`var(--lv${m.lv})`);
+  g.style.setProperty("--i",i);
+  g.dataset.id=m.id;
+
+  const halo=document.createElementNS(NS,"circle");
+  halo.setAttribute("class","halo");halo.setAttribute("cx",p.x);halo.setAttribute("cy",p.y);halo.setAttribute("r",R_ST+9);g.appendChild(halo);
+  const ring=document.createElementNS(NS,"circle");
+  ring.setAttribute("class","ring");ring.setAttribute("cx",p.x);ring.setAttribute("cy",p.y);ring.setAttribute("r",R_ST);g.appendChild(ring);
+  const code=document.createElementNS(NS,"text");
+  code.setAttribute("class","code");code.setAttribute("x",p.x);code.setAttribute("y",p.y);code.textContent=m.id;g.appendChild(code);
+  const name=document.createElementNS(NS,"text");
+  name.setAttribute("class","name");name.setAttribute("x",p.x);name.setAttribute("y",p.y+R_ST+19);name.textContent=m.name;g.appendChild(name);
+  const lvt=document.createElementNS(NS,"text");
+  lvt.setAttribute("class","lvtag");lvt.setAttribute("x",p.x);lvt.setAttribute("y",p.y+R_ST+33);
+  lvt.textContent=m.proposed?"proposed":LV[m.lv].d;g.appendChild(lvt);
+  if(m.current){
+    const ya=document.createElementNS(NS,"text");
+    ya.setAttribute("class","youare");ya.setAttribute("x",p.x);ya.setAttribute("y",p.y-R_ST-14);ya.textContent="◆ YOU ARE HERE";g.appendChild(ya);
+  }
+
+  g.addEventListener("click",()=>openCard(m.id));
+  g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openCard(m.id);}});
+  g.addEventListener("mouseenter",()=>hover(m.id));
+  g.addEventListener("mouseleave",()=>hover(null));
+  g.addEventListener("focus",()=>hover(m.id));
+  g.addEventListener("blur",()=>hover(null));
+  svg.appendChild(g);stEls[m.id]=g;
+});
+
+/* hover: light up this station's whole prerequisite chain + its links */
+function chain(id,dir,set){
+  (dir==="up"?byId[id].deps:M.filter(x=>x.deps.includes(id)).map(x=>x.id)).forEach(nb=>{
+    if(!set.has(nb)){set.add(nb);chain(nb,dir,set);}});
+}
+function hover(id){
+  if(!id){Object.values(stEls).forEach(n=>n.classList.remove("dim"));
+    linkEls.forEach(e=>e.classList.remove("hl","dim"));return;}
+  const keep=new Set([id]);chain(id,"up",keep);chain(id,"down",keep);
+  Object.values(stEls).forEach(n=>n.classList.toggle("dim",!keep.has(n.dataset.id)));
+  linkEls.forEach(e=>{const rel=keep.has(e.dataset.from)&&keep.has(e.dataset.to);
+    e.classList.toggle("hl",rel);e.classList.toggle("dim",!rel);});
+}
+
+/* filters */
+function matchFilter(m,f){
+  if(f==="all")return true;
+  if(f==="current")return !!m.current;
+  if(f==="progress")return m.lv>=1&&m.lv<=3;
+  if(f==="mastered")return m.lv>=4;
+  if(f==="locked")return m.lv===0;
+}
+document.getElementById("filters").addEventListener("click",e=>{
+  const b=e.target.closest(".chip");if(!b)return;
+  document.querySelectorAll("#filters .chip").forEach(c=>c.setAttribute("aria-pressed",c===b));
+  const f=b.dataset.f;
+  M.forEach(m=>stEls[m.id].classList.toggle("dim",!matchFilter(m,f)));
+  linkEls.forEach(e=>e.classList.toggle("dim",f!=="all"&&!(matchFilter(byId[e.dataset.from],f)&&matchFilter(byId[e.dataset.to],f))));
+});
+
+/* stats + legend */
+(function(){
+  const scope=M.filter(m=>!m.proposed);
+  const overall=Math.round(scope.reduce((s,m)=>s+LVPCT[m.lv],0)/scope.length);
+  const mastered=scope.filter(m=>m.lv>=4).length;
+  document.getElementById("stats").innerHTML=`
+    <div class="stat"><div class="k">Overall</div><div class="v">${overall}<small>%</small></div></div>
+    <div class="stat"><div class="k">Mastered</div><div class="v">${mastered}<small>/24</small></div></div>
+    <div class="stat"><div class="k">Current</div><div class="v" style="font-size:15px">M10·M8</div></div>`;
+  document.getElementById("legend").innerHTML=LV.map((l,i)=>`<span class="lg"><i style="background:var(--lv${i})"></i>${l.d}</span>`).join("");
+})();
+
+/* modal */
+const scrim=document.getElementById("scrim"), cc=document.getElementById("cardContent");
+function openCard(id){
+  const m=byId[id];
+  document.getElementById("card").style.setProperty("--m",`var(--lv${m.lv})`);
+  const deps=m.deps.map(x=>byId[x].name).join(", ")||"none";
+  const unlocks=M.filter(x=>x.deps.includes(id)).map(x=>x.name).join(", ")||"—";
+  cc.innerHTML=`
+    <div class="top">
+      <div class="eyerow">
+        <span class="mcode">${m.id}${m.proposed?" · proposed":""}</span>
+        <span class="mphase">Phase ${m.ph+1} · ${PHASES[m.ph].n}</span>
+        <span class="lvchip"><i></i>${LV[m.lv].d} · ${LV[m.lv].n}</span>
+      </div>
+      <h2 id="mTitle">${m.name}</h2>
+      <p class="obj">${m.obj}</p>
+    </div>
+    <div class="body-in">
+      <div class="sect"><div class="h">Recognition trigger</div><div class="trigger">${m.trig}</div></div>
+      <div class="sect"><div class="h">Topics covered</div><div class="tags">${m.topics.map(t=>`<span class="tag">${t}</span>`).join("")}</div></div>
+      <div class="sect"><div class="h">Problem ladder</div><div class="ladder">${m.ladder.map(([p,dd])=>`<div class="lad"><span class="d ${dd}">${dd}</span>${p}</div>`).join("")}</div></div>
+      <div class="sect"><div class="h">Where you stand</div>
+        <dl class="kv">
+          <dt>solved</dt><dd>${m.solved}</dd>
+          <dt>status</dt><dd>${m.status}</dd>
+          <dt>needs</dt><dd>${deps}</dd>
+          <dt>unlocks</dt><dd>${unlocks}</dd>
+          <dt>reference</dt><dd class="reflink">${m.ref}</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="foot">Levels: L0 not started · L3 implements · L4 applies (≥2E+2M solo) · L5 recognizes cold · L6 teaches. "Done" = L5+.</div>`;
+  scrim.classList.add("show");document.getElementById("closeb").focus();
+}
+function closeCard(){scrim.classList.remove("show");}
+document.getElementById("closeb").addEventListener("click",closeCard);
+scrim.addEventListener("click",e=>{if(e.target===scrim)closeCard();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCard();});
+
+/* hero → app */
+function enter(){document.body.classList.add("open");
+  if(!matchMedia("(prefers-reduced-motion:reduce)").matches)document.body.classList.add("anim");}
+document.getElementById("coreBtn").addEventListener("click",enter);
+document.getElementById("homeBtn").addEventListener("click",()=>{document.body.classList.remove("open","anim");closeCard();});
+
+/* theme toggle */
+document.getElementById("themeBtn").addEventListener("click",()=>{
+  const root=document.documentElement;
+  const cur=root.getAttribute("data-theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");
+  root.setAttribute("data-theme",cur==="dark"?"light":"dark");
+});
+</script>
+</body>
+</html>
