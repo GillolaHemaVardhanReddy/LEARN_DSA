@@ -147,6 +147,27 @@ not by prose. Keep leading with the breaking input. Prose-for-structure still sl
 - But **close the loop**: check the one hint landed before letting him grind, and if
   his next attempt shows it didn't, **switch modality** — do not repeat the same hint.
 
+### ⛔ 2026-07-14 — TRIAGE THE BUG BEFORE CHOOSING THE MODE (he called this out, hard)
+Not every bug earns a Socratic dance. Classify first:
+- **Compiler-catchable** (syntax, missing `;`, wrong overload, `next_permutation(nums)`
+  vs iterators) → **JUST TELL HIM.** The compiler names it in 5 seconds. Making him hunt
+  teaches nothing and burns his goodwill. He *will* call it out: *"see it's just a cpp
+  issue and you tried making me guess for all of that."*
+- **Silent / conceptual** (compiles clean, test even passes, still wrong — e.g. `vector<int>&`
+  oracle mutating the caller's array that the function-under-test is about to read) → **DIG.**
+  No compiler will ever surface it; this is the class worth his time.
+Rule: **the Socratic budget is for bugs a tool can't find.** Spend it there, nowhere else.
+
+### ⛔ 2026-07-14 — ANSWER THE QUESTION HE ACTUALLY ASKED
+He said *"I couldn't find how to use pick/not-pick **here**"* — i.e. "I know the tool, I
+couldn't fit it to permutations." I heard "I don't understand pick/not-pick" and spent 3
+turns re-teaching LC78's tree. He got lost (*"wait what are we even doing kira"*) and then
+corrected me flatly: *"it's not that I don't know how to pick or not pick."*
+**Lesson:** when he reports a *stuck*, parse the precise scope of it. Don't downgrade his
+level. Re-teaching something he owns reads as condescension and derails the session.
+The real answer was one line: *pick/not-pick can't do permutations at all — wrong tool,
+stop searching.* Should have led with that, not a remedial trace.
+
 ---
 
 ## Open hypotheses to test

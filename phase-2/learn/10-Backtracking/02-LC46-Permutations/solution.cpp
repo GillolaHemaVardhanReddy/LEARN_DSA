@@ -16,8 +16,13 @@ using namespace std;
 //    No recursion anywhere in here — that's the whole point.
 //    Time: O(n! * n)   Space: O(n! * n) for the answer
 vector<vector<int>> permuteBrute(vector<int>& nums) {
-    // TODO(boss): sort a copy, then do-while(next_permutation(...)) collecting each arrangement.
-    return {};
+    vector<int> a = nums;
+    sort(a.begin(), a.end());
+    vector<vector<int>> ans;
+    do{
+        ans.push_back(a);
+    } while(next_permutation(a.begin(), a.end()));
+    return ans;
 }
 
 // 2) BRIDGE — this is NOT about speed (both ways emit all n! permutations).
@@ -42,11 +47,29 @@ vector<vector<int>> permuteBrute(vector<int>& nums) {
 //
 // 3) OPTIMAL — backtracking, loop over choices.
 //    Time: O(?)   Space: O(?) (call stack + path + whatever tracks "already used")
-vector<vector<int>> permute(vector<int>& nums) {
-    // TODO(boss): base case = path is full → emit.
-    //             otherwise: for each unused candidate → choose → explore → un-choose.
-    return {};
-}
+void permuteRecur(vector<int>& nums, vector<vector<int>>& ans, vector<int>& chk, vector<int>& ind) {
+        if(chk.size()==nums.size()){
+            ans.push_back(chk);
+            return;
+        }
+        for(int j = 0 ; j < nums.size(); j++) {
+            if(ind[j]){
+                continue;
+            }
+            chk.push_back(nums[j]);
+            ind[j] = 1;
+            permuteRecur(nums, ans, chk, ind);
+            chk.pop_back();
+            ind[j] = 0;
+        }
+    }
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<vector<int>> ans;
+        vector<int> chk;
+        vector<int> ind(nums.size());
+        permuteRecur(nums, ans, chk, ind);
+        return ans;
+    }
 
 // ---------------------------------------------------------------------
 // Normalizer (DO NOT edit): sorts the collection so emit-order can't cause a

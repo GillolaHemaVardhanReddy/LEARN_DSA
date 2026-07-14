@@ -433,6 +433,41 @@ Variants & gotchas:
 Taught me by: **himself.** Kira refused to explain un-choose; boss traced his own broken tree on
   `[1,2,3]`, saw duplicates + missing subsets, and named the invariant unprompted.
 
+**⭐⭐ WHICH TEMPLATE? — the fork that cost me a whole session (LC46 Permutations, 2026-07-14).**
+The stuck was NOT "how does pick/not-pick work" — I know that cold from LC78. The stuck was
+**"how do I make pick/not-pick work HERE?"** — and I hunted for a fit for ages before caving and
+watching the video. **THE ANSWER: there is no fit. Pick/not-pick CANNOT produce permutations.**
+Not hard — *impossible*. The cue I never want to need again:
+
+| I want… | the question it answers | template |
+|---|---|---|
+| **subsets / subsequences / combinations** | *WHICH elements?* | **pick/not-pick**, `i` marches forward |
+| **permutations / arrangements / orderings** | *in WHAT ORDER?* | **loop over unused choices + `used[]`** |
+| **subarray** (⚠️ *contiguous!*) | — | **NEITHER** — sliding window / two pointers |
+
+**WHY pick/not-pick can't do it (the structural wall, not a vibe):** the binary in/out fork only ever
+moves `i` **forward**, and once you decline `nums[i]` it is gone for good — there is no line of code
+that can ever push it again. So **every leaf preserves the original index order.** Trace `[1,2]`: the
+four leaves are `[1,2] [1] [2] []` — `[2,1]` is *nowhere*, and no rearranging of the two recursive
+calls can conjure it, because to put the `2` first you must skip the `1`, and skipping it kills it.
+It's a **membership machine**. It has no organ for order. `used[]` is what buys you the ability to
+reach *backward* to an element sitting earlier in the array — that's the whole difference.
+
+⚠️ **VOCAB TRAP I FELL IN:** I first wrote the cue as *"subarrays → pick/not-pick"*. **WRONG.**
+**Subarray = CONTIGUOUS** (`[1,2,3]` → `[1,2]` ✓ but `[1,3]` ✗, only 6 of them). **Subsequence/subset
+= any membership, gaps allowed** (`[1,3]` ✓, 2ⁿ = 8 of them). My pick/not-pick tree **emits `[1,3]`**,
+so it makes *subsequences*, never subarrays. Seeing the word **"subarray" in a statement means STOP —
+don't reach for recursion at all.**
+
+⚠️ **DON'T OVER-COMMIT THE RIGHT COLUMN:** loop-over-choices is not *only* for permutations — it is the
+**general** shape, and pick/not-pick is just the special case with exactly 2 choices. LC39 Combination
+Sum is a loop-over-choices with **no `used[]` at all** (a `start` index instead). Leave the cue room to grow.
+
+Honest ledger: LC46 template came from the **Striver video**, not my own derivation → **L3 rep, not L4.**
+The un-choose discipline (two pieces of state, `path.pop_back()` + `ind[j]=0`, both restored in the same
+frame) *was* all mine — that's the M#8 re-test passed. Owed: a cold re-derive of the permutation frame.
+Stress GREEN: 20k random arrays, recursion vs an independent `next_permutation` oracle, `n!` count checked.
+
 ### Tree DFS / BFS
 Level: L0
 Trigger:
