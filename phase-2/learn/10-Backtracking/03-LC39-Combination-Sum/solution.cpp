@@ -12,19 +12,34 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 1) BRUTE — the oracle. NO recursion (M#9: different machinery than the optimal).
-//    Idea: iterative build-up, one candidate at a time (this is what kills permutation dupes).
-//      dp[t] = set of combinations summing to exactly t, using only candidates seen SO FAR.
-//      dp[0] = { {} }.  For each candidate c, for t = c .. target:
-//          every combo in dp[t-c], with c appended, is a combo for t.
-//    Because you finish candidate c before starting c+1, [2,3] and [3,2] can't both appear.
-//    Time: O(target * n * (#combos))   Space: same
-vector<vector<int>> combinationSumBrute(vector<int>& candidates, int target) {
-    // TODO(boss): build dp as vector<set<vector<int>>>, dp[0]={{}}, loop candidates OUTER,
-    //             t INNER (t from c to target). Return dp[target] flattened to a vector.
-    return {};
-}
-
+// 1) BRUTE — the oracle. BLIND enumerate + canonical dedup (M#9: no `start` index → cannot
+//    share the optimal's bug). Idea: every frame loops i = 0..n-1 (reuse allowed, order-blind),
+//    so it spews permutations [2,3] AND [3,2]. Then CANONICALIZE: sort each hit and drop it in a
+//    `set<vector<int>>`. M#11: the dedup KEY and the STORED value must be the SAME canonical form
+//    — store the sorted copy, not the raw path, or unsorted candidates leak dupes ([3,2] t=5).
+//    Independent from the optimal in machinery (no start index) and state (reads a copy, never
+//    mutates `candidates`).   Time: O(exp) — it's the oracle, correctness > speed.
+    void combineSum(vector<int>& candidates, int target, vector<int>& chk, set<vector<int>>& ans){
+        int sum = accumulate(chk.begin(), chk.end(), 0);
+        if(sum >= target){
+            vector<int> check(chk);
+            sort(check.begin(), check.end());
+            if(sum == target && !ans.contains(check)) ans.insert(check);
+            return;
+        }
+        for(int i = 0 ; i < candidates.size() ; i++ ) {
+            chk.push_back(candidates[i]);
+            combineSum(candidates, target, chk, ans);
+            chk.pop_back();
+        }
+    }
+    vector<vector<int>> combinationSumBrute(vector<int>& candidates, int target) {
+        set<vector<int>> ans;
+        vector<int> chk;
+        combineSum(candidates, target, chk, ans);
+        vector<vector<int>> finalans(ans.begin(), ans.end());
+        return finalans;
+    }
 // 2) BRIDGE
 //    Q1: LC46's frame advanced to d+1 after every choice. Here, after you take a 5,
 //        you may take another 5. What index do you pass to the recursive call after

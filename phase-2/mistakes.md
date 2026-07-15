@@ -57,6 +57,15 @@
 - **Meta-leak:** boss did **not** catch this — Kira did. And the green stress test would have blessed it forever. Same family as M#9 (a stress test you can't trust is worse than none: it converts an unknown into a false *known*).
 - **Re-test:** next brute→optimal scaffold, **before** running the stress he states (a) how the brute's machinery differs, **and (b) whether the brute can touch anything the optimal reads.** Clears when he flags a mutating/shared-state oracle unprompted. Re-attempt date: **LC39 Combination Sum, next session.**
 
+### M#11 — dedup on one form, store another: the canonical-key mismatch (2026-07-15, LC39 Combination Sum brute)
+- **Root cause:** in the brute oracle he guarded with the **sorted** copy but stored the **raw** one: `sort(check…); if(!ans.contains(check)) ans.insert(chk);`. `check` and `chk` are two spellings of the same combo. A `set` dedups by *exact* key, so the guard ("is sorted `[2,3]` present?") and the storage (`[3,2]`) never agree → both permutations survive. Fired only on **unsorted** candidates: `[3,2]` t=5 → returns `[2,3]` **and** `[3,2]`.
+- **Why the stress DIDN'T catch it (the nasty part, again):** the harness's generator builds candidates via `set<int>` (line 98) → always **sorted ascending**, and with sorted candidates the DFS finds the ascending permutation *first*, so the sorted-guard happens to catch every later dupe. 3000 random cases GREEN. A latent bug the test can't see — same family as M#9/M#10: a green stress that's blessing a bug because the input distribution never exercises it. Kira only exposed it by hand-feeding `[3,2]`.
+- **Corrected model:** **to dedup, pick ONE canonical form and use it for BOTH the key and the stored value.** Store the same thing you compare on. Once you insert the sorted `check`, `set::insert` already no-ops dupes → the `!ans.contains` guard is dead weight. He fixed it himself (`insert(check)`); verified correct across the LC examples + no internal dups.
+- **Re-test:** next time he dedups a collection (subsets-with-dups LC90, n-queens boards, any `set<vector>`/`set<string>` of canonicalized states), he states the canonical form ONCE and uses it for key **and** value. Clears when he never stores a non-canonical spelling of a key he dedups on.
+
+### M#9 / M#10 — LC39 re-attempt status (2026-07-15): STILL OPEN.
+- The re-test rode on this session but **didn't complete**: the optimal (`combinationSum`, the thing under test) was never written — it stayed `return {}`, so brute-vs-optimal never actually ran. He submitted the optimal **straight to LeetCode** (bypassing his own harness) and hit WA on `[8,7,4,3]` t=11 — the exact case the harness would have caught locally. **M#10 independence line (b) not stated unprompted.** Both re-tests roll to the NEXT session, when he writes the optimal and runs the stress. (Note: this rep's brute is *recursion*, the optimal is *start-index backtracking* — different structure, but weaker machinery-independence than the dp the scaffold originally asked for; it survives only because the blind-enumerate+set-dedup brute cannot share the `start`-index bug.)
+
 ---
 
 ## ✅ CLEARED
