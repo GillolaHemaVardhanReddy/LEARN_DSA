@@ -16,10 +16,27 @@ using namespace std;
 //          and drop it into a std::set<vector<int>> to dedupe. Flatten the set.
 //    This dedupes by brute force AFTER the fact — the optimal must dedupe DURING the walk.
 //    Time: O(n * 2^n * log)   Space: O(n * 2^n)
-vector<vector<int>> subsetsWithDupBrute(vector<int>& nums) {
-    // TODO(boss): masks 0..(1<<n)-1, collect, sort each, insert into a set, flatten.
-    return {};
-}
+    void subsetsRec(vector<int>& nums, set<vector<int>>& ans, vector<int>& chk, int start){
+        if(start >= nums.size()){
+            vector<int> check(chk.begin(), chk.end());
+            sort(check.begin(), check.end());
+            ans.insert(check);
+            return;
+        }
+        for(int i = start; i < nums.size(); i++) {
+            chk.push_back(nums[i]);
+            subsetsRec(nums, ans, chk, i+1);
+            chk.pop_back();
+            subsetsRec(nums, ans, chk, i+1);
+        }
+    }
+    vector<vector<int>> subsetsWithDupBrute(vector<int>& nums) {
+        set<vector<int>> ans;
+        vector<int> chk;
+        subsetsRec(nums, ans, chk, 0);   
+        vector<vector<int>> finalans(ans.begin(), ans.end());
+        return finalans;
+    }
 
 // 2) BRIDGE
 //    Q1: hand-run [1,2,2] with your LC78 pick/not-pick recursion (do it on paper, all 8 leaves).
@@ -43,20 +60,45 @@ vector<vector<int>> subsetsWithDupBrute(vector<int>& nums) {
 //
 // 3) OPTIMAL — sort, then loop-frame backtracking with the same-depth duplicate skip.
 //    Time: O(?)   Space: O(?)
-vector<vector<int>> subsetsWithDup(vector<int>& nums) {
-    // TODO(boss): sort first. Then a LOOP frame: solve(start) emits `path` at EVERY node
-    //             (not just leaves — every prefix of the walk is itself a subset).
-    //             Inside the loop: skip the duplicate per your Q3 rule, then choose → recurse → un-choose.
-    return {};
-}
+    void subsetsRec(vector<int>& nums, set<vector<int>>& ans, vector<int>& chk, int start){
+        if(start >= nums.size()){
+            ans.insert(chk);
+            return;
+        }
+        for(int i = start; i < nums.size(); i++) {
+            chk.push_back(nums[i]);
+            subsetsRec(nums, ans, chk, i+1);
+            chk.pop_back();
+            subsetsRec(nums, ans, chk, i+1);
+        }
+    }
+    vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        set<vector<int>> ans;
+        vector<int> chk;
+        sort(nums.begin(), nums.end());
+        subsetsRec(nums, ans, chk, 0);   
+        vector<vector<int>> finalans(ans.begin(), ans.end());
+        return finalans;
+    }
 
 // ---------------------------------------------------------------------
 // Normalizer (DO NOT edit): sorts inside each subset, then sorts the collection.
-vector<vector<int>> normalized(vector<vector<int>> v) {
-    for (auto& s : v) sort(s.begin(), s.end());
-    sort(v.begin(), v.end());
-    return v;
-}
+    void subsetsRecu(vector<int>& nums, vector<vector<int>>& ans, vector<int>& chk, int start){
+        ans.push_back(chk);
+        for(int i = start; i < nums.size(); i++) {
+            if (i > start && nums[i] == nums[i-1]) continue;
+            chk.push_back(nums[i]);
+            subsetsRecu(nums, ans, chk, i+1);
+            chk.pop_back();
+        }
+    }
+    vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        vector<vector<int>> ans;
+        vector<int> chk;
+        sort(nums.begin(), nums.end());
+        subsetsRecu(nums, ans, chk, 0);   
+        return ans;
+    }
 
 // 4) STRESS: brute IS the oracle. Duplicate-heavy inputs on purpose.
 int main() {

@@ -19,26 +19,23 @@ using namespace std;
 //    — store the sorted copy, not the raw path, or unsorted candidates leak dupes ([3,2] t=5).
 //    Independent from the optimal in machinery (no start index) and state (reads a copy, never
 //    mutates `candidates`).   Time: O(exp) — it's the oracle, correctness > speed.
-    void combineSum(vector<int>& candidates, int target, vector<int>& chk, set<vector<int>>& ans){
+    void combineSum(vector<int>& candidates, int target, vector<int>& chk, vector<vector<int>>& ans, int start){
         int sum = accumulate(chk.begin(), chk.end(), 0);
         if(sum >= target){
-            vector<int> check(chk);
-            sort(check.begin(), check.end());
-            if(sum == target && !ans.contains(check)) ans.insert(check);
+            if(sum == target) ans.push_back(chk);
             return;
         }
-        for(int i = 0 ; i < candidates.size() ; i++ ) {
+        for(int i = start ; i < candidates.size() ; i++ ) {
             chk.push_back(candidates[i]);
-            combineSum(candidates, target, chk, ans);
+            combineSum(candidates, target, chk, ans, i);
             chk.pop_back();
         }
     }
     vector<vector<int>> combinationSumBrute(vector<int>& candidates, int target) {
-        set<vector<int>> ans;
+        vector<vector<int>> ans;
         vector<int> chk;
-        combineSum(candidates, target, chk, ans);
-        vector<vector<int>> finalans(ans.begin(), ans.end());
-        return finalans;
+        combineSum(candidates, target, chk, ans, 0);
+        return ans;
     }
 // 2) BRIDGE
 //    Q1: LC46's frame advanced to d+1 after every choice. Here, after you take a 5,
@@ -63,10 +60,10 @@ using namespace std;
 // 3) OPTIMAL — backtracking, loop over choices from `start`, reuse allowed.
 //    Time: O(?)   Space: O(?) (call stack + path)
 vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-    // TODO(boss): two base cases (one emits, one abandons — your Q3).
-    //             Then a loop frame from `start`: choose candidates[i] → recurse with the index
-    //             your Q1 answer says → un-choose.
-    return {};
+    vector<vector<int>> ans;
+        vector<int> chk;
+        combineSum(candidates, target, chk, ans, 0);
+        return ans;
 }
 
 // ---------------------------------------------------------------------

@@ -37,6 +37,9 @@
 | **"count the ways" / "min-max cost over a sequence of choices" + small-ish n** | brute recursion → **memoize** (the DP on-ramp: LC70/198/322) — small n + "try all / count" often SIGNALS exponential |
 | **compute x^n / a^b with a HUGE exponent** (n up to ±2³¹, or "mod 1e9+7 power") | **Fast power (binary exponentiation)** — halve the exponent, recurse **ONCE** into a variable (`t=f(e/2); t*t`, odd → extra `x`) → O(log n). ⚠️ write the call TWICE and it's O(n) again |
 | all subsets / permutations / combinations / placements | Backtracking |
+| **combinations / subsets, NO reorder-dupes** ("[2,3] but not [3,2]") | **`start`-index loop frame** — recurse with `i` (reuse allowed) or `i+1` (no reuse); passing a start index forces non-decreasing order so each combo appears ONCE. **The recursion shape dedups — no `set` needed.** |
+| **input has DUPLICATE VALUES** (Subsets II / Combination Sum II) | **sort first**, then in the loop skip same-depth repeats: `if (i > start && a[i]==a[i-1]) continue`. `i>start` (not `i>0`) — a value may repeat DOWN a path (`[2,2]`), just not ACROSS sibling loop-iterations |
+| **two backtracking frame shapes — don't staple them together** | **binary-fork** (LC78 pick/not-pick): emit at the LEAF, 2 branches. **loop frame** (LC39/46/90): emit at EVERY node (top of call), n branches, and the loop advancing to `i+1` IS the "not-pick" — so NO separate not-pick recurse. Dup-skip only has meaning in the loop frame |
 | process nodes / depth / paths in a tree | Tree DFS |
 | level-by-level / shortest unweighted | BFS |
 | grid of connections, components / spread | Graph BFS/DFS, flood fill |
