@@ -142,6 +142,41 @@ not by prose. Keep leading with the breaking input. Prose-for-structure still sl
 
 ---
 
+### ⭐ 2026-08-09 — ABSTRACT STATEMENTS DON'T GRIP; NUMBERS DO (confirmed twice in 20 minutes)
+On the comeback recognition test, he stalled on **two consecutive questions at the statement layer,
+before recognition ever got a chance to fire**:
+- Q4 (window): read *"longest substring of one single repeated letter"* + *"change at most k chars"*
+  as a **contradiction** and refused to start. One clarification + one concrete example
+  (`"AABABBA", k=1 → 4`) and he produced the **complete correct machine instantly** — expand,
+  track maxFreq, shrink on `windowLen − maxFreq > k`, O(n)/O(1). Zero hesitation.
+- Q5 (coin change): called a completely standard statement *"so vague"*. Same shape.
+
+**The lesson: a stall is not always a recognition failure — triage WHICH layer stalled.**
+Reading-layer stall ⇒ hand him a concrete instance (this is trace-first applied to the *statement*,
+not the algorithm). Recognition-layer stall ⇒ that's the real miss, log it. Scoring these the same
+would have understated his recognition and wasted repair time on patterns he still owns.
+**Standing move: seed EVERY abstract statement with 2–3 concrete input→output lines up front.**
+Costs nothing, removes a whole failure mode. (Consistent with his #10 reading-miss leak and with
+TRACE-FIRST being his #1 unlock — it applies one layer earlier than I'd been applying it.)
+
+### ⭐ 2026-08-09 — HE NARRATES DEFEAT WHILE PRODUCING THE RIGHT ANSWER
+Q1 (4-array sum): he wrote *"I don't really know this pattern... I'm off course by a long way"*
+**in the same message** where he derived the correct hashing solution from brute force. He was
+missing the **word**, not the tool — and could not tell the difference. This is the calibration
+leak (Gate 6) in its purest form yet.
+**Move that works:** don't reassure — **quote his own answer back to him** and name what's actually
+missing ("you have the tool, you're missing the label"), then produce a same-day receipt (here: the
+#9 sort-then-two-pointers reflex did NOT fire on an unsorted pair-sum). Evidence beats encouragement.
+
+### ⛔ 2026-08-09 — KIRA SELF-LEAK: DON'T REVEAL PATTERN NAMES MID-DRILL
+I named the pattern after Q1 and Q2 before catching myself. Several later questions in the same
+gauntlet sit in adjacent families (plain stack vs monotonic stack vs monotonic deque; window vs
+prefix+hash). A name handed over on Q2 primes Q9/Q12/Q20 and **contaminates the measurement** the
+whole test exists to produce. **Rule: during a TEST-mode drill, give the MARK only; reveal every
+pattern name after the last question.**
+
+---
+
 ## Pacing / dose
 - Keep to **≤1 hint then stop** (his explicit preference; he calls out over-reveal).
 - But **close the loop**: check the one hint landed before letting him grind, and if
