@@ -67,6 +67,64 @@
   the idea, video = consolidation AFTER the code, never instruction before it.** (His standing
   Striver-then-practice workflow still holds for *unopened* topics — this exception is for mid-derivation.)
 
+- **⭐⭐ CONFIRMED FIX — SEED EVERY ABSTRACT STATEMENT WITH CONCRETE NUMBERS (hypothesis 2026-08-09,
+  CONFIRMED 2026-08-10).** On 8/09 two questions stalled at the *reading* layer before recognition
+  ever got a chance: he called a clean statement "a contradiction" (Q4) and "so vague" (Q5), then
+  produced the full correct answer the moment he was handed 2–3 input→output lines. On 8/10 I put
+  the numbers **in the statement up front** for five straight questions — **zero reading stalls**,
+  including on **Q5, the exact statement that had defeated him the previous day**, which he then
+  answered immediately. **This is trace-first applied one layer earlier than I had been applying
+  it** — not "trace when stuck", but "never hand him a statement without a trace attached".
+  **Standing: every problem statement I give him ships with 2–3 concrete examples.** Cost: three
+  lines. Payoff: it stops scoring his *reading* as a *recognition* failure, which would have sent
+  repair time to entirely the wrong place.
+
+- **🔴🔴 THE BIGGEST FINDING OF THE COMEBACK RUN — TOOL-CARRYOVER (2026-08-10). He answers a new
+  question with the PREVIOUS question's tool.** Verbatim sequence: Q5 he chooses recursion; **Q6
+  opens *"here also its pick not pick"*** (on a subarray-counting problem where that machine cannot
+  work); he then invents sliding window for Q6; **Q7 opens *"this is a fixed sliding window"*** (on
+  a sort + two-pointer pairing problem). Three questions, and the tool is *inherited* every time.
+  - **Why I nearly mis-scored this as decay:** three ❌/🟡 in a row looks like four patterns rotting.
+    It isn't. Q6 he **self-corrected unprompted** minutes later, and Q9 he built a correct multiset
+    solution off **one** probe. The knowledge is *there*. What's missing is a **gate between reading
+    the statement and reaching for a tool** — his first instinct is unguarded, and an unguarded
+    first instinct grabs whatever is warmest, which is the last thing he used.
+  - **Why it stayed hidden through four L4 promotions:** inside a topic folder, carrying the topic's
+    tool forward is *always correct* and gets rewarded for weeks. It can only fire under
+    interleaving — which is to say, **only in an interview**. This is the single strongest argument
+    yet for the interleaved gauntlet format; single-topic practice is structurally blind to it.
+  - **The move (→ M#12):** make him state the **disqualifier gate** *before* naming any pattern —
+    contiguous or not? · sorted / may I sort? · order or membership? · count vs best vs list-all?
+    The gate interrogates the **problem**, so it cannot be contaminated by the previous question.
+  - **Watch-tell:** any answer opening with *"here also…"* / *"this is the same as…"*, or that names
+    a tool before restating what's being returned. When I hear it — stop and ask for the gate.
+
+- **📌 COMPLEXITY IS ANSWERED FLUENTLY AND WRONGLY — and the fluency is what hides it (2026-08-10).**
+  Wrong on 6 of 9 gauntlet questions, always delivered fast and confidently, never flagged by him as
+  uncertain. He is **pattern-matching the bound to a shape he's seen** (`O(n log n)` appeared on a
+  problem containing neither a sort nor a halving) rather than counting the work in his own
+  algorithm. **The damage isn't the wrong number — it's that a wrong bound HIDES THE BOTTLENECK**:
+  on Q3 he quoted his brute as O(n), so from where he stood there was nothing left to optimize and
+  the monotonic stack became structurally unreachable. **Teaching move: never accept a bare bound —
+  make him name WHICH LINE produces each factor** ("for each of n days I walk back up to n steps ⇒
+  n²"). Per-item cost × number of items = total. (→ M#13)
+
+- **✅ ONE PROBE IS OFTEN ENOUGH — his repair capacity is fully intact even when first instinct
+  fails (2026-08-10).** Q9: he'd claimed O(1) space tracking a window's max/min. One question —
+  *"you dropped the element that WAS the max; how do you get the new max?"* — and he answered
+  *"well well thats a huge problem i didnt see comming"* and **immediately designed a correct
+  ordered-multiset fix from nothing**. Q6 he self-corrected with **no** prompt at all. Read this as
+  the load-bearing good news of the whole run: **routing is unguarded, but everything downstream of
+  a correct route still works.** Repairing a gate is far cheaper than relearning nine patterns —
+  say so to him plainly, because the calibration leak will otherwise read three ❌ in a row as
+  "I've lost everything."
+
+- **⚠️ A BANKED CUE THAT ONLY FIRES ON-TOPIC IS NOT BANKED (2026-08-10).** The subarray-vs-subsequence
+  distinction was caught, corrected, and written into `PATTERN_JOURNAL.md` in his own words on
+  7/14 — and it **did not fire** on Q6 four weeks later. Writing a cue down proves he understood it
+  *that day*; it does not install it. **Implication for how I use the journal: cues need cold
+  interleaved re-firing, not re-reading.** Part C is the right instrument for exactly this.
+
 - **⭐ CROSS-PATTERN PRINCIPLE TRANSFER works, and fast (2026-06-22).** Taught "derive state, don't
   maintain it" on a sliding window (P23), and within the same hour he *spontaneously* applied it to
   BINARY SEARCH (P24 — deleted the `ans` he was maintaining, let the converging pointers hold the
