@@ -20,6 +20,7 @@
 | D5 | **Re-entry style (Tier 0)** | **Test → repair → move** per old topic (1–3 days each): cold checkpoint first, repair only what leaked. Not a from-scratch re-teach. | |
 | D6 | **Root folder** | Only `.claude/` + config dotfiles (`.gitignore`, `.mcp.json`, `.vscode/`). **No root README** (GitHub shows `dashboard/README.md` fine when linked). | |
 | D7 | **Problem-file ceremony** | LEARN problems keep BRUTE → BRIDGE → OPTIMAL (question-holes). REPS = plain `solution.cpp` (signature + your code). **Stress harness = optional**, added on request only (you run on LC, not locally). | |
+| D8 | **Finish the comeback gauntlet first?** | **Yes — Q10→Q20 on days 1–2** (cards, ~2 min each, statements seeded with examples). It's the cheapest full-map baseline we'll ever get, and it becomes the first `tests/mixed/` asset. Parts B/C are replaced by the per-topic Tier-0 checkpoints (same repair idea, one topic at a time). | |
 
 ---
 
@@ -36,6 +37,15 @@
 | Curriculum listed 24 modules; the **derivation between them** lived only in Kira's head | You learn like a mathematician: A ⇒ B ⇒ C. A list of modules is not a derivation. |
 
 **What survived (also receipts):** on 7/24 you named hashing cold after 8 days off; on 8/09 you *derived* the 4-sum hashing machine and the sliding-window machine cold after a month. The tools are alive; the **names, the machinery details, and the habit** decayed. Relearning after a layoff is ~3–5× cheaper than first learning (Ebbinghaus savings, Murre & Dros 2015). **This is a re-entry, not a restart.**
+
+### 1.1 The 2026-08-10 session (it was only on GitHub — pulled in today) changes two things
+
+That session ran gauntlet Q5–Q9 (running score after 9: **1 ✅ · 5 🟡 · 3 ❌**). Two findings are load-bearing for this plan:
+
+1. **Tool-carryover (M#12), not decay, is the headline leak.** Q5 you chose recursion → Q6 opened *"here also its pick not pick"* (a subarray problem) → you invented sliding window for Q6 → Q7 opened *"this is a fixed sliding window"* (a sort + two-pointer problem). Each answer inherited the previous question's tool. **It hid for weeks because inside a single-topic folder, carrying the topic's tool forward is always right.** It only fires under interleaving — i.e. in an interview or a contest. *What it changes here:* (a) the **4-question disqualifier gate** becomes step one of every problem, before any tool is named (§4.1); (b) the daily **RECALL slot is always a different topic** than the day's BUILD — 10 minutes of mixed retrieval is exactly the instrument that catches this, and it costs nothing. Your "one topic at a time" rule is right for *learning*; this small mixed dose is for *routing*.
+2. **Complexity was wrong on 6 of 9 (M#13)** — fluent, fast, and wrong (`O(n log n)` on a problem with no sort and no halving). A wrong bound *hides the bottleneck* (Q3: you called the brute O(n), so there was "nothing to optimize" and the monotonic stack became unreachable). *What it changes here:* topic **00 is an active 2-day item in week 1**, and every LOOK BACK states the bound as a sentence with the work in it — *which line produces each factor*.
+
+Also confirmed that session: **seeding every statement with 2–3 concrete examples removed reading stalls 5 for 5** — standing rule for Kira. And: **a cue that only fires on-topic isn't banked** (the subarray-vs-subsequence cue you wrote on 7/14 did not fire on Q6) — which is why cards get re-fired cold and mixed (§5), never re-read. The good news from the same session: **your repair machinery is fully intact** — Q6 self-corrected unprompted, Q9 you built a correct multiset fix from one probe. Routing is unguarded; everything downstream of a correct route works.
 
 ---
 
@@ -115,7 +125,7 @@ Ladders are **intentionally short** (LEARN 1–2 · REPS 4–6 · HARD 1). Kira 
 
 | # | Topic | Kills this bottleneck | Canonical problems | Where it runs in the world |
 |---|---|---|---|---|
-| 00 | Complexity from constraints | "can I afford this?" — the 10⁸ rule; recurrence cost by tree size | folded into every problem | every code review, ever |
+| 00 | Complexity from constraints | "can I afford this?" — the 10⁸ rule; **count the work off your own code** (per-item cost × items); recurrence cost by tree size | **ACTIVE, week 1, 2 days (M#13: wrong on 6 of 9).** No LC problems: 6 short snippets/algorithms to bound by naming the line behind each factor. Checkpoint = 3 consecutive problems whose bound survives "which line?". M1's self-reported L3\* stays frozen until then. | every code review, ever |
 | 01 | Hashing | O(n) inner "seen before?" scan | LC1✓ 217✓ 219✓ 242✓ 49✓ 128✓ 347✓ 36✓ · 706 design · H: 149✓ | DB indexes, caches, dedup |
 | 02 | Two pointers | hashing can't do order/nearest; sorted ⇒ steer | LC125✓ 167✓ 15✓ 11✓ 283✓ · 75 Dutch-flag (redo) · H: 42 | merge step of merge sort, stream joins |
 | 03 | Sliding window | re-scanning every subarray | LC209✓ 3✓ 424✓ 567✓ 1004✓ 904✓ · H: 76, 992 | rate limiters, network congestion windows |
@@ -182,8 +192,8 @@ Ladders are **intentionally short** (LEARN 1–2 · REPS 4–6 · HARD 1). Kira 
 | Slot | Time | What | Rule |
 |---|---|---|---|
 | **1 · RECALL** | 10–15 min | 1–2 due items from `REVISION_QUEUE.md`: a *card* (disguised statement → name the pattern + trigger + core idea, 3 min) or a *cold re-solve* (write the core loop from memory, 10 min). **Always a different topic than today's.** | This is the ONLY cross-topic work of the day. Queue overflow (> 3 due) ⇒ Kira prunes to the oldest one per topic. |
-| **2 · BUILD** | 45–60 min | The current topic. **ONE problem, fully** — LEARN (derive: brute → bridge → optimal) or REP (solve → LC submit → look back). A second problem only if the first was quick. | One 25–50-min block per problem. **Stop at the cap even mid-problem** — write the resume line, that's tomorrow's warm-up. |
-| **3 · LOOK BACK** | 5–10 min | The cue in your words into `PATTERN_JOURNAL.md` (**must end with "reduces to ___"**), queue the re-solve dates, `/endsession` (add + commit + push). | Polya's "look back" — the step everyone skips and the one that makes it stick. |
+| **2 · BUILD** | 45–60 min | The current topic. **ONE problem, fully** — LEARN (derive: brute → bridge → optimal) or REP (solve → LC submit → look back). A second problem only if the first was quick. **Gate A first, always:** restate in one sentence + 3-element dry run + the **4 disqualifier questions** — *contiguous or not? · sorted, or may I sort? · order or membership? · count, best, or list-all?* — **before any tool is named** (M#12). | One 25–50-min block per problem. **Stop at the cap even mid-problem** — write the resume line, that's tomorrow's warm-up. |
+| **3 · LOOK BACK** | 5–10 min | The **complexity as a sentence with the work in it** ("for each of n days I walk back up to n ⇒ n²" — which line produces each factor, M#13) → the cue in your words into `PATTERN_JOURNAL.md` (**must end with "reduces to ___"**) → queue the re-solve dates → `/endsession` (add + commit + push). | Polya's "look back" — the step everyone skips and the one that makes it stick. |
 
 **Floor (bad day):** slot 1 only, one card, ≤10 min. **It counts as a kept day.** Zero is the only failure.
 **Ceiling:** 90 min weekdays. "5 problems a day" happens on contest days and as recall cards, never as 5 new mediums.
@@ -274,7 +284,7 @@ Weekly throughput ≈ 8–10 build problems + 8–10 recall reps + 4 contest pro
 
 | Weeks | Dates | Tier | Milestone (measurable) |
 |---|---|---|---|
-| 1–5 | 2026-09-07 → 10-11 | **0 · Re-entry** (00–11) | all 10 old topics re-validated by cold checkpoint; 06 + 11 at L3; 5 LC contests attended; ≥ 25 of 35 days kept |
+| 1–5 | 2026-09-07 → 10-11 | **0 · Re-entry** (00–11) | days 1–2: gauntlet Q10–Q20 finished = full baseline (D8); 00 complexity cleared (M#13); all 10 old topics re-validated by cold checkpoint (test → repair → move); 06 + 11 at L3; 5 LC contests attended; ≥ 25 of 35 days kept |
 | 6–13 | 10-12 → 12-06 | **1 · Structures** (12–16) | habit automatic (~11-12); Q1 reliably; Q2 ≥ half the time; CodeChef started |
 | 14–20 | 12-07 → 2027-01-24 | **2 · Graphs** (17–21) | CF handle with ≥ 4 rated rounds; Q2 reliably |
 | 21–30 | 01-25 → 04-04 | **3 · DP · Greedy · Math** (22–27) | Q3 sometimes; every Tier ≤ 3 topic at L4+ |
@@ -366,6 +376,8 @@ LEARN_DSA/
 5. **Derivation-first openings** + "where it runs" line + every cue ends with "reduces to ___".
 6. **Contest protocol** (§6) and the habit protocol (§4.3–4.4) are standing.
 7. Everything already engraved stays: trace-first, atomic teaching, ≤1 hint, refuse-to-check, LC verdict = truth, teach-it-back, add+commit+push atomic.
+8. **Every statement Kira hands you ships with 2–3 concrete input→output examples** (confirmed 5-for-5 on 8/10).
+9. **The disqualifier gate is asked before any tool is named, and no bare complexity bound is ever accepted** — "which line produces that factor?" (M#12, M#13). Watch-tell: any answer opening with *"here also…"* / *"this is the same as…"* → stop, ask for the gate.
 
 ---
 
