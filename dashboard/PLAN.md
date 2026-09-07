@@ -5,7 +5,7 @@
 > `ROADMAP_PLAN.md`, `FORGE_LADDER.md` and `FILE_GUIDE.md`. Kira reads §4 (the day) every
 > session and §7 (the calendar) every Monday. Boss reads §0–§2 once, then lives in §4.
 >
-> **Status: PROPOSED — awaiting boss's decisions in §0. The repo refactor (§9) runs after that.**
+> **Status: DECIDED 2026-09-07 (boss's calls in §0). Refactor executed the same day.**
 
 ---
 
@@ -13,14 +13,15 @@
 
 | # | Decision | Kira's default (used if boss says "go") | Boss's call |
 |---|---|---|---|
-| D1 | **Daily anchor + budget** | Anchor: *"after ___"* (boss names it). Weekday **60–90 min, hard cap 90**. Sat up to 3 h (hard problem or biweekly). Sun = contest 90 min + one upsolve ≤60 min, nothing else. ≈ **10–13 h/week.** Want more? Add a **second 60-min block** in the day, never a longer session (splitting ≈ 2× retention, §2 rule 2). | |
-| D2 | **Contests** | **LeetCode Weekly** (every Sun 08:00 IST) + **Biweekly** (alt Sat 20:00 IST) from **this Sunday, 2026-09-13**. **GFG Weekly is PAUSED** (see §6) → substitute **CodeChef Starters** (Wed 20:00 IST) from month 2. **Codeforces** Div 3/4 + Educational from month 3 (Dec). | |
-| D3 | **LeetCode username** | Needed: the MCP session is signed out and no username is on file. Give the handle → dashboard tracks ACs + contest rating. (Re-login the MCP only if you want submission verification.) | |
-| D4 | **Old planning docs** | Delete the 7 superseded files (git history keeps them). Keep `STRIVER_VIDEOS.md`, `CPP_GAPS.md`, `references/` under `dashboard/`. | |
-| D5 | **Re-entry style (Tier 0)** | **Test → repair → move** per old topic (1–3 days each): cold checkpoint first, repair only what leaked. Not a from-scratch re-teach. | |
-| D6 | **Root folder** | Only `.claude/` + config dotfiles (`.gitignore`, `.mcp.json`, `.vscode/`). **No root README** (GitHub shows `dashboard/README.md` fine when linked). | |
-| D7 | **Problem-file ceremony** | LEARN problems keep BRUTE → BRIDGE → OPTIMAL (question-holes). REPS = plain `solution.cpp` (signature + your code). **Stress harness = optional**, added on request only (you run on LC, not locally). | |
-| D8 | **Finish the comeback gauntlet first?** | **Yes — Q10→Q20 on days 1–2** (cards, ~2 min each, statements seeded with examples). It's the cheapest full-map baseline we'll ever get, and it becomes the first `tests/mixed/` asset. Parts B/C are replaced by the per-topic Tier-0 checkpoints (same repair idea, one topic at a time). | |
+| D1 | **Daily anchor + budget** | Anchor: *"after ___"* (boss names it). Weekday **60–90 min, hard cap 90**. Sat up to 3 h (hard problem or biweekly). Sun = contest 90 min + one upsolve ≤60 min, nothing else. ≈ **10–13 h/week.** Want more? Add a **second 60-min block** in the day, never a longer session (splitting ≈ 2× retention, §2 rule 2). | **✅ 45 min standard, cap 60, for month 1** (RECALL 10 · BUILD 30 · LOOK BACK 5). Kira raises it to 60–90 after **day 30 (2026-10-07)** if ≥ 20 of 30 days are kept. |
+| D2 | **Contests** | **LeetCode Weekly** (every Sun 08:00 IST) + **Biweekly** (alt Sat 20:00 IST) from **this Sunday, 2026-09-13**. **GFG Weekly is PAUSED** (see §6) → substitute **CodeChef Starters** (Wed 20:00 IST) from month 2. **Codeforces** Div 3/4 + Educational from month 3 (Dec). | **✅ as proposed.** |
+| D3 | **LeetCode username** | Needed: the MCP session is signed out and no username is on file. Give the handle → dashboard tracks ACs + contest rating. (Re-login the MCP only if you want submission verification.) | **✅ `hemavardhan2076`** → `dashboard/CONTESTS.md`. |
+| D4 | **Old planning docs** | Delete the 7 superseded files (git history keeps them). Keep `STRIVER_VIDEOS.md`, `CPP_GAPS.md`, `references/` under `dashboard/`. | **✅ deleted.** |
+| D5 | **Re-entry style (Tier 0)** | **Test → repair → move** per old topic (1–3 days each): cold checkpoint first, repair only what leaked. Not a from-scratch re-teach. | ✅ default. |
+| D6 | **Root folder** | Only `.claude/` + config dotfiles (`.gitignore`, `.mcp.json`, `.vscode/`). **No root README** (GitHub shows `dashboard/README.md` fine when linked). | ✅ default. |
+| D7 | **Problem-file ceremony** | LEARN problems keep BRUTE → BRIDGE → OPTIMAL (question-holes). REPS = plain `solution.cpp` (signature + your code). **Stress harness = optional**, added on request only (you run on LC, not locally). | ✅ default. |
+| D8 | **Finish the comeback gauntlet first?** | **Yes — Q10→Q20 on days 1–2** (cards, ~2 min each, statements seeded with examples). It's the cheapest full-map baseline we'll ever get, and it becomes the first `tests/mixed/` asset. Parts B/C are replaced by the per-topic Tier-0 checkpoints (same repair idea, one topic at a time). | ✅ default. |
+| D9 | **The teaching operating system** | Boss's add-on ask: day→goal traceability, the stuck protocol, topic mastery, how tests are built, references, struggle handling, and a meta-learning lab that experiments with how he learns. | **✅ → `dashboard/SYSTEM.md`** (companion to this file). |
 
 ---
 
@@ -187,16 +188,16 @@ Ladders are **intentionally short** (LEARN 1–2 · REPS 4–6 · HARD 1). Kira 
 
 ## 4. THE DAILY HABIT — the shape of a day
 
-### 4.1 The 3-slot day (standard ≈ 75–90 min)
+### 4.1 The 3-slot day (month 1: standard 45 min, cap 60 · from day 30: 60–90 min, cap 90)
 
 | Slot | Time | What | Rule |
 |---|---|---|---|
-| **1 · RECALL** | 10–15 min | 1–2 due items from `REVISION_QUEUE.md`: a *card* (disguised statement → name the pattern + trigger + core idea, 3 min) or a *cold re-solve* (write the core loop from memory, 10 min). **Always a different topic than today's.** | This is the ONLY cross-topic work of the day. Queue overflow (> 3 due) ⇒ Kira prunes to the oldest one per topic. |
-| **2 · BUILD** | 45–60 min | The current topic. **ONE problem, fully** — LEARN (derive: brute → bridge → optimal) or REP (solve → LC submit → look back). A second problem only if the first was quick. **Gate A first, always:** restate in one sentence + 3-element dry run + the **4 disqualifier questions** — *contiguous or not? · sorted, or may I sort? · order or membership? · count, best, or list-all?* — **before any tool is named** (M#12). | One 25–50-min block per problem. **Stop at the cap even mid-problem** — write the resume line, that's tomorrow's warm-up. |
-| **3 · LOOK BACK** | 5–10 min | The **complexity as a sentence with the work in it** ("for each of n days I walk back up to n ⇒ n²" — which line produces each factor, M#13) → the cue in your words into `PATTERN_JOURNAL.md` (**must end with "reduces to ___"**) → queue the re-solve dates → `/endsession` (add + commit + push). | Polya's "look back" — the step everyone skips and the one that makes it stick. |
+| **1 · RECALL** | 10 min | 1–2 due items from `REVISION_QUEUE.md`: a *card* (disguised statement → name the pattern + trigger + core idea, 3 min) or a *cold re-solve* (write the core loop from memory, 10 min). **Always a different topic than today's.** | This is the ONLY cross-topic work of the day. Queue overflow (> 3 due) ⇒ Kira prunes to the oldest one per topic. |
+| **2 · BUILD** | 30 min (month 1) · 45–60 after | The current topic. **ONE problem, fully** — LEARN (derive: brute → bridge → optimal) or REP (solve → LC submit → look back). A second problem only if the first was quick. **Gate A first, always:** restate in one sentence + 3-element dry run + the **4 disqualifier questions** — *contiguous or not? · sorted, or may I sort? · order or membership? · count, best, or list-all?* — **before any tool is named** (M#12). | One 25–50-min block per problem. **Stop at the cap even mid-problem** — write the resume line, that's tomorrow's warm-up. |
+| **3 · LOOK BACK** | 5 min | The **complexity as a sentence with the work in it** ("for each of n days I walk back up to n ⇒ n²" — which line produces each factor, M#13) → the cue in your words into `PATTERN_JOURNAL.md` (**must end with "reduces to ___"**) → queue the re-solve dates → `/endsession` (add + commit + push). | Polya's "look back" — the step everyone skips and the one that makes it stick. |
 
 **Floor (bad day):** slot 1 only, one card, ≤10 min. **It counts as a kept day.** Zero is the only failure.
-**Ceiling:** 90 min weekdays. "5 problems a day" happens on contest days and as recall cards, never as 5 new mediums.
+**Ceiling:** 60 min weekdays in month 1 (boss's call, D1), 90 min after day 30 if ≥ 20 of 30 days are kept. "5 problems a day" happens on contest days and as recall cards, never as 5 new mediums.
 
 ### 4.2 The week
 
@@ -207,7 +208,7 @@ Ladders are **intentionally short** (LEARN 1–2 · REPS 4–6 · HARD 1). Kira 
 | **Sat** | RECALL + **one HARD** from the current/previous topic (60–90 min) — *or* the **Biweekly** (alt Saturdays 20:00 IST) |
 | **Sun** | **LeetCode Weekly 08:00 IST** (90 min, all 4 attempted, no help) → one **upsolve** of the easiest unsolved within 48 h (≤60 min, Kira coaches at ≤1 hint) → log to `CONTESTS.md`. Nothing else on Sunday. |
 
-Weekly throughput ≈ 8–10 build problems + 8–10 recall reps + 4 contest problems + 1 upsolve + 3 checkpoint Qs ≈ **20–25 problem-touches** at ~11 h. Your "5/day" in throughput, without a single marathon.
+Weekly throughput in month 1 ≈ 5–7 build problems + 8–10 recall reps + 4 contest problems + 1 upsolve + 3 checkpoint Qs ≈ **18–22 problem-touches** at ~7–8 h; from day 30 ≈ 20–25 at ~11 h. Your "5/day" in throughput, without a single marathon.
 
 ### 4.3 Slack, streaks, lapses
 

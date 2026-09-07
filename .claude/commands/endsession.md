@@ -1,34 +1,19 @@
 ---
-description: Save all progress to the state files and commit
+description: Save all progress to the dashboard files and ship it (add + commit + push, verified)
 ---
-End the session per `CLAUDE.md` §12. Update **all** state files to reflect what actually
-happened this session — only record evidence you genuinely witnessed, never inflate a level:
+End the session per `.claude/CLAUDE.md` §8. Update only what actually happened — never inflate a level:
+1. `dashboard/README.md` TODAY — resume line, this week, days kept (mark today kept if ≥ the floor was done), next contest.
+2. `dashboard/PROGRESS.md` — level changes **with evidence**, habit row, counters, leak board dates.
+3. `dashboard/LOG.md` §1 — one dated block: what we did · levels changed (+ evidence) · problems AC (LC verdict) · leaks fired/held · next.
+4. `dashboard/REVISION_QUEUE.md` — ladder dates for every AC / card result; prune if > 3 due tomorrow.
+5. `dashboard/PATTERN_JOURNAL.md` (cue / card, "reduces to ___") · `MISTAKES.md` · `CONTESTS.md` · `LEARNING_PROFILE.md` (experiment log) — as applicable.
 
-1. `PROGRESS.md` — level changes **with the evidence** that justified each, a dated
-   session-log line (date, what we did, problems solved), and a refreshed schedule projection.
-2. `PATTERN_JOURNAL.md` — new or updated recognition triggers and templates.
-3. `phase-N/mistakes.md` (current phase folder) — any new mistakes (root cause + re-test + re-attempt date).
-4. `REVISION_QUEUE.md` — new spaced-repetition checkpoints and any resolved items, with dates.
-5. `COMMAND_CENTER.md` — leak scoreboard / first-submit-clean streak / today's plan.
-
-## SHIP IT — add + commit + push is ONE atomic move (non-negotiable)
-
-Never stop at commit. A commit that isn't on `origin` doesn't exist, and a file that was never
-staged doesn't exist either — both end with boss's work stranded on one laptop.
-
+## SHIP IT — add + commit + push is ONE atomic move
 ```
-git status -sb          # LOOK at the untracked (??) list BEFORE staging — nothing gets left behind
+git status -sb          # look at the ?? list BEFORE staging — nothing gets left behind
 git add -A
-git commit -m "session <YYYY-MM-DD>: <modules touched> — <level changes>"
+git commit -m "session <YYYY-MM-DD>: <topics> — <what changed>"
 git push origin main
+git status -sb          # must show: no "ahead by N"  AND  zero ?? lines
 ```
-
-**Then VERIFY, don't assume.** Re-run `git status -sb` and require BOTH:
-- `## main...origin/main` with **no** "ahead by N" — everything is pushed.
-- **Zero `??` lines** — nothing untracked. If a file is deliberately excluded, gitignore it;
-  never leave it dangling.
-
-Only after both checks pass may you report the session as saved. Do not say "committed and
-pushed" unless you ran the verification and saw it.
-
-Finish by stating the single highest-ROI objective for the next session.
+Only after both checks pass may you say the session is saved. Finish with the single highest-ROI objective for tomorrow (one line).

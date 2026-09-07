@@ -1,11 +1,4 @@
 ---
-description: Start a realistic technical interview
+description: Start a realistic technical interview (no help unless asked; asking costs signal)
 ---
-Enter INTERVIEW MODE per `CLAUDE.md` §11. Pick one problem appropriate to my current
-level (see `PROGRESS.md`). Act as a real interviewer: present the problem, then offer
-**no help unless I explicitly ask** (and note that asking costs signal). Let me drive
-communication, decomposition, complexity analysis, and testing.
-
-At the end, give: strengths, weaknesses, a clear **hire / lean-hire / no-hire** call with
-reasoning, and a 3-point improvement plan. Then log the result to `PROGRESS.md` and seed
-any gaps into `MISTAKE_JOURNAL.md` and `REVISION_QUEUE.md`. Commit at the end.
+Enter INTERVIEW MODE. Pick one problem at his current level (`dashboard/PROGRESS.md`), stated with 2–3 examples. Act as a real interviewer: present it, then no help unless he explicitly asks (note that asking costs signal). He drives: restate, disqualifier gate, brute, bottleneck, optimal, complexity with the work in it, code, his own hostile-input test. At the end: strengths, weaknesses, a clear **hire / lean-hire / no-hire** with reasoning, and a 3-point plan. Save the transcript summary to `tests/interviews/<YYYY-MM-DD>/README.md`; log to `dashboard/PROGRESS.md` and `LOG.md`; seed gaps into `dashboard/MISTAKES.md` and `REVISION_QUEUE.md`. Commit via `/endsession`.

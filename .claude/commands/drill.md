@@ -1,13 +1,5 @@
 ---
-description: Mixed pattern-recognition drill (name the pattern only)
-argument-hint: "[optional: focus patterns or count]"
+description: 5 mixed recognition cards — name the pattern only (no coding), disqualifier gate first
+argument-hint: "[optional: focus topic or count]"
 ---
-Run a pattern-recognition drill per `CLAUDE.md` §9. Give me a **mixed** set of 5–8 short
-problem statements drawn from patterns I've reached L3+ on (check `PROGRESS.md` /
-`PATTERN_JOURNAL.md`). If $ARGUMENTS specifies focus patterns or a count, honor it.
-
-For each statement I will only **name the pattern and sketch the approach in 1–2 lines**
-— no full coding. Wait for all my answers, then tell me which I got right and where the
-recognition trigger should have pointed. Log any misses to `MISTAKE_JOURNAL.md` as
-pattern-recognition errors with a re-test, and update `PATTERN_JOURNAL.md`/`PROGRESS.md`.
-Commit at the end.
+Per `dashboard/PLAN.md` §5 and `dashboard/SYSTEM.md` §4: give 5 fresh disguised statements (or `$ARGUMENTS` count/focus), drawn from topics at L3+, mixed families with at least one adjacent-family trap. Every statement seeded with 2–3 input→output lines, no LC titles. For each, boss answers: the 4 disqualifier answers → pattern → trigger → complexity as a sentence with the work in it. Marks only during the run, full reveal after the last card. A ❌ or 🟡 → `MISTAKES.md` (root cause + re-test) and a +1d card in `REVISION_QUEUE.md`. A ✅ on a topic ≥14 days after its checkpoint = L5 evidence in `PROGRESS.md`. Never reveal a pattern name mid-run. Commit via `/endsession`.
