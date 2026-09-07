@@ -1,9 +1,9 @@
 # 🎛️ DASHBOARD — the front door (Kira reads this FIRST, every session · boss glances)
 
 ## ▶️ TODAY  *(Kira re-renders this block every session — keep it to ~10 lines)*
-- **Date:** 2026-09-07 (Mon) · **v2 day 1** · dose 45 / cap 60 · anchor: *(boss names it: "after ___")*
+- **Date:** 2026-09-07 (Mon) · **v2 day 1** · weekdays 1 h (45 / cap 60) · **weekends 2 h AM + 2 h PM** (PLAN §4.2b) · anchor: *(boss names it: "after ___")*
 - **⏯️ RESUME:** `/today` → RECALL = comeback gauntlet **Q10 → Q20** (`tests/mixed/2026-08-comeback-gauntlet/PART-A-recognition-20Q.md`) — statements re-seeded with 2–3 examples, **disqualifier gate spoken before each answer**, marks only, full reveal after Q20 (~11 cards ≈ 2 sessions). BUILD = **00 complexity** (M#13: bound 6 short algorithms by naming the line behind each factor).
-- **This week:** Mon–Tue gauntlet Q10–Q20 + 00 complexity · Wed–Thu 00 complexity → **01 hashing** re-entry checkpoint · **Fri `/checkpoint`** (00 + 01) · Sat: 01 hard (LC149 revisit cold) · **Sun 2026-09-13 08:00 IST — LC Weekly #1** (`/contest` after: log + one upsolve).
+- **This week:** Mon–Tue gauntlet Q10–Q20 + 00 complexity · Wed–Thu 00 complexity → **01 hashing** re-entry checkpoint · **Fri `/checkpoint`** (00 + 01) · **Sat AM** 02 two-pointers cold checkpoint + repair (Q7 boats miss) + LC149 cold re-solve · **Sat PM** revision engine (re-solve the week's items, `/drill` 5 cards, teach-back) — check leetcode.com/contest: if the Biweekly is 09-12, it replaces Sat PM · **Sun AM 2026-09-13 08:00 IST — LC Weekly #1** + debrief · **Sun PM** the one upsolve + week review. Weekend blocks = PLAN §4.2b.
 - **Why today matters:** gauntlet baseline + complexity fix → Tier-0 gate (2026-10-11) → month-7 bar (2027-04-07).
 - **Days kept:** 0 / 7 this week · **0 / 66** total · repair token: available
 - **Contest:** LC `hemavardhan2076` · next **Sun 09-13 08:00 IST** · rating — (Phase 1: first 5 contests unranked)

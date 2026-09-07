@@ -13,7 +13,7 @@
 
 | # | Decision | Kira's default (used if boss says "go") | Boss's call |
 |---|---|---|---|
-| D1 | **Daily anchor + budget** | Anchor: *"after ___"* (boss names it). Weekday **60–90 min, hard cap 90**. Sat up to 3 h (hard problem or biweekly). Sun = contest 90 min + one upsolve ≤60 min, nothing else. ≈ **10–13 h/week.** Want more? Add a **second 60-min block** in the day, never a longer session (splitting ≈ 2× retention, §2 rule 2). | **✅ 45 min standard, cap 60, for month 1** (RECALL 10 · BUILD 30 · LOOK BACK 5). Kira raises it to 60–90 after **day 30 (2026-10-07)** if ≥ 20 of 30 days are kept. |
+| D1 | **Daily anchor + budget** | Anchor: *"after ___"* (boss names it). Weekday **60–90 min, hard cap 90**. Sat up to 3 h (hard problem or biweekly). Sun = contest 90 min + one upsolve ≤60 min, nothing else. ≈ **10–13 h/week.** Want more? Add a **second 60-min block** in the day, never a longer session (splitting ≈ 2× retention, §2 rule 2). | **✅ 45 min standard, cap 60, for month 1** (RECALL 10 · BUILD 30 · LOOK BACK 5). Kira raises it to 60–90 after **day 30 (2026-10-07)** if ≥ 20 of 30 days are kept. **Weekends (added later 09-07): 2 h morning + 2 h evening, Sat and Sun** → §4.2b. ≈ 13 h/week. |
 | D2 | **Contests** | **LeetCode Weekly** (every Sun 08:00 IST) + **Biweekly** (alt Sat 20:00 IST) from **this Sunday, 2026-09-13**. **GFG Weekly is PAUSED** (see §6) → substitute **CodeChef Starters** (Wed 20:00 IST) from month 2. **Codeforces** Div 3/4 + Educational from month 3 (Dec). | **✅ as proposed.** |
 | D3 | **LeetCode username** | Needed: the MCP session is signed out and no username is on file. Give the handle → dashboard tracks ACs + contest rating. (Re-login the MCP only if you want submission verification.) | **✅ `hemavardhan2076`** → `dashboard/CONTESTS.md`. |
 | D4 | **Old planning docs** | Delete the 7 superseded files (git history keeps them). Keep `STRIVER_VIDEOS.md`, `CPP_GAPS.md`, `references/` under `dashboard/`. | **✅ deleted.** |
@@ -205,10 +205,33 @@ Ladders are **intentionally short** (LEARN 1–2 · REPS 4–6 · HARD 1). Kira 
 |---|---|
 | Mon–Thu | 3-slot day (RECALL · BUILD · LOOK BACK) |
 | **Fri** | **CHECKPOINT** (`tests/checkpoints/`): 3 cold questions on the current topic — (1) disguised statement → pattern + trigger + complexity, (2) template/core loop from memory, (3) one unseen medium coded cold → LC. Plus 2 cards from older topics. ~30–40 min. Pass = the topic's L4 evidence. |
-| **Sat** | RECALL + **one HARD** from the current/previous topic (60–90 min) — *or* the **Biweekly** (alt Saturdays 20:00 IST) |
-| **Sun** | **LeetCode Weekly 08:00 IST** (90 min, all 4 attempted, no help) → one **upsolve** of the easiest unsolved within 48 h (≤60 min, Kira coaches at ≤1 hint) → log to `CONTESTS.md`. Nothing else on Sunday. |
+| **Sat** | **Morning block (2 h): the HARD + a timed variant.** **Evening block (2 h): the REVISION ENGINE** — cold re-solves of the week, 5 mixed cards, teach-back — *or* the **Biweekly** (alt Saturdays 20:00 IST). Details §4.2b. |
+| **Sun** | **Morning block (2 h): LeetCode Weekly 08:00 IST** (90 min, all 4 attempted, no help) + 30-min debrief (log, one card per unsolved, receipts). **Evening block (2 h): the one upsolve** (≤1 hint) + 2 ladder re-solves + the week review / next week's line. Details §4.2b. |
 
-Weekly throughput in month 1 ≈ 5–7 build problems + 8–10 recall reps + 4 contest problems + 1 upsolve + 3 checkpoint Qs ≈ **18–22 problem-touches** at ~7–8 h; from day 30 ≈ 20–25 at ~11 h. Your "5/day" in throughput, without a single marathon.
+Weekly throughput: weekdays 1 h × 5 (≈ 5 build problems + 8 cards) + the two weekend days below (≈ 1 hard + 1 timed medium + 5 cold re-solves + 5–10 cards + 4 contest problems + 1 upsolve + 1 teach-back) ≈ **30 problem-touches at ~13 h/week**. Your "5 a day" in throughput, with no single block longer than 2 hours.
+
+### 4.2b The weekend blocks (boss's offer, 2026-09-07: 2 h morning + 2 h evening, both days)
+
+Each block = at most **two deep problems + retrieval**, a 5-minute break every 50 minutes, and a hard stop at 2 h. Mornings get the high-energy work (the hard, the contest); evenings get retrieval (spaced from the morning — that's the "split sessions ≈ 2× retention" win, §2 rule 2). **Fixed blocks:** Sat morning + Sun morning. **Flexible blocks:** the two evenings — skipping one does not break the week.
+
+| Block | Minutes | What | Why it makes you stronger |
+|---|---|---|---|
+| **Sat AM — THE HARD** | 10 | 2 RECALL cards (old topics) | warm retrieval, catches carryover |
+| | 60–75 | **ONE hard** from the current/previous topic, ≤ 1 hint; you build the hostile input; predict pass/fail before submit | combined-tool variants = the "3 variants" rule (SYSTEM §3.2) |
+| | 30 | **ONE timed medium**, a variant you haven't seen, solo, 30-min clock, LC | speed + first-submit-clean under a clock |
+| | 5 | look back: cue + "reduces to" + the complexity sentence | Polya's step 4 |
+| **Sat PM — REVISION ENGINE** *(alt Saturdays: the Biweekly 20:00–21:30 replaces it; then only the 20-min teach-back happens, after the contest)* | 45 | **cold re-solves** of the week's ladder items (2–3 of Mon–Fri's problems, no notes open) | the +3d / +7d rung — retrieval, not re-reading |
+| | 30 | **`/drill`** — 5 mixed cards with adjacent-family traps, marks only, reveal after | recognition; the M#12 tool-carryover killer |
+| | 20 | **teach-back** — write one topic's derivation + cue in the journal as if teaching a beginner | the L6 rep; self-explanation is your confirmed "gets it" signal |
+| | 15 | **watchlist self-test** — for each live leak in `MISTAKES.md`, state the catch from memory; 3 `CPP_GAPS.md` idioms typed cold | kryptonite pre-load, no re-reading |
+| **Sun AM — CONTEST** | 90 | **LC Weekly 08:00 IST**, all 4 attempted, disqualifier gate before each, no help | speed on unseen shapes; the weekly interleaving |
+| | 30 | **debrief** — `/contest`: log solved/4 + time per Q, one card per unsolved (*why I missed: reading / routing / machinery / execution / speed*), one same-day receipt before any verdict | turns the contest into test material; pre-empts the calibration leak |
+| **Sun PM — UPSOLVE + REVIEW** | 60 | **the one upsolve** (easiest unsolved, ≤ 1 hint) → LC AC | the highest-value unseen problem of the week |
+| | 30 | 2 ladder re-solves due (cold) *or*, on the last Sunday of the month, the **10-Q mixed recognition test** (`tests/mixed/`) | +7d / +30d rungs; monthly tier-wide read |
+| | 20 | **week review** — Kira prints days kept, checkpoint result, leak board deltas, next week's "why it matters" line; you answer the 5-question self-report if Friday missed it | calibration with receipts; the experiment review (SYSTEM §7) |
+| | 10 | stop early. Rest is part of the dose. | consolidation happens asleep |
+
+From month 3, one Saturday morning per month is a **timed 4-problem contest simulation** instead of the hard. During **Tier 0 (weeks 1–5)** the Saturday-morning hard is replaced by the **next old topic's cold checkpoint + its repair**, so re-entry moves at ~2 topics per week and the weekend never opens a new topic.
 
 ### 4.3 Slack, streaks, lapses
 
@@ -293,6 +316,8 @@ Weekly throughput in month 1 ≈ 5–7 build problems + 8–10 recall reps + 4 c
 | 35–47 | 05-03 → 08-01 | **5 · CP depth** (28–32) | ≥ 150 CSES solved · CF Specialist or trending · LC Knight attempt · **MONTH-11 (2027-08-07): expert bar** = the whole map at L4+, top patterns at L5/L6 |
 
 Two weeks of slack are built in (47 weeks of work in a 48-week window). If velocity says "behind," the calendar stretches — the dose and the gates do not.
+
+**Hours model (for the monthly recalibration):** ≈ 350 focused hours to the month-7 bar, ≈ 500 to the expert bar. At ~8 h/week (1 h/day + the Sunday contest) that is ≈ 10 and ≈ 14–15 months; at the designed ~11 h/week it is 7 and 11; at boss's offered ~13 h/week (1 h weekdays + 2+2 h both weekend days) it is ≈ 6 and ≈ 9–10 **on paper** — the calendar above stays until real velocity confirms it.
 
 ---
 
