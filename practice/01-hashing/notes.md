@@ -1,7 +1,7 @@
 # 🗂️ 02 — Hashing  (teaching notes — reread cold, they rebuild the model)
 
 > These notes TEACH, they don't just remind. Read top to bottom and the understanding comes back.
-> Terse cues live in `dashboard/PATTERN_JOURNAL.md`; the one-look classifier in `00-Recognition-Map.md`.
+> Terse cues live in `dashboard/PATTERN_JOURNAL.md`; the one-look classifier in `practice/README.md (recognition map)`.
 > Hashing is the single most-used tool in interviews — the reflex that turns O(n²) into O(n).
 
 ---

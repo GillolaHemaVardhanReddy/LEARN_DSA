@@ -1,13 +1,13 @@
 # 🎛️ DASHBOARD — the front door (Kira reads this FIRST, every session · boss glances)
 
 ## ▶️ TODAY  *(Kira re-renders this block every session — keep it to ~10 lines)*
-- **Date:** 2026-09-07 (Mon) · **v2 day 1** · weekdays 1 h (45 / cap 60) · **weekends 2 h AM + 2 h PM** (PLAN §4.2b) · anchor: *(boss names it: "after ___")*
-- **⏯️ RESUME:** `/today` → RECALL = comeback gauntlet **Q10 → Q20** (`tests/mixed/2026-08-comeback-gauntlet/PART-A-recognition-20Q.md`) — statements re-seeded with 2–3 examples, **disqualifier gate spoken before each answer**, marks only, full reveal after Q20 (~11 cards ≈ 2 sessions). BUILD = **00 complexity** (M#13: bound 6 short algorithms by naming the line behind each factor).
-- **This week:** Mon–Tue gauntlet Q10–Q20 + 00 complexity · Wed–Thu 00 complexity → **01 hashing** re-entry checkpoint · **Fri `/checkpoint`** (00 + 01) · **Sat AM** 02 two-pointers cold checkpoint + repair (Q7 boats miss) + LC149 cold re-solve · **Sat PM** revision engine (re-solve the week's items, `/drill` 5 cards, teach-back) — check leetcode.com/contest: if the Biweekly is 09-12, it replaces Sat PM · **Sun AM 2026-09-13 08:00 IST — LC Weekly #1** + debrief · **Sun PM** the one upsolve + week review. Weekend blocks = PLAN §4.2b.
-- **Why today matters:** gauntlet baseline + complexity fix → Tier-0 gate (2026-10-11) → month-7 bar (2027-04-07).
-- **Days kept:** 0 / 7 this week · **0 / 66** total · repair token: available
-- **Contest:** LC `hemavardhan2076` · next **Sun 09-13 08:00 IST** · rating — (Phase 1: first 5 contests unranked)
-- **Open threads:** dsa-map.html still shows the v1 25-module map → regenerate for the 33 topics in week 1 (low priority) · CodeChef handle in Oct · Codeforces handle in Dec.
+- **Date:** 2026-09-08 (Tue) · **v2 day 1** (09-07 was setup) · weekdays 45 / cap 60 · **weekends 2 h AM + 2 h PM** (PLAN §4.2b; evenings optional in weeks 1–2) · anchor: **unset — `/today` asks on open** ("after ___")
+- **⏯️ RESUME:** `/today` → **today's whole session = the comeback gauntlet Q10 → Q20** (`tests/mixed/2026-08-comeback-gauntlet/PART-A-recognition-20Q.md`; statements now carry seeded examples; the disqualifier gate spoken before each answer; ~3 min each ≈ 35 min) → **reveal + score + per-pattern read** (10 min) into `RESULTS.md`. No BUILD today. Tomorrow's BUILD = **00 complexity** (M#13).
+- **This week:** Wed–Thu **00 complexity** (bound 6 short algorithms by naming the line behind each factor; RECALL = 2 cards from today's gauntlet misses) · **Fri `/checkpoint` 00** (`tests/checkpoints/00-complexity-2026-09-11/`, pass = 6/6 with the line named) · **Sat AM** 01 hashing re-entry checkpoint (Q0 derive-it + 3 Q) + repair · **Sat 20:00 IST — Biweekly 191 = v2 contest #1** (replaces Sat PM; teach-back after) · **Sun 08:00 IST — LC Weekly** + debrief · **Sun PM** the one upsolve only (biweekly weekend).
+- **Why today matters:** gauntlet baseline (which of the 10 old tools decayed) → 00 complexity fix (M#13) → Tier-0 gate (2026-10-11) → month-7 bar (measured 2027-05-02).
+- **Days kept:** 0 / 7 this week · **0 / 66** total · build days 0 · repair token: available
+- **Contest:** LC `hemavardhan2076` · next **Sat 09-12 20:00 IST (Biweekly 191)**, then **Sun 09-13 08:00** · rating — (Phase 1: first 5 contests unranked)
+- **Open threads:** `dsa-map.html` still shows the v1 25-module map → regenerate for the 33 topics (week 1–2, low priority) · CodeChef handle in Oct · Codeforces handle in Nov (rated rounds from Dec) · 01 hashing checkpoint folder to be built Saturday morning, just-in-time.
 
 ## 🗺️ WHERE THINGS ARE
 | I want… | Open |

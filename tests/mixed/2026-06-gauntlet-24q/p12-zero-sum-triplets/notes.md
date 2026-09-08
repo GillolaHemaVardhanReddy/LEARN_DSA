@@ -38,7 +38,7 @@ Return ALL unique triplets that sum to zero. No duplicate triplets.
 - brute vs optimal (time/space):
 - **Cue — surface features that map this kind of problem -> this pattern:**
 
-## 8. Bugs hit (copy recurring ones to ../../MISTAKE_JOURNAL.md)
+## 8. Bugs hit (copy recurring ones to ../../dashboard/MISTAKES.md)
 -
 
 ## Result (fill after AC)

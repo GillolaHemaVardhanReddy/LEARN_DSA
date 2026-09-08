@@ -32,8 +32,12 @@ heavily and the last three lightly; month 11 tests all six.
 | **BUILD** (30) | one problem in the current topic, Gate A first | reps toward L3/L4 · first-submit-clean streak · leak board | Execution · Recognition · Complexity |
 | **LOOK BACK** (5) | complexity sentence · cue ending "reduces to ___" · queue dates · push | cards created · M#13 clearing (3 consecutive bounds survive "which line?") | Complexity · Retention · Communication |
 | **Fri CHECKPOINT** | 3 cold Qs on the topic + 2 old cards | L3 → L4 · topic enters the ladder | Recognition · Execution |
-| **Sat HARD** | one hard from the topic, ≤ 1 hint | variant coverage (§3.2) · hard count | Recognition (combined tools) · Speed |
-| **Sun CONTEST + upsolve** | LC weekly 08:00 IST, then one upsolve ≤ 60 min | `CONTESTS.md`: solved/4, time per Q, rating · L5 evidence when a topic is used cold | Speed · Recognition · Retention |
+| **Sat AM — HARD** (2 h) | 2 cards · one hard, ≤ 1 hint · one timed medium variant · one receipt | variant coverage (§3.2) · hard count · first-submit-clean under a clock | Recognition (combined tools) · Speed |
+| **Sat PM — REVISION ENGINE** (2 h; the Biweekly replaces it on alternate Saturdays) | +7d cold re-solves of the week · `/drill` 5 cards · teach-back · watchlist self-test | ladder +7d rung · L5 evidence · L6 evidence | Retention · Recognition · Communication |
+| **Sun AM — CONTEST** (2 h) | LC Weekly 08:00 IST + debrief (one card per unsolved, one receipt) | `CONTESTS.md`: solved/4, time per Q, rating | Speed · Recognition |
+| **Sun PM — UPSOLVE + REVIEW** (2 h; upsolve only on a biweekly weekend) | the one upsolve · 2 re-solves (or the monthly 10-Q test on the last Sunday) · week review + self-report | ladder · monthly tier read · calibration | Retention · Recognition · Communication |
+
+Weekend blocks are PLAN §4.2b: evenings optional in weeks 1–2, standard from week 3; weekdays stay 45 / cap 60. `/today` runs the block for the time of day; days kept counts once per date.
 
 **The "why today matters" line — printed at every session start**, filled only from the state files:
 
@@ -56,7 +60,7 @@ If the line cannot be filled from `dashboard/README.md` + `PROGRESS.md`, that is
 | 5–15 | you, alone | Attempt. Stuck ⇒ **build your own hostile input** from the catalogue (§3.3) and trace your idea on it. No "check now" — you trace, Kira doesn't. [LP 2026-06-23, 06-25] |
 | `STUCK` #1 | Kira | **L1**: one question, one line, in the modality the profile says lands (trace-first). Then silence. [LP 2026-06-22] |
 | each further `STUCK` | Kira | exactly **one** more level: L2 name the pattern/observation → L3 approach in words → L4 pseudocode → L5 code. Never two levels in a turn, never unprompted. **Landed-check** after every hint: you state the value or trace — "ok" doesn't count. Didn't land ⇒ **switch modality**, never repeat louder. [LP pacing] |
-| 30 (slot end) | both | **Clean tap-out.** Kira gives the approach *in words* (L3 — never code first). You restate it + the "reduces to" line. The problem goes to the queue as **+1d COLD RE-DERIVE**, closed-book. It counts as an L3 rep at most; **no promotion until re-derived.** [TRAINING rule 6 · LP 2026-07-13] |
+| 30 (slot end) | both | **Not stuck, just not done** ⇒ write the resume line; the *same* problem continues tomorrow, no new one. **Stuck at the cap** ⇒ **clean tap-out.** Kira gives the approach *in words* (L3 — never code first). You restate it + the "reduces to" line. The problem goes to the queue as **+1d COLD RE-DERIVE**, closed-book. It counts as an L3 rep at most; **no promotion until re-derived.** [TRAINING rule 6 · LP 2026-07-13] |
 | 2nd tap-out, same topic | Kira | the topic **re-blocks**: 2 more reps; the Friday checkpoint slides a week. A dose signal, not a failure. |
 
 Standing exceptions:
@@ -64,7 +68,7 @@ Standing exceptions:
 - **Hard problems** ⇒ Kira holds the line *tighter* — L2 max unless you ask again. Her over-reveals cluster on hards. [LP 2026-06-25]
 - **"Re-teach me X"** ⇒ closed-book pull first, then teach *abstractly on a neutral example*, never on the live problem. Trace-first is for when you're stuck on *your* attempt. [LP 2026-06-22, 06-23]
 - A cap-60 day may spend the extra 15 min on the **same** problem, never on a second one.
-- A RECALL card has a 3-minute clock: no answer ⇒ 🟡/❌ mark, no hint, next card. Cards measure; they don't teach.
+- A RECALL card has a 3-minute clock: no answer ⇒ 🟡/❌ mark, no hint, next card. Cards measure; they don't teach. **The one allowed help in any TEST-mode item is a statement clarification** (a restated line or one more example) — a reading-layer stall, logged as such, never scored as a recognition miss [LP 2026-08-09].
 
 ### 2.2 Triage — which kind of stuck, and the ONE first move
 
@@ -117,9 +121,9 @@ Standing exceptions:
 | ≥ 14 d later | mixed test or contest | a fresh disguised statement — or the tool used cold in a contest (`CONTESTS.md` is evidence) | named cold, unprompted | **L5** |
 | after L4 | teach-back | asks for the derivation + "reduces to" + the complexity line, explained as if to a beginner [Nestojko 2014] | the explanation, your words, in the journal | **L6** |
 
-**Levels, one line each.** L1 derivation happened in session · L2 explained back + traced 5 elements · L3 template from memory + 1 LEARN AC · L4 Friday checkpoint passed + ≥ 2 mediums AC solo · L5 named cold ≥ 14 d later on an unseen statement, or used correctly in a contest · L6 taught back with cue + why + reduces-to. Re-entry topics keep a `*` until their checkpoint confirms or lowers them. Nothing promotes on a same-day recall [cadence rule 2026-06-13].
+**Levels, one line each.** L1 derivation happened in session · L2 explained back + traced 5 elements · L3 template from memory + 1 LEARN AC · L4 Friday checkpoint passed + ≥ 2 mediums AC solo · L5 named cold on an unseen statement in a TEST context ≥ 14 d after the checkpoint pass (base + ≥ 2 variants across ≥ 2 tests), or the tool used correctly in a contest · L6 taught back with cue + why + reduces-to. Re-entry topics keep a `*` until their checkpoint confirms or lowers them (a re-entry checkpoint confirms **L4 at most**; an old L5\* is re-earned by the L5 rule). Nothing promotes on a same-day recall [cadence rule 2026-06-13].
 
-**Re-entry compression (Tier 0).** An old topic runs *test → repair → move* in 1–3 days: Day 1 = a cold checkpoint (3 Qs) with no video and no notes; ✅ ⇒ the level holds, one rep to warm it, move on; 🟡 ⇒ repair only the missing piece (name / machinery / complexity) with one rep on that variant; ❌ ⇒ the topic reopens with a shortened Day 1 (bottleneck → tool → template), then 2 reps. Relearning is 3–5× cheaper than first learning [Murre & Dros 2015] — the point is to *find* the leak, not re-teach ten topics.
+**Re-entry compression (Tier 0).** An old topic runs *test → repair → move* in 1–3 days: Day 1 = a cold checkpoint — **Q0 *derive it*** (what bottleneck does this tool kill? what does it reduce to? where does it run?) then the 3 Qs — with no video and no notes; ✅ ⇒ the level holds, one rep to warm it, move on; 🟡 ⇒ repair only the missing piece (name / machinery / complexity) with one rep on that variant; ❌ ⇒ the topic reopens with a shortened Day 1 (bottleneck → tool → template), then 2 reps. Relearning is far cheaper than first learning — the savings effect [Ebbinghaus; Murre & Dros 2015] — the point is to *find* the leak, not re-teach ten topics.
 
 ### 3.2 The "3 variants" rule — a pattern is owned when the base + its named variants are recognized cold
 
@@ -168,11 +172,11 @@ The Friday checkpoint's Q1 is always a *variant* you haven't been asked yet. Sat
 
 | Mark | Means | Effect |
 |---|---|---|
-| ✅ FULL | pattern + trigger + traceable complexity, first instinct (≤ 2 min on a card) | ladder advances (+7 → +30 → +90) · counts as L5 evidence if the topic was last touched ≥ 14 d ago and the statement was unseen |
+| ✅ FULL | pattern + trigger + traceable complexity, first instinct (≤ 2 min on a card) | ladder advances (+7 → +30 → +90) · counts as L5 evidence if ≥ 14 d have passed since the topic's checkpoint pass and the statement was unseen |
 | 🟡 PARTIAL | right family, fuzzy trigger *or* wrong complexity *or* a long think | interval repeats · one card generated on the missing piece (name / machinery / complexity) |
-| ❌ MISS | wrong tool, or blank | reset to +1d · one blocked rep in that topic next BUILD · `MISTAKES.md` entry if it's a known leak · a second ❌ on the same pattern across tests ⇒ the topic reopens with a shortened Day 1 |
+| ❌ MISS | wrong tool, or blank | reset to +1d · one blocked rep in that topic, scheduled in the first free BUILD **after** the current topic's checkpoint (never interleaved) · `MISTAKES.md` entry if it's a known leak · a second ❌ on the same topic within 30 d ⇒ the level drops one notch (PLAN §5) and the topic reopens with a shortened Day 1 |
 
-**Bars.** Friday checkpoint: **3/3, or 2/3 with the coded Q3 AC** = pass. Monthly 10-Q mixed: **≥ 8 FULL** = tier recognition solid · 6–7 = targeted cards on the misses · **≤ 5 = a repair week** (blocked reps on the two weakest patterns; no new topic opens).
+**Bars.** Friday checkpoint: **3/3 = pass. 2/3 ⇒ only the failed question is re-tested next Friday, and no new topic opens until it passes.** Q3 (the unseen medium, coded cold) has a **time box = the BUILD slot** (30 min in month 1, 45–60 after day 30, 0 hints); a Q3 that runs out of time is finished as the first item of Saturday AM and still passes if AC within 60 total minutes with no hint. Monthly 10-Q mixed: **≥ 8 FULL** = tier recognition solid · 6–7 = targeted cards on the misses · **≤ 5 = a repair week** (blocked reps on the two weakest patterns; no new topic opens).
 
 **The difficulty ratchet.** Each subsequent test on the same family adds **exactly one** of: heavier disguise · an extra constraint (negatives, a mod, "at most k distinct") · **two tools combined** (window + deque · prefix + binary search · DSU + sort) · tighter `n` (forces the next complexity class) · a **trap** where the surface pattern is wrong. A ❌ on a ratcheted question steps that family back one notch next time. Session fluency is never the gauge — the +7 d cold re-solve is [Soderstrom & Bjork 2015].
 
@@ -182,12 +186,13 @@ The Friday checkpoint's Q1 is always a *variant* you haven't been asked yet. Sat
 |---|---|---|---|
 | Topic checkpoint | `tests/checkpoints/NN-topic-<date>/` | every Friday | 3 Q + 2 old cards |
 | Mixed cards | RECALL slot, from `PATTERN_JOURNAL.md` cards | daily, 2 max | ≥ 1 topic away from today's BUILD |
-| Monthly mixed recognition | `tests/mixed/<yyyy-mm>/` | last Friday of the month (replaces that checkpoint) | 10 Q, tier-wide, ratcheted |
-| Contest simulation | `tests/mixed/sim-<date>/` | from month 3, Saturdays without a biweekly | 4 problems · 90 min · timed |
+| Monthly mixed recognition | `tests/mixed/<yyyy-mm>-monthly/` | last **Sunday PM** of the month (replaces the 2 re-solves) | 10 Q, tier-wide, ratcheted |
+| `/drill` | `tests/mixed/<date>-drill.md` | Sat PM standing; on request | 5 cards, marks only, reveal after — TEST mode, so a ✅ can be L5 evidence |
+| Contest simulation | `tests/contests/sim-<date>/` | from month 3, **one Saturday AM per month** (replaces that hard) | 4 problems · 90 min · timed |
 | Mock interview | `tests/interviews/<date>/` | month 7, then monthly | 1 problem · think-aloud · hire call |
 | Re-entry check | `tests/checkpoints/` | after any gap > 7 days | 30-min cold checkpoint on the current topic |
 
-**Contest → test material.** Every unsolved contest problem becomes **one card** (disguised restatement + trigger + *why I missed it*: reading / routing / machinery / execution / speed) **and one upsolve** (the easiest unsolved, within 48 h, ≤ 1 hint) in `tests/contests/<date>-<contest>/`. Solved-but-slow problems become a **speed card** (a target time). Every routing miss is read through the M#12 lens and logged. A card that only fires on-topic isn't banked — cards are re-fired cold and mixed, never re-read [LP 2026-08-10].
+**Contest → test material.** Every unsolved contest problem becomes **one card** (disguised restatement + trigger + *why I missed it*: reading / routing / machinery / execution / speed — or **unopened topic**: a tool from a tier not yet reached, logged as *not yet*, no card, no upsolve obligation, never a recognition miss) **and one upsolve** (the easiest unsolved *within opened topics*, within 48 h, ≤ 1 hint; none qualifies ⇒ the easiest at most one tier ahead, taught just-in-time, or logged out-of-scope; two contests in a weekend ⇒ one upsolve) in `tests/contests/<date>-<contest>/`. Solved-but-slow problems become a **speed card** (a target time). Every routing miss is read through the M#12 lens and logged. A card that only fires on-topic isn't banked — cards are re-fired cold and mixed, never re-read [LP 2026-08-10].
 
 ---
 
@@ -195,7 +200,7 @@ The Friday checkpoint's Q1 is always a *variant* you haven't been asked yet. Sat
 
 | Reference | Its one job | Never for |
 |---|---|---|
-| **Skiena — ADM 3e** | the recognition brain: war stories · Ch.10 *How to Design Algorithms* · the Ch.11–18 catalog — **Kira's drill fuel** | learning a technique's code |
+| **Skiena — ADM 2e** (the PDF on disk is the 2008 2nd edition; chapter numbers below are 2e) | the recognition brain: war stories · Ch.10 *How to Design Algorithms* · the Ch.11–18 catalog — **Kira's drill fuel** | learning a technique's code |
 | **Laaksonen — CPH** | the C++ template + the CP bridge (amortized / two pointers, window min, nearest smaller, range queries, strings) | the *why* — it's terse by design |
 | **CTCI 6e** | interview process · Ch.11 testing (→ Gate C) · Ch.12 C++ · Big-O refresher | CP depth |
 | **CP4 Book 1** | paradigms (3.2 complete search · 3.3.1 BS-on-answer · 3.4 greedy · 3.5 DP) + Ch.4 graphs | Tier 0/1 reading |
@@ -231,8 +236,8 @@ The Friday checkpoint's Q1 is always a *variant* you haven't been asked yet. Sat
 | same bug 3× | promote to the **watchlist** + **kryptonite pre-load** on every future problem in that family; one dedicated re-test problem | Kira | `MISTAKES.md` |
 | you ask for more volume | not more per session — a **second block** later in the day; splitting ≈ 2× retention [Rohrer & Taylor 2006] | Kira | `PLAN.md` D1 |
 | streak broken | repair token: the floor tomorrow restores it — one per week [Silverman & Barasch 2023] | you | days-kept counter |
-| a scaffold sits unfinished > 7 days | Kira deletes it (git keeps it) — open loops are the v1 killer (46 of 105) | Kira | `PROGRESS.md` log |
-| the dose feels too small at day 30 | raise to 60–90 only if ≥ 20 of 30 days kept (PLAN D1) and the felt-energy trend is flat or up | both | `PLAN.md` D1 |
+| a scaffold **created in v2** sits unfinished > 7 days | Kira deletes it (git keeps it) — open loops are the v1 killer (46 of 105). **Legacy v1 scaffolds are exempt:** their topic's re-entry checkpoint decides (finish as a rep, or delete then) | Kira | `PROGRESS.md` log |
+| the dose feels too small at day 30 | raise to 60–90 only if ≥ 20 of 30 are **build days** (PLAN §4.3) and the felt-energy trend is flat or up | both | `PLAN.md` D1 |
 
 ---
 
@@ -258,8 +263,11 @@ The Friday checkpoint's Q1 is always a *variant* you haven't been asked yet. Sat
 | Video-first vs derive-first on a *new* topic | **untested** | both have wins on record | **E2** |
 | Morning vs evening sessions | **untested** | needs your anchor first | **E6** |
 | Easy → medium vs medium-first reps | **untested** | easies hide bugs [LP 2026-06-25] | **E7** |
-| Card interval: double-on-easy vs fixed +7 d | **untested** | — | **E3** |
-| Predict-before-reveal at Gate C | **your Gate 5 — untested as an experiment** | — | **E4** |
+| Card interval doubling on "felt easy" | **standing rule** (PLAN §5) | — | — |
+| Written vs spoken Gate A (disqualifiers typed into the file header) | **untested** | — | **E1** |
+| +7 d rung as a 5-min core-loop card vs a full cold re-solve | **untested** | — | **E3** |
+| Hostile input built *before* coding vs after | **untested** | — | **E4** |
+| Predict-before-reveal at Gate C (written vs unwritten) | **your Gate 5 — the gate stays; only the writing varies** | — | queued **E9** |
 
 ### 7b. Experiment protocol
 - **One variable at a time**; 1–2 weeks (4 weeks when the metric is a +30 d re-solve).
@@ -272,12 +280,12 @@ The Friday checkpoint's Q1 is always a *variant* you haven't been asked yet. Sat
 
 | # | Weeks | Hypothesis | Variable (A = incumbent · B = candidate) | Metric | Decision |
 |---|---|---|---|---|---|
-| **E1** | 1–2 | seeded statements in BUILD (not only in tests) cut Gate-A reading misses | A: LC-style statement · B: statement + 2–3 examples — alternating reps | #10 fires · restate-in-exact-units right first time · time to first correct approach | Fri, week 2 |
+| **E1** | 1–2 | a *written* Gate A (the 4 disqualifier answers typed into the file header before coding) beats a spoken one for routing | A: spoken · B: typed — alternating reps; statements seeded in both arms | routing misses (M#12 tells) · #10 reading misses · time to first correct approach | Fri, week 2 |
 | **E2** | 3–5, crossover in Tier 1 | derive-first beats video-first on +7 d retention for a *new* topic | 06 sorting = video-first (A) · 11 bits = derive-first (B); Tier 1 crosses over: 12 lists derive-first, 13 trees video-first | checkpoint pass · +7 d cold re-solve · felt difficulty · days to L3 | Fri, week 5; confirmed week 9 |
-| **E3** | 1–5 (read at 5) | doubling the interval on "felt easy" keeps +30 d recall as well as fixed +7 d, at half the cards | A: fixed +7 d · B: +7 → +30 when easy — alternating problems | +30 d cold re-solve pass rate · cards per day | Fri, week 5 |
-| **E4** | 2–3 | naming the breaking input + predicting pass/fail *before* submit raises first-submit-clean | A: Gate C as is · B: Gate C + a written prediction — alternating reps | first-submit-clean rate · boundary leaks caught pre-submit | Fri, week 3 |
+| **E3** | 1–6 (read at 6) | the +7 d rung as a 5-min *core-loop card* retains as well as a full cold re-solve, at a third of the time | A: full cold re-solve (the standing rule) · B: 5-min core-loop card — alternating problems | +30 d cold re-solve pass rate · minutes spent | Fri, week 6 |
+| **E4** | 2–3 | building the hostile input *before* the first line of code catches more boundary leaks than building it after | A: after the code (the current habit) · B: before the first line — alternating reps; Gate C and the prediction stay in both arms | first-submit-clean rate · boundary leaks caught pre-submit | Fri, week 3 |
 
-Queued: **E5** scaffold-with-holes vs blank REPS (Tier 1) · **E6** morning vs evening, 2 weeks each, after the anchor is set · **E7** easy→medium vs medium-first (Tier 1) · **E8** grounded abstraction vs prose on the next machinery stuck.
+Queued: **E5** scaffold-with-holes vs blank REPS (Tier 1) · **E6** morning vs evening, 2 weeks each, after the anchor is set · **E7** easy→medium vs medium-first (Tier 1) · **E8** grounded abstraction vs prose on the next machinery stuck · **E9** predict-before-reveal written vs unwritten (Gate 5 stays; only the writing varies).
 
 ### 7d. Friday self-report — 5 minutes, at the checkpoint
 1. Energy this week, 1–5. 2. What landed — one hint, one moment. 3. What slid off — one thing you still can't hold. 4. What you'd change about the dose or the way I teach. 5. Felt difficulty of the checkpoint, 1–5, *before* seeing the result.
@@ -289,11 +297,11 @@ Kira **names an experiment in one line when it starts** ("E2 on: this topic runs
 ---
 
 ## KIRA'S SESSION SCRIPT — in order, every session
-1. Read `dashboard/README.md` (today block), the due rows in `REVISION_QUEUE.md`, the levels table in `PROGRESS.md`; print the **"why today matters"** line (§1) and the days-kept counter. No dashboard wall.
+1. Read `dashboard/README.md` (today block), the due rows in `REVISION_QUEUE.md`, the levels table in `PROGRESS.md`, and the **top 2 blocks** under `## 1. Session log` in `LOG.md` (newest first, date-agnostic); print the **"why today matters"** line (§1) and the days-kept counter. No dashboard wall. On a weekend, run the block for the time of day (PLAN §4.2b) instead of steps 3–8; days kept counts once per date.
 2. If ≥ 2 days were missed → one 5-min card, prune the queue, don't discuss the gap (§6).
 3. **RECALL (10):** 1–2 cards from a topic ≠ today's BUILD; mark ✅/🟡/❌; move the ladder (§4).
 4. Name any active experiment in one line (§7e).
-5. **BUILD (30):** hand over the problem *with 2–3 examples*; Gate A out loud — restate · 3-element run · the 4 disqualifier answers · target complexity; then silence.
+5. **BUILD (30):** first 3 minutes = yesterday's problem as its +1d card; then hand over the problem *with 2–3 examples*; Gate A out loud — restate · 3-element run · the 4 disqualifier answers · target complexity; then silence.
 6. Run the stuck clock (§2.1): `STUCK` = one level; landed-check after each hint; switch modality on a miss; refuse-to-check on "check now"; just-tell on C++.
 7. At the cap: clean tap-out if needed → +1d cold re-derive; write the resume line.
 8. **LOOK BACK (5):** the complexity sentence (which line makes each factor) → the cue ending "reduces to ___" → queue +1 / +3 / +7 → felt difficulty 1–5.

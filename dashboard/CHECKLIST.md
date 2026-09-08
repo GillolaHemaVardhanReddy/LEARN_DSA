@@ -34,7 +34,7 @@ Say each:
 2. **Container right?** → `set` vs `map`, `int[26]` vs `unordered_map` — does the type match what I store? (today's `unordered_set<int,int>` bug)
 3. **The 4 boundary edges:** empty `[]` · size-1 `[x]` · first/last position · the **ANSWER edge** (does "none exists / the whole thing / do-nothing/0" get handled?). *Most of your bugs hide in the ANSWER edge.*
 4. **Magnitude / overflow:** any `+`, `*`, or accumulator that exceeds `int` (~2.1e9)? Is every **seed type** right (`0LL` not `0`)? `mid = lo+(hi-lo)/2`? (#8)
-5. **Stress test it** (below) — let the brute oracle catch what you missed.
+5. *(optional, v2 D7)* **Stress test it** — ask Kira for a harness if you want the brute oracle to hunt edges; you run on LeetCode, the judge is the truth.
 
 ---
 
@@ -64,7 +64,7 @@ Say each:
 
 ---
 
-## 🧪 STRESS-TEST HARNESS (standing rule — fill `main()` on every coded problem)
+## 🧪 STRESS-TEST HARNESS (OPTIONAL since v2 D7 — Kira adds it on request; never demanded)
 The **brute is the oracle** (correct-by-construction). Generate random tiny inputs, run brute vs
 optimal, `assert` they match, loop thousands of times. The first disagreement is a bug — usually
 an edge case you'd never have hand-written. *(This is the real reason we write brute first.)*
@@ -98,7 +98,7 @@ int main() {
 ```
 **Tuning:** keep `n` small (≤6–8) — bugs surface on tiny inputs and are readable. Make the value
 range include the nasty stuff (negatives, zeros, duplicates, values `> p`). If brute mutates its
-input, pass a copy. Run via `.claude/run.sh <path>`.
+input, pass a copy. Kira runs it via `.claude/run.sh <path>` — you never need to run locally.
 
 ---
 

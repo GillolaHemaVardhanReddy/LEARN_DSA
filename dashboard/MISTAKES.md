@@ -9,8 +9,7 @@
 > (answering with the previous question's tool → the 4-question disqualifier gate BEFORE naming a
 > pattern) and **M#13 complexity as decoration** (wrong on 6/9 → "which line produces each factor?").
 >
-> **Numbering:** era-1 entries are `#1–#11` (Jun 2026), era-2 entries are `M#1–M#13` (Jul–Aug 2026).
-> **v2 entries continue as `#14, #15, …`** below the watchlist. Era files are kept verbatim after.
+> **Numbering — always write the prefix:** era-1 entries are `#1–#12` (Jun 2026; `#12` = the reduction trap, recorded from the queue), era-2 entries are `M#1–M#13` (Jul–Aug 2026; `M#12` = tool-carryover). **v2 entries are `V#1, V#2, …`** below the watchlist. Era files are kept verbatim after. M#9 / M#10 (local-oracle re-tests) are **closed as moot** under the LC-verdict-only workflow (v2 D7).
 
 ## v2 entries (from 2026-09-07)
 
@@ -143,6 +142,13 @@ Status: Open / Re-tested-pass / Re-tested-fail
 ---
 
 ## Entries
+
+### [#12] Reduction trap — dropped the constraint when reducing (2026-06-19 / 06-20, P19 LC1590) — *recorded 2026-09-08 from REVISION_QUEUE / CHECKLIST; no entry had been written*
+- **Wrong move:** twice reduced "remove the shortest subarray so the leftover sum is divisible by p" to the prettier known shape "subarray sum == target" / "equal residues", silently dropping the mod.
+- **Root cause:** the pull toward an already-solved shape; the new constraint vanishes during the reduction.
+- **Corrected model / gate:** Gate B — before marrying a reduction, hand-run ORIGINAL vs REDUCED on a hostile input (an element `> p`, e.g. `[8,1,2,7] p=7`); disagreement ⇒ the reduction dropped something.
+- **Re-test:** clears when he catches his own reduction on a fresh problem unprompted (still open; rides into the 04 prefix-sums re-entry checkpoint).
+
 > Newest first. Keep them short and honest.
 
 ### [#11] `atMost(k)−atMost(k−1)`: filtered the helper to "exactly k" + merged counter into answer

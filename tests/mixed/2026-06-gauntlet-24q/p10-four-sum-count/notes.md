@@ -38,7 +38,7 @@ Given four integer arrays of length n, COUNT the tuples (i,j,k,l) with A[i]+B[j]
 - brute vs optimal (time/space):
 - **Cue — surface features that map this kind of problem -> this pattern:**
 
-## 8. Bugs hit (copy recurring ones to ../../MISTAKE_JOURNAL.md)
+## 8. Bugs hit (copy recurring ones to ../../dashboard/MISTAKES.md)
 -
 
 ## Result (fill after AC)

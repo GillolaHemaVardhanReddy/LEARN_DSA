@@ -1,12 +1,12 @@
 # M10 Backtracking — the full map
 
-> Read `phase-2/notes/10-backtracking.md` first, then watch **[L6]** and **[L7]**.
+> Read `practice/<NN-topic>/notes.md → 10-backtracking.md` first, then watch **[L6]** and **[L7]**.
 > Everything below is one machine — `choose → explore → un-choose` — wearing different hats.
 > **LEARN** = guided, builds to L3.  **PRACTICE** = reps, no promotion.  **TEST** = cold, the only L4→L5 path.
 
 ---
 
-## LEARN ladder (`phase-2/learn/10-Backtracking/`)
+## LEARN ladder (`practice/10-backtracking/learn/`)
 Do them in this order. Each one adds **exactly one new idea** to the frame you already own.
 
 | # | Problem | Diff | The ONE new idea | Video | Status |
@@ -25,7 +25,7 @@ so the L4 bar here reads as **≥4 solo ACs across this ladder**, LC78 being #1.
 
 ---
 
-## PRACTICE set (`phase-2/practice/10-Backtracking/`) — help allowed, no promotion
+## PRACTICE set (`practice/10-backtracking/reps/ (not created — scaffold just-in-time)`) — help allowed, no promotion
 Run these **alongside** the learn ladder, not after it. Each maps to a learn problem it re-tests.
 
 | Problem | Diff | Re-tests | Why it's here |
@@ -55,9 +55,12 @@ Don't cross into Phase 3 until **M8, M9, M10, M11 are ALL L4** and ≥1 disguise
 ---
 
 ## Order of operations, honestly
-1. Read the notes (`phase-2/notes/10-backtracking.md`).
+1. Read the notes (`practice/<NN-topic>/notes.md → 10-backtracking.md`).
 2. Watch **[L6]** — https://youtu.be/AxNNVECce8c — and **[L7]** — https://youtu.be/eQCS_v3bw0Q.
    L7 is the one that pays off most: same tree, three different jobs (print all / count / find one).
 3. Then LC46, with the notes closed.
 
 You already own the hard part. The un-choose invariant is the topic; the rest is which hat it wears.
+
+
+> **v2 note (2026-09-08):** the practice set this ladder pointed to was never created — v2 scaffolds one problem just-in-time when the topic re-enters (Tier 0, week 4–5). Rungs done: LC78 · LC46 · LC39 · LC90 (AC). Next: LC131 → LC79 → LC51.

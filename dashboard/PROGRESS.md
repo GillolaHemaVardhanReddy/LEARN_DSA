@@ -2,20 +2,20 @@
 
 > Kira reads THIS at session start — it is short on purpose. Every level is backed by evidence witnessed
 > in conversation and logged in `LOG.md`. Dashboard %: L0=0 L1=15 L2=35 L3=55 L4=75 L5=90 L6=100.
-> `*` = **provisional** (a v1 level not yet re-confirmed by its Tier-0 checkpoint). Never inflate.
+> `*` = **provisional** (a v1 level not yet re-confirmed by its Tier-0 checkpoint; a re-entry checkpoint confirms **L4 at most** — an old L5\* is re-earned by the L5 rule in PLAN §8). Never inflate.
 
 ## Learner
 - **Boss** Hema Vardhan · C++ · LeetCode **`hemavardhan2076`** · runs code ONLY on LeetCode (the judge is truth).
-- Program start 2026-06-04 · layoff 2026-07-16 → 09-07 · **v2 restart Monday 2026-09-07** (fresh start).
-- **Dose (D1, month 1):** 45 min standard / cap 60 — RECALL 10 · BUILD 30 · LOOK BACK 5. Review **2026-10-07** → 60–90 if ≥ 20 of 30 days kept.
+- Program start 2026-06-04 · layoff 2026-07-16 → 09-07 · **v2 restart: setup Mon 2026-09-07 (day 0), day 1 = Tue 2026-09-08.** Day 30 = 10-07 · day 66 = 11-12.
+- **Dose (D1, month 1):** weekdays 45 min standard / cap 60 — RECALL 10 · BUILD 30 · LOOK BACK 5; weekends 2 h AM + 2 h PM (PLAN §4.2b, evenings optional in weeks 1–2). Review **2026-10-07** → 60–90 if ≥ 20 of 30 are **build days**.
 - **Targets:** month-7 checkpoint **2027-04-07** (interview-ready: ≥ 80 % NeetCode-150 mediums cold, 3 mocks ≥ lean-hire, Q3 in ≥ 1 of last 4 contests) · month-11 **2027-08-07** (expert bar: whole map L4+, top patterns L5/L6, CF Specialist trending, LC Knight attempt).
 
 ## Habit — the only metric that matters until 2026-11-12 (automaticity ≈ day 66)
-| Week of | Days kept | Repair token | Contests | Note |
-|---|---|---|---|---|
-| 2026-09-07 | 0 / 7 | available | 0 | v2 day 1 = Mon 09-07 · first contest Sun 09-13 08:00 IST |
+| Week of | Days kept | Build days | Repair token | Contests | Note |
+|---|---|---|---|---|---|
+| 2026-09-07 | 0 / 7 | 0 / 7 | available | 0 | day 0 = Mon 09-07 (setup) · day 1 = Tue 09-08 · first contest **Sat 09-12 20:00 IST Biweekly 191**, then Sun 09-13 08:00 Weekly |
 
-**Days kept total: 0 / 66.** A kept day = at least the floor (one 10-min card). 5 of 7 = a kept week.
+**Days kept total: 0 / 66 · build days 0.** A kept day = at least the floor (one 10-min card); a build day = a BUILD problem attempted. 5 of 7 kept = a kept week; two consecutive zero days breaks the streak; one repair token per week. The day-30 dose raise counts **build days**, not kept days.
 
 ## Topic levels (v2 map · 33 topics · see `PLAN.md` §3)
 | # | Topic | Level | Evidence (short) | Tier-0 re-entry |
@@ -34,12 +34,13 @@
 | 11 | Bits | L1 | bitmask enumeration used as an oracle (LC78/LC402) | **NEW** (3 days) |
 | 12–32 | Tiers 1–5 | L0 | — | open per `PLAN.md` §7 |
 
-**Overall mastery (in-scope = Tier 0, 12 topics, provisional):** (35+75+75+90+75+75+15+75+55+75+55+15)/12 = **59 %** — will be re-derived from the Tier-0 checkpoints by 2026-10-11. Recognition mean (10 old topics): ~64 %. Interview readiness: **not estimated** until then.
+**Overall mastery (in-scope = Tier 0, 12 topics, provisional):** (35+75+75+90+75+75+15+75+55+75+55+15)/12 = **59 %** — will be re-derived from the Tier-0 checkpoints by 2026-10-11.  Interview readiness: **not estimated** until then.
 
 ## Counters
 - v1 judge-AC problems: **~70** (list in `LOG.md` §2). **v2 ledger starts at 0** on 2026-09-07 (re-solves counted separately in the ladder).
 - First-submit-clean streak: **1** (best 1 — LC33, 2026-06-25).
 - Contests: v1 = 1 (biweekly 2026-06-20, 0/4). **v2 = 0.**
+- Legacy unfinished v1 scaffolds (≈ 20 files now under `practice/*/reps|hard`) are **exempt from the 7-day delete rule**; each topic's re-entry checkpoint decides finish-or-delete.
 
 ## Leak board (single source — `dashboard/README.md` links here)
 | Leak | Last fired | Standing catch |

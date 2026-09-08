@@ -1,7 +1,7 @@
 # ➕ 05 — Prefix Sum (+ Hash)  ·  (teaching notes — reread cold, they rebuild the model)
 
 > These notes TEACH, they don't just remind. Read top to bottom and the understanding comes back.
-> Terse cues live in `dashboard/PATTERN_JOURNAL.md`; classifier in `00-Recognition-Map.md`. This is the deep one.
+> Terse cues live in `dashboard/PATTERN_JOURNAL.md`; classifier in `practice/README.md (recognition map)`. This is the deep one.
 > Prefix Sum is the engine under range queries, "subarray sums to k", divisibility, and 2D grids.
 
 ## 0. Striver / references (watch AFTER these notes)

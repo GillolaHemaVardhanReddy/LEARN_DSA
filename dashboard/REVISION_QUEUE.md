@@ -1,18 +1,19 @@
 # REVISION_QUEUE.md — the retrieval ladder (dates drive it)
 
-> **Rules (PLAN §5):** every AC → **+1d** card → **+3d** card → **+7d cold re-solve** (felt easy ⇒ +30d,
-> felt hard ⇒ +7d again) → **+30d** → **+90d**. Fail anywhere ⇒ back to +1d. Every topic checkpoint →
-> 2 mixed cards at **+14d / +45d / +90d**. First review is never same-day (sleep).
-> **Dose cap:** the RECALL slot is 10 min. More than 3 items due ⇒ Kira prunes to the oldest one per
-> topic — the queue gets pruned, boss doesn't. **The RECALL item is always a different topic than the
-> day's BUILD** (that's the interleaving that catches M#12 tool-carryover).
-> A **card** = disguised statement (seeded with 2–3 examples) → name the pattern + trigger + core idea
-> + complexity-with-the-work-in-it. A **cold re-solve** = write the core loop / solve on LC from memory.
+> **Rules (PLAN §5, sized to the slots):** only **BUILD problems and contest upsolves** enter the ladder (≈ 6–7/week).
+> Per problem: **+1d card** (the first 3 min of the next day's BUILD, same topic) → **+7d cold re-solve** (a weekend block;
+> felt easy ⇒ next at +30d, felt hard ⇒ +7d again) → **+30d card** (RECALL) → **+90d card** (RECALL). Fail ⇒ back to +1d.
+> Per topic: checkpoint pass → 2 mixed cards at **+14d / +45d / +90d** (a ✅ ≥ 14d after the pass, unseen statement, = L5 evidence).
+> **RECALL slot = 10 min = the 2 oldest due items, always a different topic than the day's BUILD.** More due ⇒ they **slide** a day,
+> never drop; backlog > 10 ⇒ collapse to one item per topic, the rest jump to their next rung marked "skipped" — written here, never silent.
+> A ❌ on an L4/L5 topic ⇒ ⚠ + a +1d card; a second ❌ within 30d ⇒ the level drops one notch (regression rule, PLAN §5).
+> A **card** = disguised statement (2–3 seeded examples) → the 4 disqualifier answers → pattern + trigger + idea + complexity-with-the-work.
 
 ## Due — Kira fills the RECALL slot from here (oldest first)
 | Due | Item | Kind | Stage | Result |
 |---|---|---|---|---|
-| 2026-09-08 | Comeback gauntlet **Q10 → Q20** — `tests/mixed/2026-08-comeback-gauntlet/PART-A-recognition-20Q.md` (statements seeded, marks only, reveal after Q20; the disqualifier gate spoken before each answer) | test | baseline | |
+| 2026-09-08 | Comeback gauntlet **Q10 → Q20** — the whole day-1 session (11 cards ≈ 35 min + reveal/score 10 min); statements seeded in the file; disqualifier gate before each answer; marks only, reveal after Q20 | test | baseline | |
+| 2026-09-09 | RECALL: 2 cards built from yesterday's gauntlet misses (different family than 00 complexity) | card | +1d | |
 
 ## Ladder — active items (starts with the first v2 AC)
 | Problem / cue | Topic | Last pass | Next due | Stage |
@@ -33,7 +34,7 @@
 | 08 | practice claim unverified — name the ACs or grind ≥2 of LC622/1438/1696 · **Q9:** two-deque half absent (built a multiset) | 7/08 · 8/10 |
 | 09 | **Q5:** memo never mentioned — memo two-lines + sentinel cold · call-tree magnitude | 8/10 |
 | 10 | LC46 cold re-derive (loop frame, no video) · LC90 loop-frame WHY · LC131 next · **Q8 keypad tap-out** despite naming the trigger | 7/16 · 8/10 |
-| — | M#9 / M#10 local-oracle re-tests: **closed as moot** (LC-verdict-only workflow, CLAUDE.md §14) | 7/15 |
+| — | M#9 / M#10 local-oracle re-tests: **closed as moot** (LC-verdict-only workflow; v2 D7 — noted in MISTAKES.md) | 7/15 |
 
 ## Completed (v2 log)
 | Date | Item | Result | Next |

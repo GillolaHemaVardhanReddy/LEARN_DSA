@@ -5,6 +5,25 @@
 > videos listed under it, then come back to Kira for the active practice loop.
 > Links are `https://youtu.be/<id>` — all verified from the live playlist.
 
+> **v2 CROSSWALK (2026-09-08) — this file is still keyed by the v1 module numbers (M1–M24). Use this table:**
+>
+> | v2 topic | v1 section here | v2 topic | v1 section here |
+> |---|---|---|---|
+> | 00 complexity | M1 | 17 graphs-bfs-dfs | M16 |
+> | 01 hashing | M2 | 18 topo-sort | M17 |
+> | 02 two-pointers | M3 | 19 union-find | M18 |
+> | 03 sliding-window | M4 | 20 shortest-paths · 21 mst | M19 |
+> | 04 prefix-sums | M5 | 22 dp-1d | M20 |
+> | 05 binary-search | M6 | 23 dp-2d · 24 dp-3 | M21 |
+> | **06 sorting** | *not in this file* — A2Z **Step 2 (Sorting)** on the sheet; pull the ids just-in-time | 25 greedy | M22 |
+> | 07 stacks | M7 | 26 intervals | M23 |
+> | 08 queues-deque | M8 | 27 math | M25 (proposed) + A2Z Step 1 basics-maths |
+> | 09 recursion | M9 | 28–32 (Tier 5) | not covered here — usaco.guide → cp-algorithms → CSES |
+> | 10 backtracking | M10 | | |
+> | 11 bits | M24 | | |
+> | 12 linked-lists | M11 · 13 trees | M12 · 14 bst | M13 · 15 heaps | M14 · 16 tries | M15 |
+
+
 ## Master links (VERIFIED 2026-06-05)
 - **Playlist:** https://www.youtube.com/playlist?list=PLgUwDviBIf0oF6QL8m22w1hIDC1vJ_BHz
 - **A2Z Sheet (articles + practice per topic):** https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/

@@ -71,7 +71,7 @@ If you're **still** stuck after the 4th hint → Kira explains **fully and in de
 - **AC** = Accepted on the judge (ground truth, not Kira's approval).
 - **Notes** = where you slipped + the cue learned.
 
-Misses → `MISTAKE_JOURNAL.md` (root cause + re-test). Cues → `PATTERN_JOURNAL.md`.
+Misses → `dashboard/MISTAKES.md` (root cause + re-test). Cues → `PATTERN_JOURNAL.md`.
 
 ---
 

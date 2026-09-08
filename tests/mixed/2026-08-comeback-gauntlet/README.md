@@ -1,5 +1,7 @@
 # 🔁 COMEBACK GAUNTLET — Revision + Recognition (opened 2026-08-09)
 
+> **v2 note (2026-09-08):** the bars below ("≥17 → M11", "Part B sweep", "Part C") are **retired**. Q10–Q20 run on v2 day 1 as the baseline; the per-pattern read feeds each old topic's **re-entry checkpoint** (`dashboard/PLAN.md` §4.5, D5/D8). Score honestly; nothing here promotes or demotes a level by itself.
+
 > **Why this exists:** boss stepped away ~1 month (last real rep 2026-07-24, last code 2026-07-16).
 > His own call: *"revision of all topics I completed + a test if I can recognise problems of each topic."*
 > Correct instinct — and the ORDER matters.

@@ -14,7 +14,7 @@
 
 | Book | File | Pages | Edition confirmed | Its JOB on this journey |
 |---|---|---|---|---|
-| **Skiena — The Algorithm Design Manual** | `The Algorithm Design Manual by Steven S. Skiena.pdf` | 739 | **3rd ed.** (Ch.7 Combinatorial Search, Ch.8 DP, catalog Ch.11–18 = 3e) | ⭐ **The RECOGNITION brain.** War stories + Ch.10 "How to Design Algorithms" + the Ch.11–18 problem catalog = a pattern-transfer engine. Our #1 goal lives here. |
+| **Skiena — The Algorithm Design Manual** | `The Algorithm Design Manual by Steven S. Skiena.pdf` | 739 | **2nd ed. (2008)** — corrected 2026-09-08: the chapter numbers used throughout (Ch.7 Combinatorial Search, Ch.8 DP, Ch.10 How to Design, catalog Ch.11–18) are **2e** numbers; the 3e renumbers them (9 / 10 / 13 / 14–21) | ⭐ **The RECOGNITION brain.** War stories + Ch.10 "How to Design Algorithms" + the Ch.11–18 problem catalog = a pattern-transfer engine. Our #1 goal lives here. |
 | **Laaksonen — Competitive Programmer's Handbook** | `book.pdf` | 296 | current (CSES) | **The C++ IMPLEMENTATION + technique reference.** Tightest idiomatic code; exact templates. Also our CP bridge for Phase 7. |
 | **McDowell — Cracking the Coding Interview** | `Cracking the Coding Interview.pdf` | 708 | **6th ed.** | **The INTERVIEW-CONTEXT layer.** Big-O refresher, the **C/C++ chapter (12)**, **Testing (11) → feeds Gate C**, behavioral, and per-topic problem sets for extra reps. |
 | **Halim — Competitive Programming 4, Book 1** | `cp4-1.pdf` | 329 | **CP4 Book 1** (19 Jul 2020 eBook) | **The CONTEST-DEPTH + graph/paradigm reference.** Ch.3 Problem-Solving Paradigms (Complete Search, binary-search-on-answer, Greedy, DP) and Ch.4 Graph (MST, Dijkstra, Bellman, Floyd) are best-in-set for our M16–M22. Backbone of Phase 7. *(Book 2 = the Phase-7 add.)* |
@@ -58,7 +58,7 @@
 
 ## 🎯 PER-MODULE REFERENCE MAP (pinned to the OWNED PDFs' real chapters)
 
-> **S** = Skiena ADM 3e · **L** = Laaksonen CPH · **C** = CTCI 6e · **P** = CP4 Book 1. ⭐ = the standout for that module.
+> **S** = Skiena ADM 2e · **L** = Laaksonen CPH · **C** = CTCI 6e · **P** = CP4 Book 1. ⭐ = the standout for that module.
 
 ### Phase 1 — Foundations
 | Module | Primary | Secondary |

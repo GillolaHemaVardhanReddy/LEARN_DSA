@@ -14,7 +14,7 @@
 | # | Decision | Kira's default (used if boss says "go") | Boss's call |
 |---|---|---|---|
 | D1 | **Daily anchor + budget** | Anchor: *"after ___"* (boss names it). Weekday **60–90 min, hard cap 90**. Sat up to 3 h (hard problem or biweekly). Sun = contest 90 min + one upsolve ≤60 min, nothing else. ≈ **10–13 h/week.** Want more? Add a **second 60-min block** in the day, never a longer session (splitting ≈ 2× retention, §2 rule 2). | **✅ 45 min standard, cap 60, for month 1** (RECALL 10 · BUILD 30 · LOOK BACK 5). Kira raises it to 60–90 after **day 30 (2026-10-07)** if ≥ 20 of 30 days are kept. **Weekends (added later 09-07): 2 h morning + 2 h evening, Sat and Sun** → §4.2b. ≈ 13 h/week. |
-| D2 | **Contests** | **LeetCode Weekly** (every Sun 08:00 IST) + **Biweekly** (alt Sat 20:00 IST) from **this Sunday, 2026-09-13**. **GFG Weekly is PAUSED** (see §6) → substitute **CodeChef Starters** (Wed 20:00 IST) from month 2. **Codeforces** Div 3/4 + Educational from month 3 (Dec). | **✅ as proposed.** |
+| D2 | **Contests** | **LeetCode Weekly** (every Sun 08:00 IST) + **Biweekly** (alt Sat 20:00 IST) from **this Sunday, 2026-09-13**. **GFG Weekly is PAUSED** (see §6) → substitute **CodeChef Starters** (Wed 20:00 IST) from month 2. **Codeforces** Div 3/4 + Educational from month 3 (Dec). | **✅ as proposed.** First v2 contest = **Biweekly 191, Sat 2026-09-12 20:00 IST**, then the Weekly Sun 09-13 08:00. Biweekly anchor: 2026-09-12 + 14·k days. |
 | D3 | **LeetCode username** | Needed: the MCP session is signed out and no username is on file. Give the handle → dashboard tracks ACs + contest rating. (Re-login the MCP only if you want submission verification.) | **✅ `hemavardhan2076`** → `dashboard/CONTESTS.md`. |
 | D4 | **Old planning docs** | Delete the 7 superseded files (git history keeps them). Keep `STRIVER_VIDEOS.md`, `CPP_GAPS.md`, `references/` under `dashboard/`. | **✅ deleted.** |
 | D5 | **Re-entry style (Tier 0)** | **Test → repair → move** per old topic (1–3 days each): cold checkpoint first, repair only what leaked. Not a from-scratch re-teach. | ✅ default. |
@@ -37,7 +37,7 @@
 | CP track **parked until interview-ready**; one contest (Jun 20) zeroed, no follow-up loop | Nothing to *use* the tools on. You said it: *"losing interest due to lacking of how to use the things I learn."* |
 | Curriculum listed 24 modules; the **derivation between them** lived only in Kira's head | You learn like a mathematician: A ⇒ B ⇒ C. A list of modules is not a derivation. |
 
-**What survived (also receipts):** on 7/24 you named hashing cold after 8 days off; on 8/09 you *derived* the 4-sum hashing machine and the sliding-window machine cold after a month. The tools are alive; the **names, the machinery details, and the habit** decayed. Relearning after a layoff is ~3–5× cheaper than first learning (Ebbinghaus savings, Murre & Dros 2015). **This is a re-entry, not a restart.**
+**What survived (also receipts):** on 7/24 you named hashing cold after 8 days off; on 8/09 you *derived* the 4-sum hashing machine and the sliding-window machine cold after a month. The tools are alive; the **names, the machinery details, and the habit** decayed. Relearning after a layoff is far cheaper than first learning — the *savings* effect (Ebbinghaus; replicated by Murre & Dros 2015). **This is a re-entry, not a restart.**
 
 ### 1.1 The 2026-08-10 session (it was only on GitHub — pulled in today) changes two things
 
@@ -55,13 +55,13 @@ Also confirmed that session: **seeding every statement with 2–3 concrete examp
 1. **A fixed small dose beats a big variable one.** Floor = one retrieval rep (≤10 min). Standard = ~75–90 min. Hard cap; stop mid-problem if needed and write the resume point. *(Ericsson: effective deliberate practice ≈ 1 h/day; Beshears 2021: rigid windows backfire, flexible timing + a default anchor wins.)*
 2. **Split, don't stack.** 9 problems in one sitting retained no better than 3 (Rohrer & Taylor 2006); the *same* problems split over two sessions ≈ **2× retention** at 4 weeks. So: never a 24-problem drill again. Tomorrow's 3 beat today's 9.
 3. **Block the NEW, interleave the OLD — in small doses.** Blocked practice is better for *first* learning; interleaving is better for *recognition and retention* (Rohrer 2020 RCT, d = 0.83) — but pure interleaving is an *undesirable* difficulty for a learner still acquiring the pattern (Hwang 2024). Recipe: **one new topic at a time** (2–4 blocked reps), and the only cross-topic work per day is **1–2 short revision reps** from old topics. If practice accuracy drops below ~50 %, re-block.
-4. **Retrieve, never re-read.** Testing beats restudy by 2 days out (Roediger & Karpicke 2006; ~80 % vs ~33 % recall at 1 week). Every AC'd problem enters a **cold re-solve ladder**: 1d → 3d → 7d → 14d → 30d → 90d. First review is *tomorrow*, never same-day (sleep consolidates — Rasch & Born 2013).
+4. **Retrieve, never re-read.** Testing beats restudy by 2 days out (Roediger & Karpicke 2006); keeping items in the test loop gave ~80 % vs ~33 % recall a week later (Karpicke & Roediger 2008). Every AC'd problem enters a **cold re-solve ladder**: 1d → 3d → 7d → 14d → 30d → 90d. First review is *tomorrow*, never same-day (sleep consolidates — Rasch & Born 2013).
 5. **Derive, don't memorize — and link everything backward.** Knowledge that keeps being *used inside later material* becomes permanent (Bahrick & Hall 1991: algebra used in calculus showed no loss 50 years later). So every topic opens as *"the bottleneck of the previous tool ⇒ the new tool"*, and every journal cue ends with **"reduces to ___"**. This is your math instinct, validated.
 6. **Fade the scaffold.** Worked trace → completion holes → solo (Renkl & Atkinson 2004). Full worked examples *hurt* once you're competent (expertise reversal). LEARN files keep question-holes; REPS are bare.
 7. **Self-explain to close.** Writing the cue in your own words is your confirmed "really gets it" signal (LEARNING_PROFILE) and the best-supported study technique after testing + spacing (Bisra 2018; Dunlosky 2013).
 8. **Range goals with slack.** "5 of 7 days" counts as a kept week; **1 streak-repair token per week** (Sharif & Shu 2017; Silverman & Barasch 2023: broken streaks demotivate *unless repairable*). Never miss twice.
 9. **If-then plans, written down** (Gollwitzer & Sheeran 2006, d = 0.65, >8 000 people). See §4.4.
-10. **Judge the habit at day 60, judge mastery by delayed cold solves — never by how fluent a session felt** (Lally 2010: automaticity ≈ 66 days; Soderstrom & Bjork 2015: performance during practice is a bad gauge of learning). The calendar re-derives from velocity every month; the **gates never move**.
+10. **Judge the habit at day 66 (2026-11-12), judge mastery by delayed cold solves — never by how fluent a session felt** (Lally 2010: automaticity ≈ 66 days; Soderstrom & Bjork 2015: performance during practice is a bad gauge of learning). The calendar re-derives from velocity every month; the **gates never move**.
 
 **Contests are the "use," not the training** (Um_nik: archives teach *solving*, contests teach *fast*). They start week 1 as measurement + fun + the weekly interleaving; the daily dose is where mastery is built.
 
@@ -111,7 +111,7 @@ Also confirmed that session: **seeding every statement with 2–3 concrete examp
 
 | Source (2026) | Its structure | v2 coverage |
 |---|---|---|
-| **NeetCode 150 / 250** — 16 categories | Arrays&Hashing → 2P → SW → Stack → BS → LL → Trees → Tries → Heap → Backtracking → Graphs → Adv. Graphs → 1-D DP → 2-D DP → Greedy → Intervals → Math&Geo → Bits | **16/16** (topics 01–27) |
+| **NeetCode 150 / 250** — 18 categories | Arrays&Hashing → 2P → SW → Stack → BS → LL → Trees → Tries → Heap → Backtracking → Graphs → Adv. Graphs → 1-D DP → 2-D DP → Greedy → Intervals → Math&Geo → Bits | **18/18** (topics 01–27) |
 | **Striver A2Z** — 18 steps, 474 problems | Basics · Sorting · Arrays · BS · Strings · LL · Recursion · Bits · Stack/Queue · SW/2P · Heaps · Greedy · Trees · BST · Graphs · DP · Tries · Adv. Strings | **18/18** |
 | **USACO Guide** Bronze → Silver → Gold | complete search, sorting/comparators, sets/maps, greedy, prefix sums, 2P, BS-on-answer, PQ, flood fill, tree algos, bits, divisibility/mod/combinatorics, DP family, shortest paths, DSU, topo, MST, BIT/segtree, tree DP, Euler tour/LCA, hashing, meet-in-the-middle, unimodal | **all of Bronze–Gold** (Platinum = beyond this plan) |
 | **CSES** — 18 sections, 400 problems | Intro · Sorting&Searching · DP · Graphs · Range Queries · Trees · Math · Strings · Geometry · Advanced · SW · Bitwise · Construction · Adv. Graph · Counting · Interactive | **13 full + 5 partial** (geometry basics only; flows/Platinum-level out of scope) |
@@ -126,13 +126,13 @@ Ladders are **intentionally short** (LEARN 1–2 · REPS 4–6 · HARD 1). Kira 
 
 | # | Topic | Kills this bottleneck | Canonical problems | Where it runs in the world |
 |---|---|---|---|---|
-| 00 | Complexity from constraints | "can I afford this?" — the 10⁸ rule; **count the work off your own code** (per-item cost × items); recurrence cost by tree size | **ACTIVE, week 1, 2 days (M#13: wrong on 6 of 9).** No LC problems: 6 short snippets/algorithms to bound by naming the line behind each factor. Checkpoint = 3 consecutive problems whose bound survives "which line?". M1's self-reported L3\* stays frozen until then. | every code review, ever |
+| 00 | Complexity from constraints | "can I afford this?" — the 10⁸ rule; **count the work off your own code** (per-item cost × items); recurrence cost by tree size | **ACTIVE, week 1, 2 days (M#13: wrong on 6 of 9).** No LC problems: 6 short snippets/algorithms to bound by naming the line behind each factor. Checkpoint = 3 consecutive problems whose bound survives "which line?". M1 is lowered to **L2\*** until then. | every code review, ever |
 | 01 | Hashing | O(n) inner "seen before?" scan | LC1✓ 217✓ 219✓ 242✓ 49✓ 128✓ 347✓ 36✓ · 706 design · H: 149✓ | DB indexes, caches, dedup |
 | 02 | Two pointers | hashing can't do order/nearest; sorted ⇒ steer | LC125✓ 167✓ 15✓ 11✓ 283✓ · 75 Dutch-flag (redo) · H: 42 | merge step of merge sort, stream joins |
 | 03 | Sliding window | re-scanning every subarray | LC209✓ 3✓ 424✓ 567✓ 1004✓ 904✓ · H: 76, 992 | rate limiters, network congestion windows |
 | 04 | Prefix sums + difference arrays | many range sums / counts | LC303✓ 724✓ 560✓ 974✓ 525✓ 238✓ 523✓ 1590✓ · **NEW:** 1109 (difference array), 304 (2-D prefix) | analytics dashboards, image integral tables |
 | 05 | Binary search (+ on answer) | n = 1e9 ⇒ must discard halves | LC704✓ 35✓ 34✓ 875✓ 33✓ 153✓ 162✓ 1011✓ · 74, 540 · H: 410, 4, 719 | any "smallest X that works" (capacity planning) |
-| 06 | **Sorting** *(new)* | order as a preprocessing tool; the first D&C recursion | 912 (merge sort by hand) · 493 reverse pairs (inversions) · 215 quickselect · 179 comparator · 41 cyclic sort · 347✓ bucket | everything; `sort()` + comparator fluency is a CP primitive |
+| 06 | **Sorting** *(new)* | order as a preprocessing tool; the first D&C recursion | 912 (merge sort by hand) · 215 quickselect · 179 comparator · 347✓ bucket · H: 493 reverse pairs (inversions), 41 cyclic sort | everything; `sort()` + comparator fluency is a CP primitive |
 | 07 | Stacks + monotonic stack | next-greater brute O(n²) → amortized O(n) | LC20✓ 155✓ 739✓ 503✓ 456✓ 402✓ 735✓ · 150, 901, 853 · H: 84 | parsers, undo stacks, stock spans |
 | 08 | Queues + monotonic deque | window max needs 03 + 07 together | LC232✓ 933✓ 239✓ · 622, 1438, 1696 · H: 862 (parked hard) | schedulers, streaming max/min |
 | 09 | Recursion + D&C + fast power | self-similar problems; leap of faith | LC50✓ 231✓ 1137✓ 746✓ 198✓ 70✓ · gcd (Euclid) · 779 | file systems, compilers, `pow(x, 1e18) mod p` |
@@ -176,10 +176,10 @@ Ladders are **intentionally short** (LEARN 1–2 · REPS 4–6 · HARD 1). Kira 
 
 | # | Topic | Kills | Canonical problems | Where it runs |
 |---|---|---|---|---|
-| 28 | Range queries: sparse table → Fenwick → segment tree → lazy | prefix sums that must UPDATE | 307, 315, 493 (Fenwick) · CSES Static Range Min, Dynamic Range Sum/Min, Range Update Queries · 2407 · coordinate compression | time-series stores, OLAP, game leaderboards |
-| 29 | Strings: KMP/prefix-function, Z, rolling hash, suffix array intro | substring search in O(n + m) | 28, 1392, 187, 214, 1044 · CSES Finding Periods, String Matching | grep, plagiarism detection, DNA search |
-| 30 | Advanced graphs: bridges/articulation, SCC, LCA (binary lifting), Euler tour, functional graphs, negative cycles | structure inside graphs | 1192, 1483, 2360 · CSES Planets & Kingdoms, Company Queries I/II, Subtree Queries, Cycle Finding, Planets Cycles | network resilience, dependency analysis |
-| 31 | Advanced DP: bitmask, digit, tree rerooting, deque optimization, bitset knapsack, LIS n log n, SOS intro | exponential states made small | 1986, 847, 1349, 902, 834, 1696 (revisit), 300 (n log n) · CSES Hamiltonian Flights, Elevator Rides, Counting Numbers, Tree Distances I/II, Money Sums | scheduling, VLSI, counting problems |
+| 28 | Range queries: sparse table → Fenwick → segment tree → lazy | prefix sums that must UPDATE | 307 (Fenwick) · CSES Static Range Min, Dynamic Range Sum/Min, Range Update Queries · coordinate compression · H: 315, 493, 2407 | time-series stores, OLAP, game leaderboards |
+| 29 | Strings: KMP/prefix-function, Z, rolling hash, suffix array intro | substring search in O(n + m) | 28, 1392, 187 · CSES Finding Periods, String Matching · H: 214, 1044 | grep, plagiarism detection, DNA search |
+| 30 | Advanced graphs: bridges/articulation, SCC, LCA (binary lifting), Euler tour, functional graphs, negative cycles | structure inside graphs | 2360 · H: 1192, 1483 · CSES Planets & Kingdoms, Company Queries I/II, Subtree Queries, Cycle Finding, Planets Cycles | network resilience, dependency analysis |
+| 31 | Advanced DP: bitmask, digit, tree rerooting, deque optimization, bitset knapsack, LIS n log n, SOS intro | exponential states made small | 1986, 902, 1696 (revisit), 300 (n log n) · H: 847, 1349, 834 · CSES Hamiltonian Flights, Elevator Rides, Counting Numbers, Tree Distances I/II, Money Sums | scheduling, VLSI, counting problems |
 | 32 | Contest craft: constructive/ad-hoc, invariants & parity, meet-in-the-middle, offline queries, ternary search, interactive, fast I/O, CF-style stress testing | speed on unseen shapes | CF Div2 A/B ladder · CSES Construction, Meet in the Middle, Interactive · 1755, 1515 | this IS the contest muscle |
 
 > **Out of scope (deliberately):** flows/matching, suffix automaton, HLD/centroid, FFT, DP optimizations (CHT/D&C). That's Platinum/red-coder territory — a Phase after month 11, if wanted.
@@ -192,8 +192,8 @@ Ladders are **intentionally short** (LEARN 1–2 · REPS 4–6 · HARD 1). Kira 
 
 | Slot | Time | What | Rule |
 |---|---|---|---|
-| **1 · RECALL** | 10 min | 1–2 due items from `REVISION_QUEUE.md`: a *card* (disguised statement → name the pattern + trigger + core idea, 3 min) or a *cold re-solve* (write the core loop from memory, 10 min). **Always a different topic than today's.** | This is the ONLY cross-topic work of the day. Queue overflow (> 3 due) ⇒ Kira prunes to the oldest one per topic. |
-| **2 · BUILD** | 30 min (month 1) · 45–60 after | The current topic. **ONE problem, fully** — LEARN (derive: brute → bridge → optimal) or REP (solve → LC submit → look back). A second problem only if the first was quick. **Gate A first, always:** restate in one sentence + 3-element dry run + the **4 disqualifier questions** — *contiguous or not? · sorted, or may I sort? · order or membership? · count, best, or list-all?* — **before any tool is named** (M#12). | One 25–50-min block per problem. **Stop at the cap even mid-problem** — write the resume line, that's tomorrow's warm-up. |
+| **1 · RECALL** | 10 min | 1–2 due items from `REVISION_QUEUE.md`: a *card* (disguised statement → name the pattern + trigger + core idea, 3 min) or a *cold re-solve* (write the core loop from memory, 10 min). **Always a different topic than today's BUILD** (yesterday's problem gets its +1d card *inside* BUILD — §5). | The only cross-topic work of a weekday. More than 2 due ⇒ do the 2 oldest; the rest slide one day, never dropped (§5). |
+| **2 · BUILD** | 30 min (month 1) · 45–60 after | The current topic. **ONE problem, fully** — LEARN (derive: brute → bridge → optimal) or REP (solve → LC submit → look back). A second problem only if the first was quick. **Gate A first, always:** restate in one sentence + 3-element dry run + the **4 disqualifier questions** — *contiguous or not? · sorted, or may I sort? · order or membership? · count, best, or list-all?* — **before any tool is named** (M#12). | One block per problem: 30 min in month 1, 45–60 after day 30. **Stop at the cap even mid-problem** — write the resume line; not stuck ⇒ the *same* problem continues tomorrow; stuck ⇒ clean tap-out (approach in words, +1d cold re-derive, no promotion). |
 | **3 · LOOK BACK** | 5 min | The **complexity as a sentence with the work in it** ("for each of n days I walk back up to n ⇒ n²" — which line produces each factor, M#13) → the cue in your words into `PATTERN_JOURNAL.md` (**must end with "reduces to ___"**) → queue the re-solve dates → `/endsession` (add + commit + push). | Polya's "look back" — the step everyone skips and the one that makes it stick. |
 
 **Floor (bad day):** slot 1 only, one card, ≤10 min. **It counts as a kept day.** Zero is the only failure.
@@ -213,6 +213,8 @@ Weekly throughput: weekdays 1 h × 5 (≈ 5 build problems + 8 cards) + the two 
 ### 4.2b The weekend blocks (boss's offer, 2026-09-07: 2 h morning + 2 h evening, both days)
 
 Each block = at most **two deep problems + retrieval**, a 5-minute break every 50 minutes, and a hard stop at 2 h. Mornings get the high-energy work (the hard, the contest); evenings get retrieval (spaced from the morning — that's the "split sessions ≈ 2× retention" win, §2 rule 2). **Fixed blocks:** Sat morning + Sun morning. **Flexible blocks:** the two evenings — skipping one does not break the week.
+
+**Ramp (weeks 1–2):** the evening blocks are *optional* — do one only if energy is ≥ 4/5 that day; from week 3 they are standard. Coming off a layoff, an 8-hour weekend on day 6 is the v1 sprint shape — we grow into it. **The Biweekly** (alternate Saturdays 20:00 IST; next = **2026-09-12**) is *fixed* when it occurs: it replaces the Sat-PM revision engine (only the 20-min teach-back survives, after the contest) and the Sunday Weekly still runs the next morning — so on a biweekly weekend the Sun-PM block shrinks to **the one upsolve only** (60 min), for rest. Two contests in one weekend ⇒ **one upsolve total** (the easier). **After every hard and every contest, one same-day receipt is named before any verdict** — the calibration leak fires after hard reps (LEARNING_PROFILE 06-20 · 06-25 · 08-09).
 
 | Block | Minutes | What | Why it makes you stronger |
 |---|---|---|---|
@@ -235,7 +237,9 @@ From month 3, one Saturday morning per month is a **timed 4-problem contest simu
 
 ### 4.3 Slack, streaks, lapses
 
-- **A kept week = 5 of 7 days.** One **repair token** per week: a missed day is repaired by doing the floor the next day. Never miss twice.
+- **Day count:** v2 day 1 = **Tue 2026-09-08** (09-07 was setup). Day 30 = 2026-10-07 · day 66 = 2026-11-12.
+- **A kept day** = at least the floor (one 10-min card). **A build day** = a BUILD problem was attempted. Both are logged in `PROGRESS.md`. The streak counts kept days; **the day-30 dose decision counts build days (≥ 20 of 30)** — a month of floor-only days keeps the streak alive but does not raise the dose.
+- **A kept week = 5 of 7 kept days.** **Never miss twice** = two consecutive zero days breaks the streak. **One repair token per week:** a zero day followed by a floor day does not break the streak (token spent); a second zero day in the same week does.
 - **Automaticity ≈ 66 days** (Lally 2010) ⇒ the habit is judged on **2026-11-12**, not next week. Until then the only metric on the dashboard that matters is *days kept*.
 - **Lapse ≠ relapse.** One missed day is noise (Lally: negligible effect). Two missed days ⇒ Kira's first message next session is **one 5-min card, no catch-up, no backlog** (queue auto-prunes). A missed week ⇒ a 30-min cold checkpoint on the current topic, then continue. **No guilt talk** (Adams & Leary 2007: self-compassion, not self-criticism, is what restarts a habit).
 
@@ -245,7 +249,7 @@ From month 3, one Saturday morning per month is a **timed 4-problem contest simu
 - If I'm exhausted → slot 1 only (one card), then `/endsession`. Counts.
 - If I'm travelling → recall on the phone (read the card, say the answer aloud), log it next session.
 - If I miss a contest → virtual/upsolve 2 problems within 48 h.
-- If a problem is at 50 min and I'm not done → write the resume line, stop. Tomorrow's warm-up.
+- If the BUILD cap hits and I'm not done → write the resume line, stop. Same problem tomorrow, not a new one.
 - If I feel "I forgot everything" → that's the calibration leak; run one card and read the receipt Kira shows.
 
 ### 4.5 The topic protocol (each new topic = 5–8 days)
@@ -258,16 +262,19 @@ From month 3, one Saturday morning per month is a **timed 4-problem contest simu
 | weekend | **HARD** | One hard from this topic (Saturday). |
 | later | **LADDER** | One problem from the topic re-solved cold at +7d, +30d, +90d; its checkpoint questions reappear in later Friday tests (L5 = named cold ≥14 days later, or used in a contest). |
 
-**L3 → next topic** (your cadence rule keeps): advance at L3, backfill L4 via the Friday checkpoint and the ladder. **Tier gate:** every topic in the tier at L4 before the next tier opens.
+**Advance rule:** the next topic may open once the current one is **L3** (template from memory + 1 LEARN AC), without waiting for Friday. **But an *attempted* checkpoint that fails freezes advancement:** only the failed question is re-tested next Friday, and no new topic opens until it passes. **Tier gate:** every topic in the tier has **passed its checkpoint** (= L4; for 00 the 3-consecutive-bounds rule; for a re-entry topic, its re-entry checkpoint at L4). The last topic of a tier therefore waits for its Friday — at most one week. **Topic 00's checkpoint is concrete:** `tests/checkpoints/00-complexity-2026-09-11/` holds 6 short algorithms to bound by naming the line behind each factor; pass = 6/6 with the line named. **Why 06 sorting sits after 05:** it is the preprocessing tool 02 and 05 need; its merge-sort half leans on 09 recursion, which you already hold at L4\*.
 
 ---
 
-## 5. RETENTION — the ladder, concretely
+## 5. RETENTION — the ladder, concretely (sized to the slots)
 
-- **Per problem:** AC → **+1d card** (name pattern + idea, 3 min) → **+3d** card → **+7d cold re-solve** (felt easy ⇒ +30d; felt hard ⇒ +7d again) → **+30d** → **+90d**. Fail anywhere ⇒ back to +1d. First review never same-day.
-- **Per topic:** Friday checkpoint → mixed into Friday tests at **+14d, +45d, +90d** (2 cards each time).
-- **Cards live in `PATTERN_JOURNAL.md`:** front = a disguised statement; back = trigger + core idea + *why* + "reduces to ___" — in your words, no code (Wozniak's minimum-information principle).
-- **Dose cap:** slot 1 ≤ 15 min/day. If the queue can't fit, it gets pruned, not you.
+- **What enters the ladder:** every **BUILD problem** and every **contest upsolve** (≈ 6–7 per week). Contest problems solved live, checkpoint questions and RECALL cards do **not** spawn ladder items (a ✅ card only advances its own item). That is what keeps the ladder inside the slots.
+- **Per problem:** **+1d card** = the first 3 minutes of the next day's BUILD, same topic ("yesterday's problem: pattern, idea, cost") → **+7d cold re-solve** in a weekend block (core loop or LC from memory; felt easy ⇒ next at +30d, felt hard ⇒ again at +7d) → **+30d card** (RECALL) → **+90d card** (RECALL). A fail anywhere ⇒ back to +1d. First review is never same-day (sleep). The old +3d rung is dropped — the research supports a delayed first retrieval and then expanding gaps, not more rungs.
+- **Per topic:** checkpoint pass → 2 mixed cards at **+14d / +45d / +90d** in later Friday tests. A ✅ on the +14d-or-later card, on an unseen statement, is **L5 evidence** (§8).
+- **Capacity check:** RECALL sees ≈ 13 cards/week (the +30/+90 rungs + topic cards) ≈ 2 a day ✓ 10 min. The weekend blocks see ≈ 6–7 cold re-solves ✓ (Sat PM 45 min ≈ 3–4, Sun PM 30 min ≈ 2–3). A hot week (biweekly weekend) slides re-solves to the next weekend.
+- **Slide, never drop:** more than 2 RECALL items due ⇒ do the 2 oldest, the rest move to tomorrow. If the backlog passes 10, Kira collapses it: one item per topic (the oldest) stays due, the others jump to their next rung marked "skipped" — written in `REVISION_QUEUE.md`, never silent.
+- **Cards live in `PATTERN_JOURNAL.md`:** front = a disguised statement with 2–3 examples; back = trigger + core idea + *why* + "reduces to ___" + the cost with the work in it — your words, no code (Wozniak's minimum-information principle).
+- **Regression rule:** a ❌ card on an L4/L5 topic ⇒ a ⚠ on the level + a +1d card. A second ❌ on the same topic within 30 days ⇒ the level drops one notch and one blocked rep is scheduled in the first free BUILD **after** the current topic's checkpoint — never interleaved into the current topic.
 - **Contests are the natural interleaving** — every Sunday, four unseen shapes.
 
 ---
@@ -279,16 +286,16 @@ From month 3, one Saturday morning per month is a **timed 4-problem contest simu
 | Contest | When | Notes |
 |---|---|---|
 | **LeetCode Weekly** | every **Sunday 08:00**, 90 min, 4 problems | core — from **2026-09-13** |
-| **LeetCode Biweekly** | alternate **Saturdays 20:00**, 90 min, 4 problems | core — check leetcode.com/contest for the next one (Sep 12 or Sep 19) |
-| **GFG Weekly Coding Contest** | was Sunday 19:00 | **PAUSED since ~June 2025** ("temporarily paused"; last = #208, 2025-05-25). Kira re-checks monthly; if it returns, it slots into Sunday evening. Keep a GFG account for the POTD streak if you like visible streaks. |
+| **LeetCode Biweekly** | alternate **Saturdays 20:00**, 90 min, 4 problems | core — next = **Biweekly 191, Sat 2026-09-12**; then every 14 days |
+| **GFG Weekly Coding Contest** | was Sunday 19:00 | **PAUSED since ~mid-2025** ("temporarily paused"; last contest ≈ #208, May 2025 — approximate). Kira re-checks monthly; if it returns, it slots into Sunday evening. Keep a GFG account for the POTD streak if you like visible streaks. |
 | **CodeChef Starters** | every **Wednesday 20:00**, 2 h | the beginner-friendly rated weekly — **from month 2** as the GFG substitute |
 | **Codeforces** Div 3 / Div 4 / Educational | 2–3 rounds/week, usually **20:05 IST** | **from month 3** (Dec) — the real CP ladder |
 | AtCoder ABC | Saturday 17:30 IST, 100 min | optional, excellent editorials |
 
-**LeetCode rating (new rule since 2026-04-27):** you start at 1500; your **first 5 contests are "Phase 1"** — rated by percentile only, not globally ranked, no pressure. Elo from the 6th contest. Badges: **Knight = top 25 %** of ≥1600 users (≈ 1850), **Guardian = top 5 %** (≈ 2120).
+**LeetCode rating (new rule since 2026-04-27):** you start at 1500; your **first 5 contests are "Phase 1"** — rated by percentile only, not globally ranked, no pressure. Elo from the 6th contest. Badges: **Knight = top 25 %** of ≥1600 users (≈ 1850), **Guardian = top 5 %** (≈ 2120, approximate).
 **Codeforces titles:** Newbie < 1200 · Pupil 1200 · Specialist 1400 · Expert 1600 · CM 1900.
 
-**Rules:** full 90 min, all 4 attempted, no external help. After every contest: **exactly one upsolve** (the easiest unsolved), within 48 h, in `tests/contests/<date>-<contest>/`, and the recognition miss becomes a card. Log every contest in `dashboard/CONTESTS.md` (date · solved/4 · time per problem · rating · upsolved?).
+**Rules:** full 90 min, all 4 attempted, no external help. After every contest: **exactly one upsolve** (the easiest unsolved *within opened topics*), within 48 h, in `tests/contests/<date>-<contest>/`; if none qualifies, Kira picks the easiest one at most one tier ahead and teaches it just-in-time, or logs it out-of-scope. Two contests in one weekend ⇒ one upsolve. Every unsolved problem becomes a card **tagged by why** — reading / routing / machinery / execution / speed / **unopened topic** (a tool from a tier you haven't reached: logged as *not yet*, no card, no upsolve obligation, never a recognition miss). Log every contest in `dashboard/CONTESTS.md` (date · solved/4 · time per problem · rating · upsolved?).
 
 **Profile:** LC username (D3) · Codeforces handle created now, first rated round in Dec · CodeChef handle month 2 · GFG account optional · this repo = the public portfolio (commit history is the proof of work).
 
@@ -308,14 +315,14 @@ From month 3, one Saturday morning per month is a **timed 4-problem contest simu
 
 | Weeks | Dates | Tier | Milestone (measurable) |
 |---|---|---|---|
-| 1–5 | 2026-09-07 → 10-11 | **0 · Re-entry** (00–11) | days 1–2: gauntlet Q10–Q20 finished = full baseline (D8); 00 complexity cleared (M#13); all 10 old topics re-validated by cold checkpoint (test → repair → move); 06 + 11 at L3; 5 LC contests attended; ≥ 25 of 35 days kept |
+| 1–5 | 2026-09-07 → 10-11 | **0 · Re-entry** (00–11) | days 1–2: gauntlet Q10–Q20 finished = full baseline (D8); 00 complexity cleared (M#13); all 10 old topics re-validated by cold checkpoint (test → repair → move); 06 + 11 at L4 (checkpoint passed); 5 LC contests attended; ≥ 25 of 35 days kept, ≥ 20 build days |
 | 6–13 | 10-12 → 12-06 | **1 · Structures** (12–16) | habit automatic (~11-12); Q1 reliably; Q2 ≥ half the time; CodeChef started |
 | 14–20 | 12-07 → 2027-01-24 | **2 · Graphs** (17–21) | CF handle with ≥ 4 rated rounds; Q2 reliably |
 | 21–30 | 01-25 → 04-04 | **3 · DP · Greedy · Math** (22–27) | Q3 sometimes; every Tier ≤ 3 topic at L4+ |
-| 31–34 | 04-05 → 05-02 | **4 · Consolidation** | ⭐ **MONTH-7 CHECKPOINT (2027-04-07):** ≥ 80 % of NeetCode-150 mediums solved cold · 3 mocks at lean-hire or better · Q3 in ≥ 1 of the last 4 contests · "I can walk into an interview" |
+| 31–34 | 04-05 → 05-02 | **4 · Consolidation** | ⭐ **MONTH-7 CHECKPOINT** — month 7 begins 2027-04-07; the bar is **measured at the end of Tier 4, 2027-05-02**: ≥ 80 % of NeetCode-150 mediums solved cold · 3 mocks at lean-hire or better · Q3 in ≥ 1 of the last 4 contests · "I can walk into an interview" |
 | 35–47 | 05-03 → 08-01 | **5 · CP depth** (28–32) | ≥ 150 CSES solved · CF Specialist or trending · LC Knight attempt · **MONTH-11 (2027-08-07): expert bar** = the whole map at L4+, top patterns at L5/L6 |
 
-Two weeks of slack are built in (47 weeks of work in a 48-week window). If velocity says "behind," the calendar stretches — the dose and the gates do not.
+About one week of slack is built in (47 weeks of work; month 11 lands on 2027-08-07). If velocity says "behind," the calendar stretches — the dose and the gates do not.
 
 **Hours model (for the monthly recalibration):** ≈ 350 focused hours to the month-7 bar, ≈ 500 to the expert bar. At ~8 h/week (1 h/day + the Sunday contest) that is ≈ 10 and ≈ 14–15 months; at the designed ~11 h/week it is 7 and 11; at boss's offered ~13 h/week (1 h weekdays + 2+2 h both weekend days) it is ≈ 6 and ≈ 9–10 **on paper** — the calendar above stays until real velocity confirms it.
 
@@ -329,10 +336,10 @@ Two weeks of slack are built in (47 weeks of work in a 48-week window). If veloc
 | L2 understands | explained back + traced a 5-element run |
 | L3 implements | template from memory + 1 LEARN problem AC |
 | L4 applies | Friday checkpoint passed + ≥ 2 mediums AC solo |
-| L5 recognizes | named cold in a mixed test ≥ 14 days later, **or** used correctly in a contest |
+| L5 recognizes | named cold on an unseen statement in a TEST context (Friday mixed cards, `/drill`, the monthly test) **≥ 14 days after the topic's checkpoint pass**, with the base + ≥ 2 variants named cold across ≥ 2 such tests — **or** the tool used correctly in a contest |
 | L6 teaches | cue + "reduces to" written in own words and explained to Kira |
 
-Dashboard % map unchanged (L0=0 L1=15 L2=35 L3=55 L4=75 L5=90 L6=100). **Re-entry rule:** an old topic's level is *provisional* (marked `*`) until its Tier-0 checkpoint confirms or lowers it. No inflation.
+Dashboard % map unchanged (L0=0 L1=15 L2=35 L3=55 L4=75 L5=90 L6=100). **Re-entry rule:** an old topic's level is *provisional* (marked `*`) until its Tier-0 checkpoint confirms or lowers it — a re-entry checkpoint confirms **L4 at most**; an old L5\* is re-earned by the L5 rule above. No inflation.
 
 **Dashboard adds three habit numbers:** days kept this week (x/7), days kept total (n/66), contests attended + last rating.
 
@@ -346,9 +353,11 @@ LEARN_DSA/
 ├── .gitignore  .mcp.json  .vscode/          config only (dotfiles)
 │
 ├── dashboard/                   MEMORY + FRONT DOOR (Kira writes, you glance)
-│   ├── README.md                TODAY — resume line · this week · days kept · leak board   (was COMMAND_CENTER)
+│   ├── README.md                TODAY — resume line · this week · days kept · next contest   (was COMMAND_CENTER)
 │   ├── PLAN.md                  this file
-│   ├── PROGRESS.md              levels table + session log
+│   ├── SYSTEM.md                how Kira teaches (stuck · mastery · tests · references · struggle · the lab)
+│   ├── PROGRESS.md              levels · habit · counters · leak board (short)
+│   ├── LOG.md                   append-only session log, newest first (+ frozen v1 history)
 │   ├── REVISION_QUEUE.md        the retrieval ladder (dates)
 │   ├── PATTERN_JOURNAL.md       cues / cards, your words, "reduces to ___"
 │   ├── MISTAKES.md              root causes + re-tests (phase-1 + phase-2 merged)
@@ -356,7 +365,7 @@ LEARN_DSA/
 │   ├── CHECKLIST.md             gates A / B / C
 │   ├── CONTESTS.md              contest log + ratings
 │   ├── CPP_GAPS.md              C++ fluency log
-│   ├── dsa-map.html             visual map (regenerated for the 33 topics)
+│   ├── dsa-map.html             visual map (still the v1 25-module map — regenerate in week 1)
 │   └── resources/               striver-videos.md · references.md (book map) · PDFs (gitignored)
 │
 ├── practice/                    ONE topic = ONE folder, one numbered sequence, no phases

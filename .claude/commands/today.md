@@ -1,11 +1,12 @@
 ---
-description: Run today's 3-slot dose (RECALL → BUILD → LOOK BACK) — the v2 daily habit
-argument-hint: "[optional: 'floor' for the 10-min minimum day | 'resume']"
+description: Run today's dose — weekday 3-slot day (RECALL → BUILD → LOOK BACK) or the weekend block for this time of day
+argument-hint: "[optional: 'floor' for the 10-min minimum day | 'am' | 'pm' | 'resume']"
 ---
-Run the 3-slot day per `.claude/CLAUDE.md` §3 and `dashboard/PLAN.md` §4.
-1. Read `dashboard/README.md` (TODAY), `dashboard/REVISION_QUEUE.md` (due rows), `dashboard/PROGRESS.md` (head), and the latest 2 entries of `dashboard/LOG.md`. Print exactly 4 lines: **why today matters** (today → Friday checkpoint → tier gate → month-7 bar), days kept x/7 · n/66, what's due, next contest. No dashboard wall.
-2. **RECALL (10 min):** 1–2 due items, a different topic than today's BUILD. Seed every statement with 2–3 examples. Marks only; reveal after.
-3. **BUILD (30 min, cap):** ONE problem in the current topic. Scaffold it just-in-time (one problem, real LC signature via MCP). Gate A first (restate in units + 3-elem dry run + the 4 disqualifier questions before any tool is named). LEARN = brute → bridge → optimal; REP = solve → LC verdict → look back. ≤1 hint then silence; `STUCK` = one level.
-4. **LOOK BACK (5 min):** complexity as a sentence with the work in it; cue into `dashboard/PATTERN_JOURNAL.md` ending "reduces to ___"; ladder dates into `REVISION_QUEUE.md`.
-5. **At the cap, stop** — write the resume line into README TODAY, then run `/endsession`.
-If `$ARGUMENTS` is `floor`: do slot 2 only as one card (≤10 min), mark the day kept, `/endsession`. If boss missed 2+ days: open with ONE 5-min card, no backlog, no guilt.
+Run the day per `.claude/CLAUDE.md` §3 and `dashboard/PLAN.md` §4 / §4.2b.
+0. Read `dashboard/README.md` (TODAY), `dashboard/REVISION_QUEUE.md` (due rows), `dashboard/PROGRESS.md` (head), and the **top 2 blocks** under `## 1. Session log` in `dashboard/LOG.md` (newest first — never grep by year). If README's anchor is unset, ask for it in one line. Print exactly 4 lines: **why today matters** (today → Friday checkpoint → tier gate → month-7 bar), days kept x/7 · n/66 + build days, what's due, next contest. No dashboard wall. If boss missed 2+ days: open with ONE 5-min card, no backlog, no guilt.
+**Weekday (Mon–Thu), 45 min / cap 60:**
+1. **RECALL (10):** 1–2 due items, a different topic than today's BUILD; every statement seeded with 2–3 examples; marks only, reveal after; a statement clarification is allowed and not scored. More than 2 due ⇒ the rest slide a day.
+2. **BUILD (30):** first 3 min = yesterday's problem as its +1d card. Then ONE problem in the current topic, scaffolded just-in-time (real LC signature via MCP). Gate A first (restate in units + 3-elem dry run + the 4 disqualifier questions before any tool is named). LEARN = brute → bridge → optimal; REP = solve → LC verdict → look back. ≤1 hint then silence; `STUCK` = one level. At the cap: not stuck ⇒ resume line, same problem tomorrow; stuck ⇒ clean tap-out (approach in words, +1d cold re-derive, no promotion).
+3. **LOOK BACK (5):** complexity as a sentence with the work in it; cue into `dashboard/PATTERN_JOURNAL.md` ending "reduces to ___"; ladder dates (+7d re-solve → weekend, +30d/+90d cards → RECALL); felt difficulty 1–5. Then `/endsession`.
+**Friday:** run `/checkpoint` instead of BUILD. **Weekend:** run the block for the time of day (`am`/`pm`, PLAN §4.2b) — Sat AM hard + timed variant (Tier 0: the next old topic's re-entry checkpoint + repair) · Sat PM revision engine or the Biweekly · Sun AM contest + debrief (`/contest`) · Sun PM the one upsolve (+ 2 re-solves + week review; upsolve only on a biweekly weekend). Evenings are optional in weeks 1–2. Days kept counts **once per date**; a second session the same day appends to that day's LOG block.
+If `$ARGUMENTS` is `floor`: one card (≤10 min), mark the day kept, `/endsession`.

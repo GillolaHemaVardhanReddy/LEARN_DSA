@@ -45,7 +45,7 @@
 ---
 
 # 🧭 Recognition map — the classifier cheat-sheet (moved from `practice/README.md`)
-> Read before a checkpoint, a mixed test, or an interview. The disqualifier gate comes FIRST, always:
+> Read while learning or repping — **never right before a test** (tests are closed-book; LC titles appear here, which is fine outside tests). Any level table inside the map is frozen at 2026-06 — the live levels are in `dashboard/PROGRESS.md`. The disqualifier gate comes FIRST, always:
 > **contiguous or not? · sorted, or may I sort? · order or membership? · count, best, or list-all?**
 
 # 🧭 00 — MASTER RECOGNITION MAP (the before-exam sheet)

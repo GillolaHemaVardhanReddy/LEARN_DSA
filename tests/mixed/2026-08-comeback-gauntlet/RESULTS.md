@@ -1,5 +1,7 @@
 # RESULTS — Comeback Gauntlet (opened 2026-08-09)
 
+> **v2 note (2026-09-08):** the bars below ("≥17 → M11", "Part B sweep", "Part C") are **retired**. Q10–Q20 run on v2 day 1 as the baseline; the per-pattern read feeds each old topic's **re-entry checkpoint** (`dashboard/PLAN.md` §4.5, D5/D8). Score honestly; nothing here promotes or demotes a level by itself.
+
 > Filled in **live, question by question**. Never pre-filled. Honest ledger only —
 > a 🟡 recorded as ✅ is a lie that costs him an interview later.
 

@@ -38,7 +38,7 @@ Given an array of integers and a target value, return the indices of the two num
 - brute vs optimal: O(n^2)/O(1)  ->  O(n)/O(n). Trade space for time; the map removes the rescans.
 - **Cue:** "find a pair/complement on UNSORTED data, return indices" -> one-pass hash map. Two-pointers needs sorted AND doesn't need original indices.
 
-## 8. Bugs hit (copy recurring ones to ../../MISTAKE_JOURNAL.md)
+## 8. Bugs hit (copy recurring ones to ../../dashboard/MISTAKES.md)
 - Reflex: reached for sort+two-pointers first (MISTAKE #9, recurring). Fix = run the "is it sorted?" gate FIRST.
 - Complexity misread: saw 1e9 value and hunted sub-linear; 1e9 is magnitude, not n.
 
