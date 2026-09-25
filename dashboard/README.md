@@ -1,13 +1,14 @@
 # 🎛️ DASHBOARD — the front door (Kira reads this FIRST, every session · boss glances)
 
 ## ▶️ TODAY  *(Kira re-renders this block every session — keep it to ~10 lines)*
-- **Date:** 2026-09-08 (Tue) · **v2 day 1** (09-07 was setup) · weekdays 45 / cap 60 · **weekends 2 h AM + 2 h PM** (PLAN §4.2b; evenings optional in weeks 1–2) · anchor: **unset — `/today` asks on open** ("after ___")
-- **⏯️ RESUME:** `/today` → **today's whole session = the comeback gauntlet Q10 → Q20** (`tests/mixed/2026-08-comeback-gauntlet/PART-A-recognition-20Q.md`; statements now carry seeded examples; the disqualifier gate spoken before each answer; ~3 min each ≈ 35 min) → **reveal + score + per-pattern read** (10 min) into `RESULTS.md`. No BUILD today. Tomorrow's BUILD = **00 complexity** (M#13).
-- **This week:** Wed–Thu **00 complexity** (bound 6 short algorithms by naming the line behind each factor; RECALL = 2 cards from today's gauntlet misses) · **Fri `/checkpoint` 00** (`tests/checkpoints/00-complexity-2026-09-11/`, pass = 6/6 with the line named) · **Sat AM** 01 hashing re-entry checkpoint (Q0 derive-it + 3 Q) + repair · **Sat 20:00 IST — Biweekly 191 = v2 contest #1** (replaces Sat PM; teach-back after) · **Sun 08:00 IST — LC Weekly** + debrief · **Sun PM** the one upsolve only (biweekly weekend).
-- **Why today matters:** gauntlet baseline (which of the 10 old tools decayed) → 00 complexity fix (M#13) → Tier-0 gate (2026-10-11) → month-7 bar (measured 2027-05-02).
-- **Days kept:** 0 / 7 this week · **0 / 66** total · build days 0 · repair token: available
-- **Contest:** LC `hemavardhan2076` · next **Sat 09-12 20:00 IST (Biweekly 191)**, then **Sun 09-13 08:00** · rating — (Phase 1: first 5 contests unranked)
-- **Open threads:** `dsa-map.html` still shows the v1 25-module map → regenerate for the 33 topics (week 1–2, low priority) · CodeChef handle in Oct · Codeforces handle in Nov (rated rounds from Dec) · 01 hashing checkpoint folder to be built Saturday morning, just-in-time.
+- **Date:** 2026-09-25 (Fri) · **v2 RESTART — day 1 is today.** 09-08 never happened (17 zero days, closed out, not carried as debt).
+- **⚡ PROTOCOL CHANGE (boss, 2026-09-25):** *"stop asking test questions — I lost interest."* → **no quiz opener, ever.** A session opens with a problem on the screen. No RECALL slot, no gauntlet, no "what do you remember". Retrieval happens by **re-solving old problems as problems**, never by being asked about them. Gates A/B/C = Kira's silent checklist; at most **one** question per session, and only when his code is about to be wrong.
+- **⏯️ RESUME:** **LC 49 Group Anagrams** — `practice/01-hashing/reps/LC49-group-anagrams.cpp`. Then AC on LeetCode.
+- **📚 STRUCTURE (boss, 2026-09-25):** *"go slow, one topic at a time, clean, and after each topic a combined reps"* → a topic is worked start-to-finish as a **named ladder** (`practice/NN-topic/<TOPIC>-SET.md`), one problem per session, and it CLOSES with a **combined reps round** (its own problems, shuffled, no labels, cold, one sitting). The next topic does not open until that round is clean. No calendar pressure — the ladder is the schedule. **Now on: topic 01 Hashing, problem 1 of 6.**
+- **Shape of a day now:** ONE problem off the current ladder · 25–40 min · code first · complexity in one sentence at the end · stop. Floor = open the editor and write a brute force. Zero is the only failure.
+- **Days kept:** 0 / 66 (clock restarts today) · build days 0 · repair token: available
+- **Contest:** LC `hemavardhan2076` · next **Sun 2026-09-27 08:00 IST (Weekly)** · Phase 1 = first 5 contests unranked, participation only, no score pressure
+- **Open threads:** dashboard files still describe the old quiz-heavy day → rewrite PLAN §4 / SYSTEM at next `/endsession` · `dsa-map.html` still v1
 
 ## 🗺️ WHERE THINGS ARE
 | I want… | Open |
