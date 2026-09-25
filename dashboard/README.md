@@ -1,9 +1,9 @@
 # 🎛️ DASHBOARD — the front door (Kira reads this FIRST, every session · boss glances)
 
 ## ▶️ TODAY  *(Kira re-renders this block every session — keep it to ~10 lines)*
-- **Date:** 2026-09-25 (Fri) · **v2 RESTART — day 1 is today.** 09-08 never happened (17 zero days, closed out, not carried as debt).
+- **Date:** setup done 2026-09-25 (Fri) · **v2 RESTART — day 1 = Sat 2026-09-26** (boss travelling on the 25th; planned, not a missed day). 09-08 never happened (17 zero days, closed out, not carried as debt).
 - **⚡ PROTOCOL CHANGE (boss, 2026-09-25):** *"stop asking test questions — I lost interest."* → **no quiz opener, ever.** A session opens with a problem on the screen. No RECALL slot, no gauntlet, no "what do you remember". Retrieval happens by **re-solving old problems as problems**, never by being asked about them. Gates A/B/C = Kira's silent checklist; at most **one** question per session, and only when his code is about to be wrong.
-- **⏯️ RESUME:** **LC 49 Group Anagrams** — `practice/01-hashing/reps/LC49-group-anagrams.cpp`. Then AC on LeetCode.
+- **⏯️ RESUME:** open with **LC 49 Group Anagrams** — `practice/01-hashing/reps/LC49-group-anagrams.cpp`, already scaffolded and waiting. **Do not re-explain the restart, do not ask what he remembers — hand him the file and get out of the way.** Then AC on LeetCode.
 - **📚 STRUCTURE (boss, 2026-09-25):** *"go slow, one topic at a time, clean, and after each topic a combined reps"* → a topic is worked start-to-finish as a **named ladder** (`practice/NN-topic/<TOPIC>-SET.md`), one problem per session, and it CLOSES with a **combined reps round** (its own problems, shuffled, no labels, cold, one sitting). The next topic does not open until that round is clean. No calendar pressure — the ladder is the schedule. **Now on: topic 01 Hashing, problem 1 of 6.**
 - **Shape of a day now:** ONE problem off the current ladder · 25–40 min · code first · complexity in one sentence at the end · stop. Floor = open the editor and write a brute force. Zero is the only failure.
 - **Days kept:** 0 / 66 (clock restarts today) · build days 0 · repair token: available
