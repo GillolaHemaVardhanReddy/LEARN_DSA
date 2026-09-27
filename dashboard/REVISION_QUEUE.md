@@ -12,13 +12,17 @@
 ## Due — Kira fills the RECALL slot from here (oldest first)
 | Due | Item | Kind | Stage | Result |
 |---|---|---|---|---|
-| 2026-09-08 | Comeback gauntlet **Q10 → Q20** — the whole day-1 session (11 cards ≈ 35 min + reveal/score 10 min); statements seeded in the file; disqualifier gate before each answer; marks only, reveal after Q20 | test | baseline | |
-| 2026-09-09 | RECALL: 2 cards built from yesterday's gauntlet misses (different family than 00 complexity) | card | +1d | |
+| ~~2026-09-08~~ | ~~Comeback gauntlet Q10 → Q20~~ | test | **RETIRED 2026-09-27** — boss killed the quiz format on 09-25 ("stop asking test questions — I lost interest"); retrieval now happens by re-solving problems only | — |
+| ~~2026-09-09~~ | ~~RECALL: 2 cards from gauntlet misses~~ | card | **RETIRED 2026-09-27** — same reason; there is no RECALL slot in the hour-block day | — |
+| 2026-09-28 | **LC49 Group Anagrams** — re-derive the key cold, first 3 min of the next block | card | +1d | |
 
 ## Ladder — active items (starts with the first v2 AC)
 | Problem / cue | Topic | Last pass | Next due | Stage |
 |---|---|---|---|---|
-| _(empty)_ | | | | |
+| **LC49 Group Anagrams** — canonical key, built not given | 01 hashing | 2026-09-27 (AC, optimal after own TLE) | **2026-09-28** | +1d |
+| LC49 — cold re-solve from a blank file | 01 hashing | — | 2026-10-04 | +7d |
+| LC49 — card (trigger + idea + complexity-with-the-line) | 01 hashing | — | 2026-10-27 | +30d |
+| LC49 — card | 01 hashing | — | 2026-12-26 | +90d |
 
 ## Carried-over debts from v1 — settled by the Tier-0 checkpoints, ONE topic at a time (never as a batch)
 | Topic | Debt (what must be shown cold) | Source |

@@ -13,7 +13,16 @@
 
 ## v2 entries (from 2026-09-07)
 
-_(none yet)_
+### V#1 — a fix applied as a PATCH, not as a RULE (2026-09-27, LC49 brute)
+1. **Wrong move:** told that `sort(...)` returns `void` and must be applied to a copy, he corrected line 26 — and left the byte-identical bug on line 30 four lines below (`if(sort(strs[j].begin(), strs[j].end()) == y)`).
+2. **Root cause:** a correction was stored as "this line was wrong" instead of "this *shape* is wrong." A local edit, not an updated model.
+3. **Corrected model:** when a bug is named, scan the whole function for the same shape before saying done. One bug of a kind is almost never alone.
+4. **Prevention rule:** after any fix — *"where else does this same pattern appear?"* — one pass, every time.
+5. **Re-test:** next time a mechanics bug is named in code with more than one occurrence, does he find the others unprompted? Watch on LC347 / LC128.
+6. **Which gate would've caught it?** Gate C (before submit) — but really this is pre-gate: the compiler would have caught it, which is why it cost nothing this time. It will cost something when the duplicate is *silent* rather than compiler-catchable.
+
+### M#13 — status update 2026-09-27 (half-fired, LC49)
+Named the dominant factor and the line behind it correctly and unprompted (**"O(n·L log L), the one-time sort"** — 1 of the 3 needed). But dismissed the rest as *"other things are pushing and simple"*: `check[temp]` on a `std::map` is **O(L·log n) ≈ 1400**, *twice* the sort's 700 — the single most expensive line in the loop. **The refined leak: he prices the line he is thinking about and assumes the others are free.** Next bound must account for **every** line, container operations included.
 
 ---
 

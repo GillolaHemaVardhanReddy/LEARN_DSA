@@ -47,3 +47,20 @@ Reserve `int` for things known small (indices, counts < ~1e6, loop variables).
 - `unordered_map` presence: use `.count(k)` or `.find(k)!=end()` — NOT `if(map[k])` (index/value 0 is falsy, and `[]` inserts).
 - Sort with comparator: `sort(v.begin(), v.end(), [](auto&a, auto&b){ return a > b; });` (descending).
 - Two-pointer in-place write: `nums[k++] = nums[i];` — overwrite the front, no extra container.
+
+## 2026-09-27 — LC49 brute (topic 01, problem 1)
+Idea was correct unaided (sorted string as the key). All 7 errors were C++ mechanics, in 3 buckets:
+
+**A. in-place vs returning.** Wrote `y = sort(s.begin(), s.end())`. `std::sort` returns **void** and mutates in place — it also would have destroyed the original string needed for output. Fix: copy first, then sort the copy.
+- void/in-place: `sort` `reverse` `fill` · returns a value: `substr` `max` `accumulate`
+- **Re-test:** next time he writes `x = <algorithm>(...)`, does he pause to ask which kind it is?
+
+**B. container API.**
+- `strs.length()` on a vector → `.size()` (`.length()` is std::string only)
+- `if(!x[y])` on a `map<string, vector<string>>` → no `operator!` on a vector; and **`operator[]` INSERTS** a default entry just by reading. Use `x.count(y) == 0`.
+- `map<string, vector<string> check;` → missing `>`
+- `x[y] = map[check[y]];` → `map` is a type, not an object
+
+**C. Python leaking in.** `for(key,value in x)` → `for (auto& [key, value] : x)` (C++17 structured binding).
+
+**Topic-relevant:** reached for `map` (BST, O(log n)) in the hashing topic. Default should be `unordered_map` (O(1) avg) unless sorted order is needed.

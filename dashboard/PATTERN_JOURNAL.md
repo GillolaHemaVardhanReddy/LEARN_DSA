@@ -21,6 +21,7 @@
 | If you see… | Consider |
 |---|---|
 | "seen before? / how many times?" | Hashing / frequency map |
+| **"group / bucket things that are EQUIVALENT under some transformation"** (anagrams, same digits, same shape) | **Build a CANONICAL KEY** — one value every member of a group computes to — then hash on it. Never compare members pairwise |
 | sorted array, find pair/triple | Two pointers |
 | compare from both ends | Two pointers |
 | **CLOSEST / NEAREST sum, or MIN DIFFERENCE to a target** (pair/triplet near a value, not exactly it) | **Sort + two pointers** — order lets you STEER; **NOT hashing** (hash = exact lookup only, no "nearest") |
@@ -568,3 +569,20 @@ Formula (DERIVE, don't cram): slopes equal `(yj−yi)/(xj−xi)=(yk−yi)/(xk−
 Gotchas: (1) **subtract the anchor first** — raw coords measure cross from origin, not translation-invariant → wrong. (2) Cross-pair ACROSS the two vectors (`ax*by`, not `ax*ay`). (3) It's INTEGER math — no float, vertical lines free. Same reason the O(n²) optimal hashes a reduced `(dy,dx)` pair, never a `double` slope. (4) overflow: coords ≤1e4 → `ax*by` ≤ 4e8, safe in int here; larger ⇒ `long long`.
 Complexity: brute oracle O(n³); optimal anchor+slope-hash O(n²)/O(n).
 Taught me by: Kira — LC149 hard gauntlet P1. Brute AC'd; slope-hash O(n²) optimal still TODO.
+
+---
+
+## Card — LC49 Group Anagrams (2026-09-27, topic 01 hashing, rung 1/6)
+
+**FRONT (disguised).** You are given a list of words. Put words into the same pile when one is a rearrangement of another. Return the piles.
+- `["eat","tea","tan","ate","nat","bat"]` → `[["bat"],["eat","tea","ate"],["tan","nat"]]`
+- `[""]` → `[[""]]`
+- `["abc","abc"]` → `[["abc","abc"]]`
+
+**BACK — in boss's words.**
+- **Trigger:** *"same group when they're equal after some transformation."* Two things are different as-written but identical as-meant.
+- **Core idea:** don't compare members to each other — that's n². Compute **one canonical key** per item that every member of its group produces. Here: sort the characters, so `"eat"` and `"tea"` both become `"aet"`. Then the map does all the grouping for free, in one pass.
+- **Why it works:** anagrams are exactly the strings with the same multiset of characters, and sorting is a *canonical form* of a multiset — same multiset, same sorted string, always.
+- **The trap he hit:** after building the key he reached for a parallel array of keys + indices. A parallel array can't group; the **map is the grouping**. Put the key and the original in the map at the same moment you have both.
+- **Complexity with the work in it:** *"O(n·L log L) — the loop runs n times, and `sort` walks L characters through log L passes."* Plus the insert: on `unordered_map` that's O(L) to hash the key; **on `map` it's O(L·log n), which is bigger than the sort.**
+- **reduces to ___:** hashing — *"have I seen this key before?"* — with the twist that the key is **built**, not given.
