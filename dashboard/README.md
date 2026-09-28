@@ -10,7 +10,7 @@
 - **Floor:** one block, one problem. Zero is the only failure.
 - **Days kept:** **1 / 66** · build days **1** · repair token: available · *(day 1 = 2026-09-27)*
 - **⚠️ Needs boss's approval:** `git rm -r practice/10-backtracking/learn` — the last 8 legacy v1 files; the delete was blocked by the permission gate. Everything else in `practice/` is clean (174 files → 24).
-- **Contest:** LC `hemavardhan2076` · the **Sun 2026-09-27 Weekly was not logged** — ask him once whether he entered, then record it or mark it skipped · next **Sun 2026-10-04 08:00 IST** · Phase 1 = first 5 contests unranked, participation only, no score pressure
+- **Contest:** 🏁 **NEXT = Sun 2026-10-04 08:00 IST, LC Weekly** (v2 contest #1, Phase 1 = participation only) · then Sat 10-10 20:00 Biweekly · Sun 10-11 08:00 Weekly · full 8-week table in `CONTESTS.md` 📅 · the 09-27 Weekly was missed (didn't know) → logged, no debt · **Kira opens every session with the next contest; within 48 h it's the first line.**
 - **Open threads:** `PLAN.md` §4 and `SYSTEM.md` still describe the 3-slot 45-min day and the RECALL slot — **both are dead**; rewrite them to the hour-block model next session · `CLAUDE.md` §3 same · `dsa-map.html` still v1
 
 ## 🗺️ WHERE THINGS ARE
