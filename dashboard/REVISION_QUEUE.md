@@ -14,12 +14,17 @@
 |---|---|---|---|---|
 | ~~2026-09-08~~ | ~~Comeback gauntlet Q10 → Q20~~ | test | **RETIRED 2026-09-27** — boss killed the quiz format on 09-25 ("stop asking test questions — I lost interest"); retrieval now happens by re-solving problems only | — |
 | ~~2026-09-09~~ | ~~RECALL: 2 cards from gauntlet misses~~ | card | **RETIRED 2026-09-27** — same reason; there is no RECALL slot in the hour-block day | — |
-| 2026-09-28 | **LC49 Group Anagrams** — re-derive the key cold, first 3 min of the next block | card | +1d | |
+| 2026-09-28 | **LC49 Group Anagrams** — re-derive the key cold, first 3 min of the next block | card | +1d | ✅ 09-28 cold, unaided |
+| 2026-09-29 | **LC347 Top K Frequent** — re-derive cold: count → pairs → sort by count → take k (+ the complexity with d) | card | +1d | |
 
 ## Ladder — active items (starts with the first v2 AC)
 | Problem / cue | Topic | Last pass | Next due | Stage |
 |---|---|---|---|---|
-| **LC49 Group Anagrams** — canonical key, built not given | 01 hashing | 2026-09-27 (AC, optimal after own TLE) | **2026-09-28** | +1d |
+| **LC49 Group Anagrams** — canonical key, built not given | 01 hashing | 2026-09-28 (+1d card ✅) | 2026-10-04 | +7d next |
+| **LC347 Top K Frequent** — count, then a 2nd structure on the counts | 01 hashing | 2026-09-28 (AC, sort version) | **2026-09-29** | +1d |
+| LC347 — cold re-solve from a blank file | 01 hashing | — | 2026-10-05 | +7d |
+| LC347 — card | 01 hashing | — | 2026-10-28 | +30d |
+| LC347 — card | 01 hashing | — | 2026-12-27 | +90d |
 | LC49 — cold re-solve from a blank file | 01 hashing | — | 2026-10-04 | +7d |
 | LC49 — card (trigger + idea + complexity-with-the-line) | 01 hashing | — | 2026-10-27 | +30d |
 | LC49 — card | 01 hashing | — | 2026-12-26 | +90d |
@@ -43,4 +48,4 @@
 ## Completed (v2 log)
 | Date | Item | Result | Next |
 |---|---|---|---|
-| _(starts 2026-09-08)_ | | | |
+| 2026-09-28 | LC49 +1d card | ✅ cold, unaided | +7d re-solve 10-04 |

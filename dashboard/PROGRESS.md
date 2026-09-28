@@ -15,6 +15,7 @@
 |---|---|---|---|---|---|
 | 2026-09-07 | 0 / 7 | 0 / 7 | — | 0 | **VOID** — v2 never started; 17 zero days closed out on 09-25, not carried as debt |
 | 2026-09-21 | 1 / 7 | 1 / 7 | available | 0 | **v2 day 1 = Sun 2026-09-27** · LC49 AC (brute TLE → optimal) · unit is now the **hour block**, not the 45-min slot |
+| 2026-09-28 | 1 / 7 | 1 / 7 | available | 0 (missed 09-27 Weekly — didn't know; calendar fixed) | Mon 09-28: LC49 +1d card ✅ cold · **LC347 AC** (sort-by-count, first comparator/lambda) |
 
 **Days kept total: 1 / 66 · build days 1.** A kept day = at least the floor (one 10-min card); a build day = a BUILD problem attempted. 5 of 7 kept = a kept week; two consecutive zero days breaks the streak; one repair token per week. The day-30 dose raise counts **build days**, not kept days.
 
@@ -22,7 +23,7 @@
 | # | Topic | Level | Evidence (short) | Tier-0 re-entry |
 |---|---|---|---|---|
 | 00 | Complexity | **L2\*** | was L3\* *self-reported*; **FROZEN + lowered** — wrong on 6 of 9 gauntlet Qs (M#13, 2026-08-10). **1 of 3 banked 2026-09-27**: named "O(n·L log L), the one-time sort" on LC49 unprompted — but called the `map` insert "simple" when it was the costliest line | **no longer a separate 2-day block** — it is the budget line run in front of every problem; clears on 3 consecutive "which line?" bounds |
-| 01 | Hashing | L4\* | L4 2026-06-08 (LC217/219/347/36 solo) · Q1 8/09 tool derived cold, name missing · #9 held 7/24 + 8/09 · **2026-09-27 LC49 AC**, key derived unaided (no level change — one AC is not a checkpoint) | checkpoint · **ladder 1/6 done** |
+| 01 | Hashing | L4\* | L4 2026-06-08 (LC217/219/347/36 solo) · Q1 8/09 tool derived cold, name missing · #9 held 7/24 + 8/09 · **2026-09-27 LC49 AC**, key derived unaided · **2026-09-28 LC347 AC** (count → pairs → sort by count), LC49 key recalled cold at +1d (no level change — ACs are not a checkpoint) | checkpoint · **ladder 2/6 done** |
 | 02 | Two pointers | L4\* | L4 2026-06-09 (LC167 clean, LC11) · Dutch-flag gap · **Q7 8/10 MISS** (no sort, no converging ptrs) | checkpoint + repair |
 | 03 | Sliding window | L5\* | L5 2026-06-10 (two cold drills) · Q4 8/09 FULL instant · over-fired on Q7 | checkpoint |
 | 04 | Prefix sums | L4\* | L4 2026-06-05 (LC560/974/525/724, LC238/523/1590) · Q6 8/10 prefix+hash never surfaced | checkpoint + difference arrays (new) |
@@ -38,7 +39,7 @@
 **Overall mastery (in-scope = Tier 0, 12 topics, provisional):** (35+75+75+90+75+75+15+75+55+75+55+15)/12 = **59 %** — will be re-derived from the Tier-0 checkpoints by 2026-10-11.  Interview readiness: **not estimated** until then.
 
 ## Counters
-- v1 judge-AC problems: **~70** (list in `LOG.md` §2). **v2 judge-AC ledger: 1** (LC49, 2026-09-27).
+- v1 judge-AC problems: **~70** (list in `LOG.md` §2). **v2 judge-AC ledger: 2** (LC49 2026-09-27 · LC347 2026-09-28).
 - First-submit-clean streak: **1** (best 1 — LC33, 2026-06-25).
 - Contests: v1 = 1 (biweekly 2026-06-20, 0/4). **v2 = 0.**
 - Legacy v1 scaffolds: **DELETED 2026-09-27 on boss's instruction** ("they are not remembered anyways") — practice went 174 files → 24; all `reps/`, `learn/`, `hard/` for topics 01–09 removed via `git rm` (recoverable from history), every `notes.md` kept. **Outstanding: `practice/10-backtracking/learn/` (8 files) — the delete was blocked by the permission gate and needs boss's approval.**
@@ -47,7 +48,7 @@
 | Leak | Last fired | Standing catch |
 |---|---|---|
 | **Tool-carryover** (M#12) | 2026-08-10 | 4-question disqualifier gate BEFORE naming a tool · watch-tell "here also…" |
-| **Complexity as decoration** (M#13) | 2026-08-10 | "which line produces each factor?" · never a bare bound |
+| **Complexity as decoration** (M#13) | 2026-09-28 (🟡 minor: said n log n, sort is on d distinct — saw it on one prompt) | "which line produces each factor?" · never a bare bound |
 | Boundary / index / sentinel | 2026-06-29 | Gate C 4 edges + ANSWER edge · hostile self-trace |
 | Premature "done" | 2026-07-10 | refuse-to-check → he traces his own code aloud |
 | Band-aid / redundant maintained state | 2026-07-10 | derive-don't-maintain (also for params) |

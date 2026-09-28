@@ -586,3 +586,19 @@ Taught me by: Kira — LC149 hard gauntlet P1. Brute AC'd; slope-hash O(n²) opt
 - **The trap he hit:** after building the key he reached for a parallel array of keys + indices. A parallel array can't group; the **map is the grouping**. Put the key and the original in the map at the same moment you have both.
 - **Complexity with the work in it:** *"O(n·L log L) — the loop runs n times, and `sort` walks L characters through log L passes."* Plus the insert: on `unordered_map` that's O(L) to hash the key; **on `map` it's O(L·log n), which is bigger than the sort.**
 - **reduces to ___:** hashing — *"have I seen this key before?"* — with the twist that the key is **built**, not given.
+
+---
+
+## Card — LC347 Top K Frequent Elements (2026-09-28, topic 01 hashing, rung 2/6)
+
+**FRONT (disguised).** A shop logs every item sold today as an id. Return the k ids sold the most times.
+- `[1,1,1,2,2,3], k=2` → `[1,2]`
+- `[7], k=1` → `[7]`
+- `[4,4,-1,-1,-1,7], k=1` → `[-1]`
+
+**BACK — in boss's words.**
+- **Trigger:** *"the problem isn't the counting — it's how we return the top k."* Count, then rank the counts.
+- **Core idea:** hash to counts (LC49's move), then put a **second structure on top of the counts**. Today's structure: copy the map into `vector<pair<val,count>>`, sort with a lambda on `.second` descending, take the first k `.first`s. (A map can't be sorted by value — it's ordered by key, or not at all.)
+- **Complexity with the work in it:** *"O(n + d log d) — the counting loop touches all n elements once; the sort runs on the d distinct pairs, not on n. Worst case every value is distinct → O(n log n)."*
+- **Still open:** the O(n) follow-up — a count is at most n, so a count can be an **index** (bucket by count).
+- **reduces to ___:** frequency map + *"rank the keys by their value"* — hashing, then sorting (or bucketing) the counts.
