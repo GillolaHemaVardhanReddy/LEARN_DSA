@@ -15,15 +15,15 @@
 |---|---|---|---|---|---|
 | 2026-09-07 | 0 / 7 | 0 / 7 | — | 0 | **VOID** — v2 never started; 17 zero days closed out on 09-25, not carried as debt |
 | 2026-09-21 | 1 / 7 | 1 / 7 | available | 0 | **v2 day 1 = Sun 2026-09-27** · LC49 AC (brute TLE → optimal) · unit is now the **hour block**, not the 45-min slot |
-| 2026-09-28 | 1 / 7 | 1 / 7 | available | 0 (missed 09-27 Weekly — didn't know; calendar fixed) | Mon 09-28: LC49 +1d card ✅ cold · **LC347 AC** (sort-by-count, first comparator/lambda) |
+| 2026-09-28 | 2 / 7 | 2 / 7 | available | 0 (missed 09-27 Weekly — didn't know; calendar fixed) | Mon 09-28: LC49 +1d card ✅ cold · **LC347 AC** (sort-by-count, first comparator/lambda) · Tue 09-29: **LC347 bucket O(n) derived unaided + AC** |
 
-**Days kept total: 1 / 66 · build days 1.** A kept day = at least the floor (one 10-min card); a build day = a BUILD problem attempted. 5 of 7 kept = a kept week; two consecutive zero days breaks the streak; one repair token per week. The day-30 dose raise counts **build days**, not kept days.
+**Days kept total: 3 / 66 · build days 3.** A kept day = at least the floor (one 10-min card); a build day = a BUILD problem attempted. 5 of 7 kept = a kept week; two consecutive zero days breaks the streak; one repair token per week. The day-30 dose raise counts **build days**, not kept days.
 
 ## Topic levels (v2 map · 33 topics · see `PLAN.md` §3)
 | # | Topic | Level | Evidence (short) | Tier-0 re-entry |
 |---|---|---|---|---|
 | 00 | Complexity | **L2\*** | was L3\* *self-reported*; **FROZEN + lowered** — wrong on 6 of 9 gauntlet Qs (M#13, 2026-08-10). **1 of 3 banked 2026-09-27**: named "O(n·L log L), the one-time sort" on LC49 unprompted — but called the `map` insert "simple" when it was the costliest line | **no longer a separate 2-day block** — it is the budget line run in front of every problem; clears on 3 consecutive "which line?" bounds |
-| 01 | Hashing | L4\* | L4 2026-06-08 (LC217/219/347/36 solo) · Q1 8/09 tool derived cold, name missing · #9 held 7/24 + 8/09 · **2026-09-27 LC49 AC**, key derived unaided · **2026-09-28 LC347 AC** (count → pairs → sort by count), LC49 key recalled cold at +1d (no level change — ACs are not a checkpoint) | checkpoint · **ladder 2/6 done** |
+| 01 | Hashing | L4\* | L4 2026-06-08 (LC217/219/347/36 solo) · Q1 8/09 tool derived cold, name missing · #9 held 7/24 + 8/09 · **2026-09-27 LC49 AC**, key derived unaided · **2026-09-28 LC347 AC** (count → pairs → sort by count), LC49 key recalled cold at +1d · **2026-09-29 LC347 bucket O(n) derived unaided + AC** (no level change — ACs are not a checkpoint) | checkpoint · **ladder 2/6 done, rung 3 LC128 open** |
 | 02 | Two pointers | L4\* | L4 2026-06-09 (LC167 clean, LC11) · Dutch-flag gap · **Q7 8/10 MISS** (no sort, no converging ptrs) | checkpoint + repair |
 | 03 | Sliding window | L5\* | L5 2026-06-10 (two cold drills) · Q4 8/09 FULL instant · over-fired on Q7 | checkpoint |
 | 04 | Prefix sums | L4\* | L4 2026-06-05 (LC560/974/525/724, LC238/523/1590) · Q6 8/10 prefix+hash never surfaced | checkpoint + difference arrays (new) |
