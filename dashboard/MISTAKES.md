@@ -14,6 +14,7 @@
 ## v2 entries (from 2026-09-07)
 
 ### V#1 — a fix applied as a PATCH, not as a RULE (2026-09-27, LC49 brute)
+> **Recurred 2026-09-30 (LC128):** length-1 runs never recorded → he added `if(n==1) return 1;` instead of moving the max update. `[1,3]` still breaks it. Re-test = his next fix must survive a hostile input he builds himself.
 1. **Wrong move:** told that `sort(...)` returns `void` and must be applied to a copy, he corrected line 26 — and left the byte-identical bug on line 30 four lines below (`if(sort(strs[j].begin(), strs[j].end()) == y)`).
 2. **Root cause:** a correction was stored as "this line was wrong" instead of "this *shape* is wrong." A local edit, not an updated model.
 3. **Corrected model:** when a bug is named, scan the whole function for the same shape before saying done. One bug of a kind is almost never alone.

@@ -15,9 +15,9 @@
 |---|---|---|---|---|---|
 | 2026-09-07 | 0 / 7 | 0 / 7 | — | 0 | **VOID** — v2 never started; 17 zero days closed out on 09-25, not carried as debt |
 | 2026-09-21 | 1 / 7 | 1 / 7 | available | 0 | **v2 day 1 = Sun 2026-09-27** · LC49 AC (brute TLE → optimal) · unit is now the **hour block**, not the 45-min slot |
-| 2026-09-28 | 2 / 7 | 2 / 7 | available | 0 (missed 09-27 Weekly — didn't know; calendar fixed) | Mon 09-28: LC49 +1d card ✅ cold · **LC347 AC** (sort-by-count, first comparator/lambda) · Tue 09-29: **LC347 bucket O(n) derived unaided + AC** |
+| 2026-09-28 | 3 / 7 | 3 / 7 | available | 0 (missed 09-27 Weekly — didn't know; calendar fixed) | Mon 09-28: LC49 +1d card ✅ cold · **LC347 AC** (sort-by-count, first comparator/lambda) · Tue 09-29: **LC347 bucket O(n) derived unaided + AC** · Wed 09-30: LC128 approach + run-start rule, code mid-debug |
 
-**Days kept total: 3 / 66 · build days 3.** A kept day = at least the floor (one 10-min card); a build day = a BUILD problem attempted. 5 of 7 kept = a kept week; two consecutive zero days breaks the streak; one repair token per week. The day-30 dose raise counts **build days**, not kept days.
+**Days kept total: 4 / 66 · build days 4.** A kept day = at least the floor (one 10-min card); a build day = a BUILD problem attempted. 5 of 7 kept = a kept week; two consecutive zero days breaks the streak; one repair token per week. The day-30 dose raise counts **build days**, not kept days.
 
 ## Topic levels (v2 map · 33 topics · see `PLAN.md` §3)
 | # | Topic | Level | Evidence (short) | Tier-0 re-entry |

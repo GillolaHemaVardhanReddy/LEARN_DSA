@@ -16,7 +16,7 @@
 | ~~2026-09-09~~ | ~~RECALL: 2 cards from gauntlet misses~~ | card | **RETIRED 2026-09-27** — same reason; there is no RECALL slot in the hour-block day | — |
 | 2026-09-28 | **LC49 Group Anagrams** — re-derive the key cold, first 3 min of the next block | card | +1d | ✅ 09-28 cold, unaided |
 | 2026-09-29 | **LC347 Top K Frequent** — re-derive cold: count → pairs → sort by count → take k (+ the complexity with d) | card | +1d | ✅ 09-29 cold (one precision: copy map to vector<pair>) |
-| 2026-09-30 | **LC347 bucket version** — re-derive cold: count ≤ n ⇒ count is the INDEX; walk buckets from n down | card | +1d | |
+| ~~2026-09-30~~ → next block | **LC347 bucket version** — re-derive cold: count ≤ n ⇒ count is the INDEX; walk buckets from n down | card | +1d | slid (he skipped into LC128) |
 
 ## Ladder — active items (starts with the first v2 AC)
 | Problem / cue | Topic | Last pass | Next due | Stage |
