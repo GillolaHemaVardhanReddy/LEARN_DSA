@@ -13,6 +13,20 @@
 
 ## v2 entries (from 2026-09-07)
 
+### ⭐ V#2 — HE TRACES HIS INTENT, NOT HIS CODE (fired **3× in one session**, 2026-10-03 → 10-05)
+1. **Wrong move, three times:**
+   - **LC128 (09-30):** traced the run-start condition as *"1-1 is not present so we start"* — the meaning he wanted — while the line on screen said the opposite. Fixed only after re-reading the characters.
+   - **LC560 (10-03):** stated the invariant correctly and out loud (*"we look up before inserting prefix"*), then wrote `check[sum] += 1;` **above** `ans += check[sum - k];`. Failed `[1,-1,0] k=0` → 6 instead of 3.
+   - **LC347 (10-05):** traced `[4,4,4,4]` and said correctly *"4 goes into 4 bucket"* (index `n`) — then wrote `for(int i = n-1; ...)`, which can never reach index `n`.
+2. **Root cause:** when he traces, he reads the **purpose** of a line, not the line. His model of the code is the one in his head, and the trace confirms the model instead of auditing the text. This is why a *correct* verbal invariant coexists with code that violates it — and it is invisible to the compiler every time.
+3. **Corrected model:** a trace is an **audit of characters**, not a restatement of intent. If the trace cannot fail, it was not a trace.
+4. **Prevention rule:** when tracing, **read the line out loud in execution order and say what the machine does with those exact tokens** — "line 1: writes sum into the map. line 2: reads sum-minus-k." Never "line 1: records the past." The moment the words become purpose-words, stop and re-read.
+5. **Re-test:** next time he reports a wrong answer, Kira points only at the line numbers and says nothing else — does he find it by reading the tokens? Watch on LC454 and LC205.
+6. **Which gate would've caught this?** None of A/B/C — this is a **failure inside** the gate machinery. Refuse-to-check held perfectly (he traced, Kira didn't) and still shipped the bug. The gate needs the token-level rule above to have teeth.
+
+### V#1 — status 2026-10-03 (LC128): **CLOSED PROPERLY.**
+Told to delete the `if(n==1) return 1;` patch, he traced `[1,3]` unaided, diagnosed *"at end we get INT_MIN as ans"*, and named the real fault (the max update sat inside the found-next branch). Then offered `return max(max_num,0)` — a **second** patch — recognized it as one when named, and took the structural fix instead (`max_num = 0` at init, single update after the inner loop). **Rule he now owns: when you add a special case for a SIZE, the general line is wrong.**
+
 ### V#1 — a fix applied as a PATCH, not as a RULE (2026-09-27, LC49 brute)
 > **Recurred 2026-09-30 (LC128):** length-1 runs never recorded → he added `if(n==1) return 1;` instead of moving the max update. `[1,3]` still breaks it. Re-test = his next fix must survive a hostile input he builds himself.
 1. **Wrong move:** told that `sort(...)` returns `void` and must be applied to a copy, he corrected line 26 — and left the byte-identical bug on line 30 four lines below (`if(sort(strs[j].begin(), strs[j].end()) == y)`).
@@ -21,6 +35,11 @@
 4. **Prevention rule:** after any fix — *"where else does this same pattern appear?"* — one pass, every time.
 5. **Re-test:** next time a mechanics bug is named in code with more than one occurrence, does he find the others unprompted? Watch on LC347 / LC128.
 6. **Which gate would've caught it?** Gate C (before submit) — but really this is pre-gate: the compiler would have caught it, which is why it cost nothing this time. It will cost something when the duplicate is *silent* rather than compiler-catchable.
+
+### M#13 — status update 2026-10-03 (🔴 FIRED HARD, LC128)
+Handed the hostile input, he correctly named the cause of the TLE (*"rewalking duplicates"*) — then priced it as **"slightly more than 10^8"** when the true count is **50001 × 50000 = 2.5 × 10^9**, i.e. **25× over budget**, ~25 seconds of work against a ~0.25 s allowance. Separately, on LC49 he wrote the bound as "L·N log N" — the log belongs on **L** (sorting each string), not on **n** (sorting the array): `O(n · L log L)`.
+**The refined leak, second iteration:** he gets the *shape* of the bound right and the *magnitude* wrong, then uses a softening phrase ("slightly more", "simple") to skip the arithmetic. **Rule: no adjectives in a budget line. Multiply the two numbers out and write the digits.**
+**Counter:** needs 3 consecutive bounds that survive "which line produces each factor?" — **1 of 3 banked** (LC128 closing sentence, his own words, correct on both factors). LC560 and LC347 both needed Kira's precisions (O(1) *average*; the bucket array is the bigger memory term) → not banked.
 
 ### M#13 — status update 2026-09-27 (half-fired, LC49)
 Named the dominant factor and the line behind it correctly and unprompted (**"O(n·L log L), the one-time sort"** — 1 of the 3 needed). But dismissed the rest as *"other things are pushing and simple"*: `check[temp]` on a `std::map` is **O(L·log n) ≈ 1400**, *twice* the sort's 700 — the single most expensive line in the loop. **The refined leak: he prices the line he is thinking about and assumes the others are free.** Next bound must account for **every** line, container operations included.

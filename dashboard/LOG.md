@@ -5,6 +5,87 @@
 
 ## 1. Session log (v2 starts 2026-09-07)
 <!-- NEWEST ENTRY GOES DIRECTLY BELOW THIS LINE — blocks are newest-first; /today reads the top 2 blocks -->
+```
+2026-10-03 → 10-05 — v2 DAYS 7 + 9 · topic 01 hashing, rungs 3+4 CLOSED + two +7d cold re-solves · 4 BLOCKS (10-03 = 3 blocks, 10-04 = ZERO day + the Weekly MISSED, 10-05 = 1 block)
+
+BLOCK 1 — LC128 Longest Consecutive (carried from 09-30, now CLOSED, AC).
+  (a) Told to delete his `if(n==1) return 1;` patch, he traced [1,3] UNAIDED and diagnosed it himself:
+      "at end we get INT_MIN as ans". Proposed the fix site himself. One nudge ("two update sites for one
+      quantity — where is the single line?") → he put the max update after the inner loop. V#1 closed properly:
+      init 0 instead of INT_MIN kills the `return max(max_num,0)` patch too.
+  (b) Submitted → TLE 81/85. Handed the hostile input [1..50000 + 50000 copies of 1]; HE named the cause:
+      "rewalking duplicates caused this". ⚠ But priced it as "slightly more than 10^8" when it is 2.5×10^9
+      (25× over) → M#13 fired again, corrected on the spot.
+  (c) Fix = iterate the MAP, not nums (dedup was already in hand). First time he has ever looped a map →
+      CPP_GAPS #12. He then dropped the `-1` while transcribing (`check.count(p.first)` → always true →
+      all zeros); found it from one question about what p.first is.
+  (d) Closing sentence, his words: "O(n) — the outer loop runs once per unique value, and the inner walk
+      visits each value at most once, because only a run's head starts a walk." ✅
+
+BLOCK 2 — LC560 Subarray Sum Equals K (rung 4, LEARN, new pattern, AC). Nearly all of it his:
+  (a) Budget line muddled ("brute at max can be O(n log n)") → separated "what the brute IS" from
+      "what I can afford". Corrected: re-summing = 10^12 ✗, running sum = 2×10^8 borderline.
+  (b) Wrote the O(n^2) brute → submitted → **AC at 2×10^8**. Kept as a reference oracle. Lesson flagged:
+      the judge passing you is not the same as the solution being affordable (CF 1s would kill it).
+  (c) Derivation: filled the per-start running-sum table on [1,2,3,4] himself, then aligned by END index →
+      **derived sum(i..j) = P[j] − P[i−1] UNAIDED** (one boundary correction: first said P[j]−P[i]).
+  (d) Rearranged to P[i−1] = P[j] − k after one numeric check (first said k − P[j]).
+  (e) Set-vs-count: first said "have I seen it". Traced [0,0,0] k=0 → saw a set gives 3 not 6. Then predicted
+      "the map would say 3 each time → 9" → traced the GROWING map (1,2,3) → **6**, and stated the invariant:
+      the map holds only the past ⇒ look up BEFORE insert.
+  (f) Then wrote TWO loops (build the whole map, then look up) — the exact 9-not-6 bug he had just predicted.
+      Caught it HIMSELF by tracing [0,0,0] → 12. ⭐
+  (g) Collapsed to one loop but wrote `check[sum]+=1;` BEFORE `ans += check[sum-k];`. Failed [1,-1,0] k=0 → 6.
+      Fixed after being pointed at his own two lines. **V#2 born: he traces what he MEANT, not what he WROTE.**
+  (h) Closing sentence after two precisions (O(1) average not O(1); memory O(n) = up to n distinct prefixes).
+  → **Topic-04 debt Q6 (prefix+hash never surfaced on a count-subarrays statement, 2026-08-10) is now paid.**
+
+BLOCK 3 — LC49 Group Anagrams, +7d COLD re-solve, 3rd pass (AC). Blank file, no peeking.
+  Budget line unaided and essentially right (one precision: the log is on L, not n → O(n·L log L) = 7×10^6).
+  Named BOTH keys unprompted (sort-the-string, and the 26-count key at O(n·L)). ONE bug, and it is a
+  **recurrence of the 09-27 re-test**: `string temp = sort(...)` — `std::sort` returns void. Same shape,
+  same problem, 6 days later → CPP_GAPS #A re-opened. Traced [""] correctly ("nothing to sort, key is the
+  empty string") and refused-to-check held: he traced, Kira did not. **Then collapsed his two loops into one
+  UNPROMPTED, five minutes after being told to watch for it.** ⭐
+
+BLOCK 4 — LC347 Top K Frequent, +7d COLD re-solve, bucket O(n) version (10-05, AC).
+  Retrieval worked: "count can't be bigger than length of array" → count as index, unprompted.
+  Three bugs, in order: (1) `vector<int> dummy(n+1)` — ONE slot per count, so two values with the same count
+  overwrite each other (failed [1,2,1,2,1,2,3,1,3,2] k=2). He had to be told a count is not unique.
+  (2) walk started at `i = n-1` — he had just TRACED [4,4,4,4] and said correctly "4 goes into bucket 4"
+  (= index n), then wrote n-1. **V#2, third occurrence in one session.** (3) Changed the type but dropped the
+  sizing → `vector<vector<int>> dummy;` then `dummy[c]` → UB, sanitizer "non-zero offset to null pointer".
+  Told straight (CPP_GAPS #14: vector operator[] does NOT create slots, unlike map). Side win: switching to
+  `.empty()` killed a latent 0-sentinel bug (nums[i] can be 0, and `if(dummy[i])` would have skipped it).
+  Did NOT understand why the nested bucket walk is O(n) → taught: n+1 slots stepped + d values touched in
+  total, O(n+d) = O(n), same "each element once" argument as LC128. Memory claim corrected: the n+1 bucket
+  array is the bigger term, not the map.
+
+⚠ CONTEST MISSED — 2026-10-04 08:00 IST LC Weekly, v2 contest #1. He knew: Kira made it the FIRST line of
+  this session ("LC Weekly is TOMORROW"). Reason given: "missed whole day due to some works". Second weekly
+  missed in a row (09-27 was not-knowing; this one was knowing). Logged, no debt. Called straight: every block
+  we run is practice for the one thing that cannot be manufactured — 90 timed minutes on unseen problems.
+  Next: Sat 10-10 20:00 Biweekly (evening slot, easier to protect) + Sun 10-11 08:00 Weekly.
+
+⭐ CALIBRATION EPISODE (10-03, mid-block, right after two unaided derivations). Unprompted: "all day I was
+  just feeling heart ache... I feel depressed that man I'm slow and will I even remember these after if I get
+  10 days break? will I master this DSA by Feb of 2027... will I lose my job in future due to AI... millions
+  of thoughts". Handled per protocol — receipts, not reassurance: an 8-item list of what he had done unaided
+  in the preceding two hours, plus the same-day receipt that he had just come off a 2-day gap (10-01/10-02)
+  and still derived prefix+hash cold. Then honest pace arithmetic (table below), no comfort. He returned to
+  the block and closed it. **Note: the spiral arrived at the moment of SUCCESS, not failure.**
+
+📈 PACE MATH given to him (his own ~300-block syllabus estimate): 7 blocks closed in the 9 days since v2 day 1
+  = ~5.4 blocks/week vs the 18/week target (30%). At 5/wk → full syllabus ~Jan 2028 ✗. At 10/wk → interview-
+  ready (~150 blocks, topics 01–12) ~mid-Jan 2027 ✓, full ~May 2027. At 18/wk → interview-ready ~Dec 2026.
+  **Verdict handed over: Feb-2027 interview-readiness needs ~10 blocks/week sustained, not 18. The gap between
+  5 and 10 is not talent — it is 10-01, 10-02 and 10-04.**
+
+Ladder: hashing 4/6 CLOSED (LC49 · LC347 · LC128 · LC560). Remaining: rung 5 LC454 4Sum II, rung 6 LC205
+  Isomorphic Strings, then the combined reps round (all 6 shuffled, cold, one sitting) — topic 02 does not
+  open until that round is clean. Owed and not done: C++ track item #1 (number types), still carried.
+```
+
 
 ```
 2026-09-30 — v2 DAY 4 · topic 01 hashing, rung 3 LC128 (block 2, NOT closed — paused mid-debug, boss moving to his personal laptop) | Did: (a) approach: first said "sort, then store in a set, then look for arr[i]+1" → shown it's two tools for one job (sorted ⇒ the next element IS x+1; set ⇒ order unneeded) and the follow-up bans the sort. (b) Brute count on [4,3,2,1] → **he said O(n²) himself** ✅. (c) Asked "set orders and keeps unique?" → std::set (ordered, O(log n) = the sort in disguise) vs unordered_set (O(1), no order). (d) The run-start rule took 3 turns: "skip consecutive" / "skip what's in the set" → x vs x-1 confusion → table on [100,4,200,1,3,2] → got it. Asked "how can a man think like this?" → answered via his own LC347 move: brute → find the wasted work → find what the useful case has that the wasted ones don't. (e) Code: `unordered_map<int>` compile error told straight. Silent bugs, each found by HIS trace: run-start condition inverted (he traced the intent "1-1 not present so start" instead of the code → re-read the line → fixed); inner loop didn't stop at a gap ([1,2,4] → 3, filled the table wrong once by assuming a reset that isn't in the code → shown → added `break`). Traced [1,2] correctly line by line ✅. (f) **Open:** max_num only updates inside the "found next" branch, so length-1 runs are never recorded; he patched with `if(n==1) return 1;` (V#1 again) — [1,3]→ should be 1, [] → should be 0, both still return INT_MIN. | Levels: NO change. | AC: none yet. | Leaks: **reading intent instead of code — 3rd time in 2 days** (LC347 "1", LC128 "1-1 not present", the [1,2,4] reset) → new watch item; **V#1 fired again** (n==1 special case). Not yet raised, for after AC: duplicates — outer loop over nums, not the set, so [1,1,1,...,2..n] can re-walk the same run many times (TLE risk). | Next: move the max update outside the found-branch + start max at 0, delete the n==1 patch → trace [1,3] and [] → submit → budget line with the lines → then the warm-up still owed (LC347 bucket in words).

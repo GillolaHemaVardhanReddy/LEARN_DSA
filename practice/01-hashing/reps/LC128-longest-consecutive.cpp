@@ -20,26 +20,25 @@ class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
         int n = nums.size();
-        if(n==1) return 1;
         unordered_map<int, int> check;
         for(int i = 0 ; i < n ; i++ ) {
             check[nums[i]] = 1;
         }
         int max_num = INT_MIN;
         int current_l = 0;
-        for(int i = 0 ; i < n ; i++ ) {
+        for(auto& p : check) {
             current_l = 1;
-            if(check.count(nums[i]-1) != 0){
+            if(check.count(p.first-1) != 0){
                 continue;
             }
-            int temp = nums[i]+1;
+            int temp = p.first+1;
             for(int j = 0 ; j < n ; j++ ) {
                 if(check.count(temp++) != 0){
                     current_l++;
-                    max_num = max(max_num, current_l);
                 } else break;
             }
+            max_num = max(max_num, current_l);
         }
-        return max_num;
+        return max(max_num,0);
     }
 };

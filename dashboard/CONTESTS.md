@@ -12,9 +12,8 @@
 
 | Date | Day | Time | Contest | v2 # |
 |---|---|---|---|---|
-| 2026-10-04 | Sun | 08:00 | LC Weekly | **#1** |
-| 2026-10-10 | Sat | 20:00 | LC Biweekly | #2 |
-| 2026-10-11 | Sun | 08:00 | LC Weekly | #3 |
+| **2026-10-10** | **Sat** | **20:00** | **LC Biweekly** | **#1 — THE NEXT ONE. Evening slot. Alarm set the night before, not that morning.** |
+| 2026-10-11 | Sun | 08:00 | LC Weekly | #2 |
 | 2026-10-18 | Sun | 08:00 | LC Weekly | #4 |
 | 2026-10-24 | Sat | 20:00 | LC Biweekly | #5 (last Phase-1) |
 | 2026-10-25 | Sun | 08:00 | LC Weekly | #6 |
@@ -31,7 +30,8 @@ Biweekly dates derived from the 09-12 anchor + 14 days — **verify on leetcode.
 | 2026-09-12 | LC Biweekly | skipped (v2 not started — the 17 zero days) | — | — | — | — |
 | 2026-09-13 | LC Weekly | skipped (same) | — | — | — | — |
 | 2026-09-26 | LC Biweekly | skipped (travelling, planned) | — | — | — | — |
-| 2026-09-27 | LC Weekly | **missed — didn't know it was on** (v2 day 1; fix = the calendar below + Kira's reminder rule) | — | — | — | — |
+| 2026-09-27 | LC Weekly | **missed — didn't know it was on** (v2 day 1; fix = the calendar + Kira's reminder rule) | — | — | — | — |
+| **2026-10-04** | **LC Weekly** | **MISSED — and he KNEW.** Kira made it the first line of the 10-03 session ("LC Weekly is TOMORROW, 08:00 IST"). Reason: *"missed whole day due to some works"*. 10-04 also logged as a zero day. No debt carried. **Second weekly missed in a row.** | — | — | — | — |
 
 ## Rating history
 | Date | LeetCode | Codeforces | CodeChef |

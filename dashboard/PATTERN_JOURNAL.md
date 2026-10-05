@@ -20,7 +20,9 @@
 
 | If you see… | Consider |
 |---|---|
-| "seen before? / how many times?" | Hashing / frequency map |
+| "seen before? / how many times?" | Hashing / frequency map — and pick the container from the question: **"have I seen it?" ⇒ set · "how many times?" ⇒ map**. A set can only ever add 1, so it cannot COUNT |
+| **"longest RUN of consecutive integers", unsorted, and O(n) demanded** | Set for **membership** + **only a run's HEAD starts a walk** (`x-1` absent). The head check is what makes it O(n) and not O(n²). Iterate the **SET**, never the array — duplicates would re-walk the same run |
+| **"how many SUBARRAYS have sum exactly k"** (count, not longest; negatives allowed ⇒ no sliding window) | **Prefix sum as the hash KEY.** `sum(i..j) = P[j] − P[i−1]` ⇒ standing at `j`, the starts that work are the earlier prefixes equal to **`P[j] − k`**. Ask the map *how many*, seed it `{0 : 1}`, and **look up BEFORE you insert** — the map must hold only the past |
 | **"group / bucket things that are EQUIVALENT under some transformation"** (anagrams, same digits, same shape) | **Build a CANONICAL KEY** — one value every member of a group computes to — then hash on it. Never compare members pairwise |
 | sorted array, find pair/triple | Two pointers |
 | compare from both ends | Two pointers |
@@ -602,3 +604,47 @@ Taught me by: Kira — LC149 hard gauntlet P1. Brute AC'd; slope-hash O(n²) opt
 - **Complexity with the work in it:** *"O(n + d log d) — the counting loop touches all n elements once; the sort runs on the d distinct pairs, not on n. Worst case every value is distinct → O(n log n)."*
 - **Still open:** the O(n) follow-up — a count is at most n, so a count can be an **index** (bucket by count).
 - **reduces to ___:** frequency map + *"rank the keys by their value"* — hashing, then sorting (or bucketing) the counts.
+
+
+---
+
+## 2026-10-03 — LC128 Longest Consecutive  ·  card
+**FRONT (disguised).** You are given a bag of integers in no order, duplicates allowed. Find the length of the longest stretch of whole numbers that appear in the bag with no gap. Must be linear.
+- `[100,4,200,1,3,2]` → `4` (1,2,3,4)
+- `[1,3]` → `1`
+- `[]` → `0`
+
+**BACK.**
+- **4 disqualifiers:** contiguous in the *array*? **no** — it's about values, not positions · may I sort? **the follow-up bans it** (and sorting is the O(n log n) answer) · order or membership? **membership** ⇒ `unordered_set` · count / best / list-all? **best** (a length).
+- **Trigger:** *"runs of consecutive VALUES, order of the array irrelevant"* → set membership.
+- **Idea:** every run has exactly one head — the `x` whose `x-1` is missing. Walk only from heads. A non-head is skipped in O(1), so no element is ever walked twice.
+- **The trap I actually hit:** iterating `nums` instead of the set. With 50000 duplicates of `1` in front of a 50000-long run, each duplicate is a head and re-walks the whole run → **50001 × 50000 = 2.5 × 10⁹**, 25× over budget. The dedup was already sitting in the map — I just wasn't looping over it.
+- **Complexity with the work in it:** O(n) — the outer loop runs **once per unique value**, and the inner walk visits each value **at most once across all runs**, because only a head starts a walk. Memory O(n) for the set.
+- **Reduces to** → *"have I seen this value?"*, which is the LC217/LC49 hashing primitive; the head rule is the new half.
+
+## 2026-10-03 — LC560 Subarray Sum Equals K  ·  card  *(the pattern that paid the 08-10 Q6 debt)*
+**FRONT (disguised).** An array of integers, positive and negative. Count how many contiguous non-empty stretches add up to exactly `k`. Overlapping ones all count.
+- `[1,1,1], k=2` → `2`
+- `[1,2,3], k=3` → `2`
+- `[1,-1,0], k=0` → `3`
+
+**BACK.**
+- **4 disqualifiers:** contiguous? **yes** · may I sort? **NO — contiguous forbids reordering** · order or membership? **"how many times have I seen this value"** ⇒ map, not set · count / best / list-all? **count**.
+- **Why NOT sliding window:** `nums[i]` can be negative, so the running sum is **not monotonic** — growing the window can make the sum go *down*. A window needs "extend ⇒ sum only grows". Dead on arrival.
+- **Trigger:** *"COUNT subarrays with sum exactly k, and negatives are allowed"* → prefix sum as a hash key.
+- **Idea (how I got there):** I tabulated the running sums my brute computed, then **aligned them by where each subarray ENDS**, and saw every row was row 0 minus a constant. That constant is a prefix. So `sum(i..j) = P[j] − P[i−1]` ⇒ `P[i−1] = P[j] − k`. Standing at `j`, I ask the map **how many** earlier prefixes equal `P[j] − k`.
+- **The two things that must be exactly right:** (1) seed `{0 : 1}` — the empty prefix is real and happened once; it's what lets a subarray start at index 0 (`[3], k=3` breaks without it). (2) **look up, then insert** — the map must contain only positions *before* `j`. Insert-first gave me 6 instead of 3 on `[1,-1,0]`; building the whole map first gave me 12 instead of 6 on `[0,0,0]`.
+- **Complexity with the work in it:** O(n) average — the loop runs once per element and each map lookup is O(1) average (O(n) worst case if every key collides). Memory O(n) because the map holds up to n distinct prefix sums.
+- **Reduces to** → the LC347 move (*hash a derived quantity, not the raw value*) + the LC1 move (*ask the map for the complement of what you're holding*). Here the "complement" is `P[j] − k`.
+
+## 2026-10-05 — LC347 bucket  ·  card  *(re-fired cold at +7d; felt HARD, 3 bugs)*
+**FRONT (disguised).** Return the `k` most frequent values in an array. Must beat O(n log n).
+- `[1,1,1,2,2,3], k=2` → `[1,2]`
+- `[4,4,4,4], k=1` → `[4]`
+
+**BACK.**
+- **Trigger:** *"rank by a COUNT, and beat n log n"* → the count is a **small integer in a known range**, so the count is an **INDEX**, not something to sort.
+- **Idea:** a count can never exceed `n` ⇒ `n+1` buckets (0..n). Drop each value into `buckets[its count]`, then walk the index **from `n` down** and take until you have `k`.
+- **Bugs I made cold, all three worth remembering:** (1) `vector<int>` buckets — **a count is not unique**, two values share a frequency and one gets overwritten ⇒ the slot must be a `vector<vector<int>>`. (2) walked from `n-1`, so a value with count `n` (`[4,4,4,4]`) was unreachable — I had *said* "index 4" out loud one minute earlier (V#2). (3) changed the type and dropped the sizing ⇒ `operator[]` on an empty vector = UB.
+- **Complexity with the work in it:** O(n) — counting runs n times; the walk steps over `n+1` slots and touches each of the `d` distinct values exactly once *in total*, so O(n + d) = O(n). The nesting is structural, not multiplicative — **same "each element once" argument as LC128.** Memory O(n): the map holds `d` entries **plus an `n+1`-slot bucket array, which is the bigger term.**
+- **Reduces to** → counting sort (topic 06): when the key is a bounded int, the array index does the sorting for free.
