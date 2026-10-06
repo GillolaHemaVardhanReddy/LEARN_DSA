@@ -84,6 +84,31 @@ BLOCK 4 — LC347 Top K Frequent, +7d COLD re-solve, bucket O(n) version (10-05,
 Ladder: hashing 4/6 CLOSED (LC49 · LC347 · LC128 · LC560). Remaining: rung 5 LC454 4Sum II, rung 6 LC205
   Isomorphic Strings, then the combined reps round (all 6 shuffled, cold, one sitting) — topic 02 does not
   open until that round is clean. Owed and not done: C++ track item #1 (number types), still carried.
+
+BLOCK 5 (10-05 late → 10-06) — LC454 4Sum II, rung 5. **NOT CLOSED — derivation complete, code not written**
+  (boss: "push my progress i will touch code later"). Everything below is banked and does not need re-deriving:
+  (a) Did NOT understand the statement or the examples at first ("i didnt understand question or those
+      examples"). Fix that worked: enumerated ALL 16 picks of example 1 as a table with the two hit rows
+      marked. **Table-of-all-cases is now 3-for-3 as the unlock modality** (LC560 prefix table, LC347 bucket
+      trace, this). Prose restatement had already failed once.
+  (b) Budget: first said the brute is (2·10^2)^3 — counted 3 loops for 4 arrays. Corrected by pointing at the
+      16-row table (n=2 gave 2^4 rows). Then **he multiplied it out himself: "2^4 * 10^8 so TLE"** = 1.6×10^9,
+      16× over. → **M#13 counter 2 of 3 banked** (digits, no adjectives).
+  (c) Gate C magnitude: he conflated the two ceilings ("its 16 times huge than eligible") — separated them:
+      time budget 10^8/sec ⇒ 16× over ✗, but `int` ceiling 2.147×10^9 ⇒ 1.6×10^9 FITS with ~25% margin ✓.
+      Noted why LC capped n at 200 (n=250 ⇒ 3.9×10^9 ⇒ would need `long long`).
+  (d) **B1 unaided and instant: `a+b = -c-d`.** The 4-way condition became a 2-way lookup.
+  (e) **B2 unaided: "n^4 becomes n^2 which is 4·10^4"** — 8×10^4 total across both halves, a 20,000× cut.
+  (f) B3 took two modality switches. He didn't follow the prose ("i didnt get what you said"), so: the
+      (i,j) table for nums1=[1,1] nums2=[0,0] → sum 1 reachable 4 ways. He then asked a *good* question —
+      "c+d = -1 what are those 2 ways?" — i.e. he refused a number I had asserted without arrays. Supplied
+      nums3=[-1,0] nums4=[0,-1] with its table ⇒ 4 × 2 = 8. **Then he gave the structure himself:
+      `unordered_map<int,int>`, "value, count of times it appeared"** (precision: key is the SUM, not the value).
+  ⛔ KIRA ERROR, caught and fixed in-file: the scaffold listed `[1,1] [0,0] [-1,-1] [0,0] -> 8`. It is **16**
+      (all 2^4 picks sum to 0). Corrected in both places + the 4×2=8 case added as its own hostile input.
+      Lesson for Kira: compute every expected value in a scaffold, don't pattern-match it.
+  RESUME = write STEP 3 only: fill `left[a+b]++` over nums1×nums2, then `ans += left[-(c+d)]` over nums3×nums4,
+  no second map. Five hostile inputs are in the file. Nothing else is owed on this problem.
 ```
 
 

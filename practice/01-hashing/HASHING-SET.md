@@ -38,7 +38,7 @@ by paying memory. Every problem below is a different answer to: **what is X?**
 | 2 | Top K Frequent Elements | 347 | count first, then put a **second structure** on the counts | "I hashed to counts, then bucketed by count" | **CLOSED** 2026-09-28 (sort) + 09-29 (bucket O(n)) · **+7d cold re-solve 10-05 ✅ — felt HARD, 3 bugs → repeats at 10-12** |
 | 3 | Longest Consecutive Sequence | 128 | a set for **membership**, not counting · only start at a run's head | "the head check is what makes it O(n) and not O(n^2)" | **CLOSED** 2026-10-03 · TLE (duplicate re-walk) → AC · iterate the SET not the array |
 | 4 | Subarray Sum Equals K | 560 | hash **what you have seen so far** — a prefix sum as a key | "I asked the map for a past prefix instead of re-scanning" | **CLOSED** 2026-10-03 · brute AC (2×10^8!) then optimal AC · **identity + invariant derived unaided** · paid the 08-10 Q6 debt |
-| 5 | 4Sum II | 454 | **split the search space** in half, hash one half | "n^4 became n^2 by meeting in the middle" | ▶ **NEXT** |
+| 5 | 4Sum II | 454 | **split the search space** in half, hash one half | "n^4 became n^2 by meeting in the middle" | ▶ **OPEN** 2026-10-05 — budget + `a+b=-c-d` + `n^4→n^2` + `map<sum,ways>` all derived; **only STEP 3 code left** |
 | 6 | Isomorphic Strings | 205 | two maps, and **why one is not enough** | "one map allows two letters to map onto the same letter" | after rung 5 |
 
 ## Then: the combined reps round

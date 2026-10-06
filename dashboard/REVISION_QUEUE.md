@@ -17,8 +17,8 @@
 | 2026-09-28 | **LC49 Group Anagrams** — re-derive the key cold, first 3 min of the next block | card | +1d | ✅ 09-28 cold, unaided |
 | 2026-09-29 | **LC347 Top K Frequent** — re-derive cold: count → pairs → sort by count → take k (+ the complexity with d) | card | +1d | ✅ 09-29 cold (one precision: copy map to vector<pair>) |
 | ~~2026-09-30~~ → ~~next block~~ | **LC347 bucket version** — count ≤ n ⇒ count is the INDEX; walk buckets from n down | card | +1d | ✅ **settled 2026-10-05** by the full cold re-solve (said "count can't be bigger than length of array" unprompted) |
-| **2026-10-06** | **LC128 Longest Consecutive** — re-derive cold in words: why only a run's HEAD starts a walk, and why the outer loop must iterate the SET not the array | card | +1d | due (slid from 10-04, a zero day) |
-| **2026-10-06** | **LC560 Subarray Sum = K** — re-derive cold in words: the identity, what the map's key→value is, the seeded `{0:1}`, and why lookup comes BEFORE insert | card | +1d | due (slid from 10-04, a zero day) |
+| **2026-10-06** | **LC128 Longest Consecutive** — **cold re-solve from a blank file** (NOT a question-card — boss's no-quiz rule, 09-25: retrieval happens by re-solving only). Watch: does the outer loop iterate the SET? | re-solve | +1d | due (slid from 10-04, a zero day) |
+| **2026-10-06** | **LC560 Subarray Sum = K** — **cold re-solve from a blank file** (same rule). Watch: the seeded `{0:1}`, and lookup BEFORE insert (V#2 bait) | re-solve | +1d | due (slid from 10-04, a zero day) |
 
 ## Ladder — active items (starts with the first v2 AC)
 | Problem / cue | Topic | Last pass | Next due | Stage |
