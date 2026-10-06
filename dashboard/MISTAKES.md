@@ -13,7 +13,14 @@
 
 ## v2 entries (from 2026-09-07)
 
-### ⭐ V#2 — HE TRACES HIS INTENT, NOT HIS CODE (fired **3× in one session**, 2026-10-03 → 10-05)
+### ⭐ V#2 — HE TRACES HIS INTENT, NOT HIS CODE (fired **4×**, 2026-09-30 → 2026-10-07)
+
+**4th fire — LC454, 2026-10-07, and this one was PRE-WARNED.** The turn before he pasted, Kira asked exactly one question: *"what is on the right-hand side of your `+=`? If it's a `1`, `[1,1][0,0][-1,-1][0,0]` gives you 4 and the judge rejects you."* He then wrote `if(check1[-1*temp] > 0){ ans++; }` — he **read** the count out of the map on line 78 and **threw it away** on line 79. His own file, line 45, in his own words from 10-05: *"value = HOW MANY (i,j) pairs produce it."* The model was right; the token was wrong.
+- **Kira's re-test move worked:** line numbers only, no explanation, plus the hostile input already in his file → he found it himself and AC'd (*"i forgot += count of how many possibilities"*). **This is the protocol holding — keep using it: name the lines, say nothing else.**
+- **New read on the root cause:** the leak is not in *tracing*, it is in **transcription**. Between the sentence in his head and the characters on the line, the quantity degrades to a flag. `++` is the default token for "something happened"; the correct token has to be *chosen*. So the catch moves earlier: **before writing any accumulator line, say out loud what the right-hand side IS (a count? a 1? a max?) and then write it.**
+- 5 fires would make this the top watchlist item. It is already the standing first question on every `+=`/`++` he writes.
+
+### V#2 — the first three fires (2026-10-03 → 10-05)
 1. **Wrong move, three times:**
    - **LC128 (09-30):** traced the run-start condition as *"1-1 is not present so we start"* — the meaning he wanted — while the line on screen said the opposite. Fixed only after re-reading the characters.
    - **LC560 (10-03):** stated the invariant correctly and out loud (*"we look up before inserting prefix"*), then wrote `check[sum] += 1;` **above** `ans += check[sum - k];`. Failed `[1,-1,0] k=0` → 6 instead of 3.

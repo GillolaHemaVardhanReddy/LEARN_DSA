@@ -648,3 +648,19 @@ Taught me by: Kira — LC149 hard gauntlet P1. Brute AC'd; slope-hash O(n²) opt
 - **Bugs I made cold, all three worth remembering:** (1) `vector<int>` buckets — **a count is not unique**, two values share a frequency and one gets overwritten ⇒ the slot must be a `vector<vector<int>>`. (2) walked from `n-1`, so a value with count `n` (`[4,4,4,4]`) was unreachable — I had *said* "index 4" out loud one minute earlier (V#2). (3) changed the type and dropped the sizing ⇒ `operator[]` on an empty vector = UB.
 - **Complexity with the work in it:** O(n) — counting runs n times; the walk steps over `n+1` slots and touches each of the `d` distinct values exactly once *in total*, so O(n + d) = O(n). The nesting is structural, not multiplicative — **same "each element once" argument as LC128.** Memory O(n): the map holds `d` entries **plus an `n+1`-slot bucket array, which is the bigger term.**
 - **Reduces to** → counting sort (topic 06): when the key is a bounded int, the array index does the sorting for free.
+
+## 2026-10-07 — LC454 4Sum II  ·  card  *(LEARN, rung 5/6, AC id 2164619908)*
+**FRONT (disguised).** Four arrays of the same length n. Count the 4-tuples — one index from each array — whose four values add to 0. Indices are independent; count tuples, not distinct values.
+- `[1,2] [-2,-1] [-1,2] [0,2]` → `2`
+- `[0] [0] [0] [0]` → `1`
+- `[1,1] [0,0] [-1,-1] [0,0]` → `16`  *(every one of 2·2·2·2 picks works — this is the case that kills a `set`)*
+
+**BACK.**
+- **4 disqualifiers:** contiguous? **no — indices are independent, there is no subarray here** · may I sort? **pointless, nothing is positional** · order or membership? **neither — "HOW MANY"** · count / best / list-all? **count**.
+- **Trigger:** *"four (or 2k) independent choices that must satisfy ONE equation"* → **split the equation in half** and hash one half.
+- **Idea:** `a+b+c+d == 0` ⇒ `a+b == -(c+d)`. Now the left half has no c and no d in it. Enumerate all `a+b` (n² = 4×10⁴), enumerate all `c+d` (n² = 4×10⁴), and the n⁴ = 1.6×10⁹ collapses to 8×10⁴. Meet in the middle.
+- **The one thing that must be exactly right:** the map's value is **how many (i,j) pairs** reach a sum, and you must `ans += that count`, not `ans++`. A `set` can only ever contribute 1 and gives 4 instead of 16 on `[1,1] [0,0] [-1,-1] [0,0]`. **Counts MULTIPLY: (ways to make s) × (ways to make −s).**
+- **Why no second map:** the second half is consumed as a stream — each `(c+d)` is looked up once and never queried again, so it needs no storage. Build a map only for the side you must ask questions of.
+- **Complexity with the work in it:** O(n²) — lines 69–73 run 4×10⁴ times, lines 75–82 run 4×10⁴ times (**added**, the loops are independent), each op O(1) average because `unordered_map` hashes straight to a bucket, same one step at 10 keys or 40,000. Total 8×10⁴. With `map` instead: ×log₂(40 000) ≈ 16 ⇒ 1.3×10⁶. Memory O(n²) = 40,000 keys.
+- **Reduces to** → LC1 Two Sum (*ask the map for the complement of what you are holding*) with the "one value" replaced by **one half of the equation**, plus the LC560 move (*the value is a COUNT, not a flag*). The generalisation has a name: **meet in the middle** (topic 32).
+

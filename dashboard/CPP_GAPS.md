@@ -71,3 +71,15 @@ Idea was correct unaided (sorted string as the key). All 7 errors were C++ mecha
 **C. Python leaking in.** `for(key,value in x)` → `for (auto& [key, value] : x)` (C++17 structured binding).
 
 **Topic-relevant:** reached for `map` (BST, O(log n)) in the hashing topic. Default should be `unordered_map` (O(1) avg) unless sorted order is needed.
+
+## 2026-10-07 — LC454 (topic 01, rung 5)  ·  gap #16 + two re-fires
+**#16 — the COST OF ONE OPERATION is part of the bound, and the container sets it.** He gave `O(a*b) + O(c*d)` with no per-step factor, and priced a `map` insert at **`L log L`** (the cost of sorting all L items *once*) instead of **`log L`** (one walk down an already-ordered tree).
+- `unordered_map` / `unordered_set`: hash the key → jump to its bucket → **O(1) average**, the same single step at L = 10 and L = 40,000. Worst case O(L) if every key collides.
+- `map` / `set`: a balanced BST = **binary search built into a structure** (the LC704/LC153 machine). Find or insert = walk from the root halving the range = **O(log L)**. At L = 40,000 that is ~16 steps, not 40,000·16.
+- **Rule to say out loud:** a bound = *how many times the loop runs* × *what one iteration costs*. Name both. `O(n²)` for LC454 is only true because the inside costs 1 and not 16.
+- Worked digits, LC454: 8×10⁴ ops × 1 = **8×10⁴** with `unordered_map`; × 16 = **1.3×10⁶** with `map`. Both pass a 10⁸/sec judge — the gap bites at 10⁷ ops.
+
+**🔴 RE-FIRE of the 2026-09-27 gap B — reading a map with `operator[]` INSERTS.** Lines 78–79: `if(check1[-1*temp] > 0){ ans += check1[-1*temp]; }`. Every **missing** `(c+d)` silently creates a `0` entry, so the map can grow from 40,000 to 80,000 keys. The rule was already written on 09-27 ("use `x.count(y) == 0`") and did not transfer. To **test** membership: `.count()` / `.find()` / C++20 `.contains()`. To **accumulate**: just `ans += check1[-temp];` — a missing key yields 0, which makes the `if` on line 78 redundant anyway (band-aid echo).
+
+**Also:** two lookups of the same key where one would do — hoist it (`auto it = check1.find(-temp); if(it != check1.end()) ans += it->second;`).
+

@@ -64,14 +64,23 @@
 class Solution {
 public:
     int fourSumCount(vector<int>& nums1, vector<int>& nums2, vector<int>& nums3, vector<int>& nums4) {
-        // TODO(you):
-        //  - which TWO arrays go into the map, and what is key -> value?
-        //  - what exact value do you look up for a given (c + d)?
-        //  - do you need a second map for the other half, or just a loop? why?
-        //  - you are ADDING a count, not a 1. Trace nums1=[1,1] nums2=[0,0] nums3=[-1,-1] nums4=[0,0]
-        //    (answer: 16 — every one of the 2*2*2*2 picks sums to 0) and make sure your
-        //    line produces 16, not 4 and not 1.
-        return 0;
+        unordered_map<int, int> check1;
+        int a = nums1.size(), b = nums2.size(), c = nums3.size(), d = nums4.size();
+        for(int i = 0 ; i < a ; i++ ) {
+            for(int j = 0 ; j < b ; j++ ) {
+                check1[nums1[i]+nums2[j]]++;
+            }
+        }
+        int ans = 0;
+        for(int i = 0 ; i < c ; i++ ) {
+            for(int j = 0 ; j < d ; j++ ) {
+                int temp = nums3[i] + nums4[j];
+                if(check1[-1*temp] > 0){
+                    ans+=check1[-1*temp];
+                }
+            }
+        }
+        return ans;
     }
 };
 
@@ -86,7 +95,26 @@ public:
 //   [1] [1] [1] [1]                        -> 0    no answer at all
 //   [2^28] [2^28] [-2^28] [-2^28]          -> 1    magnitude: does (a+b) overflow? show the number
 //
-// STEP 5 — the closing sentence
-//   O(____) — this loop runs ____ times, that loop runs ____ times, each lookup costs ____ .
-//   Memory O(____) because ____ .
+// STEP 5 — the closing sentence  ·  BANKED 2026-10-07, AC id 2164619908
+//   All four lengths are n (given), so a = b = c = d = n.
+//
+//   O(n^2) TIME. Lines 69-73 run n*n = 4x10^4 times. Lines 75-82 run n*n = 4x10^4 times.
+//   ADDED, not multiplied — the two double loops are independent, neither is inside the other.
+//   Each map operation costs O(1) average, because unordered_map HASHES the key straight to a
+//   bucket: the same single step whether the map holds 10 keys or 40,000.
+//   Total = 8x10^4 steps against a ~10^8/sec judge.  <-- the line that says it passes
+//
+//   What the container was worth (the factor that is easy to forget):
+//     unordered_map : 1 step per op      -> 8x10^4         total
+//     map (a balanced BST)   : log2(40000) ~ 16 steps/op -> ~1.3x10^6 total
+//   A map is a binary search built into a structure (same machine as LC704/LC153): finding a key
+//   WALKS DOWN from the root halving the range = log L comparisons. It is NOT L log L — L log L is
+//   the cost of sorting all L items once; one insert into an already-ordered tree just hooks in.
+//   (Here map would still have AC'd. The difference bites when the loop count is 10^7, not 10^4.)
+//
+//   O(n^2) MEMORY — check1 holds at most n*n = 40,000 distinct sums, one key per (i,j) pair (line 71).
+//   LEAK: line 78/79 read with operator[], which INSERTS a 0 for every MISSING (c+d) too, so the map
+//   can reach 8x10^4 entries. Reading a map with [] is the 2026-09-27 gap firing again — use
+//   .count()/.find() to test, or just drop the `if` entirely: `ans += check1[-temp];` adds 0 when
+//   absent, which makes the guard on line 78 redundant anyway.
 // =============================================================================
