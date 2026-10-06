@@ -5,6 +5,8 @@
 
 ## 1. Session log (v2 starts 2026-09-07)
 <!-- NEWEST ENTRY GOES DIRECTLY BELOW THIS LINE — blocks are newest-first; /today reads the top 2 blocks -->
+
+2026-10-06 (cont.) — CAPACITY RECALIBRATION · no block closed in this exchange | Boss reported his real ceiling: **1 hour-block per weekday, 2 per weekend day = 9/week**, not the 18/week he committed to on 09-28. Kira's math, from 7 blocks closed of a ~300-block syllabus (~150 of them topics 01–12 = interview-ready): the Sunday Weekly eats one weekend slot, so the honest ceiling is **8 problem-blocks/week** → **interview-ready ≈ 2027-02-08, full syllabus ≈ 2027-06-19**, both inside the 2027-08-07 goal, with the month-7 gate (2027-04-07) cleared by ~2 months. At 7/wk (one slip a week): 2027-02-26 / 2027-07-26, zero slack. At the **actual** 5.4/wk of the first 9 days: 2027-04-09 / 2027-10-20 ✗. **Verdict handed over: this is not bad news.** 9/week is already 1.7× his observed rate — the deadline was never threatened by the cap, it is threatened by 10-01, 10-02 and 10-04. The schedule now lives on the weekend's 4 blocks; a lost weekend costs 2 weekdays. | Levels: no change. | AC: none. | Banked to: README PACE line, PLAN row D1′. | Next: close LC454 (code only, derivation already banked) — that is today's one block.
 ```
 2026-10-03 → 10-05 — v2 DAYS 7 + 9 · topic 01 hashing, rungs 3+4 CLOSED + two +7d cold re-solves · 4 BLOCKS (10-03 = 3 blocks, 10-04 = ZERO day + the Weekly MISSED, 10-05 = 1 block)
 
