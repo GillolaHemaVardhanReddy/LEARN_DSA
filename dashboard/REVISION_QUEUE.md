@@ -17,10 +17,12 @@
 | 2026-09-28 | **LC49 Group Anagrams** — re-derive the key cold, first 3 min of the next block | card | +1d | ✅ 09-28 cold, unaided |
 | 2026-09-29 | **LC347 Top K Frequent** — re-derive cold: count → pairs → sort by count → take k (+ the complexity with d) | card | +1d | ✅ 09-29 cold (one precision: copy map to vector<pair>) |
 | ~~2026-09-30~~ → ~~next block~~ | **LC347 bucket version** — count ≤ n ⇒ count is the INDEX; walk buckets from n down | card | +1d | ✅ **settled 2026-10-05** by the full cold re-solve (said "count can't be bigger than length of array" unprompted) |
-| **2026-10-10** | **LC128 Longest Consecutive** — **cold re-solve from a blank file** (NOT a question-card — boss's no-quiz rule, 09-25: retrieval happens by re-solving only). Watch: does the outer loop iterate the SET? | re-solve | +1d | **slid again to Sat 2026-10-10 AM** |
-| **2026-10-10** | **LC560 Subarray Sum = K** — **cold re-solve from a blank file** (same rule). Watch: the seeded `{0:1}`, and lookup BEFORE insert (V#2 bait) | re-solve | +1d | **slid again to Sat 2026-10-10 AM** |
+| ~~2026-10-10~~ | **LC128 Longest Consecutive** — cold re-solve | re-solve | +1d/+7d | ✅ **pulled forward, done 2026-10-08** — run-start rule cold, but TLE first (outer loop over nums, 3rd time) → self-fixed → AC. Felt hard (tired) ⇒ **+7d again 2026-10-15** |
+| **2026-10-09** | **LC560 Subarray Sum = K** — **cold re-solve from a blank file** (pulled forward from Sat 10-10 to free Sat AM for the combined reps round). Watch: the seeded `{0:1}`, lookup BEFORE insert (V#2 bait). **Carries M#13's 3rd attempt.** | re-solve | +1d/+7d | due Fri |
 
-| **2026-10-08** | **LC454 4Sum II** — **cold re-solve from a blank file**, first 15 min of the block. Watch: `ans += count`, never `ans++` (V#2's 4th fire) | re-solve | +1d | due |
+| 2026-10-08 | **LC454 4Sum II** — cold re-solve | re-solve | +1d | ⏳ **boss reports done 10-07 night on the MacBook — verify file + AC there**, then ✅ |
+| **2026-10-09** | **LC205 Isomorphic Strings** — cold re-solve from a blank file, first 15 min of the block. Watch: BOTH directions (s→t and t→s) | re-solve | +1d | due Fri |
+| **2026-10-10** | **Combined reps round** — all 6 hashing problems shuffled, no labels, cold, one sitting = the hashing checkpoint | test | — | Sat AM |
 
 > **⚠️ CAPACITY NOTE (2026-10-07).** At **1 block/weekday** the ladder now competes with new rungs for the same hour.
 > Rule from here: a **+1d re-solve runs inside the block it precedes** (first 15 min, blank file), and **+7d cold re-solves
@@ -33,8 +35,10 @@
 |---|---|---|---|---|
 | **LC49 Group Anagrams** — canonical key, built not given | 01 hashing | **2026-10-03 — +7d cold re-solve ✅ AC** (3rd pass; only bug = the `sort` returns void recurrence) → felt EASY | **2026-11-02** | +30d card |
 | **LC347 Top K Frequent (bucket O(n))** — count as index, walk down | 01 hashing | **2026-10-05 — +7d cold re-solve ✅ AC** → felt **HARD** (3 bugs: one slot per count, walk start `n-1`, unsized `vector<vector<int>>`) | **2026-10-12** | **+7d AGAIN** (hard ⇒ repeat the rung, PLAN §5) |
-| **LC128 Longest Consecutive** — set for membership · only a run's head starts a walk | 01 hashing | 2026-10-03 (AC, TLE→AC) | **2026-10-10** (+1d slid twice: 10-04 zero day, 10-06 block went to LC454) | +1d → +7d, both on Sat 10-10 |
-| **LC560 Subarray Sum = K** — hash what you have seen so far (prefix as key) | 01 hashing | 2026-10-03 (AC; derived unaided) | **2026-10-10** (+1d slid twice: 10-04 zero day, 10-06 block went to LC454) | +1d → +7d, both on Sat 10-10 |
+| **LC128 Longest Consecutive** — set for membership · only a run's head starts a walk | 01 hashing | **2026-10-08 cold re-solve ✅ AC** (TLE first — outer loop over nums, 3rd time; felt hard) | **2026-10-15** | **+7d AGAIN** |
+| **LC560 Subarray Sum = K** — hash what you have seen so far (prefix as key) | 01 hashing | 2026-10-03 (AC; derived unaided) | **2026-10-09** (pulled forward from Sat) | +1d → +7d, one cold re-solve |
+| **LC205 Isomorphic Strings** — bijection = two maps, s→t and t→s | 01 hashing | **2026-10-08 — LEARN, AC first submit** (felt easy) | **2026-10-09** +1d, then **2026-10-15** | +1d → +7d cold re-solve |
+| LC205 — card | 01 hashing | — | 2026-11-07 | +30d |
 | **LC454 4Sum II** — split the equation in half, hash one half, the value is a COUNT | 01 hashing | **2026-10-07 — LEARN, AC** (one bug: `ans++` where `ans += count` belonged, found from line numbers alone) | **2026-10-08** +1d, then **2026-10-14** | +1d → +7d cold re-solve |
 | LC454 — card | 01 hashing | — | 2026-11-06 | +30d |
 | LC454 — card | 01 hashing | — | 2027-01-05 | +90d |
@@ -63,6 +67,7 @@
 ## Completed (v2 log)
 | Date | Item | Result | Next |
 |---|---|---|---|
+| 2026-10-08 | LC128 cold re-solve (pulled from Sat) | ✅ AC — TLE first (outer loop over nums, 3rd time), self-fixed; felt hard | +7d again, 2026-10-15 |
 | 2026-10-05 | LC347 bucket +7d cold re-solve | ✅ AC — but felt HARD (3 bugs) | +7d again, 2026-10-12 |
 | 2026-10-03 | LC49 +7d cold re-solve (3rd pass) | ✅ AC — key + both tools named unprompted | +30d card, 2026-11-02 |
 | 2026-09-29 | LC347 +1d card | ✅ cold (one precision: copy map to `vector<pair>`) | — |

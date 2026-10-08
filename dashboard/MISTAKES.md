@@ -13,6 +13,9 @@
 
 ## v2 entries (from 2026-09-07)
 
+### V#3 — LC128 outer loop over `nums`, not the set (TLE ×3: 06-20 P20, 10-03, 10-08)
+He OWNS the fix (said it himself on 10-03: "rewalking duplicates caused this") but the **first draft** still loops the raw array every time. Not a knowledge gap — a default-token gap, same family as V#2's `++`. **Catch:** when a set/map was built for dedup, the next loop goes over THAT container — say "which container does this loop walk?" before writing the `for`. Re-test: LC128 +7d cold, 2026-10-15 — first submit must not TLE. Side note: the `INT_MIN` + `max(…,0)` clamp (V#1, closed 10-03) re-appeared in the same file — init the answer to 0.
+
 ### ⭐ V#2 — HE TRACES HIS INTENT, NOT HIS CODE (fired **4×**, 2026-09-30 → 2026-10-07)
 
 **4th fire — LC454, 2026-10-07, and this one was PRE-WARNED.** The turn before he pasted, Kira asked exactly one question: *"what is on the right-hand side of your `+=`? If it's a `1`, `[1,1][0,0][-1,-1][0,0]` gives you 4 and the judge rejects you."* He then wrote `if(check1[-1*temp] > 0){ ans++; }` — he **read** the count out of the map on line 78 and **threw it away** on line 79. His own file, line 45, in his own words from 10-05: *"value = HOW MANY (i,j) pairs produce it."* The model was right; the token was wrong.
