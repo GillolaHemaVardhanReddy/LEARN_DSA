@@ -20,7 +20,7 @@
 | ~~2026-10-10~~ | **LC128 Longest Consecutive** — cold re-solve | re-solve | +1d/+7d | ✅ **pulled forward, done 2026-10-08** — run-start rule cold, but TLE first (outer loop over nums, 3rd time) → self-fixed → AC. Felt hard (tired) ⇒ **+7d again 2026-10-15** |
 | **2026-10-09** | **LC560 Subarray Sum = K** — **cold re-solve from a blank file** (pulled forward from Sat 10-10 to free Sat AM for the combined reps round). Watch: the seeded `{0:1}`, lookup BEFORE insert (V#2 bait). **Carries M#13's 3rd attempt.** | re-solve | +1d/+7d | due Fri |
 
-| 2026-10-08 | **LC454 4Sum II** — cold re-solve | re-solve | +1d | ⏳ **boss reports done 10-07 night on the MacBook — verify file + AC there**, then ✅ |
+| ~~2026-10-08~~ | **LC454 4Sum II** — cold re-solve | re-solve | +1d | ✅ **VERIFIED 2026-10-08** — file written 10-07 night on the MacBook, submitted from it on 10-08: **AC id 2166496160**. `ans += check[...]` cold, 24 h after V#2's 4th fire on that exact line ⇒ **V#2 beaten pre-warned**. One flaw: line 20 reads the map with `operator[]` (CPP_GAPS #16, 3rd fire) — he named the mechanism and the fix himself. ⇒ **+7d 2026-10-14** |
 | **2026-10-09** | **LC205 Isomorphic Strings** — cold re-solve from a blank file, first 15 min of the block. Watch: BOTH directions (s→t and t→s) | re-solve | +1d | due Fri |
 | **2026-10-10** | **Combined reps round** — all 6 hashing problems shuffled, no labels, cold, one sitting = the hashing checkpoint | test | — | Sat AM |
 
@@ -39,7 +39,7 @@
 | **LC560 Subarray Sum = K** — hash what you have seen so far (prefix as key) | 01 hashing | 2026-10-03 (AC; derived unaided) | **2026-10-09** (pulled forward from Sat) | +1d → +7d, one cold re-solve |
 | **LC205 Isomorphic Strings** — bijection = two maps, s→t and t→s | 01 hashing | **2026-10-08 — LEARN, AC first submit** (felt easy) | **2026-10-09** +1d, then **2026-10-15** | +1d → +7d cold re-solve |
 | LC205 — card | 01 hashing | — | 2026-11-07 | +30d |
-| **LC454 4Sum II** — split the equation in half, hash one half, the value is a COUNT | 01 hashing | **2026-10-07 — LEARN, AC** (one bug: `ans++` where `ans += count` belonged, found from line numbers alone) | **2026-10-08** +1d, then **2026-10-14** | +1d → +7d cold re-solve |
+| **LC454 4Sum II** — split the equation in half, hash one half, the value is a COUNT | 01 hashing | **2026-10-08 — +1d cold re-solve ✅ AC** (id 2166496160; written 10-07 night, submitted 10-08 — `ans +=` held cold) → felt clean | **2026-10-14** | +7d cold re-solve |
 | LC454 — card | 01 hashing | — | 2026-11-06 | +30d |
 | LC454 — card | 01 hashing | — | 2027-01-05 | +90d |
 | LC49 — card | 01 hashing | — | 2026-12-26 | +90d |
@@ -67,6 +67,7 @@
 ## Completed (v2 log)
 | Date | Item | Result | Next |
 |---|---|---|---|
+| 2026-10-08 | **LC454 +1d cold re-solve** (written 10-07 night, submitted 10-08) | ✅ **AC id 2166496160** — `ans += check[...]` cold, V#2 beaten pre-warned; one flaw = `operator[]` read (#16, 3rd fire) | +7d, 2026-10-14 |
 | 2026-10-08 | LC128 cold re-solve (pulled from Sat) | ✅ AC — TLE first (outer loop over nums, 3rd time), self-fixed; felt hard | +7d again, 2026-10-15 |
 | 2026-10-05 | LC347 bucket +7d cold re-solve | ✅ AC — but felt HARD (3 bugs) | +7d again, 2026-10-12 |
 | 2026-10-03 | LC49 +7d cold re-solve (3rd pass) | ✅ AC — key + both tools named unprompted | +30d card, 2026-11-02 |

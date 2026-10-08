@@ -83,3 +83,16 @@ Idea was correct unaided (sorted string as the key). All 7 errors were C++ mecha
 
 **Also:** two lookups of the same key where one would do — hoist it (`auto it = check1.find(-temp); if(it != check1.end()) ans += it->second;`).
 
+### 2026-10-08 — #16 / `operator[]`-inserts: **3rd fire, and the mechanism is now HIS.**
+The 10-07 night re-solve of LC454 repeated the `operator[]` read on line 20: `ans += check[-1 * (C[i] + D[j])];`.
+Asked what `operator[]` does with a missing key, he answered **"it gives us 0"** (right, and why the code AC'd), then —
+**unprompted, before being asked for a fix** — "we should check first if there is any element for that value and skip if not",
+and finally named the mechanism himself: **"reading a missing key inserts it with 0."** That is the first time it came
+from him instead of from Kira. What he still got wrong: he feared a *wrong answer* ("might end up with counts of 0's values").
+There is none — an inserted entry holds 0, so re-reading it still returns 0. **The cost is memory and time, not correctness:**
+40,000 real keys + up to 40,000 garbage keys = **80,000 entries**, every insert re-hashing and re-bucketing. Paid double for nothing.
+- Trace that settles it: `check={5:1}` → `ans += check[7];` → `ans=0`, `check={5:1,7:0}`, `size()==2` → read `check[7]` again → still `0`, size still 2.
+- Both correct spellings of line 20: `if (check.count(k)) ans += check[k];` · `ans += check.count(k) ? check[k] : 0;` · or hoist the `find()`.
+- **Status: mechanism OWNED, reflex NOT YET.** Next re-test = the combined reps round (Sat 2026-10-10) and the LC454 +7d on 2026-10-14 — if line 20 comes out with a guard unprompted, #16 closes.
+
+
