@@ -95,4 +95,5 @@ There is none — an inserted entry holds 0, so re-reading it still returns 0. *
 - Both correct spellings of line 20: `if (check.count(k)) ans += check[k];` · `ans += check.count(k) ? check[k] : 0;` · or hoist the `find()`.
 - **Status: mechanism OWNED, reflex NOT YET.** Next re-test = the combined reps round (Sat 2026-10-10) and the LC454 +7d on 2026-10-14 — if line 20 comes out with a guard unprompted, #16 closes.
 
-
+### #17 (2026-10-09, LC560) — `map.count(key)` returns 0 or 1, NOT the frequency
+He believed `count` gives the count. It answers "is the key present?" (0/1) — for `map`/`unordered_map` keys are unique. The stored number is `m[key]` (or `m.find(key)->second`). `multiset::count` / `std::count` are the ones that really count. Re-test: combined reps round 10-10 (LC560 / LC454 lookups).

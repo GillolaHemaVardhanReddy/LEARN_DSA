@@ -253,6 +253,7 @@ pattern name after the last question.**
 
 ## Pacing / dose
 - **2026-10-08 — tired-after-work sessions still close blocks** if each step is one small question: LC205 felt easy ("clear mind"), LC128 was done "bit by bit due to work pressure" and he wanted to sleep — both AC. When fatigued he skips traces Kira asks for (dodged the "remove the continue" trace) → answer it plainly, don't re-ask. **"Reduces to ___" is abstract to him** — Kira writes it from his own words and shows it; never make it a fill-in.
+- **2026-10-09 — he wants to LEAD on logic, be TOLD on facts:** after Kira told him `count` returns 0/1 he said "u just showed me instead of letting me lead towards the ans but its fine". Rule: library/C++ facts → tell plainly; logic bugs → one trace input, he leads. He then fixed the loop-order bug himself.
 - **Always give the LeetCode URL** with every problem / "submit" (boss, 2026-10-08).
 - Keep to **≤1 hint then stop** (his explicit preference; he calls out over-reveal).
 - But **close the loop**: check the one hint landed before letting him grind, and if
