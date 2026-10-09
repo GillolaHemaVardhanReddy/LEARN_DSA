@@ -5,8 +5,8 @@ Keep it simple and short when teaching — boss: "text dumped is not understanda
 
 | # | Item | Status |
 |---|---|---|
-| 1 | Number types — `int` vs `long long`, overflow | ▶ next (2026-09-29) |
-| 2 | `&` reference — don't copy big arrays | |
+| 1 | Number types — `int` vs `long long`, overflow | ✅ 2026-10-09 — fix `1LL*n*n` his; first predicted "correct value" for `long long x = n*n` (n=5e4) while saying n*n is int → corrected: the INTERMEDIATE overflows. Rule: every step must fit, widen BEFORE the math |
+| 2 | `&` reference — don't copy big arrays | ▶ next |
 | 3 | vector + string — all the tools | |
 | 4 | pair — two values together | |
 | 5 | map + set | (started: LC49, LC347) |
