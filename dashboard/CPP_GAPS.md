@@ -97,3 +97,30 @@ There is none — an inserted entry holds 0, so re-reading it still returns 0. *
 
 ### #17 (2026-10-09, LC560) — `map.count(key)` returns 0 or 1, NOT the frequency
 He believed `count` gives the count. It answers "is the key present?" (0/1) — for `map`/`unordered_map` keys are unique. The stored number is `m[key]` (or `m.find(key)->second`). `multiset::count` / `std::count` are the ones that really count. Re-test: combined reps round 10-10 (LC560 / LC454 lookups).
+
+---
+
+### ✅ #16 — CLOSED 2026-10-10 (the hashing checkpoint, Q2, from memory, inside a test)
+The stated re-test condition was *"if a guard comes out unprompted, #16 closes."* It did. Asked for the prefix-map
+template with no files and no scrolling, the first thing he wrote was **`ans += map_check[pref[j] - k]` "if pref[j]-k is
+present"** — the guard **first**, unprompted, 24 h after the 3rd fire. Three fires (09-27 · 10-06 LC454 lines 78–79 ·
+10-08 LC454 re-solve line 20), then the mechanism named by him on 10-08, then the reflex on 10-10. **Shut.**
+Confirming evidence the same morning, and it is the better signal: on Q3 (LC187) he wrote **`check[x]++`** — `[]`-**insert**,
+which is exactly the right tool for counting. So he is not avoiding `[]`; he now **discriminates the read case from the
+insert case**. That is understanding, not superstition.
+*(#17 held too, implicitly: he wrote "if … is present" for the guard and `[...]` for the stored number — the 0/1-vs-frequency
+distinction was used correctly. Keep the +7d LC454 on 10-14 as the confirming rep, then retire the watch.)*
+
+### #18 (2026-10-10, LC187 checkpoint Q3) — a STRING key costs its LENGTH to hash
+**Kira supplied this one**, so the M#13 attempt on it did not bank. `unordered_map` finds a bucket by **hashing the key**,
+and hashing a string **reads every character in it**:
+- `unordered_map<int,int>` — one step per lookup, whether there are 10 keys or 40,000. (This is CPP_GAPS #16's "same step".)
+- `unordered_map<string,int>` with 10-char keys — **~10 character reads per lookup**, every time.
+So on LC187 the bound is `n × (10 appends + one 10-char hash)` ≈ **2×10⁶** at n = 10⁵ — the two 10s are *not* decoration,
+one is the window length and one is the key length.
+**The trap he fell into:** he proposed `s.substr(i,10)` as the *fix* for the cost. It isn't — `substr` copies the same 10
+characters his `x += s[j]` loop appended. `substr` is **cleaner to read, not cheaper to run**. (The real cheaper key is to
+encode the 10 letters into one integer — 2 bits per letter × 10 = 20 bits — which turns the key into an `int` and the hash
+into one step. That is the bit-manipulation solution to LC187 and it waits for **topic 11 Bits**.)
+**Re-test:** the LC187 +7d cold re-solve on **2026-10-17** — if the closing sentence carries the key-length factor
+without being asked, #18 closes.

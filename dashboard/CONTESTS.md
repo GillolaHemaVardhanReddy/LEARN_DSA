@@ -5,6 +5,7 @@
 **Calendar (IST):** LC Weekly **Sun 08:00** (90 min, 4 Q) · LC Biweekly **alternate Sat 20:00 — anchor Sat 2026-09-12 (Biweekly 191), then every 14 days** · CodeChef Starters **Wed 20:00** (from month 2) · Codeforces Div 3/4/Edu **~20:05** (from month 3) · GFG Weekly **paused since ~2025-06** (Kira re-checks monthly).
 
 **Rules:** full 90 min · all 4 attempted · no help · disqualifier gate before every problem, even under the clock · **one same-day receipt before any verdict** · **exactly one upsolve per weekend** (easiest unsolved *within opened topics*; none ⇒ ≤ 1 tier ahead taught just-in-time, or out-of-scope) within 48 h in `tests/contests/<date>-<contest>/` (Kira ≤1 hint) · every unsolved problem → one card tagged by why (reading / routing / machinery / execution / speed) — an **unopened-topic** miss is logged "not yet": no card, never a recognition miss.
+**Virtual contests (rule set 2026-10-10):** when a contest is genuinely unavailable (travel, work), the LC **Virtual Contest** is an accepted substitute — it preserves the only thing a contest manufactures, *90 timed minutes on unseen problems* — but it **does not move rating**, so it is never a substitute for a live contest he could have played. Conditions: no statement read before the clock, full 90 min, logged here as `(virtual)`.
 **LC rating:** first 5 contests = Phase 1 (percentile only, unranked). Elo from the 6th. Knight ≈ top 25 % (~1850) · Guardian ≈ top 5 % (~2120, approximate).
 
 ## 📅 Upcoming (IST) — Kira keeps 8 weeks visible
@@ -12,8 +13,8 @@
 
 | Date | Day | Time | Contest | v2 # |
 |---|---|---|---|---|
-| **2026-10-10** | **Sat** | **20:00** | **LC Biweekly** | **#1 — THE NEXT ONE. Evening slot. Alarm set the night before, not that morning.** |
-| 2026-10-11 | Sun | 08:00 | LC Weekly | #2 |
+| ~~2026-10-10~~ | Sat | 20:00 | LC Biweekly | **⚠️ FALLS ON A JOURNEY (boss, 10-10 AM) ⇒ run it as a LeetCode VIRTUAL CONTEST on return** — same problems, real 90-min clock, **no rating**. Two hard conditions or it is worthless: **(1) read no statement before the clock starts** (no problems tab, no discussion, no leaderboard) · **(2) full 90 min, phone down.** Optional if the journey kills it — the 10-11 live Weekly is the one that matters. |
+| **2026-10-11** | **Sun** | **08:00** | **LC Weekly** | **#1 — LIVE and RATED. THE STREAK-BREAKER (3 weeklies would otherwise be missed in a row). He is home, morning slot, no journey. Alarm Sat night.** |
 | 2026-10-18 | Sun | 08:00 | LC Weekly | #4 |
 | 2026-10-24 | Sat | 20:00 | LC Biweekly | #5 (last Phase-1) |
 | 2026-10-25 | Sun | 08:00 | LC Weekly | #6 |

@@ -301,3 +301,48 @@ rate** is higher AND he prefers it; he can veto any. Queued for Tier 0: **E1** s
 **E2** derive-first vs video-first (06 sorting vs 11 bits, crossover in Tier 1) · **E3** card-interval doubling ·
 **E4** predict-before-reveal at Gate C. Friday 5-question self-report feeds the day-30 dose decision.
 
+
+---
+
+### 2026-10-10 — three findings from the hashing checkpoint, two of them about Kira, not him
+
+**(1) 🔴 CONFIRMED, by his own words: a multi-part question is a wall, and the wall stops the work.**
+Kira handed him Q1 as **six statements × three sub-answers in one message**. He answered the easy third of
+it (recognition) and silently dropped the other two thirds. Pushed to complete it, he said:
+> *"see you are asking tons of questions at once that is leading for me to think damn these many questions"*
+
+He is right and CLAUDE.md already said so (*"Atomic teaching: one smallest question, then STOP. Never a wall"*
+and *"≤ 1 gate question per turn"*) — Kira broke its own rule because a test *looks* like a place to hand over
+a paper. It is not: the format cost real signal (the gate went unanswered on 3 of 6 statements and never got
+run on them at all). **Rule, now standing: one question per turn, even in TEST mode. A written paper goes in
+the folder; the chat asks for one thing at a time.** Immediately after the switch he produced four clean gate
+answers in a row. Second half of the same correction, his words — *"give me with question"*: **restate the
+statement together with the question.** He will not scroll back up to re-read it, and asking him to is friction
+dressed up as rigour.
+
+**(2) 🟡 FIRST RECORDED FAILURE of the line-numbers protocol — and the switch-modality rule saved it.**
+"Name the line numbers and say nothing else" is Kira's standing move on a wrong answer; it worked on 10-07 and
+10-09. Today, on *"which line carries the hash cost and how often does it run"*, it produced: **"yes soo what?"**
+Repeating it would have been the banned repeated-failed-hint. Kira switched to a **half-filled trace table**
+(`"AAAAAAAAAAAAA"`, `i = 0`, one row per `j`, his job = the "line 7 runs?" column) and he solved it in one turn:
+*"line 7 executes only when x has 10 char."*
+**The distinction that explains both outcomes:** line numbers work when he has to find a **wrong token** on a
+line he wrote (10-07's `ans++`, 10-09's `count`). They fail when the question is about **how often a line runs**
+— control flow is not visible in a token, it only appears when you *execute* it. **So: wrong value ⇒ line
+numbers. Wrong frequency ⇒ make him run it.** (Consistent with ⭐ LEAD WITH THE TRACE, and with the open
+hypothesis *"is he faster the first time he traces it himself"* — yes, again.)
+
+**(3) ⭐ E-new: the brute is not a warm-up, it is the derivation engine — 3rd confirmation.**
+Unprompted, about LC187: *"when i tried solving brute i came up with this hashing."* Same thing happened on
+LC49 (09-27) and LC560 (10-03). In all three the optimal **fell out of writing the brute**, with no derivation
+step from Kira. This is now the strongest confirmed item in the learner config: **never let him skip the brute
+to save time, and never hand him the optimal's shape first.** Writing the waste out in full is what makes the
+waste visible. Counter-evidence to watch for: a topic where the brute and the optimal share no structure
+(graphs, DP on trees) — log it there before generalising past Tier 0.
+
+**Also noted (not a finding, a confirmation):** he asked the right strategic question on his own —
+*"to close hashing do we practice blind other problems until i fix issues related coding, or will u make me
+move to next concept?"* He is reasoning about the **repair plan**, not just the next problem. Answer given was
+neither option: the gate cannot be repaired inside one topic (the folder name makes it a free pass), so it
+rides along on every problem from here; the template repair is already a scheduled ladder item. Worth noticing
+that he now models the program, not just the session.

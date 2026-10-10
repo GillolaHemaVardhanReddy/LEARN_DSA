@@ -353,6 +353,41 @@ Status: **RE-TESTED PASS (2026-06-05)** — derived `prefix[R]-prefix[L-1]` cold
 
 ---
 
+## V#4 (born 2026-10-10, the hashing checkpoint Q1) — **"membership" swallows "how many times"**
+
+**What happened.** The disqualifier gate's third question is *"order or membership?"*. Run on three disguised
+statements, he answered **"membership" on all three** — and all three needed **FREQUENCY**, not presence:
+
+| Statement | He said | The truth | What a set costs you |
+|---|---|---|---|
+| S1 = LC560 (count stretches summing to k) | "have I seen this is enough" | **how many times** this prefix has occurred | `[0,0,0]`, k=0 → a set gives **3**, the answer is **6** |
+| S3 = LC454 (count 4-tuples summing to 0) | "membership" | **how many (i,j) pairs** reach that sum | `[1,1],[-1,-1],[0,0],[0,0]` → a set gives **1**, the answer is **16** |
+| S6 = LC347 (k most-visited pages) | "membership" | the **count** is the entire problem | — |
+
+**Root cause — and this is the important part: it is not a knowledge gap.** He has derived this exact
+distinction in code **three separate times and won every time**: 2026-10-03 he predicted a set would give 3
+on `[0,0,0]` and traced the growing map to 6 himself; 2026-10-07 he stated *counts MULTIPLY* on LC454
+unaided; 2026-10-09 he learned `count()` returns 0/1 and then, on 2026-10-10, wrote a correct presence-guard
+from memory. **The idea is owned. The vocabulary is not.** The word "membership" has no third branch in his
+head, so the gate — a two-way question — gives him nowhere to put "how many times", and he files frequency
+under membership and moves on. The gate was *hiding* a distinction he already had.
+
+**Corrected model / the permanent fix — the gate itself changes.** Question 3 now has **three** branches:
+
+> **order? · membership? · or how many times?**
+
+**Why the repair is not "more hashing problems"** (he asked exactly this, and it was the right question):
+inside a single topic the gate is a **free pass** — if the folder says `01-hashing`, "which tool?" answers
+itself. The gate only has teeth where the topic is in doubt. So twenty more hashing reps would buy twenty
+more free passes on the one question he is failing. It is repaired by **running the gate out loud on every
+problem, in every topic, from here on** — the first 90 seconds of every block, not a block of its own.
+
+**Re-test:** Tue **2026-10-13** — the gate stated **unprompted** on 3 fresh disguised statements, with the
+third branch used correctly where it applies. This also carries the standing **M#12** debt (the gate stated
+unprompted on a mixed question whose neighbour used a different tool). Topic 02 does not open until it passes.
+
+---
+
 ## Pre-submit checklist (grows from the watchlist)
 > Run this before declaring any solution "done."
 - [ ] Did I test the empty / single-element / all-same / max-size input?

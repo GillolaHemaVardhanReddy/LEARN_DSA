@@ -22,7 +22,10 @@
 
 | ~~2026-10-08~~ | **LC454 4Sum II** — cold re-solve | re-solve | +1d | ✅ **VERIFIED 2026-10-08** — file written 10-07 night on the MacBook, submitted from it on 10-08: **AC id 2166496160**. `ans += check[...]` cold, 24 h after V#2's 4th fire on that exact line ⇒ **V#2 beaten pre-warned**. One flaw: line 20 reads the map with `operator[]` (CPP_GAPS #16, 3rd fire) — he named the mechanism and the fix himself. ⇒ **+7d 2026-10-14** |
 | 2026-10-09 | **LC205 Isomorphic Strings** — +1d cold re-solve | re-solve | +1d | ✅ **10-09 AC clean**, both directions, < 15 min |
-| **2026-10-10** | **Combined reps round** — all 6 hashing problems shuffled, no labels, cold, one sitting = the hashing checkpoint | test | — | Sat AM |
+| ~~2026-10-10~~ | **Combined reps round / HASHING CHECKPOINT** — all 6 shuffled, no labels, cold, one sitting | test | — | 🔴 **RAN 2026-10-10 — 1 of 3, NOT PASSED** (`tests/checkpoints/01-hashing-2026-10-10/`). Q3 PASS (LC187 unseen, cold, AC) · Q1 recognition 6/6 but gate **7/12** (→ V#4) · Q2 FAIL (two-loop template, insert line absent). **Re-test pulled to Tue 2026-10-13**; topic 02 shut until it passes |
+| **2026-10-12** | **LC347 Top K Frequent** — +7d cold re-solve. *This also repairs the 10-10 S6 miss: S6 **was** LC347, and he answered "needs sorting" against a bolded "beat sorting everything"* | re-solve | +7d (repeat rung) | Mon |
+| **2026-10-13** | **THE RE-TEST** — the gate on **3 fresh disguised statements, unprompted**, three-branch question 3 · + the **prefix-map template written COMPLETE** (the insert line and the `m[0]=1` seed) · + the **2 old-topic cards owed** from 10-10 (different families, one adjacent-family trap). **Pass ⇒ topic 02 Two Pointers opens Wed 10-14** | test | — | Tue |
+| **2026-10-17** | **LC187 Repeated DNA Sequences** — +7d cold re-solve (felt 3/5) | re-solve | +7d | Sat AM |
 
 > **⚠️ CAPACITY NOTE (2026-10-07).** At **1 block/weekday** the ladder now competes with new rungs for the same hour.
 > Rule from here: a **+1d re-solve runs inside the block it precedes** (first 15 min, blank file), and **+7d cold re-solves
@@ -46,6 +49,9 @@
 | LC347 — card | 01 hashing | — | 2026-11-04 | +30d (re-anchored to the 10-05 pass) |
 | LC347 — card | 01 hashing | — | 2027-01-03 | +90d |
 | LC128 — card | 01 hashing | — | 2026-11-02 | +30d |
+| **LC187 Repeated DNA Sequences** — hash the 10-char window as a KEY, the value is a count; answer = walk the map and take `v > 1` (so it emits once) | 01 hashing | **2026-10-10 — checkpoint Q3, UNSEEN + COLD + 0 hints, ✅ AC** (TLE self-diagnosed and fixed in 102 s; the `break` at length > 10 is what killed the n²) → felt **3/5** | **2026-10-17** | +7d cold re-solve |
+| LC187 — card | 01 hashing | — | 2026-11-09 | +30d |
+| LC187 — card | 01 hashing | — | 2027-01-08 | +90d |
 | LC560 — card | 01 hashing | — | 2026-11-02 | +30d |
 
 ## Carried-over debts from v1 — settled by the Tier-0 checkpoints, ONE topic at a time (never as a batch)
@@ -67,6 +73,8 @@
 ## Completed (v2 log)
 | Date | Item | Result | Next |
 |---|---|---|---|
+| 2026-10-10 | **THE HASHING CHECKPOINT** (the combined reps round) | 🔴 **1 of 3 — NOT PASSED.** Q3 ✅ LC187 unseen medium cold AC · Q1 recognition 6/6 / gate 7/12 ✗ · Q2 ✗ two-loop template | **re-test Tue 2026-10-13**; topic 02 shut |
+| 2026-10-10 | LC187 Repeated DNA Sequences (checkpoint Q3) | ✅ **AC** ts 1791634350 after TLE ts 1791634248 — unseen, cold, 0 hints | +7d 2026-10-17 |
 | 2026-10-09 | LC560 cold re-solve | ✅ AC (self-fixed loop order) | +7d 2026-10-16 |
 | 2026-10-09 | LC205 +1d cold re-solve | ✅ AC clean | +7d 2026-10-15 |
 | 2026-10-08 | **LC454 +1d cold re-solve** (written 10-07 night, submitted 10-08) | ✅ **AC id 2166496160** — `ans += check[...]` cold, V#2 beaten pre-warned; one flaw = `operator[]` read (#16, 3rd fire) | +7d, 2026-10-14 |

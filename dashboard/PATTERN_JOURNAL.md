@@ -666,3 +666,20 @@ Taught me by: Kira — LC149 hard gauntlet P1. Brute AC'd; slope-hash O(n²) opt
 - **Complexity with the work in it:** O(n²) — lines 69–73 run 4×10⁴ times, lines 75–82 run 4×10⁴ times (**added**, the loops are independent), each op O(1) average because `unordered_map` hashes straight to a bucket, same one step at 10 keys or 40,000. Total 8×10⁴. With `map` instead: ×log₂(40 000) ≈ 16 ⇒ 1.3×10⁶. Memory O(n²) = 40,000 keys.
 - **Reduces to** → LC1 Two Sum (*ask the map for the complement of what you are holding*) with the "one value" replaced by **one half of the equation**, plus the LC560 move (*the value is a COUNT, not a flag*). The generalisation has a name: **meet in the middle** (topic 32).
 
+
+## 2026-10-10 — LC187 Repeated DNA Sequences  ·  card  *(checkpoint Q3 — UNSEEN, COLD, 0 hints, AC; felt 3/5)*
+**FRONT (disguised).** A long string over a 4-letter alphabet. Return every **10-character substring that appears more than once**. Any order, each one listed once.
+- `"AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"` → `["AAAAACCCCC","CCCCCAAAAA"]`
+- `"AAAAAAAAAAAAA"` → `["AAAAAAAAAA"]`  *(it occurs 4 times — emit it ONCE)*
+- `"ACGT"` → `[]`  *(shorter than 10 ⇒ nothing)*
+
+**BACK.**
+- **4 disqualifiers:** contiguous? **yes — a substring is a contiguous window** · may I sort? **no, order is the whole meaning of a substring** · order / membership / **how many times**? → **how many times** (V#4's third branch — "appears more than once" is a *count* question) · count / best / list-all? → **list all** (and *distinct*, which is what makes the emit-once trap live).
+- **Trigger:** *"a FIXED-length window that must be compared to every other window"* → the window is not a range to scan, it is a **KEY**. Make the key, count the keys.
+- **Idea:** walk every start `i`, take the 10 characters as a string, `map[key]++`. Then walk the **map** and take every key whose count is > 1.
+- **The two things that must be exactly right:**
+  1. **Cap the window, or you have written the n² brute.** Growing `x` char by char is fine *only* because `else if (x.length() > 10) break;` stops the inner loop at ~11 trips. Without that line it is `n²/2` = 5×10⁹.
+  2. **Never push inside the counting loop.** `"AAAAAAAAAAAAA"` hits the same key 4 times; pushing on each hit returns it 4 times. Counting first and walking the map afterwards with `if (v > 1)` emits it **once, by construction** — no `set`, no dedup pass. *This is the ANSWER edge of the problem.*
+- **Complexity with the work in it:** O(10n) = O(n). The outer loop runs `n` times (line 2). The inner loop is capped at ~11 trips by the `break` (line 8). Line 5 does ~10 appends per `i`. **Line 7 runs exactly ONCE per `i`** — it sits inside the `length == 10` guard on line 6 — and that one call hashes a **10-character key, which costs 10 character reads** (CPP_GAPS #18). So `n × (10 + 10)` ≈ **2×10⁶** at n = 10⁵. Memory: up to `n−9` distinct 10-char keys ≈ 10⁶ bytes.
+- **Where the cheaper version lives:** 4 letters = **2 bits each**, 10 letters = **20 bits** ⇒ pack the window into one `int` and the key hashes in **one** step instead of ten, with a rolling update per shift instead of 10 appends. That is topic **11 Bits**, not today.
+- **Reduces to** → the **LC49 move** (*build a canonical KEY out of the thing you are comparing, then group by key*) with the key being a fixed-length window instead of a sorted word, plus the **LC560 move** (*the map's value is a COUNT, not a flag*). The answer-shape trick — **count first, filter the map after** — is the same one that makes LC347 work.
