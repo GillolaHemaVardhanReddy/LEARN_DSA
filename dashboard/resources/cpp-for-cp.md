@@ -8,8 +8,8 @@ Keep it simple and short when teaching — boss: "text dumped is not understanda
 | 1 | Number types — `int` vs `long long`, overflow | ✅ 2026-10-09 — fix `1LL*n*n` his; first predicted "correct value" for `long long x = n*n` (n=5e4) while saying n*n is int → corrected: the INTERMEDIATE overflows. Rule: every step must fit, widen BEFORE the math |
 | 2 | `&` reference — don't copy big arrays | ✅ 2026-10-09 — predicted the value-vs-ref puzzle right (6); priced 10^5 calls of a by-value 10^5 vector as "10^5, fine" (counted calls, not copies per call) → 10^10 = TLE. Rule: big container param → `&` / `const &` |
 | 3 | vector + string — all the tools | ✅ 2026-10-09 — vector puzzle clean (3 4); string: first read `substr(2,3)` as an end index ("c 0") → re-try `substr(1,4)` = "itch" ✅ but `'i'-'a'` said 9 (it's 8 — counts from 0) |
-| 4 | pair — two values together | ▶ next |
-| 5 | map + set | (started: LC49, LC347) |
+| 4 | pair — two values together | ✅ 2026-10-09 — sort-by-first-then-second + structured binding predicted clean (1 4) |
+| 5 | map + set | ▶ next (started: LC49, LC347) — include `count()` is 0/1 (CPP_GAPS #17) and `[]` inserts |
 | 6 | stack, queue, priority_queue | |
 | 7 | iterators — what `.begin()` / `.end()` are | |
 | 8 | built-in functions — sort, reverse, max_element… | |
