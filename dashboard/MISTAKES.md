@@ -353,6 +353,59 @@ Status: **RE-TESTED PASS (2026-06-05)** — derived `prefix[R]-prefix[L-1]` cold
 
 ---
 
+## M#12 — TOOL-CARRYOVER: **fired live in a contest, 2026-10-10** (Biweekly 193 Q1)
+
+Last fire before this: 2026-08-10. The leak's whole prediction is *"the topic he is immersed in bleeds onto
+the next problem"* — and after two weeks of nothing but topic 01, he opened a contest problem with
+`2 <= nums.length <= 100` and reached for an `unordered_map`.
+
+**`n ≤ 100` ⇒ n² = 10⁴ operations. Two nested loops. There was nothing to optimise.**
+
+**What makes this the clearest instance yet: the clever tool is what created every bug.** Pairing `i` against a
+*stored index* forced index bookkeeping, which forced an output-order branch
+(`if nums[i] > partner … else if nums[i] < partner …`), which forced a special case for equal values
+(`if(nums[i] == k-nums[i]) continue;`). **The brute force needs none of the three** — `nums[i] + nums[j] ==
+target && nums[i] > nums[j]` rejects equal values *for free* via the strict `>`, and the indices are already in
+hand. **Cost: five Wrong Answers and 20–25 minutes on an easy.**
+
+Residual defect still in the AC'd code: that `continue` skips to the next `i`, so `check[nums[i]] = i;` at the
+bottom never runs for that element — and *whether* it runs depends on the product comparison it is nested
+inside. Harmless at `n ≤ 100`; a trapdoor in shape. **An equality test is a validity filter and belongs at the
+top of the loop, never inside a "is this better" check.**
+
+**Corrected model — the gate gets a zeroth question, before all four:**
+> **Read the constraints and say the budget out loud FIRST.** `n ≤ 100` does not mean "find the O(n) solution",
+> it means **"brute force it and spend your minutes on the edges instead."** Choosing a tool before reading `n`
+> is how an easy costs five submissions.
+
+Here the edges were the entire problem, and he got the hardest one right: **the maximum product can be
+NEGATIVE** (Example 2's answer is −2), so `prod_check = INT_MIN` and not `0`. That is his #1 historical leak and
+it held cold under a clock — logged as a win, not swallowed by this entry.
+
+**Re-test:** the clean brute re-solve on **2026-10-12** (blank file, Gate C, hostile input before submitting,
+first-submit target) **and** the standing M#12 debt: the gate stated *unprompted* on a mixed question whose
+neighbour used a different tool — due at the **2026-10-13** re-test.
+
+---
+
+## Judge-as-debugger (the premature-"done" leak, under contest pressure) — 2026-10-10
+
+Five **Wrong Answer** submissions on Biweekly 193 Q1. Not TLE, not compile errors — five times he submitted code
+he had not traced, was told "no", changed something, and submitted again. In a rated contest every one of those
+is penalty time, so the five cost more than the minutes did.
+
+This is the leak the **refuse-to-check** protocol exists to kill, and he **held it clean on 2026-10-03** — asked
+Kira to check twice, was refused both times, and *his own trace found both bugs*. It came straight back the
+moment there was a clock.
+
+**Corrected model:** one hostile input, **built by him, before the first submit.** On this problem the three
+inputs that mattered were handed over free in the examples: `[3,3,5]` t=6 (equal values ⇒ `[-1,-1]`),
+`[-3,-1,4,2]` t=1 (**negative** best product), and any no-answer array. Running the examples by hand before
+submitting costs ~60 seconds and would have caught all five attempts.
+**Re-test:** 2026-10-12's re-solve — first-submit-clean or it has not held.
+
+---
+
 ## V#4 (born 2026-10-10, the hashing checkpoint Q1) — **"membership" swallows "how many times"**
 
 **What happened.** The disqualifier gate's third question is *"order or membership?"*. Run on three disguised
