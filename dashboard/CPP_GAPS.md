@@ -124,3 +124,19 @@ encode the 10 letters into one integer — 2 bits per letter × 10 = 20 bits —
 into one step. That is the bit-manipulation solution to LC187 and it waits for **topic 11 Bits**.)
 **Re-test:** the LC187 +7d cold re-solve on **2026-10-17** — if the closing sentence carries the key-length factor
 without being asked, #18 closes.
+
+### 🔴 #19 (2026-10-11, LC Weekly Q3) — he has never written a C++ **class**, and it cost him a Weekly Q3
+**His words:** *"im leaving contest since that q3 has oops and im confused about the problem its too much to consume."*
+**Kira's misread, logged honestly:** during triage Kira said "no new tool — the machinery is all topic 01" and sent him in.
+That was **wrong**. The algorithm *was* in reach (row-indexed state + two maintained counters, O(1) per call); what was not
+in reach is that LeetCode hands a design problem to you as **a class you must implement**. `cpp-for-cp.md` is at **#5 (map +
+set)** — classes, constructors and member variables are not on the track yet. He walked into a wall Kira pointed at.
+**Two things held apart, because they are not the same leak:**
+- *"it has OOP"* — a **real** gap. Nobody writes a design problem without having written a class first. Fix = told, not derived.
+- *"too much to consume"* — **not** supported by the evidence. 36 h earlier he took LC187 (unseen medium, cold, zero hints),
+  diagnosed his own TLE and fixed it in **102 s**. The load was not the blocker; the missing language feature was.
+**Fix (protocol: library facts get told, logic he leads):** the class skeleton — `class X { private: members; public: X(int n)
+{...} void f(){...} int g(){...} };` — is handed to him flat, ~10 min. Every design decision inside it (what to store per row,
+what to keep updated, why `getMinTime` is not the loop it looks like) he leads at ≤ 1 hint.
+**Re-test:** the 10-11 upsolve in `tests/contests/2026-10-11-lc-weekly/` — if he can write the skeleton (constructor + members +
+method bodies) from memory on a blank file, #19 closes. **Design problems are now a known recurring LC shape, not a surprise.**

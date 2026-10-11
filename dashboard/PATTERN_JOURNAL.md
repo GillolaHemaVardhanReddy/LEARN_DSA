@@ -702,3 +702,39 @@ Taught me by: Kira — LC149 hard gauntlet P1. Brute AC'd; slope-hash O(n²) opt
 - **What I got right, cold, under a clock (keep these):** `prod_check = INT_MIN`, because **the best product can be negative** (Example 2 is −2; initialising to `0` returns `[-1,-1]` on a case that has an answer) — that is my #1 historical leak, held. And `check.count(key)` **before** `check[key]` — CPP_GAPS #16, unprompted.
 - **Complexity with the work in it:** the brute is O(n²) = 10⁴ at n = 100 — the outer loop runs n times, the inner n times, each iteration is a constant number of adds and compares. The hash version is O(n) with O(n) memory, and **O(n) was never needed**; buying a factor of 100 on 10⁴ operations while adding three bug surfaces is a bad trade.
 - **Reduces to** → LC1 Two Sum (*ask the map for the complement*) — **which is exactly the trap.** The real rule this card teaches: **read the constraints BEFORE choosing the tool.** `n ≤ 100` means *"spend your minutes on the edges, not on the algorithm."* The edges here were three: strict `>`, a negative maximum, and the `[-1,-1]` no-answer case.
+
+---
+
+## 🏁 LC Weekly 2026-10-11 · Q3 — the DESIGN shape (tagged **machinery**, not routing)
+*Unsolved in contest. The card is deliberately written BEFORE the upsolve, so the shape fires on 10-18.*
+
+**FRONT (the disguised cue).** A problem hands you **a class to implement**, not a function to write:
+a constructor plus two or three methods, and the judge calls them **up to 10⁵ times in any order**.
+Three statements of the same shape:
+1. `BusBooking(n)` · `toggle(seat)` · `getTotalTime()` · `getMinTime()` — 10⁵ calls total.
+2. "Design a logger that accepts a message at most once every 10 seconds" — `shouldPrintMessage(ts, msg)`.
+3. "Design a system that returns the k-th largest number seen so far" — `add(x)` returns the answer each call.
+
+**BACK.**
+- **Trigger:** the word *"Implement the class"* / *"Design"*, a constructor, and **a call budget instead of an
+  input size**. The moment you see `total calls ≤ 10⁵`, say the budget out loud: **~10⁵ total work**, i.e.
+  **O(1) amortised per call.** That one sentence kills the whole trap before you type anything.
+- **THE TRAP, and it is the only idea in the pattern:** a method named `getTotalTime()` *looks* like
+  "go compute the total." If you compute it on demand you pay O(n) per call × 10⁵ calls = **TLE**.
+  **The answer does not get computed in the getter — it gets MAINTAINED in the setter.** Every `toggle`
+  nudges a stored number by a delta; every getter is one `return`.
+  ⇒ **A design problem is a question about WHAT TO STORE, not about what to compute.**
+- **The second trap (this problem's edge):** the statement says a seat's cost is **frozen at booking time**.
+  Freezing means you cannot *recompute* a cost when you remove it — you must have **remembered** what you
+  charged. "What did I charge?" is itself state.
+- **Why I lost it in the contest:** not the algorithm — **I had never written a C++ class** (CPP_GAPS #19).
+  The bookkeeping was inside my reach. The syntax was not issued to me yet. Those are different failures and
+  I will not log them as the same one.
+- **What I did right:** I stopped. I read it, saw an unowned tool, and left instead of bleeding 45 minutes.
+  Second clean triage in two contests.
+- **Complexity with the work in it:** O(1) per call — `toggle` does one string parse (≤ 7 chars), one array
+  read, one compare and two integer updates; both getters are a single `return` of a stored int. Memory O(n):
+  one small state slot per row. **Nothing in this problem is ever a loop over the rows.**
+- **Reduces to** → **the frequency map's core move** (topic 01): *maintain the answer as you go instead of
+  recomputing it at the end* — the same instinct as `ans += map[pref - k]` accumulating inside the loop
+  rather than a second pass. **A design class is a hash map with a name on it.**

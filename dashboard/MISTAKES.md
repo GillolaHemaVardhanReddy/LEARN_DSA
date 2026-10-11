@@ -404,6 +404,21 @@ inputs that mattered were handed over free in the examples: `[3,3,5]` t=6 (equal
 submitting costs ~60 seconds and would have caught all five attempts.
 **Re-test:** 2026-10-12's re-solve — first-submit-clean or it has not held.
 
+### ⭐ HELD — 2026-10-11, 24 HOURS LATER, LIVE, ON AN UNSEEN PROBLEM
+**LC Weekly 2026-10-11, Q1: one submission. Accepted.** This is better evidence than the scheduled 10-12
+re-solve could ever have been — that one is a *known* problem with the bugs already named. This was an
+**unseen statement, under a rated clock, the day after the leak fired five times.** 5 WAs → 1 AC in 24 h.
+
+The honest caveat, so this is not read as more than it is: **Q1 took ~25 minutes**, where the 10-10 Q1 took
+20–25 *including* five failed submissions. So the time did not improve — **what changed is where the time
+went.** It went into tracing before submitting instead of into round-trips with the judge. That is exactly
+the trade the protocol asks for, and at this stage it is the right one to pay: a clean first submit at 25 min
+beats an AC at 25 min plus 50 penalty minutes. Speed comes later, off the back of the reflex, never instead of it.
+
+**Status:** one live hold. **Keep the 10-12 re-solve anyway** — two holds, one of them cold on a problem whose
+bugs he knows, before this entry closes. The leak has fired at every pressure point since 06-23; it earns a
+second confirmation.
+
 ---
 
 ## V#4 (born 2026-10-10, the hashing checkpoint Q1) — **"membership" swallows "how many times"**

@@ -27,6 +27,8 @@
 | **2026-10-13** | **THE RE-TEST** — the gate on **3 fresh disguised statements, unprompted**, three-branch question 3 · + the **prefix-map template written COMPLETE** (the insert line and the `m[0]=1` seed) · + the **2 old-topic cards owed** from 10-10 (different families, one adjacent-family trap). **Pass ⇒ topic 02 Two Pointers opens Wed 10-14** | test | — | Tue |
 | **2026-10-12** | **Biweekly 193 Q1 "Maximum Product Pair with Target Sum"** — clean re-solve: **BRUTE double loop** (`n ≤ 100`), blank file, Gate C run, hostile input built **BEFORE** submitting, **target = first-submit-clean**. Not an upsolve (it was AC'd in contest) — this targets the 5-WA / judge-as-debugger leak | re-solve | +2d | Mon, after LC347 |
 | **2026-10-17** | **LC187 Repeated DNA Sequences** — +7d cold re-solve (felt 3/5) | re-solve | +7d | Sat AM |
+| **2026-10-11 PM** | **THE ONE UPSOLVE — LC Weekly Q3 `BusBooking`** (design class). Scaffold: `tests/contests/2026-10-11-lc-weekly/`. Class *syntax* is told (CPP_GAPS #19); every design decision is his, Kira at ≤ 1 hint. **Due within 48 h** | upsolve | new | **Sun PM** |
+| **2026-10-14** | **LC Weekly Q3 `BusBooking`** — +1d/+3d card: *"total calls ≤ 10⁵ ⇒ the getter returns, the setter maintains"* — re-state the shape cold, no code | card | +1d | after the upsolve |
 
 > **⚠️ CAPACITY NOTE (2026-10-07).** At **1 block/weekday** the ladder now competes with new rungs for the same hour.
 > Rule from here: a **+1d re-solve runs inside the block it precedes** (first 15 min, blank file), and **+7d cold re-solves
