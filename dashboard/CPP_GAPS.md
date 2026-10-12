@@ -140,3 +140,4 @@ set)** — classes, constructors and member variables are not on the track yet. 
 what to keep updated, why `getMinTime` is not the loop it looks like) he leads at ≤ 1 hint.
 **Re-test:** the 10-11 upsolve in `tests/contests/2026-10-11-lc-weekly/` — if he can write the skeleton (constructor + members +
 method bodies) from memory on a blank file, #19 closes. **Design problems are now a known recurring LC shape, not a surprise.**
+**🟡 2026-10-12 — used once, NOT closed.** Upsolve AC first submission, but Kira typed the shell (members, constructor `assign`, `seat[0]-'A'`, `stoi(substr(1))`, both getters) after "what are those 3?" → "can you tell what is what". He wrote `toggle` (both branches) himself and moved members to `public:` on his own — works, but members belong under `private:`. **Close condition unchanged:** the 10-18 PM blank-file re-solve, shell from memory.

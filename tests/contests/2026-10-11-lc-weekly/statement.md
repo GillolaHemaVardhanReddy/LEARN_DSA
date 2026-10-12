@@ -1,5 +1,7 @@
 # LC Weekly 2026-10-11 — Q3 · BusBooking (design)
 
+**LC link:** https://leetcode.com/problems/design-bus-seat-booking-system/
+
 **THE ONE UPSOLVE for the weekend of 2026-10-11.** Due within 48 h (target: Sun 10-11 PM block).
 Kira coaches at **≤ 1 hint**. The class *syntax* is a told library fact (CPP_GAPS #19). Every
 design decision is yours.

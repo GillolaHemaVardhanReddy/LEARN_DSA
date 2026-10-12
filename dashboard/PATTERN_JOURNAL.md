@@ -738,3 +738,5 @@ Three statements of the same shape:
 - **Reduces to** → **the frequency map's core move** (topic 01): *maintain the answer as you go instead of
   recomputing it at the end* — the same instinct as `ans += map[pref - k]` accumulating inside the loop
   rather than a second pass. **A design class is a hash map with a name on it.**
+- **Upsolved 2026-10-12 (AC, first submission) — in my words:** *"we should simply fill all A's or D's first then other adjacent seats"* ⇒ min = how many are booked. *"we have to store cost it took while alloting."* Free = `total -= cost; cost = 0; booked--` — subtract BEFORE you zero.
+- **Reduces to ___:** *maintain the answer in the setter; store what you charged so you can un-charge it.*
