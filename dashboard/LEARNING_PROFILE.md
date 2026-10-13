@@ -346,3 +346,9 @@ move to next concept?"* He is reasoning about the **repair plan**, not just the 
 neither option: the gate cannot be repaired inside one topic (the folder name makes it a free pass), so it
 rides along on every problem from here; the template repair is already a scheduled ladder item. Worth noticing
 that he now models the program, not just the session.
+
+### 2026-10-13 — two findings from the re-test, both about Kira
+1. **Metaphors COST him; his own symbols PAY.** "stretches / clicker / sensor" took ~6 turns. `P[j]−P[i−1]` (his 10-03 identity) + "chop a front piece" landed in 2. Same lesson as 2026-08-09 ("abstract doesn't grip, numbers do"), now for nouns. **Rule: plain arrays in every statement; re-explain through his own formula or code line, never a new picture.**
+2. **A checklist Kira always runs is not one he owns.** "Run your gate" → *"what gate? you were the one asking questions."* True. Handed over 10-13 as a 5-line list. From here he says it; Kira only marks it.
+3. He said the full idea back correctly *while* saying "I can't comprehend" (calibration leak, the 08-09 shape). The tap-out was his call, made clean: good.
+

@@ -421,6 +421,14 @@ second confirmation.
 
 ---
 
+## V#4 — status 2026-10-13: 🟢 HELD on the first try (re-test S1 = LC560 disguised): gate Q3 answered **"how many times"** cold. One hold — not cleared until S2/S3 on 10-15.
+
+## V#5 (born 2026-10-13, re-test S1) — **costume vocabulary breaks comprehension** *(Kira-side root cause)*
+**What happened.** S1 was LC560 dressed as a sensor log ("stretches of consecutive minutes", "alarms"). Kira's repair kept adding new words ("clicker"). ~6 turns went into the WORDS, not the idea; he said it plainly: *"terms clicker stretches all those are confusing me."* The moment it was restated as `nums` / subarray / sum / `P`, plus "chop a front piece", it landed.
+**Root cause.** A disguise is meant to hide the **pattern name**, not swap his vocabulary. Every new noun is a translation he does before thinking.
+**Corrected model (Kira).** Disguised statements use arrays, subarrays, sums, strings, with no story. When an explanation fails, switch to **his own symbols** (his `P[j]−P[i−1]`, his code lines) before any metaphor.
+**Re-test.** 10-14 LC930 + 10-15 S2/S3 in plain vocabulary: comprehension in ≤ 1 turn.
+
 ## V#4 (born 2026-10-10, the hashing checkpoint Q1) — **"membership" swallows "how many times"**
 
 **What happened.** The disqualifier gate's third question is *"order or membership?"*. Run on three disguised
