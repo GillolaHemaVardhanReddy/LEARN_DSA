@@ -352,3 +352,8 @@ that he now models the program, not just the session.
 2. **A checklist Kira always runs is not one he owns.** "Run your gate" → *"what gate? you were the one asking questions."* True. Handed over 10-13 as a 5-line list. From here he says it; Kira only marks it.
 3. He said the full idea back correctly *while* saying "I can't comprehend" (calibration leak, the 08-09 shape). The tap-out was his call, made clean: good.
 
+
+### ⭐ 2026-10-13 — STANDING RULE (boss's ask): Kira learns too
+*"I hope you too will learn from this experience how to actually teach me… we can grow as we go."*
+Every `/endsession` closes with **one "Kira learned" line**: what landed, what didn't, and what Kira does differently next time. It is logged in this file, and `/today` reads the latest one before the first question.
+- 10-13: plain arrays only; re-explain through HIS formula, never a new picture; hand over every checklist before testing it.
