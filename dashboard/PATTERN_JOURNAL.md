@@ -14,6 +14,44 @@
 
 ---
 
+## ⭐ CARD — the prefix-map template: the ORDER and the UNKNOWN (2026-10-18, 12 min before the Weekly gun)
+
+**Front (disguised):** *"Given an integer array (negatives allowed) and an integer k, count how many contiguous
+subarrays sum to exactly k."* — `[1,2,3], k=3` → **2** · `[0,0,0], k=0` → **6** · `[1], k=0` → **0**
+
+**Back — his words plus the one correction:**
+
+- **The identity.** Sum of the window `j..i` is `p[i] − p[j-1] = k`. He had this cold.
+- **🔑 THE CORRECTION — rearrange for the UNKNOWN, not for the known.** He wrote `p[i] = p[j-1] + k`.
+  Valid algebra, **wrong side as the key**. Standing at `i`, `p[i]` is what you **HAVE** (you just added `nums[i]`);
+  `p[j-1]` is what you **ASK THE MAP FOR**. So the unknown goes alone on the left:
+  **`p[j-1] = p[i] − k`** → *"look up current minus k."* Whenever a lookup feels ambiguous, ask **which letter do I
+  already know** — the other one is the key.
+- **The loop, three lines, and the order is load-bearing:**
+  1. `p += nums[i];`
+  2. `if (m.count(p-k)) ans += m[p-k];` ← **ASK.** The `+=` carries the **stored count**, never a `1` (V#2).
+  3. `m[p]++;` ← **then RECORD.**
+- **Why ASK before RECORD.** *The map must hold only the PAST.* `nums=[1], k=0`: record first and you look up `1`,
+  **find yourself**, and return **1** — an empty subarray. Record after → absent → **0**. ✅
+- **Why `m[0] = 1` is seeded.** It is the prefix that is **itself exactly k**. On `[1,2,3], k=3` at i=1: `p=3`,
+  want `3−3=0`, and the seed is what makes `[1,2]` count.
+- **Complexity with the work in it:** one pass = **n** iterations (line 1), each doing **3 O(1) hash operations**
+  (lines 2 and 3) because the key is an `int` — one hash step, not a length. ⇒ **O(n)** time, **O(n)** space
+  (at most n+1 distinct prefixes in the map).
+
+**Trigger:** *contiguous · sum/count · negatives present (so sliding window is dead) · "how many"* → **prefix + hash map.**
+
+**reduces to** → hashing for O(1) lookup **+** the prefix identity `sum(j..i) = p[i] − p[j-1]` **+** the invariant
+*"the container holds only what I have already passed."*
+
+**History (why this card exists).** The template failed from memory at the 10-10 checkpoint with the insert line **never
+written at all**. On **10-13** (re-test S1) it could not be reached either — but that one is logged as **V#5, Kira's fault:
+costume vocabulary** ("sensor log", "clicker", "stretches") buried the idea. On **2026-10-18**, blank, in **plain words**,
+12 minutes before a rated contest, it came back **complete** — both lines, the order, and the seed — on **one** nudge
+(*"who put 3 into the map?"*). **Plain vocabulary was the whole difference. That is the V#5 lesson, proven.**
+
+---
+
 ## Quick trigger index  (your cheat-sheet — keep it tight)
 > This subsumes the old "Interview Pattern Map." When stuck on classification,
 > scan this first.

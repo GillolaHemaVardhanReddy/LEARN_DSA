@@ -13,6 +13,40 @@
 
 ## v2 entries (from 2026-09-07)
 
+### ✅✅ JUDGE-AS-DEBUGGER — **CLOSED 2026-10-18** (open 2026-06-23 → 2026-10-18, ~4 months)
+**The leak:** submitting to LeetCode to find out whether the code is right, instead of tracing it first — the judge used as a
+debugger rather than as a verdict. **Peak damage: 2026-10-10, Biweekly 193 Q1 — five Wrong Answers on an easy**, five untraced
+submissions in a row, each one penalty time in a rated contest. It outlived every earlier repair because it is a **pressure**
+leak: refuse-to-check held clean on 10-03 in practice and **collapsed the instant there was a clock**.
+
+**The four holds:**
+1. **2026-10-11, LC Weekly Q1 — one submission, AC.** 24 h after the five WAs, unseen statement, rated clock. Honest caveat at
+   the time: Q1 still took ~25 min — the time had moved out of judge round-trips and into tracing. The right trade, not yet a speed win.
+2. **2026-10-12, the `BusBooking` upsolve — AC, first submission.** Not under a clock, but his first C++ class.
+3. **and 4. — 2026-10-18, LC Weekly: Q1 AND Q2, one submission each, in a rated contest.** Q1 at **00:05:40** — a sixth of the
+   previous week's time, so the **speed arrived after the reflex**, exactly in the order it was promised. Q2 a simulation medium, cold and solo.
+
+**Why CLOSED and not "held a few times":** four holds, **two of them live-rated**, the last pair while being **actively denied
+the shortcut** — he asked Kira for help four separate times mid-contest and was refused every time. That is stronger evidence
+than any practice re-solve could produce, which is why the Biweekly-Q1 clean-brute re-test was **retired** rather than carried:
+it was designed to be a hold, and a practice rep cannot outrank a rated one.
+
+**The reframe that actually moved him** (keep using it — it beat the yes/no he was asking for three times):
+> *"Hit Run. Compile errors cost **zero** rating. Even a WA is only a 5-minute penalty. The only thing a contest actually
+> charges you is **time** — and you've just spent three asks on something the compiler answers in ten seconds."*
+>
+> Generalised: **give a learner the cost model and he stops needing the answer.**
+
+**Kira's standing contest line, stated to his face on 10-18 and kept:** during a **live rated** contest Kira gives **triage only**
+— *is this problem in scope or off-map*. **No algorithm hints, no debugging, no syntax fixes, not even a compile question.**
+Reason given: *your #1 leak is outsourcing debugging — if I become your debugger, I've replaced the judge with me, and that
+version never shows up as a WA. You'd stop seeing it.* The anti-LLM canary LeetCode plants in every statement
+(`limatecega`, `lumelosile`, `vocaborago` on 10-18) is flagged to him unprompted each contest.
+
+**Watch, do not re-teach.** A 3rd fire re-opens the entry. Standing catches remain: refuse-to-check → he traces his own code
+aloud; he builds the hostile input **before** submit.
+
+
 ### V#3 — LC128 outer loop over `nums`, not the set (TLE ×3: 06-20 P20, 10-03, 10-08)
 He OWNS the fix (said it himself on 10-03: "rewalking duplicates caused this") but the **first draft** still loops the raw array every time. Not a knowledge gap — a default-token gap, same family as V#2's `++`. **Catch:** when a set/map was built for dedup, the next loop goes over THAT container — say "which container does this loop walk?" before writing the `for`. Re-test: LC128 +7d cold, 2026-10-15 — first submit must not TLE. Side note: the `INT_MIN` + `max(…,0)` clamp (V#1, closed 10-03) re-appeared in the same file — init the answer to 0.
 

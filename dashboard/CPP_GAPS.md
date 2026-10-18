@@ -122,8 +122,8 @@ one is the window length and one is the key length.
 characters his `x += s[j]` loop appended. `substr` is **cleaner to read, not cheaper to run**. (The real cheaper key is to
 encode the 10 letters into one integer — 2 bits per letter × 10 = 20 bits — which turns the key into an `int` and the hash
 into one step. That is the bit-manipulation solution to LC187 and it waits for **topic 11 Bits**.)
-**Re-test:** the LC187 +7d cold re-solve on **2026-10-17** — if the closing sentence carries the key-length factor
-without being asked, #18 closes.
+**Re-test:** the LC187 +7d cold re-solve, originally **2026-10-17** — if the closing sentence carries the key-length
+factor without being asked, #18 closes. **⚠️ 2026-10-18: 10-17 was a zero day, the re-test never ran. Slid to Sun 2026-10-25 (PM) — written, not dropped.**
 
 ### 🔴 #19 (2026-10-11, LC Weekly Q3) — he has never written a C++ **class**, and it cost him a Weekly Q3
 **His words:** *"im leaving contest since that q3 has oops and im confused about the problem its too much to consume."*
