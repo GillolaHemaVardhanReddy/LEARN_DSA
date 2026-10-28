@@ -15,9 +15,9 @@
 |---|---|---|---|---|
 | ~~2026-10-10~~ | Sat | 20:00 | LC Biweekly | **⚠️ FALLS ON A JOURNEY (boss, 10-10 AM) ⇒ run it as a LeetCode VIRTUAL CONTEST on return** — same problems, real 90-min clock, **no rating**. Two hard conditions or it is worthless: **(1) read no statement before the clock starts** (no problems tab, no discussion, no leaderboard) · **(2) full 90 min, phone down.** Optional if the journey kills it — the 10-11 live Weekly is the one that matters. |
 | ~~2026-10-18~~ | Sun | 08:00 | **LC Weekly** | ✅ **#3 PLAYED — TARGET MET EXACTLY: all 4 read, 2 solves. 2/4, rank 8116/29,425 = top 27.6 %** |
-| **2026-10-24** | **Sat** | **20:00** | **LC Biweekly** | **#4 — next one.** Back from vacation 10-22. Target: **hold 2 solves and keep both first-submission.** A 3rd solve is bonus, not the goal |
-| 2026-10-25 | Sun | 08:00 | LC Weekly | #6 |
-| 2026-11-01 | Sun | 08:00 | LC Weekly | #7 |
+| ~~2026-10-24~~ | Sat | 20:00 | LC Biweekly | **not logged** — no session 10-24, no result reported. Not counted as played |
+| ~~2026-10-25~~ | Sun | 08:00 | LC Weekly | **not logged** — no session 10-25, no result reported |
+| **2026-11-01** | **Sun** | **08:00** | **LC Weekly** | **NEXT.** Target unchanged: read all 4, hold 2 solves, both first-submission |
 | 2026-11-07 | Sat | 20:00 | LC Biweekly | #8 |
 | 2026-11-08 | Sun | 08:00 | LC Weekly | #9 |
 

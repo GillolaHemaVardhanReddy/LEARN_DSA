@@ -13,6 +13,14 @@
 
 ## v2 entries (from 2026-09-07)
 
+### V#6 (born 2026-10-23, re-test 2a = LC930) — **"subarray" read as "any picks"**
+**What happened.** Gate Q1 (contiguous?): *"nothing mentions or infers contiguous."* Then: *"why is subarray contiguous always — can't we sort then take subarrays?"*
+**Root cause.** A vocabulary gap, not a logic gap: he didn't know **subarray = a slice `a[i..j]` of the original order** (subsequence = picks with gaps). Without that, Q1 and Q2 of the gate have nothing to stand on.
+**Corrected model.** "Subarray" / "substring" ⇒ contiguous ⇒ **no sort**. "Subsequence" / "subset" ⇒ gaps allowed. Witness: `[1,0,1]` goal 2 → original slices give **1**; sorted `[0,1,1]` gives **2** ⇒ sorting changes the answer.
+**Which gate.** Gate A Q1. **Re-test:** 2b (10-29) — Q1 answered "contiguous, because *subarray*" unprompted on both S2 and S3.
+
+### 🟡 Judge-as-debugger — post-close fire #1 (2026-10-27, practice): LC930 brute submitted untraced ⇒ WA (empty slice counted). Optimal also submitted without the asked-for trace (AC). Practice, not rated. Watch: **a 3rd fire re-opens the leak.**
+
 ### ✅✅ JUDGE-AS-DEBUGGER — **CLOSED 2026-10-18** (open 2026-06-23 → 2026-10-18, ~4 months)
 **The leak:** submitting to LeetCode to find out whether the code is right, instead of tracing it first — the judge used as a
 debugger rather than as a verdict. **Peak damage: 2026-10-10, Biweekly 193 Q1 — five Wrong Answers on an easy**, five untraced

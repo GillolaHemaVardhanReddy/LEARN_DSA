@@ -357,3 +357,4 @@ that he now models the program, not just the session.
 *"I hope you too will learn from this experience how to actually teach me… we can grow as we go."*
 Every `/endsession` closes with **one "Kira learned" line**: what landed, what didn't, and what Kira does differently next time. It is logged in this file, and `/today` reads the latest one before the first question.
 - 10-13: plain arrays only; re-explain through HIS formula, never a new picture; hand over every checklist before testing it.
+- 10-28: inline `P[3] − P[__]` failed twice; a **table with an index row** + fill-the-number + pick-one-of-three landed it in 3 turns. The open "reduces to ___" blank is unparseable for him (2 fails) — next time hand a 2-option choice, or write the card and ask yes/no. Never leave an instruction ("trace before submit") unchecked: ask for the trace output in the same message as the code.

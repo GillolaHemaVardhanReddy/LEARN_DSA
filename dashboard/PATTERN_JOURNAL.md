@@ -778,3 +778,18 @@ Three statements of the same shape:
   rather than a second pass. **A design class is a hash map with a name on it.**
 - **Upsolved 2026-10-12 (AC, first submission) — in my words:** *"we should simply fill all A's or D's first then other adjacent seats"* ⇒ min = how many are booked. *"we have to store cost it took while alloting."* Free = `total -= cost; cost = 0; booked--` — subtract BEFORE you zero.
 - **Reduces to ___:** *maintain the answer in the setter; store what you charged so you can un-charge it.*
+
+## 2026-10-28 — LC930 Binary Subarrays With Sum  ·  card  *(re-test 2a, AC)*
+**FRONT.** An array of 0s and 1s and a number `goal`. Count the non-empty subarrays whose sum is `goal`.
+- `[1,0,1,0,1]`, goal 2 → `4`
+- `[0,0,0,0,0]`, goal 0 → `15`
+- `[1,1,1]`, goal 2 → `2`
+
+**BACK.**
+- **Budget:** n ≤ 3·10⁴ ⇒ n² = 9·10⁸ ⇒ need n log n or n.
+- **4 disqualifiers:** contiguous? **yes — "subarray" means a slice (V#6)** · sort? **no** (sorted `[0,1,1]` gives 2 where `[1,0,1]` gives 1) · how many times · count.
+- **Bridge (table):** `sum(i..j) = P[j] − P[i−1]` ⇒ want `P[i−1] = P[j] − goal`. At j=4, P=3, goal 2 → need 1 → it appears 2 times → 2 slices.
+- **Card (confirmed his, 10-28):** count slices with sum = goal → at each index, look up `running total − goal` in the hashmap and add its count. Seed `{0:1}`. Look up first, then insert.
+- **Complexity with the work:** the loop runs n times × O(1) average map ops (`count`, `[]`, `++`) = O(n). Space: map ≤ n+1 keys (totals 0..n) = O(n).
+- **Reduces to** → LC560 with the array restricted to 0/1.
+
