@@ -793,3 +793,13 @@ Three statements of the same shape:
 - **Complexity with the work:** the loop runs n times × O(1) average map ops (`count`, `[]`, `++`) = O(n). Space: map ≤ n+1 keys (totals 0..n) = O(n).
 - **Reduces to** → LC560 with the array restricted to 0/1.
 
+
+
+## 2026-10-29 — LC1248 Count Nice Subarrays  ·  card  *(re-test 2b S2, AC after 1 hint)*
+**Cue (his words):** count of X in a slice → turn X into 1, everything else into 0 → it's a sum.
+**Card:** odd → 1, even → 0 ⇒ count slices with sum = k ⇒ look up `total − k`, seed {0:1}, look up then insert.
+**Reduces to:** LC930 / LC560 with goal = k.
+**The wall he named himself:** "the raw sum isn't the count" — match on what each number ADDS to the count, not on the numbers.
+
+## 2026-10-30 — standing MOVE (taught on LC2364, his ask)
+**When a rule mixes i and j:** put all j-stuff on one side, all i-stuff on the other ⇒ each index gets its own key ⇒ "pairs that match" = hashmap count. *(Card completes when he finishes LC2364.)*
