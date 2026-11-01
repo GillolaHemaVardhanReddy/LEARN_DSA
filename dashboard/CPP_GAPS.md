@@ -141,3 +141,13 @@ what to keep updated, why `getMinTime` is not the loop it looks like) he leads a
 **Re-test:** the 10-11 upsolve in `tests/contests/2026-10-11-lc-weekly/` — if he can write the skeleton (constructor + members +
 method bodies) from memory on a blank file, #19 closes. **Design problems are now a known recurring LC shape, not a surprise.**
 **🟡 2026-10-12 — used once, NOT closed.** Upsolve AC first submission, but Kira typed the shell (members, constructor `assign`, `seat[0]-'A'`, `stoi(substr(1))`, both getters) after "what are those 3?" → "can you tell what is what". He wrote `toggle` (both branches) himself and moved members to `public:` on his own — works, but members belong under `private:`. **Close condition unchanged:** the 10-18 PM blank-file re-solve, shell from memory.
+
+### 🔴 #20 (2026-10-31, LC2364) — cast **syntax** for multi-word types, and cast **placement**
+**What he wrote:** `return ((n * (n-1))/ 2) - long long(ans);`
+**Two separate things wrong, held apart:**
+- **Syntax (compiler-catchable, so it was simply told).** `long long(ans)` **does not compile.** C++'s *functional-cast* form `T(x)` only accepts a **single-word** type name — `long(ans)`, `int(ans)`, `double(ans)` are legal; `long long(ans)`, `unsigned int(ans)` are not. Use the C-style `(long long)ans`, or `static_cast<long long>(ans)` (preferred in modern C++ — it is searchable and it refuses the casts you didn't mean).
+  - *(If you ever want the functional form for a two-word type, it needs an alias: `using ll = long long;` then `ll(ans)` works. That's also why competitive-programming templates all start with `typedef long long ll;` — it's not just typing speed.)*
+- **Placement (the real lesson, conceptual).** Even written correctly, a cast **at the return line repairs nothing**. `n * (n-1)` with both operands `int` overflows **inside the multiply**, before any cast is reached — the cast then faithfully widens an already-wrong number. Same for an `int` accumulator: the damage happens on the `+=`, not on the way out.
+  **Rule: WIDEN BEFORE THE ARITHMETIC.** `(long long)n * (n-1) / 2` — promoting the first operand promotes the whole expression. And declare the accumulator `long long` at birth: `long long ans = 0;`.
+**Ceilings he did not know (told, memorize):** `int` ≈ **2.1×10⁹** (2,147,483,647) · `long long` ≈ **9.2×10¹⁸**. `unsigned` buys one bit (~4.3×10⁹) and is not worth the sign bugs.
+**Re-test:** the LC2364 +7d cold re-solve (2026-11-07) — `long long ans` at declaration and the widening before the multiply, both unprompted ⇒ #20 closes. Also → `cpp-for-cp.md` (owes an entry alongside #19 classes).

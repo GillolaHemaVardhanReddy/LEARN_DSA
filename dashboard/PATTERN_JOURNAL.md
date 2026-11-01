@@ -803,3 +803,21 @@ Three statements of the same shape:
 
 ## 2026-10-30 — standing MOVE (taught on LC2364, his ask)
 **When a rule mixes i and j:** put all j-stuff on one side, all i-stuff on the other ⇒ each index gets its own key ⇒ "pairs that match" = hashmap count. *(Card completes when he finishes LC2364.)*
+
+
+## ⭐ 2026-10-31 — LC2364 Count Bad Pairs · card *(re-test 2b S3, AC — taught move, learning rep)*
+
+**Front (disguised):** *"Given an integer array (0-indexed), count the pairs `i < j` where `j − i ≠ nums[j] − nums[i]`."*
+— `[4,1,3,3]` → **5** · `[1,2,3,4,5]` → **0** · `[1,1]` → **1** · `n ≤ 10⁵`, `nums[i] ≤ 10⁹`
+
+**BACK.**
+- **Budget:** n ≤ 10⁵ ⇒ n² = **10¹⁰** ⇒ brute is dead, need n or n log n. *(And the ANSWER itself reaches ~5·10⁹ ⇒ `long long`.)*
+- **4 disqualifiers:** contiguous? **no** (pairs, not slices) · sort? **no** (the positions `i` and `j` are part of the condition) · **how many times** · count.
+- **The move (standing, 10-30):** the rule mixes `i` and `j` ⇒ **put all j-terms on one side, all i-terms on the other.** `j − i = nums[j] − nums[i]` ⇒ **`j − nums[j] = i − nums[i]`.**
+- **Why the rewrite is FORCED (the part worth remembering):** a hashmap looks up exactly **one key**. While `i` and `j` sit on both sides there *is* no key — nothing to store, nothing to ask for. Separating the sides is what **manufactures** the key: each index now carries a **private label** `f(i) = i − nums[i]`, computable from one index alone.
+- **Card (his words, 10-31):** *"i−nums[i] = j−nums[j] is what we are after… same logic — did i−nums[i] appear again or not, add how many times to ans, and at the end subtract ans from all pairs."*
+- **The complement step (his, unaided):** the map counts pairs whose labels **match** — the ones the problem does *not* want. So **`answer = all pairs − matching pairs`** = `n(n−1)/2 − matching`.
+- **Why `nC2` and not `nP2`:** `i<j` is **not** "order matters" — it's the problem naming each pair **once**. Witness: `[1,1]` → permutation view says 2, the judge says **1**. Deeper reason: swap `i` and `j` and **both sides of the condition flip sign**, so the condition can't tell `(0,1)` from `(1,0)` ⇒ order carries no information ⇒ combination. **Standing rule: if swapping the two indices doesn't change the answer, it's a combination.** (→ V#7)
+- **Trap (M#12, fired):** **no `check[0] = 1` seed here.** In LC560/LC930/LC1248 the key was a prefix sum and `0` is real — the empty prefix before index 0. Here the key is a property of an actual index and **there is no index before the array**, so seeding 0 invents a ghost index: `[0]` returns `−1`.
+- **Complexity with the work:** one loop = line with `for` runs n times × O(1) per step **because the key is hashed** (`count`/`[]`/`++` jump to the bucket, no scan) ⇒ **O(n)**. Space: `check` holds ≤ n distinct labels ⇒ **O(n)**. *(A first draft also stored all n labels in a vector — a second pass and a second O(n); dropped, because a value used once at the moment you compute it needs no storage.)*
+- **Reduces to** → the prefix-map template (LC560 / LC930 / LC1248): **store what you've seen, look up what you need, insert after the lookup** — only the *key* changed, from "running total" to "my own label".

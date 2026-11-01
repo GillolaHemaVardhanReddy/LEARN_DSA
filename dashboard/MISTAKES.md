@@ -13,6 +13,27 @@
 
 ## v2 entries (from 2026-09-07)
 
+### V#7 (born 2026-10-31, re-test 2b S3 = LC2364) — **"order" read as sorted order**
+**What happened.** Working out how many pairs `i<j` exist in an array of n, he enumerated n=3 correctly by case-split (3), correctly called `3·2` a permutation — then said *"if order doesn't matter then 3·2·1"*, dividing by `3!` for a 2-item pick. When told it's a combination: *"what the order does really mean here? I was actually thinking about descending and ascending orders."*
+**Root cause.** Vocabulary, not logic — same family as V#6. In combinatorics **"order" means only: does `(0,1)` count as different from `(1,0)`?** He was reading it as *sortedness*, which never enters this problem.
+**Corrected model.** `nPr = n!/(n−r)!` — `n!` arranges all n, the leftover `(n−r)!` arrangements you don't care about get divided out. `nCr = nPr / r!` — the extra `r!` kills the ordering *inside* your pick. Pairs ⇒ always `/2` ⇒ **`nC2 = n(n−1)/2`**.
+**Why it's a combination here, two witnesses.** (1) The judge: `[1,1]` → treating `(0,1)` and `(1,0)` as two gives **2**, the expected output is **1**. (2) Symmetry: swap `i` and `j` in `j−i ≠ nums[j]−nums[i]` and **both sides flip sign** — the condition cannot tell the two orderings apart, so the ordering carries no information.
+**Prevention rule.** **If swapping the two indices doesn't change the answer, it's a combination.** And `i<j` in a statement is never a third condition to count around — it is the problem's way of saying *"count each pair once, written in position order."*
+**Which gate.** Gate A (restate in exact units — "how many pairs" needs the pair-count formula). **Re-test:** the LC2364 +7d cold re-solve (2026-11-07) — if `n(n−1)/2` comes out without prompting, V#7 closes.
+
+### 🔴 Overflow magnitude — FIRED 2026-10-31 (LC2364), after two explicit warnings
+**What happened.** Told *"run Gate C before you submit — the magnitude line is the live trap here"*, then again *"price it in digits"*. Submitted anyway with `int ans` and `(n*(n-1))/2` evaluated in `int`: at `n = 10⁵` that is `10¹⁰` against an `int` ceiling of `2.1×10⁹`. Once corrected he priced `10¹⁰` right and identified `int * int` right — but did not know int's ceiling (guessed `10⁷`), and then placed the widening **after** the arithmetic: `- long long(ans)`.
+**Root cause.** Two separate things, both worth keeping apart. (1) **The gate is skipped precisely when he feels nearly done** — this leak has never fired at the start of a problem, only at the submit. (2) A real model error about casts: he believed a cast at the end could repair a number, when the overflow has already happened inside the `int` multiply. A late cast **photographs a wrong number**.
+**Corrected model.** **WIDEN BEFORE THE ARITHMETIC.** `(long long)n * (n-1) / 2` — the first operand's type promotes the whole expression. And any accumulator that can exceed `2.1×10⁹` is declared `long long` at birth, not cast at the return. Ceilings to know cold: **`int ≈ 2.1×10⁹`** · **`long long ≈ 9.2×10¹⁸`**.
+**Which gate.** Gate C, magnitude line. **Re-test:** the LC2364 +7d cold re-solve (2026-11-07) — the widening in the right place, unprompted. Also CPP_GAPS #20 for the cast *syntax*.
+
+### 🔴 M#12 tool-carryover — new flavour, FIRED 2026-10-31 (LC2364): an INVARIANT carried, not a tool
+He opened the map with **`check[0] = 1`** — the empty-prefix seed from LC560 / LC930 / LC1248 — on a problem whose key is `i − nums[i]`, a property of a real index. That invents a ghost index with label 0: `nums = [0]` returns **−1**.
+**Why it is still M#12 and not a new leak:** same mechanism as naming the previous problem's tool — the *shape* of the last three problems was applied before the current problem's key was interrogated. What is new is the **granularity**: the carryover was not the pattern (the pattern was right) but a single **invariant inside** it.
+**Repaired in-session, by him.** Handed one hostile input (`[0]`), he traced it to −1 and diagnosed the ghost index himself. He could only name *why* after the seed's meaning was re-derived from scratch on `[3,4], k=3`: a prefix sum of 0 **genuinely exists** before the array (it is what makes every subarray starting at index 0 countable); a label has no "before the array".
+**Prevention rule.** When you reuse a template, **re-ask what every seeded key MEANS in this problem's vocabulary.** A seed is a claim that some key exists before the loop starts — prove it exists here.
+**Which gate.** Gate A Q-zero (restate in *this* problem's units). **Re-test:** LC2364 +7d (2026-11-07), blank file — no seed, unprompted.
+
 ### V#6 (born 2026-10-23, re-test 2a = LC930) — **"subarray" read as "any picks"**
 **What happened.** Gate Q1 (contiguous?): *"nothing mentions or infers contiguous."* Then: *"why is subarray contiguous always — can't we sort then take subarrays?"*
 **Root cause.** A vocabulary gap, not a logic gap: he didn't know **subarray = a slice `a[i..j]` of the original order** (subsequence = picks with gaps). Without that, Q1 and Q2 of the gate have nothing to stand on.
